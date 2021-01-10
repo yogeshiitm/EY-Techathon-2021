@@ -35,11 +35,13 @@ def State_data_update():
     data = data[['Code','Active']]
     # data.drop(['State'])
     data.to_csv('static/files/active_map.csv', index = False)
+    data.to_csv('assets/files/active_map.csv', index = False)
 
     data = pd.read_csv('clustered_data.csv')
     data = data[['Code','Batch_no']]
     # data.drop(['State'])
     data.to_csv('static/files/batch_map.csv', index=False)
+    data.to_csv('assets/files/batch_map.csv', index=False)
 
     
 def District_data_update():
