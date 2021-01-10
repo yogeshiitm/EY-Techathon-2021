@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load humanize %}
 {% static "images" as baseUrl %}
 
 {% block header %}
@@ -108,7 +109,7 @@
           <div class="row row-group m-0">
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">{{confirmed}} <span class="float-right"><i class="fa fa-plus-circle"></i></span></h5>
+                    <h5 class="text-white mb-0">{{confirmed | intcomma}} <span class="float-right"><i class="fa fa-plus-circle"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                       </div>
@@ -118,7 +119,7 @@
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">{{active}} <span class="float-right"><i class="fa fa-users"></i></span></h5>
+                    <h5 class="text-white mb-0">{{active | intcomma}} <span class="float-right"><i class="fa fa-users"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                       </div>
@@ -128,7 +129,7 @@
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">{{recovered}} <span class="float-right"><i class="	fa fa-pencil-square-o"></i></span></h5>
+                    <h5 class="text-white mb-0">{{recovered | intcomma}} <span class="float-right"><i class="	fa fa-pencil-square-o"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                       </div>
@@ -138,7 +139,7 @@
               </div>
               <div class="col-12 col-lg-6 col-xl-3 border-light">
                   <div class="card-body">
-                    <h5 class="text-white mb-0">{{deaths}}<span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                    <h5 class="text-white mb-0">{{deaths | intcomma}}<span class="float-right"><i class="fa fa-envira"></i></span></h5>
                       <div class="progress my-3" style="height:3px;">
                         <div class="progress-bar" style="width:55%"></div>
                       </div>
