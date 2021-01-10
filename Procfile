@@ -1,0 +1,1 @@
+web: gunicorn TechHD.wsgi --log-file -

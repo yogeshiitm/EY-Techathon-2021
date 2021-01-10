@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% static "images" as baseUrl %}
+
+{% block content %}
+
+    <div class="container my-5">
+        <div class="row ">
+            <img src = "{% static 'images/about.png' %}"  width="100%">
+        </div>
+    </div>
+
+{%endblock %}
