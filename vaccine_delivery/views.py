@@ -17,12 +17,12 @@ def State_data_update():
             StateModel(
                 state = row['State'],
                 active = row['Active'],
-                population_2020 = row['Population_2020'],
+                population_2020 = row['Population_density'],
                 accessibility = row['Accessibility'],
                 children = row['Children'],
                 senior_citizen = row['Senior_citizen'],
                 all_health_workers_percent = row['All_health_workers_percent'],
-                hospital_beds = row['Hospital_beds'],
+                death_rate = row['Death_rate'],
                 ratio_vacant_beds = row['Ratio_vacant_beds'],
                 batch_no = row['Batch_no'],
                 percentage_vaccine_delivery = row['Further_percentage_no'],
@@ -52,7 +52,6 @@ def District_data_update():
     # maps = data[['State']]
     row_iter =data.iterrows()
     DistrictModel.objects.all().delete()
-
     DISTRICTS = [
             DistrictModel(
                 state = row['State'],
@@ -64,7 +63,6 @@ def District_data_update():
                 for index, row in row_iter
     ]
     DistrictModel.objects.bulk_create(DISTRICTS)
-
 
 '''
 def Update_datasets(request):

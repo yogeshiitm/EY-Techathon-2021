@@ -16,16 +16,17 @@ class State_data():
     def Get_trained_data(self,url):
         self.Get_covid_district_wise(url)
         state_data = pd.read_csv('state_wise.csv', index_col=0)
-        state_data.drop(['Last_Updated_Time','State_code','Migrated_Other','Confirmed','Recovered','Deaths','Migrated_Other','Delta_Confirmed','Delta_Recovered','Delta_Deaths','State_Notes'], axis='columns', inplace=True)
+        state_data.drop(['Last_Updated_Time','State_code','Migrated_Other','Recovered','Migrated_Other','Delta_Confirmed','Delta_Recovered','Delta_Deaths','State_Notes'], axis='columns', inplace=True)
         other_data = pd.read_csv('state_data.csv', index_col=0)
         data = pd.merge(state_data,other_data,on = ['State'])
         data['Ratio_vacant_beds'] = data.apply(lambda row: row.Active/row.Hospital_beds, axis=1)
+        data['Death_rate'] = data.apply(lambda row: (row.Deaths/row.Confirmed)*100, axis=1)
         return data
 
     def Get_clustered_data(self,url):
         data = self.Get_trained_data(url)
-        features = data[['Active','Population_2020','Accessibility','Children','Senior_citizen','All_health_workers_percent','Ratio_vacant_beds']]
-        x = np.array(features).reshape(-1,7)
+        features = data[['Active','Death_rate','Population_density','All_health_workers_percent','Senior_citizen','Children','Ratio_vacant_beds','Accessibility']]
+        x = np.array(features).reshape(-1,8)
         x= preprocessing.StandardScaler().fit_transform(x)
 
         pca = PCA(n_components=3)
@@ -59,9 +60,9 @@ class State_data():
 
         for i in range(no_of_clusters):
             df = data[data['Clusters']==i]
-            df_mean = df[['Active','Ratio_vacant_beds','All_health_workers_percent','Senior_citizen','Children','Accessibility']]
+            df_mean = df[['Active','All_health_workers_percent','Senior_citizen','Children','Death_rate','Ratio_vacant_beds','Population_density','Accessibility']]
             df_mean = df_mean.mean(axis=0)
-            x = np.array(df_mean).reshape(-1,6)
+            x = np.array(df_mean).reshape(-1,8)
             Repr.append(x)
 
         x = np.concatenate(Repr,axis=0)
@@ -69,7 +70,8 @@ class State_data():
 
         for i in range(no_of_clusters):
             # S.append(0.395*(x[i][0])+0.275*(1-x[i][1])+0.176*(1-x[i][2])+0.1*(x[i][3])+0.044*(x[i][4])+0.01*(x[i][5]))
-            S.append(0.3089*(x[i][0])+0.2481*(x[i][1])+0.1899*(1-x[i][2])+0.1344*(x[i][3])+0.0826*(x[i][4])+0.03*(x[i][5]))
+            # S.append(0.3089*(x[i][0])+0.2481*(x[i][1])+0.1899*(1-x[i][2])+0.1344*(x[i][3])+0.0826*(x[i][4])+0.03*(x[i][5]))
+            S.append(0.261*(x[i][0])+0.195*(x[i][1])+0.160*(x[i][2])+0.132*(x[i][3])+0.105*(x[i][4])+0.074*(x[i][5])+0.045*(x[i][6])+0.02*(x[i][7]))
 
         sort_S = sorted(S)
         for i in range(no_of_clusters):
@@ -87,15 +89,16 @@ class State_data():
                 frames[i-1] = df
                 continue
 
-            x = df[['Active','Ratio_vacant_beds','All_health_workers_percent','Senior_citizen','Children','Accessibility']]
-            x = np.array(x).reshape(-1,6)
+            x = df[['Active','Senior_citizen','All_health_workers_percent','Children','Death_rate','Ratio_vacant_beds','Population_density','Accessibility']]
+            x = np.array(x).reshape(-1,8)
             x = preprocessing.MinMaxScaler().fit_transform(x)
 
             S = []
             #Rank Array    
             for j in range(df.shape[0]):
                 # S.append(0.395*(x[j][0])+0.275*(1-x[j][1])+0.176*(1-x[j][2])+0.1*(x[j][3])+0.044*(x[j][4])+0.01*(x[j][5]))
-                S.append(0.3089*(x[j][0])+0.2481*(x[j][1])+0.1899*(1-x[j][2])+0.1344*(x[j][3])+0.0826*(x[j][4])+0.03*(x[j][5]))
+                # S.append(0.3089*(x[j][0])+0.2481*(x[j][1])+0.1899*(1-x[j][2])+0.1344*(x[j][3])+0.0826*(x[j][4])+0.03*(x[j][5]))
+                S.append(0.313*(x[j][0])+0.240*(1-x[j][1])+0.176*(x[j][2])+0.122*(x[j][3])+0.078*(x[j][4])+0.044*(x[j][5])+0.019*(x[j][6])+0.004*(x[j][7]))
             
             j=0
             for index in df.index:

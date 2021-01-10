@@ -46,11 +46,11 @@
                         <tr>
                             <th>State</th>
                             <th style="text-align:right">Active</th>
-                            <th style="text-align:right">No. of Active<br>patients per bed</th>
-                            <th style="text-align:right">Population</th>
+                            <th style="text-align:right">Senior Citizens</th>
                             <th style="text-align:right">Children</th>
-                            <th style="text-align:right">Senior citizen</th>
-                            <th style="text-align:right">Health workers %</th>
+                            <th style="text-align:right">Health Workers %<br>of total H.Workers</th>
+                            <th style="text-align:right">Population <br>Density (per sq km)</th>
+                            <th style="text-align:right">Death Rate</th>
                             <!-- <th style="text-align:right">Accessibility</th> -->
                             <th style="text-align:right"><strong>Percentage</strong></th>
                         </tr>
@@ -66,11 +66,11 @@
                                     <td style="column-width: 110px;"><a href="{% url 'district_level' item.state %}">{{ item.state }}</a></td>
                                 {% endif %}
                                 <td style="text-align:right">{{ item.active }}</td>
-                                <td style="text-align:right">{{ item.ratio_vacant_beds | floatformat:2 }}</td>
-                                <td style="text-align:right">{{ item.population_2020 }}</td>
-                                <td style="text-align:right">{{ item.children }}</td>
                                 <td style="text-align:right">{{ item.senior_citizen }}</td>
-                                <td style="text-align:right">{{ item.all_health_workers_percent }}</td>
+                                <td style="text-align:right">{{ item.children }}</td>
+                                <td style="text-align:right">{{item.all_health_workers_percent}}</td>
+                                <td style="text-align:right">{{ item.population_2020 }}</td>
+                                <td style="text-align:right">{{ item.death_rate | floatformat:2}}</td>
                                 <!-- <td style="text-align:right">{{ item.accessibility }}</td> -->
                                 <td style="text-align:right"><strong>{{ item.percentage_vaccine_delivery | floatformat:2 }}</strong></td>
                             </tr>

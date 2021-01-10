@@ -10,7 +10,7 @@ class StateModel(models.Model):
     children = models.IntegerField()
     senior_citizen = models.IntegerField()
     all_health_workers_percent = models.FloatField()
-    hospital_beds = models.IntegerField()
+    death_rate = models.FloatField()
     ratio_vacant_beds = models.FloatField()
     batch_no= models.IntegerField()
     percentage_vaccine_delivery = models.FloatField()
