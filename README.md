@@ -6,7 +6,7 @@
 <!-- ![](assets/images/homepage.png) -->
 <a href="https://techhd.herokuapp.com/"><img src="assets/images/homepage.png"></a>
 
-Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting the more important segments of our country that need to be catered with vaccine deliveries as prior as possible.
+Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting India's more critical segments that need to be catered with vaccine deliveries as prior as possible.
 
 We went through various census report estimates, WHO reports, and other state websites to fetch and combine all these data features and made our datasets. We then add and update the data daily with the number of covid cases in each state and carry out our ML algorithms.
 
