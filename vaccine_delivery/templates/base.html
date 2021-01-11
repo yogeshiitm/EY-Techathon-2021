@@ -82,7 +82,14 @@
       }
     </style>
 
-    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176091712-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176091712-1');
+    </script>
 
 </head>
 
@@ -166,10 +173,10 @@
         <ul class="navbar-nav mr-auto align-items-center">
           <li class="nav-item">
             <a class="nav-link toggle-menu" href="javascript:void();">
-              <i class="icon-menu menu-icon my-0" style="font-size: 18px!important;"></i>
+              <i class="icon-menu menu-icon my-0" style="font-size: 22px!important;"></i>
             </a>
           </li>
-          <a href="{% url 'index' %}" class="ml-2"><strong>Priority Covid-19 Vaccine Delivery</strong> </a>
+          <a href="{% url 'index' %}" class="ml-2" style="text-align: left !important;"><strong>Priority Covid-19 Vaccine</strong> </a>
           <!-- <li class="nav-item">
             <form class="search-bar">
               <input type="text" class="form-control" placeholder="Enter keywords">
