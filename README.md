@@ -3,7 +3,7 @@
 **WebApp: https://techhd.herokuapp.com/ <br>**
 (best viewed on dekstop)
 
-<!-- ![](assets/images/homepage.png) -->
+<!-- ![](assets/images/homepage.jpg) -->
 <a href="https://techhd.herokuapp.com/"><img src="assets/images/homepage.png"></a>
 
 Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting India's more critical segments that need to be catered with vaccine deliveries as prior as possible.
