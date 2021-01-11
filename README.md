@@ -1,7 +1,6 @@
 # [TechHD: Prioritization of Covid-19 Vaccine Delivery](https://techhd.herokuapp.com/)
 
 **WebApp: https://techhd.herokuapp.com/ <br>**
-(best viewed on dekstop)
 
 <!-- ![](assets/images/homepage.jpg) -->
 <a href="https://techhd.herokuapp.com/"><img src="assets/images/homepage.jpg"></a>
@@ -28,6 +27,6 @@ Our datasets are automatically updated daily to accommodate and make the predict
 **For more info about prediction analysis procedure: [Click Here](https://drive.google.com/file/d/1vnI6VuDABLq0wU8IPg-edRxyxkBWHeVn/view?usp=sharing)**
 
 **WebApp: https://techhd.herokuapp.com/ <br>**
-(best viewed on dekstop)
+**The team: https://techhd.herokuapp.com/team **
 
 
