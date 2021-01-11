@@ -73,6 +73,17 @@
         }
     </style> -->
 
+    <style>
+      #content-desktop {display: block !important;}
+      #content-mobile {display: none !important;}
+      @media screen and (max-width: 768px) {
+          #content-desktop {display: none !important;}
+          #content-mobile {display: block !important;}
+      }
+    </style>
+
+    
+
 </head>
 
 <body class="bg-theme bg-theme1">
@@ -166,7 +177,24 @@
             </form>
           </li> -->
         </ul>
-            
+
+        
+            <strong><p id="time" class="mx-3 my-0" style="text-align: right;"></p></strong>
+            <script type="text/javascript">
+              var timeDisplay = document.getElementById("time");
+              function refreshTime() {
+                //var d = new Date().toJSON().slice(0,10).split('-').reverse().join('/')
+                //var dateString = d.toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
+    
+                var dateString = new Date().toLocaleString("en-GB", {timeZone: "Asia/Kolkata"});
+                var formattedString = dateString.replace(", ", " - ");
+                timeDisplay.innerHTML = formattedString;
+              }
+              setInterval(refreshTime, 1000);
+            </script>
+
+        
+
         <!-- <ul class="navbar-nav align-items-center right-nav-link">
           <li class="nav-item dropdown-lg">
             <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
