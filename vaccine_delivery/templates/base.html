@@ -162,14 +162,14 @@
 
     <!--Start topbar header-->
     <header class="topbar-nav">
-      <nav class="navbar navbar-expand fixed-top"  style="text-align: center;">
+      <nav class="navbar navbar-expand fixed-top ml-3"  style="text-align: center;">
         <ul class="navbar-nav mr-auto align-items-center">
           <li class="nav-item">
             <a class="nav-link toggle-menu" href="javascript:void();">
-              <i class="icon-menu menu-icon"></i>
+              <i class="icon-menu menu-icon my-0" style="font-size: 18px!important;"></i>
             </a>
           </li>
-          <a href="{% url 'index' %}" ><strong>Priority Covid-19 Vaccine Delivery</strong> </a>
+          <a href="{% url 'index' %}" class="ml-2"><strong>Priority Covid-19 Vaccine Delivery</strong> </a>
           <!-- <li class="nav-item">
             <form class="search-bar">
               <input type="text" class="form-control" placeholder="Enter keywords">
@@ -202,7 +202,7 @@
                 //var dateString = d.toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
     
                 var dateString2 = new Date().toLocaleString("en-GB", {timeZone: "Asia/Kolkata"});
-                var formattedString2 = dateString2.replace(", ", "\n");
+                var formattedString2 = dateString2.replace(", ", "\n ");
                 timeDisplay2.innerHTML = formattedString2;
               }
               setInterval(refreshTime2, 1000);
