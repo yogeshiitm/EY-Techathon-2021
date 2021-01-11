@@ -39,8 +39,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'vaccine_delivery'
+    'vaccine_delivery',
+    #below two are for sitemap
+    #'django.contrib.sitemaps',
+    #'django.contrib.sites'
 ]
+
+#for sitemap
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
