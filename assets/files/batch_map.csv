@@ -2,7 +2,6 @@ Code,Batch_no
 IN-MH,1
 IN-UP,1
 IN-KL,2
-IN-CT,2
 IN-KA,3
 IN-AP,3
 IN-TN,3
@@ -16,6 +15,7 @@ IN-MP,3
 IN-DL,4
 IN-PB,4
 IN-CH,4
+IN-CT,5
 IN-HR,5
 IN-AS,5
 IN-JK,5
