@@ -30,7 +30,7 @@
     <!-- <link rel="icon" href="{% static 'images/logo-icon.png' %}" type="image/x-icon"> -->
     <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
     <!-- Vector CSS -->
-    <link href="{% static 'plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/>
+    <!-- <link href="{% static 'plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/> -->
     <!-- simplebar CSS-->
     <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
     <!-- Bootstrap core CSS-->
@@ -58,7 +58,7 @@
     <!-- sidebar-menu js -->
     <script src="{% static 'js/sidebar-menu.js' %}"></script>
     <!-- loader scripts -->
-    <script src="{% static 'js/jquery.loading-indicator.js' %}"></script>
+    <!-- <script src="{% static 'js/jquery.loading-indicator.js' %}"></script> -->
     <!-- Custom scripts -->
     <script src="{% static 'js/app-script.js' %}"></script>
 
@@ -76,7 +76,7 @@
     <style>
       #content-desktop {display: block !important;}
       #content-mobile {display: none !important;}
-      @media screen and (max-width: 768px) {
+      @media screen and (max-width: 992px) {
           #content-desktop {display: none !important;}
           #content-mobile {display: block !important;}
       }
@@ -178,8 +178,8 @@
           </li> -->
         </ul>
 
-        
-            <strong><p id="time" class="mx-3 my-0" style="text-align: right;"></p></strong>
+        <div id="content-desktop">
+          <strong><p id="time" class="mx-3 my-0" style="text-align: right;"></p></strong>
             <script type="text/javascript">
               var timeDisplay = document.getElementById("time");
               function refreshTime() {
@@ -192,6 +192,23 @@
               }
               setInterval(refreshTime, 1000);
             </script>
+        </div>
+        <div id="content-mobile">
+          <strong><p id="time2" class="mx-3 my-0" style="text-align: right;"></p></strong>
+            <script type="text/javascript">
+              var timeDisplay2 = document.getElementById("time2");
+              function refreshTime2() {
+                //var d = new Date().toJSON().slice(0,10).split('-').reverse().join('/')
+                //var dateString = d.toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
+    
+                var dateString2 = new Date().toLocaleString("en-GB", {timeZone: "Asia/Kolkata"});
+                var formattedString2 = dateString2.replace(", ", "\n");
+                timeDisplay2.innerHTML = formattedString2;
+              }
+              setInterval(refreshTime2, 1000);
+            </script>
+        </div>
+            
 
         
 
