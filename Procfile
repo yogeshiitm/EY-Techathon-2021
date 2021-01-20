@@ -1,1 +1,1 @@
-web: gunicorn TechHD.wsgi --timeout 120 --log-file -
+web: gunicorn TechHD.wsgi --workers 3 --timeout 500 --log-file -
