@@ -3,7 +3,10 @@ from .models import *
 from datetime import datetime,timedelta
 from .scripts import State_data, District_data
 import pandas as pd
+import datetime
+import pytz
 
+updated = None
 
 def State_data_update():
     data = State_data()
@@ -12,7 +15,6 @@ def State_data_update():
     data = pd.read_csv('clustered_data.csv',sep=',')
     row_iter = data.iterrows()
     StateModel.objects.all().delete()
-
     STATES = [
             StateModel(
                 state = row['State'],
@@ -43,11 +45,11 @@ def State_data_update():
     data.to_csv('static/files/batch_map.csv', index=False)
     data.to_csv('assets/files/batch_map.csv', index=False)
 
-    
+
 def District_data_update():
     data = District_data()
     data.Get_ranked_districts(url ='https://api.covid19india.org/csv/latest/districts.csv')
-    
+
     data = pd.read_csv('clustered_data_district.csv', index_col=0,sep=',')
     # maps = data[['State']]
     row_iter =data.iterrows()
@@ -82,101 +84,91 @@ def Update_datasets(request):
         pass
 '''
 
+top = pd.read_csv('state_wise.csv',sep=',')
+top = top[top['State']=='Total']
+confirmed = int(top['Confirmed'])
+active = int(top['Active'])
+recovered = int(top['Recovered'])
+deaths = int(top['Deaths'])
+
+def check_update_time(request):
+    global updated
+    global date_file
+
+    global top
+    global confirmed
+    global active
+    global recovered
+    global deaths
+
+    date_file = open("updated_date.txt", "r")
+    print(date_file)
+    last_updated_date = date_file.readline()
+    print(last_updated_date)
+    print("Check_updated_date function called")
+    tz = pytz.timezone('Asia/Kolkata')
+    now_time = datetime.datetime.now(tz)
+    if last_updated_date < str(now_time.strftime('%Y-%m-%d')):
+        print("Last update time is old")
+        print(now_time.hour)
+        if 12 <= now_time.hour:
+            print("Last updated Date is old. Fetching new Data..")
+            State_data_update()
+            print("State Data Updated! Now updating District Data..")
+            District_data_update()
+            print("District Data Updated!")
+            date_file_write = open("updated_date.txt", "w")
+            date_file_write.write(now_time.strftime('%Y-%m-%d'))
+            print(last_updated_date)
+
 
 # Create your views here.
 def Index(request):
-    try:
-        top = pd.read_csv('clustered_data.csv',sep=',')
-        top = pd.read_csv('clustered_data_district.csv',sep=',')
-        if len(top[top['Date']==(datetime.today()-timedelta(days=2)).strftime('%Y-%m-%d')]):
-            State_data_update()
-            District_data_update()
-    except:
-        State_data_update()
-        District_data_update()
-    
-    finally:
-        top = pd.read_csv('state_wise.csv',sep=',')
-        top = top[top['State']=='Total']
-        confirmed = int(top['Confirmed'])
-        active = int(top['Active'])
-        recovered = int(top['Recovered'])
-        deaths = int(top['Deaths'])
+    print("Request at / base path ")
+    check_update_time(request)
+    print("Checked updated with time")
 
-        data = StateModel.objects.all().order_by('batch_no','-percentage_vaccine_delivery')
+    top = pd.read_csv('state_wise.csv',sep=',')
+    top = top[top['State']=='Total']
+    confirmed = int(top['Confirmed'])
+    active = int(top['Active'])
+    recovered = int(top['Recovered'])
+    deaths = int(top['Deaths'])
 
-        context = {
-            'data':data,
-            'confirmed' : confirmed,
-            'active' : active,
-            'recovered' : recovered,
-            'deaths' : deaths
-        }
-        return render(request, "index.html", context)
+    data = StateModel.objects.all().order_by('batch_no','-percentage_vaccine_delivery')
+
+    context = {
+        'data':data,
+        'confirmed' : confirmed,
+        'active' : active,
+        'recovered' : recovered,
+        'deaths' : deaths
+    }
+    return render(request, "index.html", context)
 
 def StateMapView(request):
-    try:
-        top = pd.read_csv('clustered_data.csv',sep=',')
-        top = pd.read_csv('clustered_data_district.csv',sep=',')
-        if len(top[top['Date']==(datetime.today()-timedelta(days=2)).strftime('%Y-%m-%d')]):
-            State_data_update()
-            District_data_update()
-    except:
-        State_data_update()
-        District_data_update()
-
-    finally:
-        return render(request, 'state_map.html')
+    check_update_time(request)
+    return render(request, 'state_map.html')
 
 def DistrictHomeView(request):
-    try:
-        top = pd.read_csv('clustered_data.csv',sep=',')
-        top = pd.read_csv('clustered_data_district.csv',sep=',')
-        if len(top[top['Date']==(datetime.today()-timedelta(days=2)).strftime('%Y-%m-%d')]):
-            State_data_update()
-            District_data_update()
-    except:
-        State_data_update()
-        District_data_update()
-    
-    finally:
-        states = StateModel.objects.all().order_by('state')
-        return render(request,'district_level.html',{'states':states})
+    check_update_time(request)
+    states = StateModel.objects.all().order_by('state')
+    return render(request,'district_level.html',{'states':states})
 
 
 def DistrictView(request, state):
-    try:
-        top = pd.read_csv('clustered_data.csv',sep=',')
-        top = pd.read_csv('clustered_data_district.csv',sep=',')
-        if len(top[top['Date']==(datetime.today()-timedelta(days=2)).strftime('%Y-%m-%d')]):
-            State_data_update()
-            District_data_update()
-    except:
-        State_data_update()
-        District_data_update()
-
-    finally:
-        data = DistrictModel.objects.filter(state = state).order_by('batch_no','-active','-population_2020')
-        return render(request, 'district_level_state.html', {'data': data})
+    check_update_time(request)
+    data = DistrictModel.objects.filter(state = state).order_by('batch_no','-active','-population_2020')
+    return render(request, 'district_level_state.html', {'data': data})
 
 def BatchView(request, batch):
-    try: 
-        top = pd.read_csv('clustered_data.csv',sep=',')
-        top = pd.read_csv('clustered_data_district.csv',sep=',')
-        if len(top[top['Date']==(datetime.today()-timedelta(days=2)).strftime('%Y-%m-%d')]):
-            State_data_update()
-            District_data_update()
-    except:
-        State_data_update()
-        District_data_update()
-    
-    finally:
-        #Update_datasets(request)
-        data = StateModel.objects.filter(batch_no = batch).order_by('-percentage_vaccine_delivery')
-        top = pd.read_csv('clustered_data.csv',index_col=0)
-        top = top.Batch_no.unique()
-        
-        return render(request, 'batch.html', {'data': data, 'top':top, 'currentbatch': int(batch)})
+    check_update_time(request)
+    #Update_datasets(request)
+    data = StateModel.objects.filter(batch_no = batch).order_by('-percentage_vaccine_delivery')
+    top = pd.read_csv('clustered_data.csv',index_col=0)
+    top = top.Batch_no.unique()
+
+    return render(request, 'batch.html', {'data': data, 'top':top, 'currentbatch': int(batch)})
 
 def AboutView(request):
     return render(request,'about.html')
