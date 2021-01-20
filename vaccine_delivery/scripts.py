@@ -6,9 +6,12 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
 from sklearn import preprocessing
 from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
 
+class State_data:
+    def __init__(self):
+        pass 
 
-class State_data():
     def Get_covid_district_wise(self,url):
         r = requests.get(url, allow_redirects=True)
         open(f'state_wise.csv', 'wb').write(r.content)
@@ -28,7 +31,20 @@ class State_data():
         features = data[['Active','Death_rate','Population_density','All_health_workers_percent','Senior_citizen','Children','Ratio_vacant_beds','Accessibility']]
         x = np.array(features).reshape(-1,8)
         x= preprocessing.StandardScaler().fit_transform(x)
-
+        
+        '''
+        pca = PCA(n_components=8)
+        pca.fit(x)
+        variance = pca.explained_variance_ratio_ 
+        var=np.cumsum(np.round(variance, 3)*100)
+        plt.figure(figsize=(12,6))
+        plt.ylabel('% Variance Explained')
+        plt.xlabel('# of Features')
+        plt.title('PCA Analysis')
+        plt.ylim(0,100.5)
+        plt.plot(var)
+        plt.show()
+        '''
         pca = PCA(n_components=3)
         pca.fit(x)
         pca_scale = pca.transform(x)
@@ -71,7 +87,10 @@ class State_data():
         for i in range(no_of_clusters):
             # S.append(0.395*(x[i][0])+0.275*(1-x[i][1])+0.176*(1-x[i][2])+0.1*(x[i][3])+0.044*(x[i][4])+0.01*(x[i][5]))
             # S.append(0.3089*(x[i][0])+0.2481*(x[i][1])+0.1899*(1-x[i][2])+0.1344*(x[i][3])+0.0826*(x[i][4])+0.03*(x[i][5]))
+            #S.append(0.231*(x[i][0])+0.220*(x[i][1])+0.148*(x[i][2])+0.138*(x[i][3])+0.108*(x[i][4])+0.078*(x[i][5])+0.050*(x[i][6])+0.02*(x[i][7]))
             S.append(0.261*(x[i][0])+0.195*(x[i][1])+0.160*(x[i][2])+0.132*(x[i][3])+0.105*(x[i][4])+0.074*(x[i][5])+0.045*(x[i][6])+0.02*(x[i][7]))
+            #S.append(0.313*(x[i][0])+0.230*(x[i][1])+0.186*(x[i][2])+0.122*(x[i][3])+0.078*(x[i][4])+0.044*(x[i][5])+0.019*(x[i][6])+0.004*(x[i][7]))
+            #S.append(0.35*(x[i][0])+0.254*(x[i][1])+0.173*(x[i][2])+0.109*(x[i][3])+0.062*(x[i][4])+0.030*(x[i][5])+0.011*(x[i][6])+0.001*(x[i][7]))
 
         sort_S = sorted(S)
         for i in range(no_of_clusters):
@@ -97,8 +116,10 @@ class State_data():
             #Rank Array    
             for j in range(df.shape[0]):
                 # S.append(0.395*(x[j][0])+0.275*(1-x[j][1])+0.176*(1-x[j][2])+0.1*(x[j][3])+0.044*(x[j][4])+0.01*(x[j][5]))
-                # S.append(0.3089*(x[j][0])+0.2481*(x[j][1])+0.1899*(1-x[j][2])+0.1344*(x[j][3])+0.0826*(x[j][4])+0.03*(x[j][5]))
+                #S.append(0.3089*(x[j][0])+0.2481*(x[j][1])+0.1899*(1-x[j][2])+0.1344*(x[j][3])+0.0826*(x[j][4])+0.03*(x[j][5]))
+                # S.append(0.231*(x[j][0])+0.200*(x[j][1])+0.168*(x[j][2])+0.138*(x[j][3])+0.108*(x[j][4])+0.078*(x[j][5])+0.050*(x[j][6])+0.02*(x[j][7]))
                 S.append(0.313*(x[j][0])+0.240*(1-x[j][1])+0.176*(x[j][2])+0.122*(x[j][3])+0.078*(x[j][4])+0.044*(x[j][5])+0.019*(x[j][6])+0.004*(x[j][7]))
+                #S.append(0.35*(x[j][0])+0.254*(1-x[j][1])+0.173*(x[j][2])+0.109*(x[j][3])+0.062*(x[j][4])+0.030*(x[j][5])+0.011*(x[j][6])+0.001*(x[j][7]))
             
             j=0
             for index in df.index:
@@ -110,12 +131,13 @@ class State_data():
         data = pd.concat(frames)
         data.to_csv('clustered_data.csv')
         #return data
-
-#data = State_data()
-#data.Get_ranked_data(url='https://api.covid19india.org/csv/latest/state_wise.csv')
+    
 
 
-class District_data():
+class District_data:
+    def __init__(self):
+        pass 
+
     def Get_covid_district_wise(self,url):
         r = requests.get(url, allow_redirects=True)
         open(f'district_wise.csv', 'wb').write(r.content)
@@ -222,4 +244,3 @@ class District_data():
         data = pd.concat(frames)
         data.to_csv('clustered_data_district.csv')
         #return data
-
