@@ -1,1 +1,1 @@
-web: gunicorn TechHD.wsgi --log-file -
+web: gunicorn TechHD.wsgi --timeout 120 --log-file -
