@@ -363,7 +363,7 @@
 361,2021-01-22,Odisha,Kalahandi,9,1797631,3
 362,2021-01-22,Odisha,Kandhamal,3,835745,3
 363,2021-01-22,Odisha,Kendrapara,11,1642012,3
-364,2021-01-22,Odisha,Kendujhar,15,2053976,3
+364,2021-01-22,Odisha,Kendujhar,15,2053976,2
 365,2021-01-22,Odisha,Khordha,65,2566907,2
 366,2021-01-22,Odisha,Koraput,14,1572798,3
 367,2021-01-22,Odisha,Malkangiri,3,699039,3
@@ -395,7 +395,7 @@
 393,2021-01-22,Punjab,Tarn Taran,30,1276375,2
 394,2021-01-22,Puducherry,Puducherry,168,1397707,1
 395,2021-01-22,Rajasthan,Ajmer,195,2944679,2
-396,2021-01-22,Rajasthan,Alwar,102,4188564,2
+396,2021-01-22,Rajasthan,Alwar,102,4188564,1
 397,2021-01-22,Rajasthan,Banswara,74,2049133,2
 398,2021-01-22,Rajasthan,Baran,18,1393941,2
 399,2021-01-22,Rajasthan,Barmer,22,2968276,2
@@ -471,69 +471,69 @@
 469,2021-01-22,Tripura,West Tripura,24,1045989,1
 470,2021-01-22,Uttar Pradesh,Agra,67,5037429,2
 471,2021-01-22,Uttar Pradesh,Aligarh,66,4188233,2
-472,2021-01-22,Uttar Pradesh,Ambedkar Nagar,57,2733592,3
-473,2021-01-22,Uttar Pradesh,Amroha,26,2097852,3
-474,2021-01-22,Uttar Pradesh,Auraiya,35,1572681,3
+472,2021-01-22,Uttar Pradesh,Ambedkar Nagar,57,2733592,2
+473,2021-01-22,Uttar Pradesh,Amroha,26,2097852,2
+474,2021-01-22,Uttar Pradesh,Auraiya,35,1572681,2
 475,2021-01-22,Uttar Pradesh,Azamgarh,67,5259861,2
-476,2021-01-22,Uttar Pradesh,Baghpat,17,1485475,3
+476,2021-01-22,Uttar Pradesh,Baghpat,17,1485475,2
 477,2021-01-22,Uttar Pradesh,Bahraich,51,3976013,2
 478,2021-01-22,Uttar Pradesh,Ballia,127,3693342,2
-479,2021-01-22,Uttar Pradesh,Balrampur,101,2449478,3
-480,2021-01-22,Uttar Pradesh,Banda,37,2051327,3
+479,2021-01-22,Uttar Pradesh,Balrampur,101,2449478,2
+480,2021-01-22,Uttar Pradesh,Banda,37,2051327,2
 481,2021-01-22,Uttar Pradesh,Barabanki,48,3717197,2
 482,2021-01-22,Uttar Pradesh,Bareilly,195,5071129,2
-483,2021-01-22,Uttar Pradesh,Basti,94,2809489,3
-484,2021-01-22,Uttar Pradesh,Bhadohi,64,1799163,3
+483,2021-01-22,Uttar Pradesh,Basti,94,2809489,2
+484,2021-01-22,Uttar Pradesh,Bhadohi,64,1799163,2
 485,2021-01-22,Uttar Pradesh,Bijnor,48,4198293,2
 486,2021-01-22,Uttar Pradesh,Budaun,17,4197361,2
 487,2021-01-22,Uttar Pradesh,Bulandshahr,61,3989055,2
-488,2021-01-22,Uttar Pradesh,Chandauli,40,2226142,3
-489,2021-01-22,Uttar Pradesh,Chitrakoot,5,1130572,3
+488,2021-01-22,Uttar Pradesh,Chandauli,40,2226142,2
+489,2021-01-22,Uttar Pradesh,Chitrakoot,5,1130572,2
 490,2021-01-22,Uttar Pradesh,Deoria,70,3535078,2
-491,2021-01-22,Uttar Pradesh,Etah,42,2022907,3
-492,2021-01-22,Uttar Pradesh,Etawah,48,1803263,3
-493,2021-01-22,Uttar Pradesh,Farrukhabad,16,2149133,3
-494,2021-01-22,Uttar Pradesh,Fatehpur,89,3001316,3
-495,2021-01-22,Uttar Pradesh,Firozabad,14,2847898,3
-496,2021-01-22,Uttar Pradesh,Gautam Buddha Nagar,70,1878851,3
+491,2021-01-22,Uttar Pradesh,Etah,42,2022907,2
+492,2021-01-22,Uttar Pradesh,Etawah,48,1803263,2
+493,2021-01-22,Uttar Pradesh,Farrukhabad,16,2149133,2
+494,2021-01-22,Uttar Pradesh,Fatehpur,89,3001316,2
+495,2021-01-22,Uttar Pradesh,Firozabad,14,2847898,2
+496,2021-01-22,Uttar Pradesh,Gautam Buddha Nagar,70,1878851,2
 497,2021-01-22,Uttar Pradesh,Ghaziabad,162,5337075,2
 498,2021-01-22,Uttar Pradesh,Ghazipur,39,4127106,2
 499,2021-01-22,Uttar Pradesh,Gonda,30,3914668,2
 500,2021-01-22,Uttar Pradesh,Gorakhpur,116,5062620,2
-501,2021-01-22,Uttar Pradesh,Hamirpur,2,1258885,3
+501,2021-01-22,Uttar Pradesh,Hamirpur,2,1258885,2
 502,2021-01-22,Uttar Pradesh,Hardoi,85,4665843,2
-503,2021-01-22,Uttar Pradesh,Jalaun,40,1926570,3
+503,2021-01-22,Uttar Pradesh,Jalaun,40,1926570,2
 504,2021-01-22,Uttar Pradesh,Jaunpur,49,5123393,2
-505,2021-01-22,Uttar Pradesh,Jhansi,83,2278407,3
-506,2021-01-22,Uttar Pradesh,Kannauj,18,1888542,3
-507,2021-01-22,Uttar Pradesh,Kanpur Dehat,49,2047650,3
+505,2021-01-22,Uttar Pradesh,Jhansi,83,2278407,2
+506,2021-01-22,Uttar Pradesh,Kannauj,18,1888542,2
+507,2021-01-22,Uttar Pradesh,Kanpur Dehat,49,2047650,2
 508,2021-01-22,Uttar Pradesh,Kanpur Nagar,208,5222646,2
-509,2021-01-22,Uttar Pradesh,Kasganj,52,1637860,3
-510,2021-01-22,Uttar Pradesh,Kaushambi,2,1823539,3
+509,2021-01-22,Uttar Pradesh,Kasganj,52,1637860,2
+510,2021-01-22,Uttar Pradesh,Kaushambi,2,1823539,2
 511,2021-01-22,Uttar Pradesh,Kushinagar,70,4063580,2
 512,2021-01-22,Uttar Pradesh,Lakhimpur Kheri,135,4584217,2
-513,2021-01-22,Uttar Pradesh,Lalitpur,43,1392615,3
+513,2021-01-22,Uttar Pradesh,Lalitpur,43,1392615,2
 514,2021-01-22,Uttar Pradesh,Lucknow,1740,5232415,1
-515,2021-01-22,Uttar Pradesh,Maharajganj,6,3060561,3
-516,2021-01-22,Uttar Pradesh,Mahoba,2,998592,3
-517,2021-01-22,Uttar Pradesh,Mainpuri,53,2130123,3
-518,2021-01-22,Uttar Pradesh,Mathura,50,2903790,3
-519,2021-01-22,Uttar Pradesh,Mau,25,2514804,3
+515,2021-01-22,Uttar Pradesh,Maharajganj,6,3060561,2
+516,2021-01-22,Uttar Pradesh,Mahoba,2,998592,2
+517,2021-01-22,Uttar Pradesh,Mainpuri,53,2130123,2
+518,2021-01-22,Uttar Pradesh,Mathura,50,2903790,2
+519,2021-01-22,Uttar Pradesh,Mau,25,2514804,2
 520,2021-01-22,Uttar Pradesh,Meerut,554,3925805,2
-521,2021-01-22,Uttar Pradesh,Mirzapur,20,2846546,3
+521,2021-01-22,Uttar Pradesh,Mirzapur,20,2846546,2
 522,2021-01-22,Uttar Pradesh,Moradabad,104,5440087,2
 523,2021-01-22,Uttar Pradesh,Muzaffarnagar,223,4723604,2
-524,2021-01-22,Uttar Pradesh,Pilibhit,36,2315348,3
+524,2021-01-22,Uttar Pradesh,Pilibhit,36,2315348,2
 525,2021-01-22,Uttar Pradesh,Pratapgarh,32,3658421,2
 526,2021-01-22,Uttar Pradesh,Rae Bareli,116,3882337,2
-527,2021-01-22,Uttar Pradesh,Rampur,47,2662834,3
+527,2021-01-22,Uttar Pradesh,Rampur,47,2662834,2
 528,2021-01-22,Uttar Pradesh,Saharanpur,129,3951675,2
-529,2021-01-22,Uttar Pradesh,Sant Kabir Nagar,57,1955309,3
+529,2021-01-22,Uttar Pradesh,Sant Kabir Nagar,57,1955309,2
 530,2021-01-22,Uttar Pradesh,Shahjahanpur,64,3427453,2
-531,2021-01-22,Uttar Pradesh,Shrawasti,23,1273792,3
-532,2021-01-22,Uttar Pradesh,Siddharthnagar,60,2917599,3
+531,2021-01-22,Uttar Pradesh,Shrawasti,23,1273792,2
+532,2021-01-22,Uttar Pradesh,Siddharthnagar,60,2917599,2
 533,2021-01-22,Uttar Pradesh,Sitapur,18,5111751,2
-534,2021-01-22,Uttar Pradesh,Sonbhadra,98,2123317,3
+534,2021-01-22,Uttar Pradesh,Sonbhadra,98,2123317,2
 535,2021-01-22,Uttar Pradesh,Sultanpur,149,4328713,2
 536,2021-01-22,Uttar Pradesh,Unnao,131,3543538,2
 537,2021-01-22,Uttar Pradesh,Varanasi,254,4191599,2
