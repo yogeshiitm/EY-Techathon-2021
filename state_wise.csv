@@ -1,5 +1,5 @@
 State,Confirmed,Recovered,Deaths,Active,Last_Updated_Time,Migrated_Other,State_code,Delta_Confirmed,Delta_Recovered,Delta_Deaths,State_Notes
-Total,10640546,10300063,153221,182833,23/1/2021 10:38:52,4429,TT,0,0,0,
+Total,10640546,10300063,153221,182833,23/1/2021 10:55:48,4429,TT,0,0,0,
 Maharashtra,2003657,1906827,50684,44926,22/01/2021 23:16:50,1220,MH,0,0,0,"[Dec 16]:10,218 duplicate cases & other state cases removed from total cases.791 recovered cases also removed from total recovered cases while reconciling 
 [Sep 9] :239 cases have been removed from the hospitalized figures owing to the removal of duplicates and change of addresses as per the original residence
 [Aug 15] : MH bulletin has reduced 819 confirmed cases in Mumbai and 72 confirmed cases from 'Other States' from the tally
@@ -48,4 +48,4 @@ Andaman and Nicobar Islands,4992,4907,62,23,22/01/2021 23:17:10,0,AN,0,0,0,
 Mizoram,4349,4282,9,58,22/01/2021 23:17:12,0,MZ,0,0,0,
 Dadra and Nagar Haveli and Daman and Diu,3377,3336,2,10,22/01/2021 20:59:11,29,DN,0,0,0,
 State Unassigned,0,0,0,0,19/07/2020 09:40:01,0,UN,0,0,0,MoHFW website reports that these are the 'cases that are being reassigned to states'. 
-Lakshadweep,50,0,0,50,23/01/2021 10:38:55,0,LD,0,0,0,
+Lakshadweep,50,0,0,50,23/01/2021 10:55:50,0,LD,0,0,0,
