@@ -1,0 +1,251 @@
+{% extends "vaccine_delivery/base.html" %}
+
+{% load static %}
+{% static "images" as baseUrl %}
+
+{% block header %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <!-- <script src="{% static 'js/scattered.js' %}"></script> -->
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            $.get("{% static 'files/pop_map.csv' %}", function(csvString) {
+                // transform the CSV string into a 2-dimensional array
+                var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+                var data = google.visualization.arrayToDataTable(arrayData);
+
+                var options = {
+                    //title: 'States vs Population 2020',
+                    hAxis: {title: 'States →', minValue: 0, maxValue: 21},
+                    vAxis: {title: 'Population 2020 →', minValue: 0, maxValue: 21},
+                    legend: 'none',
+                    'height': 300
+                };
+
+                var chart = new google.visualization.ScatterChart(document.getElementById('chart_div1'));
+                chart.draw(data, options);
+
+                // to resize map according to screen size, NOTE: in F12 mode this will show the change only upon refresh
+                $(window).resize(function () {
+                    putQR();
+                  })
+
+            });
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <!-- <script src="{% static 'js/scattered.js' %}"></script> -->
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+
+            $.get("{% static 'files/sen_map.csv' %}", function(csvString) {
+                // transform the CSV string into a 2-dimensional array
+                var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+                var data = google.visualization.arrayToDataTable(arrayData);
+
+                var options = {
+                    //title: 'States vs Senior Citizen',
+                    hAxis: {title: 'States →', minValue: 0, maxValue: 21},
+                    vAxis: {title: 'Senior Citizen →', minValue: 0, maxValue: 21},
+                    legend: 'none',
+                    'height': 300
+
+                };
+
+                var chart = new google.visualization.ScatterChart(document.getElementById('chart_div2'));
+
+                chart.draw(data, options);
+            });
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <!-- <script src="{% static 'js/scattered.js' %}"></script> -->
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            $.get("{% static 'files/child_map.csv' %}", function(csvString) {
+                // transform the CSV string into a 2-dimensional array
+                var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+                var data = google.visualization.arrayToDataTable(arrayData);
+
+                var options = {
+                    //title: 'States vs Children',
+                    hAxis: {title: 'States →', minValue: 0, maxValue: 21},
+                    vAxis: {title: 'Children →', minValue: 0, maxValue: 21},
+                    legend: 'none',
+                    'height': 300
+                };
+
+                var chart = new google.visualization.ScatterChart(document.getElementById('chart_div3'));
+
+                chart.draw(data, options);
+            });
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+        <!-- <script src="{% static 'js/scattered.js' %}"></script> -->
+        <script type="text/javascript">
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            $.get("{% static 'files/workers_map.csv' %}", function(csvString) {
+                // transform the CSV string into a 2-dimensional array
+                var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+                var data = google.visualization.arrayToDataTable(arrayData);
+
+                var options = {
+                    //title: 'States vs Health Workers % (out of total health workers in India)',
+                    hAxis: {title: 'States →', minValue: 0, maxValue: 21},
+                    vAxis: {title: 'Health Workers % →', minValue: 0, maxValue: 21},
+                    legend: 'none',
+                    'height': 300
+                };
+
+                var chart = new google.visualization.ScatterChart(document.getElementById('chart_div4'));
+
+                chart.draw(data, options);
+            });
+        }
+    </script>
+{% endblock %}
+
+
+{% block content %}
+
+    <div class="card mt-3 mb-5">
+        <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">Select State</h5>
+        <div class="card-content" >
+            <div class="row row-group m-0 d-flex">
+            {% for state in states %}
+                <div class="col py-3 align-items-center d-flex justify-content-center  border-light">
+                    <a href="{% url 'district_level' state.state %}"><h5 class="text-white">{{state.state}}</h5></a>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="row">
+        <div class="col-6" style = "font-size:22px;">
+            <div id="chart_div1" style="width: 600px; height: 333px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.2);">
+            </div>
+        </div>
+        <div class="col-6" style = "font-size:22px;">
+        
+            <div id="chart_div2" style="width: 600px; height: 333px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.2);">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6" style = "font-size:22px;">
+            <div id="chart_div3" style="width: 600px; height: 333px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.2);">
+            </div>
+        </div>
+        <div class="col-6" style = "font-size:22px;">
+            <div id="chart_div4" style="width: 600px; height: 333px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.2);">
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-header" style = "font-size:20px;">
+                    Population 2020 vs States
+                </div>
+                <div class="card-body" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+                    <!-- <div class="chart-container-10"  style="height: 400px !important;"> -->
+                    <div class="my-4 mx-2" style="height:100% !important;" >
+                        <div id="chart_div1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="col-12 col-lg-6 col-xl-6">
+          <div class="card">
+              <div class="card-header" style = "font-size:20px;">
+                Senior Citizen vs States
+              </div>
+              <div class="card-body" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+                <div class="my-4 mx-2" style="height:100% !important;" >
+                      <div id="chart_div2"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!--End Row-->
+
+      <div class="row">
+        <div class="col-12 col-lg-6 col-xl-6">
+            <div class="card">
+                <div class="card-header" style = "font-size:20px;">
+                    Children vs States
+                </div>
+                <div class="card-body" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+                    <!-- <div class="chart-container-10"  style="height: 400px !important;"> -->
+                    <div class="my-4 mx-2" style="height:100% !important;" >
+                        <div id="chart_div3"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+        <div class="col-12 col-lg-6 col-xl-6">
+          <div class="card">
+              <div class="card-header" style = "font-size:20px;">
+                Health Workers % (of total H.Workers in India) vs States
+              </div>
+              <div class="card-body" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+                <div class="my-4 mx-2" style="height:100% !important;" >
+                      <div id="chart_div4"></div>
+                  </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!--End Row-->
+
+    <!-- <div id="chart_div1" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div3" style="width: 900px; height: 500px;"></div>
+    <div id="chart_div4" style="width: 900px; height: 500px;"></div> -->
+
+
+
+    <!-- 
+    the below script is for google chart but don't keep it in header beacuse there some problem is sequencue due to inclusion of jquery.min.js in vaccine_delivery/base.html
+    Sequence must be:
+    1. <script src="./jquery.js"></script> 
+    2. <script src="./jquery.csv.js"></script>
+    3. <script src="{% static 'js/scattered.js' %}"></script> 
+    -->
+    <script src="{% static 'js/scattered.js' %}"></script>
+
+
+{% endblock %}
+

@@ -1,0 +1,317 @@
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block header %}
+    {% endblock %}
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content="Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting the more important segments of our country that need to be catered with vaccine deliveries as prior as possible."/>
+    <meta name="author" content="Team TechHD"/>
+    <meta name="keywords" content="Covid19, vaccine, india, coronavirus, delivery" />
+
+    <meta property="og:title" content="TechHD: Covid-19 Vaccine Priority">
+    <meta property="og:image" content="{% static 'images/preview.jpg' %}">
+    <meta property="og:description" content="Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting the more important segments of our country that need to be catered with vaccine deliveries as prior as possible.">
+    <meta property="og:url" content="https://techhd.herokuapp.com">
+
+
+    <title>TechHD: Covid-19 Vaccine Priority</title>
+
+    <!-- moving this loader script to index file, so that this runs only when we open the site -->
+    <!-- loader-->
+    <!-- <link href="{% static 'css/pace.min.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/pace.min.js' %}"></script> -->
+    <!--favicon-->
+    <!-- <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon"> -->
+    <!-- <link rel="icon" href="{% static 'images/logo-icon.png' %}" type="image/x-icon"> -->
+    <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
+    <!-- Vector CSS -->
+    <!-- <link href="{% static 'plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/> -->
+    <!-- simplebar CSS-->
+    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
+    <!-- Bootstrap core CSS-->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <!-- animate CSS-->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- Icons CSS-->
+    <link href="{% static 'css/icons.css' %}" rel="stylesheet" type="text/css"/>
+    <!-- Sidebar CSS-->
+    <link href="{% static 'css/sidebar-menu.css' %}" rel="stylesheet"/>
+    <!-- Custom Style-->
+    <link href="{% static 'css/app-style.css' %}" rel="stylesheet"/>
+  
+
+
+    <!-- NOTE: jquery.min.js must be before jquery.csv.js (required for google maps and charts) so don't keep this after  block-content -->
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <!-- <script src="{% static 'js/popper.min.js' %}"></script> -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    
+    <!-- simplebar js -->
+    <!-- <script src="{% static 'plugins/simplebar/js/simplebar.js' %}"></script> -->
+    <!-- sidebar-menu js -->
+    <script src="{% static 'js/sidebar-menu.js' %}"></script>
+    <!-- loader scripts -->
+    <!-- <script src="{% static 'js/jquery.loading-indicator.js' %}"></script> -->
+    <!-- Custom scripts -->
+    <script src="{% static 'js/app-script.js' %}"></script>
+
+
+    <!-- <style>
+        table {
+          width: 100% !important;
+          border-collapse: collapse !important;
+        }
+        .cell-breakAll {
+          word-break: break-all !important;
+        }
+    </style> -->
+
+    <style>
+      #content-desktop {display: block !important;}
+      #content-mobile {display: none !important;}
+      @media screen and (max-width: 992px) {
+          #content-desktop {display: none !important;}
+          #content-mobile {display: block !important;}
+      }
+      
+    </style>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176091712-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-176091712-1');
+    </script>
+
+</head>
+
+<body class="bg-theme bg-theme1">
+
+<!-- Start wrapper-->
+<div id="wrapper">
+ 
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+      <div class="brand-logo" style="display: flex; justify-content: left !important">
+        <a href="{% url 'index' %}">
+          <!-- <img src="{% static 'images/logo-icon.png' %}" class="logo-icon" alt="logo icon"> -->
+          <img src="{% static 'images/logo.jpg' %}" class="logo-icon" alt="logo icon">
+          <!-- <h5 class="logo-text">Tech-HD Covid ML Model</h5> -->
+          <!-- <h5 class="logo-text">TechHD</h5> -->
+          <h5 class="logo-text" style="text-transform: capitalize !important; ">TechHD EY-Techathon</h5>
+        </a>
+      </div>
+      <ul class="sidebar-menu do-nicescrol">
+          <li class="sidebar-header">NAVIGATION BAR</li>
+          <li>
+            <a href="{% url 'index' %}">
+              <i class="zmdi zmdi-view-dashboard"></i> <span>State Level Analysis</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'states' %}">
+              <i class="zmdi zmdi-grid"></i>  <span>District Level Analysis</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'batch' 1 %}">
+              <i class="zmdi zmdi-format-list-bulleted"></i><span>Delivery Batch</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'about' %}">
+              <i class="zmdi zmdi-invert-colors"></i> <span>About</span>
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'team' %}">
+              <i class="zmdi zmdi-account-circle"></i> <span>Meet the Team</span>
+            </a>
+          </li>
+
+          <!-- <li>
+            <a href="icons.html">
+              <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
+            </a>
+          </li> -->
+          <!-- <li>
+            <a href="calendar.html">
+              <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
+            </a>
+          </li>
+          <li>
+            <a href="profile.html">
+              <i class="zmdi zmdi-face"></i> <span>Profile</span>
+            </a>
+          </li>
+          <li>
+            <a href="login.html" target="_blank">
+              <i class="zmdi zmdi-lock"></i> <span>Login</span>
+            </a>
+          </li>
+          <li>
+            <a href="register.html" target="_blank">
+              <i class="zmdi zmdi-account-circle"></i> <span>Registration</span>
+            </a>
+          </li> -->
+      </ul>
+    </div>
+    <!--End sidebar-wrapper-->
+
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top pl-3"  style="text-align: center;">
+        <ul class="navbar-nav mr-auto align-items-center">
+          <li class="nav-item">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon my-0" style="font-size: 22px!important;"></i>
+            </a>
+          </li>
+
+          <!-- <a href="{% url 'index' %}" class="ml-2" style="text-align: left !important;"><strong>Priority Covid-19 Vaccine</strong> </a> -->
+          <li class="nav-item">
+            <form class="search-bar">
+              <input type="text" class="form-control" placeholder="Enter keywords">
+                <a href="javascript:void();"><i class="icon-magnifier"></i></a>
+            </form>
+          </li>
+
+
+        </ul>
+
+<!-- 
+        <div id="content-desktop">
+          <strong><p id="time" class="mx-3 my-0" style="text-align: right;"></p></strong>
+            <script type="text/javascript">
+              var timeDisplay = document.getElementById("time");
+              function refreshTime() {
+    
+                var dateString = new Date().toLocaleString("en-GB", {timeZone: "Asia/Kolkata"});
+                var formattedString = dateString.replace(", ", " - ");
+                timeDisplay.innerHTML = formattedString;
+              }
+              setInterval(refreshTime, 1000);
+            </script>
+        </div>
+        <div id="content-mobile">
+          <strong><p id="time2" class="mx-3 my-0" style="text-align: right;"></p></strong>
+            <script type="text/javascript">
+              var timeDisplay2 = document.getElementById("time2");
+              function refreshTime2() {
+    
+                var dateString2 = new Date().toLocaleString("en-GB", {timeZone: "Asia/Kolkata"});
+                var formattedString2 = dateString2.replace(", ", "\n ");
+                timeDisplay2.innerHTML = formattedString2;
+              }
+              setInterval(refreshTime2, 1000);
+            </script>
+        </div>
+             -->
+
+        
+        <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Sign up</a>
+        <!-- <button type="button" class="btn btn-info waves-effect waves-light m-1">Login</button>
+        <button type="button" class="btn btn-white waves-effect waves-light m-1">Sign up</button> -->
+        
+
+        <!-- <ul class="navbar-nav align-items-center right-nav-link">
+          <li class="nav-item dropdown-lg">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+            <i class="fa fa-envelope-open-o"></i></a>
+          </li>
+          <li class="nav-item dropdown-lg">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+            <i class="fa fa-bell-o"></i></a>
+          </li>
+          <li class="nav-item language">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();"><i class="fa fa-flag"></i></a>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li class="dropdown-item"> <i class="flag-icon flag-icon-gb mr-2"></i> English</li>
+                <li class="dropdown-item"> <i class="flag-icon flag-icon-fr mr-2"></i> French</li>
+                <li class="dropdown-item"> <i class="flag-icon flag-icon-cn mr-2"></i> Chinese</li>
+                <li class="dropdown-item"> <i class="flag-icon flag-icon-de mr-2"></i> German</li>
+              </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+              <span class="user-profile"><img src="https://via.placeholder.com/110x110" class="img-circle" alt="user avatar"></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li class="dropdown-item user-details">
+              <a href="javaScript:void();">
+                  <div class="media">
+                    <div class="avatar"><img class="align-self-start mr-3" src="https://via.placeholder.com/110x110" alt="user avatar"></div>
+                  <div class="media-body">
+                  <h6 class="mt-2 user-title">Sarajhon Mccoy</h6>
+                  <p class="user-subtitle">mccoy@example.com</p>
+                  </div>
+                  </div>
+                </a>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><i class="icon-envelope mr-2"></i> Inbox</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><i class="icon-wallet mr-2"></i> Account</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><i class="icon-settings mr-2"></i> Setting</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item"><i class="icon-power mr-2"></i> Logout</li>
+            </ul>
+          </li>
+        </ul> -->
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    
+    <div class="clearfix">
+    </div>
+
+    <div class="content-wrapper">
+        <div class="container-fluid">
+              {% block content %}
+
+              {% endblock %}
+
+              <!--start overlay-->
+              <div class="overlay toggle-menu"></div>
+              <!--end overlay-->
+        </div>
+        <!-- End container-fluid-->
+    </div>
+    <!--End content-wrapper-->
+
+    <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <!--End Back To Top Button-->
+
+
+    <script src="https://kit.fontawesome.com/607f62eb6e.js" crossorigin="anonymous"></script>
+
+
+    <!-- https://stackoverflow.com/a/35752912/13962648 -->
+    {% block footer %}
+      {% include 'vaccine_delivery/footer.html' %}
+    {% endblock %}
+
+   
+</div>
+<!--End wrapper-->
+
+   
+
+
+</body>
+</html>

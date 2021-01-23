@@ -1,0 +1,76 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+
+{% block content %}
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+	<div class="card card-authentication1 mx-auto my-4">
+		<div class="card-body">
+		 <div class="card-content p-2">
+		 	<!-- <div class="text-center">
+		 		<img src="{% static 'images/logo.jpg' %}" alt="logo icon" style="width:20%;">
+       		</div> -->
+			 <div class="card-title text-uppercase text-center py-3" style="font-size:x-large;">Sign up</div>
+			 <!-- <div class="card-title text-uppercase text-center py-3">Log in</div> -->
+		    <form>
+			  <div class="form-group">
+			  <label for="exampleInputName" class="sr-only">Name</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="exampleInputName" class="form-control input-shadow" placeholder="Name">
+				  <div class="form-control-position">
+					  <i class="icon-user"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			  <label for="exampleInputEmailId" class="sr-only">Email ID</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="exampleInputEmailId" class="form-control input-shadow" placeholder="Email ID">
+				  <div class="form-control-position">
+					  <i class="icon-envelope-open"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			   <label for="exampleInputPassword" class="sr-only">Password</label>
+			   <div class="position-relative has-icon-right">
+				  <input type="text" id="exampleInputPassword" class="form-control input-shadow" placeholder="Password">
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+				<label for="exampleInputPassword" class="sr-only">Password</label>
+				<div class="position-relative has-icon-right">
+				   <input type="text" id="exampleInputPassword" class="form-control input-shadow" placeholder="Confirm Password">
+				   <div class="form-control-position">
+					   <i class="icon-lock"></i>
+				   </div>
+				</div>
+			   </div>
+			  
+			   
+			  
+			 <button type="button" class="btn btn-light btn-block waves-effect waves-light mt-5">Sign Up</button>
+			
+			
+			 </form>
+		   </div>
+		  </div>
+		  <div class="card-footer text-center py-3">
+		    <p class="mb-0" style="color:rgb(160, 220, 243);">Already have an account? <a href="{% url 'login' %}"> Log in</a></p>
+		  </div>
+	     </div>
+    
+{% endblock %}
+
+
+<!-- https://stackoverflow.com/a/35752912/13962648 -->
+{% block footer %}
+{% endblock %}

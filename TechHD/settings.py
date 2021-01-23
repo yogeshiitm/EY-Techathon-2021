@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '#s+963o4g6ep*a&o!1%qb(h^=u%$&4^!4f^^gyds&7lav1s18g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['techhd.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['techhd.herokuapp.com', 'yogesh-testapp.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     #below two are for sitemap
     #'django.contrib.sitemaps',
     #'django.contrib.sites'
+    'accounts.apps.AccountsConfig',
+    'widget_tweaks',
 ]
 
 #for sitemap
@@ -56,7 +58,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    # 'django.middleware.security.SecurityMiddleware',
+    # for heroku
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
@@ -117,7 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
