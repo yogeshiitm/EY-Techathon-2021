@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "vaccine_delivery/base.html" %}
 
 {% load static %}
 {% static "images" as baseUrl %}
@@ -238,7 +238,7 @@
 
 
     <!-- 
-    the below script is for google chart but don't keep it in header beacuse there some problem is sequencue due to inclusion of jquery.min.js in base.html
+    the below script is for google chart but don't keep it in header beacuse there some problem is sequencue due to inclusion of jquery.min.js in vaccine_delivery/base.html
     Sequence must be:
     1. <script src="./jquery.js"></script> 
     2. <script src="./jquery.csv.js"></script>

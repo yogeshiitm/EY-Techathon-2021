@@ -81,6 +81,7 @@
           #content-desktop {display: none !important;}
           #content-mobile {display: block !important;}
       }
+      
     </style>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -177,22 +178,24 @@
               <i class="icon-menu menu-icon my-0" style="font-size: 22px!important;"></i>
             </a>
           </li>
-          <a href="{% url 'index' %}" class="ml-2" style="text-align: left !important;"><strong>Priority Covid-19 Vaccine</strong> </a>
-          <!-- <li class="nav-item">
+
+          <!-- <a href="{% url 'index' %}" class="ml-2" style="text-align: left !important;"><strong>Priority Covid-19 Vaccine</strong> </a> -->
+          <li class="nav-item">
             <form class="search-bar">
               <input type="text" class="form-control" placeholder="Enter keywords">
                 <a href="javascript:void();"><i class="icon-magnifier"></i></a>
             </form>
-          </li> -->
+          </li>
+
+
         </ul>
 
+<!-- 
         <div id="content-desktop">
           <strong><p id="time" class="mx-3 my-0" style="text-align: right;"></p></strong>
             <script type="text/javascript">
               var timeDisplay = document.getElementById("time");
               function refreshTime() {
-                //var d = new Date().toJSON().slice(0,10).split('-').reverse().join('/')
-                //var dateString = d.toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
     
                 var dateString = new Date().toLocaleString("en-GB", {timeZone: "Asia/Kolkata"});
                 var formattedString = dateString.replace(", ", " - ");
@@ -206,8 +209,6 @@
             <script type="text/javascript">
               var timeDisplay2 = document.getElementById("time2");
               function refreshTime2() {
-                //var d = new Date().toJSON().slice(0,10).split('-').reverse().join('/')
-                //var dateString = d.toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
     
                 var dateString2 = new Date().toLocaleString("en-GB", {timeZone: "Asia/Kolkata"});
                 var formattedString2 = dateString2.replace(", ", "\n ");
@@ -216,8 +217,13 @@
               setInterval(refreshTime2, 1000);
             </script>
         </div>
-            
+             -->
 
+        
+        <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
+        <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Sign up</a>
+        <!-- <button type="button" class="btn btn-info waves-effect waves-light m-1">Login</button>
+        <button type="button" class="btn btn-white waves-effect waves-light m-1">Sign up</button> -->
         
 
         <!-- <ul class="navbar-nav align-items-center right-nav-link">
@@ -272,7 +278,7 @@
     
     <div class="clearfix">
     </div>
-	
+
     <div class="content-wrapper">
         <div class="container-fluid">
               {% block content %}
@@ -294,19 +300,11 @@
 
     <script src="https://kit.fontawesome.com/607f62eb6e.js" crossorigin="anonymous"></script>
 
-    <!--Start footer-->
-    <footer class="footer">
-      <div class="container">
-        <div class="text-center">
-          Copyright © 2021 Team TechHD &emsp;
-          <div id="content-mobile"></div>
-          <strong><a target="_blank" href="https://github.com/yogeshiitm/TechHD"><i class="fab fa-github"></i></a></strong>&emsp;
-          <strong><a target="_blank" href="https://drive.google.com/drive/folders/1MxQ8c2Su2RbiA82VvIu6WMBONd-L8vy4?usp=sharing"><i class="fas fa-database"></i></a></strong>&emsp;
-          <strong><a target="_blank" href="mailto:techhd.iitm@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a></strong>
-        </div> 
-      </div>
-    </footer>
-  <!--End footer-->
+
+    <!-- https://stackoverflow.com/a/35752912/13962648 -->
+    {% block footer %}
+      {% include 'vaccine_delivery/footer.html' %}
+    {% endblock %}
 
    
 </div>
