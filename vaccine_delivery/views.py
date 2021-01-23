@@ -6,7 +6,6 @@ import pandas as pd
 import datetime
 import pytz
 
-updated = None
 
 def State_data_update():
     data = State_data()
@@ -83,13 +82,6 @@ def Update_datasets(request):
     elif last_updated == date.today().strftime('%d-%m-%Y'):
         pass
 '''
-
-top = pd.read_csv('state_wise.csv',sep=',')
-top = top[top['State']=='Total']
-confirmed = int(top['Confirmed'])
-active = int(top['Active'])
-recovered = int(top['Recovered'])
-deaths = int(top['Deaths'])
 
 def check_update_time(request):
     global updated
