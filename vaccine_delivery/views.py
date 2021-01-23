@@ -136,22 +136,22 @@ def Index(request):
         'recovered' : recovered,
         'deaths' : deaths
     }
-    return render(request, "index.html", context)
+    return render(request, "vaccine_delivery/index.html", context)
 
 def StateMapView(request):
     check_update_time(request)
-    return render(request, 'state_map.html')
+    return render(request, 'state_vaccine_delivery/map.html')
 
 def DistrictHomeView(request):
     check_update_time(request)
     states = StateModel.objects.all().order_by('state')
-    return render(request,'district_level.html',{'states':states})
+    return render(request,'vaccine_delivery/district_level.html',{'states':states})
 
 
 def DistrictView(request, state):
     check_update_time(request)
     data = DistrictModel.objects.filter(state = state).order_by('batch_no','-active','-population_2020')
-    return render(request, 'district_level_state.html', {'data': data})
+    return render(request, 'vaccine_delivery/district_level_state.html', {'data': data})
 
 def BatchView(request, batch):
     check_update_time(request)
@@ -160,10 +160,10 @@ def BatchView(request, batch):
     top = pd.read_csv('clustered_data.csv',index_col=0)
     top = top.Batch_no.unique()
 
-    return render(request, 'batch.html', {'data': data, 'top':top, 'currentbatch': int(batch)})
+    return render(request, 'vaccine_delivery/batch.html', {'data': data, 'top':top, 'currentbatch': int(batch)})
 
 def AboutView(request):
-    return render(request,'about.html')
+    return render(request,'vaccine_delivery/about.html')
 
 def TeamView(request):
-    return render(request,'team.html')
+    return render(request,'vaccine_delivery/team.html')

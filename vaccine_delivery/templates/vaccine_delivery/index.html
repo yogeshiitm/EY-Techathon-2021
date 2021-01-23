@@ -1,0 +1,311 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+{% block header %}
+
+    <!-- loader-->
+    <link href="{% static 'css/pace.min.css' %}" rel="stylesheet"/>
+    <script src="{% static 'js/pace.min.js' %}"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/js_file.js' %}"></script> -->
+    <script type="text/javascript">
+
+    google.charts.load('current', {
+      'packages':['geochart'],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      'mapsApiKey': 'AIzaSyDZSStw39I8ef15n_EjFptPS_6H8Rw381g'
+    });
+    google.charts.setOnLoadCallback(drawMarkersMap);
+
+    function drawMarkersMap() {
+        $.get("{% static '/files/active_map.csv' %}", function(csvString) {
+            // transform the CSV string into a 2-dimensional array
+            var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+            var data = google.visualization.arrayToDataTable(arrayData);
+
+            var options = {
+
+                region: 'IN', // India
+                resolution: 'provinces',
+                //colorAxis: {colors: ['yellow', 'red', 'blue']},
+                colorAxis: {colors: ['white', 'red']},
+                backgroundColor: '#81d4fa',
+                //datalessRegionColor: '#f8bbd0',
+                datalessRegionColor: 'lightgreen',
+                defaultColor: '#f5f5f5',
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('active_map'));
+            chart.draw(data, options);
+
+            // to resize map according to screen size, NOTE: in F12 mode this will show the change only upon refresh
+            $(window).resize(function () {
+              putQR();
+            })
+
+        });
+    };
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!-- <script type="text/javascript" src="{% static 'js/js_file.js' %}"></script> -->
+    <script type="text/javascript">
+
+    google.charts.load('current', {
+      'packages':['geochart'],
+      // Note: you will need to get a mapsApiKey for your project.
+      // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+      'mapsApiKey': 'AIzaSyDZSStw39I8ef15n_EjFptPS_6H8Rw381g'
+    });
+    google.charts.setOnLoadCallback(drawMarkersMap);
+
+    function drawMarkersMap() {
+        $.get("{% static '/files/batch_map.csv' %}", function(csvString) {
+            // transform the CSV string into a 2-dimensional array
+            var arrayData = $.csv.toArrays(csvString, {onParseValue: $.csv.hooks.castToScalar});
+            var data = google.visualization.arrayToDataTable(arrayData);
+
+            var options = {
+                
+                region: 'IN', // India
+                resolution: 'provinces',
+                // colorAxis: {colors: ['yellow', 'red', 'blue']},
+                //colorAxis: {colors: [ 'blue','purple','red','orange','yellow']},
+                //colorAxis: {colors: [ 'blue','red','yellow']},
+                colorAxis: {colors: ['red','white']},
+                backgroundColor: '#81d4fa',
+                //datalessRegionColor: '#f8bbd0',
+                datalessRegionColor: 'lightgreen',
+                defaultColor: '#f5f5f5',
+            };
+
+            var chart = new google.visualization.GeoChart(document.getElementById('batch_map'));
+            chart.draw(data, options);
+        });
+    };
+    </script>
+
+    <!-- <style>
+      table {
+        table-layout: fixed;
+        width: 100%;
+    }
+    
+    table td {
+        word-wrap: break-word;         /* All browsers since IE 5.5+ */
+        overflow-wrap: break-word;     /* Renamed property in CSS3 draft spec */
+    }
+    </style> -->
+
+{% endblock %}
+
+
+{% block content %}
+
+
+
+    <!--Start Dashboard Content-->
+    <div class="card mt-3">
+      <div class="card-content">
+          <div class="row row-group m-0">
+              <div class="col-12 col-lg-6 col-xl-3 border-light">
+                  <div class="card-body">
+                    <h5 class="text-white mb-0">{{confirmed | intcomma}} <span class="float-right"><i class="fa fa-plus-circle"></i></span></h5>
+                      <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:11.63%"></div>
+                      </div>
+                    <!-- <p class="mb-0 text-white small-font">Total Covid Cases in India <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                    <p class="mb-0 text-white small-font">Total Covid Cases in India </p>
+                  </div>
+              </div>
+              <div class="col-12 col-lg-6 col-xl-3 border-light">
+                  <div class="card-body">
+                    <h5 class="text-white mb-0">{{active | intcomma}} <span class="float-right"><i class="fa fa-users"></i></span></h5>
+                      <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:0.9%"></div>
+                      </div>
+                    <!-- <p class="mb-0 text-white small-font">Total Active Cases <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                    <p class="mb-0 text-white small-font">Total Active Cases</p>
+                  </div>
+              </div>
+              <div class="col-12 col-lg-6 col-xl-3 border-light">
+                  <div class="card-body">
+                    <h5 class="text-white mb-0">{{recovered | intcomma}} <span class="float-right"><i class="	fa fa-pencil-square-o"></i></span></h5>
+                      <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:20.2%"></div>
+                      </div>
+                    <!-- <p class="mb-0 text-white small-font">Total Recovered <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                    <p class="mb-0 text-white small-font">Total Recovered</p>
+                  </div>
+              </div>
+              <div class="col-12 col-lg-6 col-xl-3 border-light">
+                  <div class="card-body">
+                    <h5 class="text-white mb-0">{{deaths | intcomma}}<span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                      <div class="progress my-3" style="height:3px;">
+                        <div class="progress-bar" style="width:7.8%"></div>
+                      </div>
+                    <!-- <p class="mb-0 text-white small-font">Total Deaths <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                    <p class="mb-0 text-white small-font">Total Deaths</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>  
+
+    <!-- <div class="row">
+      <div class="col-6" style = "font-size:22px;">
+            <div id="active_map" style="width: 600px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.2);">
+            </div>
+            <p>Active Cases in India</p>
+      </div>
+      <div class="col-6" style = "font-size:22px;">
+        
+            <div id="batch_map" style="width: 600px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.2);">
+          </div>
+          <p>Vaccine Delivery Batches</p>
+      </div>
+    </div> -->
+
+
+
+    <!-- <div class="row">
+      <div class="col-6" style = "font-size:22px;">
+        <div class="card card-header">
+          Active Cases in India
+        </div>
+            <div id="active_map" style="width: 600px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.2);">
+            </div>
+      </div>
+      <div class="col-12 col-lg-6 col-xl-6">
+          <div class="card">
+              <div class="card-header">
+                Active Cases in India
+              </div>
+              <div class="card-body">
+                  <div class="chart-container-1">
+                    <div id="batch_map" style="width: 600px;
+                    padding: 40px 30px;
+                    background: rgba(0, 0, 0, 0.2);">
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div> -->
+
+
+    <div class="row">
+      <div class="col-12 col-lg-6 col-xl-6">
+          <div class="card">
+              <div class="card-header" style = "font-size:20px;">
+                Active Cases in India
+              </div>
+              <div class="card-body" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+                  <!-- <div class="chart-container-10"  style="height: 400px !important;"> -->
+                  <div class="my-4 mx-2" style="height:100% !important;" >
+                      <div id="active_map"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-12 col-lg-6 col-xl-6">
+        <div class="card">
+            <div class="card-header" style = "font-size:20px;">
+              Vaccine Delivery Batches
+            </div>
+            <div class="card-body" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+              <div class="my-4 mx-2" style="height:100% !important;" >
+                    <div id="batch_map"></div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!--End Row-->
+
+
+
+    <div class="row mt-5">
+      <div class="col-12 col-lg-12">
+        <div class="card">
+          <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret">
+            State Level Analysis
+          </div>
+
+          <div class="table-responsive">
+            {% if data %}
+                <table class="table align-items-center table-flush table-borderless" style="table-layout: auto; width: 100%;">
+                  <thead>
+                      <tr>
+                        <th>State/UT</th>
+                        <th style="text-align:right">Active</th>
+                        <th style="text-align:right">Senior Citizens</th>
+                        <th style="text-align:right">Children</th>
+                        <th style="text-align:right">Health Workers % out<br>of total H.Workers</th>
+                        <th style="text-align:right">Population <br>Density (per sq km)</th>
+                        <th style="text-align:right">Death Rate</th>
+                        <!-- <th style="text-align:right">Accessibility</th> -->
+                        <!-- <th style="text-align:right">Hospital beds</th> -->
+                        <th>Batch</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {% for item in data %}
+                        <tr>
+                            {% if item.state == 'Andaman and Nicobar Islands' %}
+                                <td style="column-width: 100px;"><a href="{% url 'district_level' item.state %}">Andaman and<br>Nicobar Islands</a></td>
+                            {% elif item.state == 'Dadra and Nagar Haveli and Daman and Diu' %}
+                                <td style="column-width: 100px;"><a href="{% url 'district_level' item.state %}">Dadra and Nagar<br>Haveli and Daman<br> and Diu</a></td>
+                            {% else %}
+                                <td style="column-width: 100px;"><a href="{% url 'district_level' item.state %}">{{ item.state }}</a></td>
+                            {% endif %}  
+                            <td style="text-align:right">{{ item.active }}</td>
+                            <td style="text-align:center">{{ item.senior_citizen }}</td>
+                            <td style="text-align:right">{{ item.children }}</td>
+                            <td style="text-align:right">{{ item.all_health_workers_percent }}</td>
+                            <td style="text-align:right">{{ item.population_2020 }}</td>
+                            <td style="text-align:right">{{ item.death_rate | floatformat:2}}</td>
+                            <!-- <td style="text-align:right">{{ item.accessibility }}</td> -->
+                            <!-- <td style="text-align:right">{{ item.hospital_beds }}</td> -->
+                            <td style="text-align:center"><a href="{% url 'batch' item.batch_no %}">{{ item.batch_no }}</a></td>
+                        </tr>
+                      {% endfor %}
+                  </tbody>
+                </table>
+                {% endif %}
+          </div>
+        </div>
+      </div>
+    </div><!--End Row-->
+
+
+
+    <!-- 
+    the below script is for google chart but don't keep it in header beacuse there some problem is sequencue due to inclusion of jquery.min.js in vaccine_delivery/base.html
+    Sequence must be:
+    1. <script src="./jquery.js"></script> 
+    2. <script src="./jquery.csv.js"></script>
+    3. <script type="text/javascript" src="{% static 'js/js_file.js' %}"></script> 
+    -->
+    <script type="text/javascript" src="{% static 'js/js_file.js' %}"></script>
+
+
+<!--End Dashboard Content-->
+{% endblock %}
+
+  
+
