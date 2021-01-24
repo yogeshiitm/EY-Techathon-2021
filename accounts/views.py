@@ -36,6 +36,20 @@ from django_email_verification import send_email
 
 def login(request):
     if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
+
         email = request.POST['email']
         password = request.POST['password']
 
@@ -64,6 +78,20 @@ def login(request):
 def signup(request):
     if request.method == 'POST':
         form = CustomRegisterForm(request.POST or None)
+
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
 
         if form.is_valid():
             user = form.save()
@@ -94,20 +122,49 @@ def signup(request):
 
 
 def logout_user(request):
+    if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
     logout(request)
     return redirect('login')
 
 
 @login_required(login_url='login')
 def dashboard(request):
+    if request.method == 'POST':
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+            
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect('dashboard')
+
     email = request.user.email
     name = request.user.first_name
+
     try:
-        user = MedicalModel.objects.get(user=request.user)
+        user = MedicalModel.objects.get(user=request.user)  
         context={
             'email':email,
             'name':name,
-            'user':user
+            'user':user,
         }
         return render(request, 'accounts/dashboard.html',context)
 
@@ -165,6 +222,20 @@ def vaccineform(request):
 
 
     if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
+
         form = MedicalForm(request.POST)
 
         user = request.user

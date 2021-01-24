@@ -23,3 +23,4 @@ class CustomUserAdmin(UserAdmin):
 
 # Re-register UserAdmin
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(MedicalModel)
