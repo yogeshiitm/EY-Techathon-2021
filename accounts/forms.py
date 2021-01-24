@@ -6,6 +6,15 @@ from django.contrib import messages
 from .models import *
 
 
+from django.contrib.auth.forms import UserCreationForm
+from django import forms
+from django.forms import ValidationError
+from django.contrib import messages
+# from django.contrib.auth.models import User
+# replace the above with
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
 class CustomRegisterForm(UserCreationForm):
     email = forms.EmailField(label = "Email", max_length=75, required=True)
     fullname = forms.CharField(label = "Full name", max_length=75, required=True)
@@ -19,6 +28,7 @@ class CustomRegisterForm(UserCreationForm):
         if email and User.objects.filter(email=email).exists():
             raise forms.ValidationError(u'Email already exists!')
         return email
+
 
     def save(self, commit=True):
         user = super(CustomRegisterForm, self).save(commit=False)

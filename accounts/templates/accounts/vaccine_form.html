@@ -32,7 +32,7 @@
                 <div class="form-group row">
                   <label for="input-24" class="col-sm-3 col-form-label">Mobile No.</label>
                   <div class="col-sm-9">
-                  <input type="text" class="form-control" id="input-24" name ="mobile" placeholder="Mobile Number" maxlength="10" required pattern="\S+.*,[0-9]" />
+                  <input type="text" class="form-control" id="input-24" name ="mobile" placeholder="Mobile Number" maxlength="10" required pattern="\S+.*" />
                   </div>
                 </div>
                 <div class="form-group row">
@@ -76,7 +76,7 @@
                 <div class="form-group row">
                   <label for="input-21" class="col-sm-3 col-form-label">Age</label>
                   <div class="col-sm-9">
-                  <input type="text" class="form-control" id="input-21" name ="dob" placeholder="Date of birth" maxlength="100" required pattern="\S+.*"/>
+                  <input type="text" class="form-control" id="input-21" name ="dob" placeholder="Age" maxlength="100" required pattern="\S+.*"/>
                   </div>
                 </div>
                 <div class="form-group row">
@@ -308,9 +308,13 @@
       <div class="form-group">
         <div class="row">
           <!-- <div class="col-4"></div> -->
-          <div class="col-3">
+          <div class="col-2">
             <!-- <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Submit</button> -->
-            <button type="submit" class="btn btn-white btn-lg btn-block waves-effect waves-light m-1">Submit</button>
+            <a href="{% url 'index' %}" class="btn btn-white btn-lg btn-block waves-effect waves-light m-1">Cancel</a>
+          </div>
+          <div class="col-2">
+            <!-- <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Submit</button> -->
+            <button type="submit" class="btn btn-info btn-lg btn-block waves-effect waves-light m-1">Submit</button>
           </div>
         </div>
       </div>

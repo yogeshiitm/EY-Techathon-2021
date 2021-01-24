@@ -15,16 +15,40 @@ from vaccine_delivery.models import *
 # User.add_to_class('email', models.EmailField(null=True, blank=False))
 # User._meta.get_field('email')._unique = True
 
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import logout
+from django.contrib.auth.models import User
+from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
+from django.db import models
+from .forms import CustomRegisterForm
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+from vaccine_delivery.models import *
+from django.contrib.auth import login as auth_login # https://stackoverflow.com/a/39316967/13962648
+from django_email_verification import send_email
+
+
+# User._meta.get_field('email')._blank = False
+# User.add_to_class('email', models.EmailField(null=True, blank=False))
+# User._meta.get_field('email')._unique = True
+
 def login(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
 
-        user = auth.authenticate(username=username, password=password)
+        user = auth.authenticate(email=email, password=password)
 
         if user is not None:
             auth.login(request, user)
-            return redirect('dashboard')
+
+            # if MedicalForm.objects.get(user = request.user):
+            #     return redirect('vaccineform')
+            # else:
+            #     return redirect('dashboard')
+            return redirect('vaccineform')
 
         else:
             messages.error(request, 'Invalid credentials!')
@@ -32,7 +56,7 @@ def login(request):
 
     else:
         if request.user.is_authenticated:
-            return redirect('/')
+            return redirect('vaccineform')
         else:
             return render(request, 'accounts/login.html')
 
@@ -42,13 +66,19 @@ def signup(request):
         form = CustomRegisterForm(request.POST or None)
 
         if form.is_valid():
+            user = form.save()
             form.save()
-            messages.success(request, 'Account created successfully!')
+            #messages.success(request, 'Account created successfully!')
 
-            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
-            user = auth.authenticate(username = username,password = password)
-            login(request, user)
+            #inactive_user = send_verification_email(request, form)
+            user = auth.authenticate(email=email, password = password)
+    
+
+            # https://stackoverflow.com/a/39316967/13962648
+            # login(request, user)
+            auth_login(request, user)
             return redirect('vaccineform')
 
         else:
@@ -57,8 +87,6 @@ def signup(request):
 
     else:
         if request.user.is_authenticated:
-            if MedicalModel.objects.get(user=request.user):
-                return redirect('dashboard')
             return redirect('vaccineform')
         else:
             form = CustomRegisterForm()
@@ -72,21 +100,25 @@ def logout_user(request):
 
 @login_required(login_url='login')
 def dashboard(request):
+    return render(request, 'accounts/dashboard.html')
+
+
+@login_required(login_url='login')
+def profile(request):
     user = request.user
     userdata = {
-        # 'Name': user.get_full_name(),
-        # 'Email': user.email,
-        # 'Joined': user.date_joined,
-        # 'Last login': user.last_login,
+        'Name': user.get_full_name(),
+        'Email': user.email,
+        'Last login': user.last_login,
 
         #test data
-        'Name': 'Yogesh Agarwala',
-        'Email': 'yogeshagarwala1@gmail.com',
-        'Joined On': '23-01-21, 8:03 p.m.',
-        'Last login': '23-01-21, 9:14 p.m.',
+        # 'Name': 'Yogesh Agarwala',
+        # 'Email': 'yogeshagarwala1@gmail.com',
+        # 'Last login': '23 Jan 2021',
     }
-    return render(request, 'accounts/dashboard.html', {'userdata': userdata})
+    return render(request, 'accounts/profile.html', {'userdata': userdata})
 
+#####################################################################
 
 
 def get_binary(request,_data):

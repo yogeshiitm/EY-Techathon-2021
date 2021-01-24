@@ -1,0 +1,44 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+
+{% block content %}
+
+<!-- Start wrapper-->
+ <div id="wrapper">
+
+	<div class="card card-authentication1 mx-auto my-4">
+		<div class="card-body">
+		 <div class="card-content p-2">
+		 	<!-- <div class="text-center">
+		 		<img src="{% static 'images/logo.jpg' %}" alt="logo icon" style="width:20%;">
+       		</div> -->
+			 <div class="card-title text-uppercase text-center py-3" style="font-size:x-large;">Profile</div>
+			 <!-- <div class="card-title text-uppercase text-center py-3">Profile</div> -->
+		    <form>
+
+
+			{% for key,value in userdata.items %}
+			{% if key != 'Last login' %}
+				<div class="form-group">
+				<label for="exampleInputName" style="font-size:medium;">{{key}}</label>
+				<div class="position-relative has-icon-right">
+					<p class="form-control input-shadow my-4" style="color: white">{{key.capitalize}}: {{ value }}</p>
+				</div>
+				</div>
+
+			{% else %}
+				<p style="color: white">Last Login: {{ user.last_login | date:'d M Y' }}</p>
+
+			{% endif %}
+			{% endfor %}
+
+    
+{% endblock %}
+
+
+<!-- https://stackoverflow.com/a/35752912/13962648 -->
+{% block footer %}
+{% endblock %}
