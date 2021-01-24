@@ -1,8 +1,11 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from django.contrib.auth.models import User
 from django.forms import ValidationError
 from django.contrib import messages
+# from django.contrib.auth.models import User
+# replace the above with
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class CustomRegisterForm(UserCreationForm):

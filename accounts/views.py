@@ -48,9 +48,9 @@ def signup(request):
             form.save()
             messages.success(request, 'Account created successfully!')
 
-            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
-            user = auth.authenticate(username = username,password = password)
+            user = auth.authenticate(email=email, password = password)
             login(request, user)
             return redirect('vaccineform')
 
