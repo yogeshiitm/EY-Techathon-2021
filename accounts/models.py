@@ -66,6 +66,9 @@ class MedicalModel(models.Model):
     def __str__(self):
         return f'{self.user.username}-{self.state}'
     
+    def funct():
+        pass
+    
     # class Meta:
     #     ordering = ['category']
 
