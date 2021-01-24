@@ -42,7 +42,7 @@ class MedicalModel(models.Model):
     adhaar = models.CharField(max_length=16, blank=False)
     mobile = models.CharField(max_length=10,blank=False)
     pincode = models.CharField(max_length=6, blank=False)
-    category = models.CharField(max_length = 100, blank=False)
+    occupation = models.CharField(max_length = 100, blank=False)
     state = models.CharField(max_length=100, blank=False)
     district = models.CharField(max_length=100, blank=False)
     age = models.CharField(max_length=100,blank=False)
@@ -62,14 +62,41 @@ class MedicalModel(models.Model):
     strk_dmtia = models.IntegerField()
     other_neuro = models.IntegerField()
     organ_transplant = models.IntegerField()
+    no_illness = models.IntegerField(null =True)
+    category = models.IntegerField(null=True)
+    illness_score = models.FloatField(null=True)
 
     def __str__(self):
         return f'{self.user.username}-{self.state}'
     
-    def funct():
-        pass
+    def get_category(self):
+        no_illness = self.smoker + self.hbp_hyt +self.respiratory +self.chd +self.diabetes +self.cancer_non +self.hmt +self.reduced_kidney +self.kidney_dialysis +self.liver_disease +self.strk_dmtia +self.other_neuro + self.organ_transplant
+
+        if int(self.occupation) == 1:
+            self.category = 1
+            self.no_illness = no_illness
+            self.save()
+        
+        elif int(self.occupation) == 0 and int(self.age) >= 60:
+            self.category = 2
+            self.no_illness = no_illness
+            self.save()
+        
+        elif int(self.occupation) == 0 and int(self.age) <60 and no_illness > 0:
+            self.category = 3
+            self.no_illness = no_illness
+            self.save()
+        else:
+            self.category = 4
+            self.no_illness = no_illness
+            self.save()
     
-    # class Meta:
-    #     ordering = ['category']
+    def set_eligibility(self):
+        score = self.no_illness*1 + self.covid*1 + self.smoker*0.11 + self.hbp_hyt*0.14 + self.respiratory*0.215 + self.chd*0.33 + self.diabetes*0.26 + self.cancer_non*0.28 + self.hmt*0.46 + self.reduced_kidney*0.9 + self.kidney_dialysis*0.8 + self.liver_disease*0.18 + self.strk_dmtia*0.62 + self.other_neuro*0.39 + self.organ_transplant*0.34
+        self.illness_score = score
+        self.save()
+        
+    class Meta:
+        ordering = ['category']
 
 
