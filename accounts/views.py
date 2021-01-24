@@ -100,7 +100,19 @@ def logout_user(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    email = request.user.email
+    name = request.user.first_name
+    try:
+        user = MedicalModel.objects.get(user=request.user)
+        context={
+            'email':email,
+            'name':name,
+            'user':user
+        }
+        return render(request, 'accounts/dashboard.html',context)
+
+    except MedicalModel.DoesNotExist:
+        return redirect('vaccineform')
 
 
 @login_required(login_url='login')

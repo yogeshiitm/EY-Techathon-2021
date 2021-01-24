@@ -26,8 +26,8 @@
             </div>
             <div class="card-body pt-4">
                 <!-- <img src="{% static 'images/profile2.png' %}" alt="profile-image" class="profile"> -->
-                <h5 class="card-title pb-0 mb-0">Name: John Doe</h5>
-                <h5 class="card-title pt-0 mt-0">Email: johndoe@gmail.com</h5>
+                <h5 class="card-title pb-0 mb-0">Name: {{name}}</h5>
+                <h5 class="card-title pt-0 mt-0">Email: {{email}}</h5>
                 <!-- <h5 class="card-title">{{name}}</h5> -->
             </div>
 
@@ -230,13 +230,13 @@
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Name</label>
                         <div class="col-lg-9">
-                            <input onkeydown="return false" class="form-control" type="text" value="Mark">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{name}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Email</label>
                         <div class="col-lg-9">
-                            <input onkeydown="return false" class="form-control" type="email" value="mark@example.com">
+                            <input readonly onkeydown= "return false" class="form-control" type="email" value="{{email}}">
                         </div>
                     </div>
                     <!-- <div class="form-group row">
@@ -246,49 +246,51 @@
                         </div>
                     </div> -->
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Address</label>
+                        <label class="col-lg-3 col-form-label form-control-label">State</label>
                         <div class="col-lg-9">
-                            <input  onkeydown="return false" class="form-control" type="text" value="" placeholder="State">
+                            <input readonly onkeydown="return false" onkeydown="return false" class="form-control" type="text" value="{{user.state}}">
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                        <div class="col-lg-5">
-                            <input class="form-control" type="text" value="" placeholder="District">
-                        </div>
-                        <div class="col-lg-4">
-                            <input onkeydown="return false" class="form-control" type="text" value="" placeholder="Pincode">
+                        <label class="col-lg-3 col-form-label form-control-label">District</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.district}}">
                         </div>
                     </div>
-                    
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Pincode</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.pincode}}">
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Aadhaar No.</label>
                         <div class="col-lg-9">
-                            <input  onkeydown="return false" class="form-control" type="text" value="">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.adhaar}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Mobile No.</label>
                         <div class="col-lg-9">
-                            <input onkeydown="return false" class="form-control" type="text" value="">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.mobile}}" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Age</label>
                         <div class="col-lg-9">
-                            <input onkeydown="return false" class="form-control" type="text" value="">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.age}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Gender</label>
                         <div class="col-lg-9">
-                            <input onkeydown="return false" class="form-control" type="text" value="">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.gender}}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-lg-3 col-form-label form-control-label">Occupation</label>
                         <div class="col-lg-9">
-                            <input onkeydown="return false" class="form-control" type="text" value="">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.occupation}}">
                         </div>
                     </div>
                     <!-- <div class="form-group row">
@@ -497,14 +499,14 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Covid-19</label>
                             <div class="col-sm-4">
 
-                                {% if data.covid == 1 %}
+                                {% if user.covid == 1 %}
                                     <div class="icheck-material-white">
-                                        <input type="checkbox" name="Covid-19" value="1"/>
+                                        <input readonly type="checkbox" name="Covid-19" value="1"/>
                                         <label for="user-checkbox1"></label>
                                     </div>
                                 {% else %}
                                     <div class="icheck-material-white">
-                                        <input type="checkbox" checked="" name="Covid-19" value="1"/>
+                                        <input readonly type="checkbox" checked="" name="Covid-19" value="1"/>
                                         <label for="user-checkbox1"></label>
                                     </div>
                                 {% endif %}
@@ -515,10 +517,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Diabetes</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Diabetes" value="1"/>
-                                <label for="user-checkbox2"></label>
-                                </div>
+                                {% if user.diabetes == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
 
                             </div>
                             </div>
@@ -526,10 +535,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Hypertension</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Hypertension" value="1"/>
-                                <label for="user-checkbox3"></label>
-                                </div>
+                                {% if user.hbp_hyt == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                                 
                             </div>
                             </div>
@@ -537,10 +553,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Lung Disease</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Lung Disease" value="1"/>
-                                <label for="user-checkbox4"></label>
-                                </div>
+                                {% if user.respiratory == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                                 
                             </div>
                             </div>
@@ -548,10 +571,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Heart Disease</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Heart Disease" value="1"/>
-                                <label for="user-checkbox5"></label>
-                                </div>
+                                {% if user.chd == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                                 
                             </div>
                             </div>
@@ -559,30 +589,51 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Liver Disorder</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Liver Disorder" value="1"/>
-                                <label for="user-checkbox6"></label>
-                                </div>
+                                {% if user.liver_disease == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                             </div>
                             </div>
                             <div class="form-group row">
                             <label for="input-26" class="col-sm-8 col-form-label">Reduced kidney function</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Reduced kidney function" value="1"/>
-                                <label for="user-checkbox7"></label>
-                                </div>
+                                {% if user.reduced_kidney == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                             </div>
                             </div>
                             <div class="form-group row">
                             <label for="input-26" class="col-sm-8 col-form-label">None of the above</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Neurological disease" value="1"/>
-                                <label for="user-checkbox15"></label>
-                                </div>
+                               {% if user.no_illness != 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                             </div>
                             </div>
                         </div>
@@ -593,10 +644,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Kidney dialysis</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Kidney dialysis" value="1"/>
-                                <label for="user-checkbox8"></label>
-                                </div>
+                                {% if user.kidney_dialysis == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                                 
                             </div>
                             </div>
@@ -604,10 +662,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Smoking</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Smoking" value="1"/>
-                                <label for="user-checkbox9"></label>
-                                </div>
+                                {% if user.smoker == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
             
                             </div>
                             </div>
@@ -615,10 +680,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Stroke or dementia</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Stroke or dementia" value="1"/>
-                                <label for="user-checkbox10"></label>
-                                </div>
+                                {% if user.strk_dmtia == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                                 
                             </div>
                             </div>
@@ -626,10 +698,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Cancer (non-haematological)</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Cancer (non-haematological)" value="1"/>
-                                <label for="user-checkbox11"></label>
-                                </div>
+                                {% if user.cancer_non == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                                 
                             </div>
                             </div>
@@ -637,10 +716,17 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Haematological malignancy</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Haematological malignancy" value="1"/>
-                                <label for="user-checkbox12"></label>
-                                </div>
+                                {% if user.hmt == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                                 
                             </div>
                             </div>
@@ -648,20 +734,35 @@
                             <label for="input-26" class="col-sm-8 col-form-label">Other Neurological disease</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox" name="Other Neurological disease" value="1"/>
-                                <label for="user-checkbox13"></label>
-                                </div>
+                                {% if user.other_neuro == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
                             </div>
                             </div>
                             <div class="form-group row">
                             <label for="input-26" class="col-sm-8 col-form-label">Organ transplant</label>
                             <div class="col-sm-4">
             
-                                <div class="icheck-material-white">
-                                <input type="checkbox"  name="Smoking" value="1"/>
-                                <label for="user-checkbox14"></label>
-                                </div>
+                                {% if user.organ_transplant == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+
                             </div>
                             </div>
                         </div>
