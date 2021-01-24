@@ -3,8 +3,6 @@ from .models import *
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin
 
-admin.site.register(MedicalModel)
-
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
     list_display = ('email', 'is_staff', 'is_active',)
