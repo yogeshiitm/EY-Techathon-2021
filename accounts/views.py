@@ -104,51 +104,57 @@ def get_binary(request,_data):
 
 @login_required(login_url='login')
 def vaccineform(request):
-
-    form = MedicalForm()
-
-    states = StateModel.objects.all().order_by('state')
-    # if MedicalModel.objects.get(user=request.user):
-    #     form = MedicalModel.objects.get(user=request.user)
-    #     return render(request,'accounts/vaccine_form.html',{'form':form,'states':states})
-
-
-    if request.method == 'POST':
-        form = MedicalForm(request.POST)
-
-        user = request.user
-        adhaar = request.POST.get('adhaar')
-        mobile = request.POST.get('mobile')
-        pincode = request.POST.get('pincode')
-        category = request.POST.get('category')
-        state = request.POST.get('state')
-        district = request.POST.get('district')
-        age = request.POST.get('dob')
-        gender = request.POST.get('gender') 
-        
-        # if gender or state or adhaar or district or mobile or category is None:
-        #     states = StateModel.objects.all().order_by('state')
-        #     return render(request,'accounts/vaccine_form.html',{'form':MedicalForm(request.POST),'states':states})
-        
-        covid = get_binary(request,'covid')
-        smoker = get_binary(request,'smoker')
-        hbp_hyt = get_binary(request,'hbp_hyt')
-        respiratory = get_binary(request,'respiratory')
-        chd =get_binary(request,'chd')
-        diabetes = get_binary(request,'diabetes') 
-        cancer_non = get_binary(request,'cancer_non')
-        hmt = get_binary(request,'hmt')
-        reduced_kidney = get_binary(request,'reduced_kidney')
-        kidney_dialysis = get_binary(request,'kidney_dialysis')
-        liver_disease =get_binary(request,'liver_disease')
-        strk_dmtia = get_binary(request,'strk_dmtia')
-        other_neuro = get_binary(request,'other_neuro')
-        organ_transplant =get_binary(request,'organ_transplant')
-
-        detail = MedicalModel(user = user,adhaar = adhaar,mobile = mobile,pincode=pincode,category=category,state=state,district=district,age=age,gender=gender,covid=covid,smoker=smoker,hbp_hyt=hbp_hyt,respiratory=respiratory,chd=chd,diabetes=diabetes,cancer_non=cancer_non,hmt=hmt,reduced_kidney=reduced_kidney,kidney_dialysis=kidney_dialysis,liver_disease=liver_disease,strk_dmtia=strk_dmtia,other_neuro=other_neuro,organ_transplant=organ_transplant)
-        detail.save()
-
+    try:
+        med = MedicalModel.objects.get(user=request.user)
         return redirect('dashboard')
 
-    return render(request, 'accounts/vaccine_form.html',{'form':form,'states':states})
+    except MedicalModel.DoesNotExist:   
+        form = MedicalForm()
+
+        states = StateModel.objects.all().order_by('state')
+        # if MedicalModel.objects.get(user=request.user):
+        #     form = MedicalModel.objects.get(user=request.user)
+        #     return render(request,'accounts/vaccine_form.html',{'form':form,'states':states})
+
+
+        if request.method == 'POST':
+            form = MedicalForm(request.POST)
+
+            user = request.user
+            adhaar = request.POST.get('adhaar')
+            mobile = request.POST.get('mobile')
+            pincode = request.POST.get('pincode')
+            category = request.POST.get('category')
+            state = request.POST.get('state')
+            district = request.POST.get('district')
+            age = request.POST.get('dob')
+            gender = request.POST.get('gender') 
+            
+            # if gender or state or adhaar or district or mobile or category is None:
+            #     states = StateModel.objects.all().order_by('state')
+            #     return render(request,'accounts/vaccine_form.html',{'form':MedicalForm(request.POST),'states':states})
+            
+            covid = get_binary(request,'covid')
+            smoker = get_binary(request,'smoker')
+            hbp_hyt = get_binary(request,'hbp_hyt')
+            respiratory = get_binary(request,'respiratory')
+            chd =get_binary(request,'chd')
+            diabetes = get_binary(request,'diabetes') 
+            cancer_non = get_binary(request,'cancer_non')
+            hmt = get_binary(request,'hmt')
+            reduced_kidney = get_binary(request,'reduced_kidney')
+            kidney_dialysis = get_binary(request,'kidney_dialysis')
+            liver_disease =get_binary(request,'liver_disease')
+            strk_dmtia = get_binary(request,'strk_dmtia')
+            other_neuro = get_binary(request,'other_neuro')
+            organ_transplant =get_binary(request,'organ_transplant')
+
+            detail = MedicalModel(user = user,adhaar = adhaar,mobile = mobile,pincode=pincode,category=category,state=state,district=district,age=age,gender=gender,covid=covid,smoker=smoker,hbp_hyt=hbp_hyt,respiratory=respiratory,chd=chd,diabetes=diabetes,cancer_non=cancer_non,hmt=hmt,reduced_kidney=reduced_kidney,kidney_dialysis=kidney_dialysis,liver_disease=liver_disease,strk_dmtia=strk_dmtia,other_neuro=other_neuro,organ_transplant=organ_transplant)
+            detail.save()
+
+            return redirect('dashboard')
+
+        return render(request, 'accounts/vaccine_form.html',{'form':form,'states':states})
+
+
 
