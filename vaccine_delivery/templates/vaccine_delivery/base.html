@@ -181,17 +181,12 @@
 
           <!-- <a href="{% url 'index' %}" class="ml-2" style="text-align: left !important;"><strong>Priority Covid-19 Vaccine</strong> </a> -->
           <li class="nav-item">
-            <!-- <form class="search-bar">
-              <input type="text" class="form-control" placeholder="Enter keywords">
-                <a href="javascript:void();"><i class="icon-magnifier"></i></a>
-            </form> -->
             <form method ="post" class="search-bar">
               {% csrf_token %}
-              <input type="text" class="form-control" name = 'state' placeholder="Search state or district...">
+              <input type="text" class="form-control" name = 'search' placeholder="Search state or district...">
                 <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
-            </form>
-          </li>
-
+              </form>
+            </li>
 
         </ul>
 

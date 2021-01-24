@@ -5,7 +5,7 @@ from django.utils.translation import ugettext_lazy  as _
 
 #for medicalmodel
 # from django.contrib.auth.models import User
-from vaccine_delivery.models import StateModel
+from vaccine_delivery.models import *
 
 
 class CustomUserManager(BaseUserManager):
@@ -77,10 +77,6 @@ REDUCED_KIDNEY = (
     ("eFGR <30", 1.1),
 )
 
-STATES = []
-for state in StateModel.objects.all():
-    STATES.append((f"{state.state}",state.state)) 
-STATES = tuple(STATES)
 
 CATEGORY = (
     ("Health Worker/Frontline Worker", 1.1),
@@ -120,22 +116,22 @@ class MedicalModel(models.Model):
     illness_score = models.FloatField(null=True)
 
     def __str__(self):
-        return f'{self.user.username}-{self.state}'
+        return f'{self.user.first_name}-{self.state}'
     
     def get_category(self):
         no_illness = self.smoker + self.hbp_hyt +self.respiratory +self.chd +self.diabetes +self.cancer_non +self.hmt +self.reduced_kidney +self.kidney_dialysis +self.liver_disease +self.strk_dmtia +self.other_neuro + self.organ_transplant
 
-        if int(self.occupation) == 1:
+        if self.occupation == 'Health/Frontline Workers':
             self.category = 1
             self.no_illness = no_illness
             self.save()
         
-        elif int(self.occupation) == 0 and int(self.age) >= 60:
+        elif self.occupation == 'Others' and int(self.age) >= 60:
             self.category = 2
             self.no_illness = no_illness
             self.save()
         
-        elif int(self.occupation) == 0 and int(self.age) <60 and no_illness > 0:
+        elif self.occupation == 'Others' and int(self.age) <60 and no_illness > 0:
             self.category = 3
             self.no_illness = no_illness
             self.save()

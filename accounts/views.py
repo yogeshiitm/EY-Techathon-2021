@@ -17,6 +17,20 @@ from django.contrib.auth import login as auth_login # https://stackoverflow.com/
 
 def login(request):
     if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
+
         email = request.POST['email']
         password = request.POST['password']
 
@@ -29,7 +43,7 @@ def login(request):
             #     return redirect('vaccineform')
             # else:
             #     return redirect('dashboard')
-            return redirect('dashboard')
+            return redirect('vaccineform')
 
         else:
             messages.error(request, 'Invalid credentials!')
@@ -37,7 +51,7 @@ def login(request):
 
     else:
         if request.user.is_authenticated:
-            return redirect('/')
+            return redirect('vaccineform')
         else:
             return render(request, 'accounts/login.html')
 
@@ -46,6 +60,20 @@ def signup(request):
     if request.method == 'POST':
         form = CustomRegisterForm(request.POST or None)
 
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
+
         if form.is_valid():
             form.save()
             #messages.success(request, 'Account created successfully!')
@@ -53,6 +81,7 @@ def signup(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
             user = auth.authenticate(email=email, password = password)
+    
 
             # https://stackoverflow.com/a/39316967/13962648
             # login(request, user)
@@ -74,13 +103,54 @@ def signup(request):
 
 
 def logout_user(request):
+    if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
     logout(request)
     return redirect('login')
 
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    if request.method == 'POST':
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+            
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect('dashboard')
+
+    email = request.user.email
+    name = request.user.first_name
+
+    try:
+        user = MedicalModel.objects.get(user=request.user)  
+        context={
+            'email':email,
+            'name':name,
+            'user':user,
+        }
+        return render(request, 'accounts/dashboard.html',context)
+
+    except MedicalModel.DoesNotExist:
+        return redirect('vaccineform')
 
 
 @login_required(login_url='login')
@@ -130,6 +200,20 @@ def vaccineform(request):
 
 
     if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
+
         form = MedicalForm(request.POST)
 
         user = request.user

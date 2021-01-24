@@ -84,13 +84,6 @@ def Update_datasets(request):
         pass
 '''
 
-# top = pd.read_csv('state_wise.csv',sep=',')
-# top = top[top['State']=='Total']
-# confirmed = int(top['Confirmed'])
-# active = int(top['Active'])
-# recovered = int(top['Recovered'])
-# deaths = int(top['Deaths'])
-
 def check_update_time(request):
     global updated
     global date_file
@@ -127,7 +120,7 @@ def Index(request):
 
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('state')
+        states = request.POST.get('search')
         try:
             state = StateModel.objects.get(state = states)
             print(state)
@@ -174,7 +167,7 @@ def DistrictHomeView(request):
 
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('state')
+        states = request.POST.get('search')
         try:
             state = StateModel.objects.get(state = states)
             print(state)
@@ -195,7 +188,7 @@ def DistrictHomeView(request):
 def DistrictView(request, state):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('state')
+        states = request.POST.get('search')
         try:
             state = StateModel.objects.get(state = states)
             print(state)
@@ -216,7 +209,7 @@ def DistrictView(request, state):
 def BatchView(request, batch):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('state')
+        states = request.POST.get('search')
         try:
             state = StateModel.objects.get(state = states)
             print(state)
@@ -240,7 +233,7 @@ def BatchView(request, batch):
 def AboutView(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('state')
+        states = request.POST.get('search')
         try:
             state = StateModel.objects.get(state = states)
             print(state)
@@ -259,7 +252,7 @@ def AboutView(request):
 def TeamView(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('state')
+        states = request.POST.get('search')
         try:
             state = StateModel.objects.get(state = states)
             print(state)
