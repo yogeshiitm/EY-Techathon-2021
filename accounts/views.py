@@ -8,6 +8,7 @@ from .forms import CustomRegisterForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from vaccine_delivery.models import *
+from django.contrib.auth import login as auth_login # https://stackoverflow.com/a/39316967/13962648
 
 # User._meta.get_field('email')._blank = False
 # User.add_to_class('email', models.EmailField(null=True, blank=False))
@@ -46,12 +47,15 @@ def signup(request):
 
         if form.is_valid():
             form.save()
-            messages.success(request, 'Account created successfully!')
+            #messages.success(request, 'Account created successfully!')
 
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
             user = auth.authenticate(email=email, password = password)
-            login(request, user)
+
+            # https://stackoverflow.com/a/39316967/13962648
+            # login(request, user)
+            auth_login(request, user)
             return redirect('vaccineform')
 
         else:
@@ -73,7 +77,7 @@ def logout_user(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'accounts/vaccine_form.html')
+    return render(request, 'accounts/dashboard.html')
 
 
 @login_required(login_url='login')
@@ -95,40 +99,42 @@ def profile(request):
 
 def vaccineform(request):
 
-    form = MedicalForm()
+    # form = MedicalForm()
 
-    if request.method == 'POST':
-        form = MedicalForm(request.POST)
+    # if request.method == 'POST':
+    #     form = MedicalForm(request.POST)
 
-        if form.is_valid():
-            user = request.user
-            adhaar = form.cleaned_data['adhaar']
-            mobile = form.cleaned_data['mobile']
-            category = form.cleaned_data['category']
-            state = form.cleaned_data['state']
-            district = form.cleaned_data['district']
-            age = form.cleaned_data['age']
-            gender = form.cleaned_data['gender']
+    #     if form.is_valid():
+    #         user = request.user
+    #         adhaar = form.cleaned_data['adhaar']
+    #         mobile = form.cleaned_data['mobile']
+    #         category = form.cleaned_data['category']
+    #         state = form.cleaned_data['state']
+    #         district = form.cleaned_data['district']
+    #         age = form.cleaned_data['age']
+    #         gender = form.cleaned_data['gender']
             
-            covid = form.cleaned_data['covid']
-            smoker = form.cleaned_data['smoker']
-            hbp_hyt = form.cleaned_data['hbp_hyt']
-            respiratory = form.cleaned_data['respiratory']
-            asthama = form.cleaned_data['asthma']
-            chd =form.cleaned_data['chd']
-            diabetes = form.cleaned_data['diabetes']
-            cancer_non = form.cleaned_data['cancer']
-            hmt = form.cleaned_data['hmt']
-            reduced_kidney = form.cleaned_data['reduced_kidney']
-            kidney_dialysis = form.cleaned_data['kidney_dialysis']
-            liver_disease =form.cleaned_data['liver_disease']
-            other_neuro = form.cleaned_data['other_neuro']
-            organ_transplant =form.cleaned_data['organ_transplant']
+    #         covid = form.cleaned_data['covid']
+    #         smoker = form.cleaned_data['smoker']
+    #         hbp_hyt = form.cleaned_data['hbp_hyt']
+    #         respiratory = form.cleaned_data['respiratory']
+    #         asthama = form.cleaned_data['asthma']
+    #         chd =form.cleaned_data['chd']
+    #         diabetes = form.cleaned_data['diabetes']
+    #         cancer_non = form.cleaned_data['cancer']
+    #         hmt = form.cleaned_data['hmt']
+    #         reduced_kidney = form.cleaned_data['reduced_kidney']
+    #         kidney_dialysis = form.cleaned_data['kidney_dialysis']
+    #         liver_disease =form.cleaned_data['liver_disease']
+    #         other_neuro = form.cleaned_data['other_neuro']
+    #         organ_transplant =form.cleaned_data['organ_transplant']
 
-            detail = MedicalFormModel(user,adhaar,mobile,category,state,district,age,gender,covid,smoker,hbp_hyt,respiratory,asthama,chd,diabetes,cancer_non,hmt,reduced_kidney,kidney_dialysis,liver_disease,other_neuro,organ_transplant)
-            detail.save()
+    #         detail = MedicalFormModel(user,adhaar,mobile,category,state,district,age,gender,covid,smoker,hbp_hyt,respiratory,asthama,chd,diabetes,cancer_non,hmt,reduced_kidney,kidney_dialysis,liver_disease,other_neuro,organ_transplant)
+    #         detail.save()
 
-            return redirect('dashboard')
+    #         return redirect('dashboard')
 
+    # states = StateModel.objects.all().order_by('state')
+    # return render(request, 'accounts/vaccine_form.html',{'form':form,'states':states})
     states = StateModel.objects.all().order_by('state')
-    return render(request, 'accounts/vaccine_form.html',{'form':form,'states':states})
+    return render(request, 'accounts/vaccine_form.html',{'states':states})
