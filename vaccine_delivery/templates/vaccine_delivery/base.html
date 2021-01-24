@@ -219,11 +219,25 @@
         </div>
              -->
 
-        
-        <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
-        <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Sign up</a>
-        <!-- <button type="button" class="btn btn-info waves-effect waves-light m-1">Login</button>
-        <button type="button" class="btn btn-white waves-effect waves-light m-1">Sign up</button> -->
+        {% if request.user.is_superuser %}
+            <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Admin</a>
+            <a href="{% url 'profile' %}" class="btn btn-info waves-effect waves-light m-1">Profile</a>
+        {% endif %}
+
+
+        {% if request.user.is_authenticated and request.user.is_staff %}
+            {% comment %} <a href="{% url 'admin_dashboard' %}" class="btn btn-white waves-effect waves-light m-1">Dashboard</a> {% endcomment %}
+            <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+        {% elif request.user.is_authenticated and not request.user.is_staff %}
+            <a href="{% url 'dashboard' %}" class="btn btn-white waves-effect waves-light m-1">Dashboard</a>
+            <a href="{% url 'profile' %}" class="btn btn-info waves-effect waves-light m-1">Profile</a>
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
+            <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Sign up</a>
+        {% endif %}
+
         
 
         <!-- <ul class="navbar-nav align-items-center right-nav-link">

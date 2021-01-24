@@ -21,20 +21,18 @@
 
 
 			{% for key,value in userdata.items %}
-
+			{% if key != 'Last login' %}
 				<div class="form-group">
-				<!-- <label for="exampleInputName" style="font-size:medium;">{{key}}</label> -->
+				<label for="exampleInputName" style="font-size:medium;">{{key}}</label>
 				<div class="position-relative has-icon-right">
-					<!-- <p class="form-control input-shadow" style="color: white">{{ value }}</p> -->
 					<p class="form-control input-shadow my-4" style="color: white">{{key.capitalize}}: {{ value }}</p>
-					<!-- <p style="color: white">{{key.capitalize}}: {{ value }}</p> -->
-					<!-- <input type="text" id="exampleInputName" class="form-control input-shadow" placeholder="Name"> -->
-					<!-- <div class="form-control-position">
-						<i class="icon-user"></i>
-					</div> -->
 				</div>
 				</div>
 
+			{% else %}
+				<p style="color: white">Last Login: {{ user.last_login | date:'d M Y' }}</p>
+
+			{% endif %}
 			{% endfor %}
 
     
