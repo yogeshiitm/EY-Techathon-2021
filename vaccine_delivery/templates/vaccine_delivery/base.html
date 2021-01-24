@@ -221,7 +221,6 @@
 
         {% if request.user.is_superuser %}
             <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Admin</a>
-            <a href="{% url 'profile' %}" class="btn btn-info waves-effect waves-light m-1">Profile</a>
         {% endif %}
 
 
@@ -231,7 +230,6 @@
             <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
         {% elif request.user.is_authenticated and not request.user.is_staff %}
             <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Dashboard</a>
-            <!-- <a href="{% url 'profile' %}" class="btn btn-info waves-effect waves-light m-1">Profile</a> -->
             <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
         {% else %}
             <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
