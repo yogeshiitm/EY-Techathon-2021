@@ -22,31 +22,31 @@
 					{% csrf_token %}
 
 					<div class="form-group">
-					<label for="exampleInputName" class="sr-only">Name</label>
-					<div class="position-relative has-icon-right">
-						{% render_field form.fullname type="text" id="exampleInputName" class="form-control input-shadow" placeholder="Name" required="required" %}
-						<div class="form-control-position">
-							<i class="icon-user"></i>
+						<label for="exampleInputEmailId" class="sr-only">Email ID</label>
+						<div class="position-relative has-icon-right">
+							{% render_field form.email type="email" id="exampleInputEmailId" class="form-control input-shadow" placeholder="Email ID" required="required" %}
+							<div class="form-control-position">
+								<i class="icon-envelope-open"></i>
+							</div>
 						</div>
-					</div>
 					</div>
 					<div class="form-group">
-					<label for="exampleInputEmailId" class="sr-only">Email ID</label>
-					<div class="position-relative has-icon-right">
-						{% render_field form.email type="email" id="exampleInputEmailId" class="form-control input-shadow" placeholder="Email ID" required="required" %}
-						<div class="form-control-position">
-							<i class="icon-envelope-open"></i>
+						<label for="exampleInputName" class="sr-only">Name</label>
+						<div class="position-relative has-icon-right">
+							{% render_field form.fullname type="text" id="exampleInputName" class="form-control input-shadow" placeholder="Name" required="required" %}
+							<div class="form-control-position">
+								<i class="icon-user"></i>
+							</div>
 						</div>
-					</div>
 					</div>
 					<div class="form-group">
-					<label for="exampleInputPassword" class="sr-only">Password</label>
-					<div class="position-relative has-icon-right">
-						{% render_field form.password1 type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Password" required="required" %}
-						<div class="form-control-position">
-							<i class="icon-lock"></i>
+						<label for="exampleInputPassword" class="sr-only">Password</label>
+						<div class="position-relative has-icon-right">
+							{% render_field form.password1 type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Password" required="required" %}
+							<div class="form-control-position">
+								<i class="icon-lock"></i>
+							</div>
 						</div>
-					</div>
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword" class="sr-only">Confirm Password</label>

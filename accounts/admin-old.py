@@ -3,16 +3,13 @@ from .models import *
 # Register your models here.
 from django.contrib.auth.admin import UserAdmin
 
-
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
-    list_display = ('email','first_name', 'last_name', 'is_staff', 'is_active',)
-    list_filter = ('email', 'is_staff', 'is_superuser', 'is_active')
+    list_display = ('email', 'is_staff', 'is_active',)
+    list_filter = ('email', 'is_staff', 'is_active',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
-        ('Personal info', {'fields': ('first_name', 'last_name')}),
-        ('Permissions', {'fields': ('is_active', 'is_staff', 'is_superuser')}),
-        ('Important dates', {'fields': ('last_login', 'date_joined')}),
+        ('Permissions', {'fields': ('is_staff', 'is_active')}),
     )
     add_fieldsets = (
         (None, {
@@ -22,7 +19,6 @@ class CustomUserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
-
 
 
 # Re-register UserAdmin
