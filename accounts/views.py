@@ -138,7 +138,7 @@ def dashboard(request):
                 return redirect('dashboard')
 
     email = request.user.email
-    name = request.user.first_name
+    name = request.user.first_name + ' ' + request.user.last_name
 
     try:
         user = MedicalModel.objects.get(user=request.user)  
