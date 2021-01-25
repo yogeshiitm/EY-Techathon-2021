@@ -104,7 +104,7 @@ def check_update_time(request):
     if last_updated_date < str(now_time.strftime('%Y-%m-%d')):
         print("Last update time is old")
         print(now_time.hour)
-        if 3 <= now_time.hour:
+        if 1 <= now_time.hour:
             print("Last updated Date is old. Fetching new Data..")
             State_data_update()
             print("State Data Updated! Now updating District Data..")
