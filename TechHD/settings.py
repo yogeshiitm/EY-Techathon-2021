@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     #'django.contrib.sites'
     'accounts.apps.AccountsConfig',
     'widget_tweaks',
-    "verify_email",
     'django_email_verification'
 ]
 
@@ -139,25 +138,6 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 MEDIA_URL ='/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
-def verified_callback(user):
-    user.is_active = True
-
-
-EMAIL_VERIFIED_CALLBACK = verified_callback
-EMAIL_FROM_ADDRESS = 'nn.gudipatu@gmail.com'
-EMAIL_MAIL_SUBJECT = 'Confirm your email'
-EMAIL_MAIL_HTML = 'accounts/mail_body.html'
-EMAIL_MAIL_PLAIN = 'accounts/mail_body.txt'
-EMAIL_TOKEN_LIFE = 60 * 60
-EMAIL_PAGE_TEMPLATE = 'accounts/confirm_template.html'
-EMAIL_PAGE_DOMAIN = 'http://localhost:8000/'
-
-# For Django Email Backend
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = 'nn.gudipaty@gmail.com'
-EMAIL_HOST_PASSWORD = 'Gudipaty2001@G'
 
 
 # https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#auth-custom-user
