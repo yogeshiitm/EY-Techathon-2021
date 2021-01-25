@@ -49,13 +49,13 @@ python manage.py runserver
 2. **Github:**  https://github.com/yogeshiitm/TechHD <br>
 3. **Webapp video:** [click Here](https://drive.google.com/file/d/1w9cYvOAINoc7WjYiRvfwnYB7p40CbiYF/view?usp=sharing) <br>
 4. **Datasets for ML:** [click here](https://drive.google.com/drive/folders/1MxQ8c2Su2RbiA82VvIu6WMBONd-L8vy4?usp=sharing)
-5. **Prediction analysis procedure:** [Click Here](https://drive.google.com/file/d/1vnI6VuDABLq0wU8IPg-edRxyxkBWHeVn/view?usp=sharing)
+5. **Prediction analysis procedure:** [click here](https://drive.google.com/file/d/1vnI6VuDABLq0wU8IPg-edRxyxkBWHeVn/view?usp=sharing)
 
 ## Team Members
 
-1. **Vinayak Nishant Gudipaty** ([linkedin](https://www.linkedin.com/in/vinayak-nishant-gudipaty-907171197/)) - Machine Learning + Backend
-2. **Yogesh Agarwala** ([linkedin](https://www.linkedin.com/in/yogeshiitm/)) - Backend + Frontend 
-3. **Laveen Bagai** ([linkedin](https://www.linkedin.com/in/laveen-bagai-385484202/)) - Frontend + Presentation 
-4. **Ritesh Bhattad** ([linkedin](https://www.linkedin.com/in/ritesh-bhattad-a9bb2b194/)) - Frontend + Presentation 
+1. **Vinayak Nishant Gudipaty** ([Linkedin](https://www.linkedin.com/in/vinayak-nishant-gudipaty-907171197/)) - Machine Learning + Backend
+2. **Yogesh Agarwala** ([Linkedin](https://www.linkedin.com/in/yogeshiitm/)) - Backend + Frontend 
+3. **Laveen Bagai** ([Linkedin](https://www.linkedin.com/in/laveen-bagai-385484202/)) - Frontend + Presentation 
+4. **Ritesh Bhattad** ([Linkedin](https://www.linkedin.com/in/ritesh-bhattad-a9bb2b194/)) - Frontend + Presentation 
 
 
