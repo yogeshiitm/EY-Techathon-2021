@@ -27,7 +27,6 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from vaccine_delivery.models import *
 from django.contrib.auth import login as auth_login # https://stackoverflow.com/a/39316967/13962648
-from django_email_verification import send_email
 
 
 # User._meta.get_field('email')._blank = False
