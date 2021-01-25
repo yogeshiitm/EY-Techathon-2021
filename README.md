@@ -35,6 +35,7 @@ Our datasets are automatically updated daily to accommodate and make the predict
 4. **Database:** PostgreSQL database (on heroku)
 5. **Deployment:** Github + Heroku
 
+<!--
 ## How to run this web app locally
 ```
 pip install -r requirements.txt
@@ -42,6 +43,44 @@ python manage.py makemigrations
 python manage.py migrate
 python manage.py runserver
 ```
+-->
+
+## Local Setup
+1. Clone this repository into local system and change the directory.
+```sh
+git clone https://github.com/yogeshiitm/TechHD.git
+cd TechHD/
+```
+
+2. Install pip3 and pipenv.
+```sh
+pip3 install pipenv
+```
+
+3. Go into the virtual environment: 
+```sh
+pipenv install
+pipenv shell
+```
+
+4. Install the required packages:
+```sh
+pip install -r requirements.txt
+```
+
+4. Apply migrations
+```sh
+python manage.py makemigrations
+python manage.py migrate
+```
+
+5. Run the server:
+```sh
+python manage.py runserver
+```
+
+6. Start the webapp by going to the URL http://127.0.0.1:8000/ on your browser.
+
     
 ## Project links
 
