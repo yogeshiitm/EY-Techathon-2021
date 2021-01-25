@@ -5,8 +5,8 @@ from .scripts import State_data, District_data
 import pandas as pd
 import datetime
 import pytz
-
-updated = None
+from .forms import SearchForm
+from django.contrib import messages, auth
 
 def State_data_update():
     data = State_data()
@@ -84,13 +84,6 @@ def Update_datasets(request):
         pass
 '''
 
-top = pd.read_csv('state_wise.csv',sep=',')
-top = top[top['State']=='Total']
-confirmed = int(top['Confirmed'])
-active = int(top['Active'])
-recovered = int(top['Recovered'])
-deaths = int(top['Deaths'])
-
 def check_update_time(request):
     global updated
     global date_file
@@ -124,6 +117,22 @@ def check_update_time(request):
 
 # Create your views here.
 def Index(request):
+
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+            
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect('/')
+
     print("Request at / base path ")
     check_update_time(request)
     print("Checked updated with time")
@@ -136,42 +145,124 @@ def Index(request):
     deaths = int(top['Deaths'])
 
     data = StateModel.objects.all().order_by('batch_no','-percentage_vaccine_delivery')
+    form =SearchForm()
 
     context = {
         'data':data,
         'confirmed' : confirmed,
         'active' : active,
         'recovered' : recovered,
-        'deaths' : deaths
+        'deaths' : deaths,
+        'form':form
     }
     return render(request, "vaccine_delivery/index.html", context)
+
 
 def StateMapView(request):
     check_update_time(request)
     return render(request, 'state_vaccine_delivery/map.html')
 
+
 def DistrictHomeView(request):
+
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect('/district_level')
+
     check_update_time(request)
     states = StateModel.objects.all().order_by('state')
-    return render(request,'vaccine_delivery/district_level.html',{'states':states})
+    form = SearchForm()
+    return render(request,'vaccine_delivery/district_level.html',{'states':states,'form':form})
 
 
 def DistrictView(request, state):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect(f'/district_level/{state}')
+
     check_update_time(request)
     data = DistrictModel.objects.filter(state = state).order_by('batch_no','-active','-population_2020')
-    return render(request, 'vaccine_delivery/district_level_state.html', {'data': data})
+    form = SearchForm()
+    return render(request, 'vaccine_delivery/district_level_state.html', {'data': data,'form': form})
+
 
 def BatchView(request, batch):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect(f'/batch/{batch}')
+
     check_update_time(request)
     #Update_datasets(request)
     data = StateModel.objects.filter(batch_no = batch).order_by('-percentage_vaccine_delivery')
     top = pd.read_csv('clustered_data.csv',index_col=0)
     top = top.Batch_no.unique()
+    form = SearchForm()
+    return render(request, 'vaccine_delivery/batch.html', {'data': data, 'top':top, 'currentbatch': int(batch), 'form': form})
 
-    return render(request, 'vaccine_delivery/batch.html', {'data': data, 'top':top, 'currentbatch': int(batch)})
 
 def AboutView(request):
-    return render(request,'vaccine_delivery/about.html')
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect('/about')
+    
+    form = SearchForm()
+    return render(request,'vaccine_delivery/about.html',{'form':form})
+
 
 def TeamView(request):
-    return render(request,'vaccine_delivery/team.html')
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states)
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states)
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect('/team')
+
+    form = SearchForm()
+    return render(request,'vaccine_delivery/team.html',{'form':form})

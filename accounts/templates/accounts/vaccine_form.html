@@ -7,175 +7,334 @@
 
 
     <!-- Breadcrumb-->
-     <div class="row pt-2 pb-2 text-center">
-        <!-- <div class="col-sm-9"> -->
-          <div class="col-sm-12">
-        <!-- <h4 class="page-title">Vaccine Registration Form</h4> -->
-		    <h3>Vaccine Registration Form</h3>
-		    <!-- <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="javaScript:void();">Dashtreme</a></li>
-            <li class="breadcrumb-item"><a href="javaScript:void();">Forms</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Form Layouts</li>
-         </ol> -->
-	   </div>
+     <div class="row py-3 text-center">
+        <div class="col-sm-12">
+		      <h3>Vaccine Registration Form</h3>
+	      </div>
      </div>
-    <!-- End Breadcrumb-->
 
+    <form method="post">
+        {% csrf_token %}
 
-		  <div class="row">
-			<div class="col-lg-12">
-			   
-			   <div class="card">
-			     <div class="card-body">
-				   <div class="card-title">Basic Details</div>
-				   <hr>
-				    <form>
-					 <div class="form-group row">
-					  <label for="input-21" class="col-sm-2 col-form-label">State</label>
-					  <div class="col-sm-10">
-						<input type="text" class="form-control" id="input-21" placeholder="State">
-					  </div>
-					</div>
-					<div class="form-group row">
-					  <label for="input-22" class="col-sm-2 col-form-label">District</label>
-					  <div class="col-sm-10">
-						<input type="text" class="form-control" id="input-22" placeholder="District">
-					  </div>
-					</div>
-					  <div class="form-group row">
-						<label for="input-23" class="col-sm-2 col-form-label">Age</label>
-						<div class="col-sm-10">
-						<input type="text" class="form-control" id="input-23" placeholder="Age">
-						</div>
-					  </div>
-					<div class="form-group row">
-					  <label for="input-24" class="col-sm-2 col-form-label">Gender</label>
-					  <div class="col-sm-10">
-						<input type="text" class="form-control" id="input-24" placeholder="Gender">
-					  </div>
-					</div>
-					  <div class="form-group row">
-						<label for="input-25" class="col-sm-2 col-form-label">Mobile No.</label>
-						<div class="col-sm-10">
-						<input type="text" class="form-control" id="input-25" placeholder="Mobile No.">
-						</div>
-					  </div>
-					<!-- <div class="form-group row">
-					  <label class="col-sm-2 col-form-label"></label>
-					  <div class="col-sm-10">
-						<div class="icheck-material-white">
-						<input type="checkbox" id="user-checkbox5" checked=""/>
-						<label for="user-checkbox5">Remember me</label>
-					  </div>
-					  </div>
-					</div> -->
-					 <!-- <div class="form-group row">
-					  <label class="col-sm-2 col-form-label"></label>
-					  <div class="col-sm-10">
-						<button type="submit" class="btn btn-white px-5"><i class="icon-lock"></i> Register</button>
-					  </div>
-					</div> -->
-					</form>
-				 </div>
-			 </div>
+	<div class="row">
 
-
-       <div class="card">
-        <div class="card-body">
-        <div class="card-title">Medical History</div>
-        <hr>
-
-         <div class="pb-3">Have you ever had any of the following?</div>
-
-         <form>
-            <div class="form-group row">
-              <label for="input-26" class="col-sm-2 col-form-label">Diabetes</label>
-              <div class="col-sm-10">
-
-                  <div class="icheck-material-white">
-                  <input type="checkbox" id="user-checkbox1" checked=""/>
-                  <!-- <label for="user-checkbox1">Remember me</label> -->
-                  <label for="user-checkbox1"></label>
+			<div class="col-lg-6">
+			  <div class="card">
+			    <div class="card-body pb-5">
+            <div class="card-title">Basic Details</div>
+            <hr>
+                <div class="form-group row">
+                  <label for="input-25" class="col-sm-3 col-form-label">Aadhaar No.</label>
+                  <div class="col-sm-9">
+                  <input type="text" class="form-control" id="input-25" name ="adhaar" placeholder="Aadhaar Number" required pattern="\S+.*" maxlength="16"/>
                   </div>
-
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input-26" class="col-sm-2 col-form-label">Hypertension</label>
-              <div class="col-sm-10">
-
-                <div class="icheck-material-white">
-                <input type="checkbox" id="user-checkbox2" checked=""/>
-                <!-- <label for="user-checkbox2">Remember me</label> -->
-                <label for="user-checkbox2"></label>
                 </div>
-                
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input-26" class="col-sm-2 col-form-label">Lung Disease</label>
-              <div class="col-sm-10">
-
-                <div class="icheck-material-white">
-                <input type="checkbox" id="user-checkbox3" checked=""/>
-                <!-- <label for="user-checkbox3">Remember me</label> -->
-                <label for="user-checkbox3"></label>
+                <div class="form-group row">
+                  <label for="input-24" class="col-sm-3 col-form-label">Mobile No.</label>
+                  <div class="col-sm-9">
+                  <input type="text" class="form-control" id="input-24" name ="mobile" placeholder="Mobile Number" maxlength="10" required pattern="\S+.*" />
+                  </div>
                 </div>
-                
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input-26" class="col-sm-2 col-form-label">Heart Disease</label>
-              <div class="col-sm-10">
-
-                <div class="icheck-material-white">
-                <input type="checkbox" id="user-checkbox4" checked=""/>
-                <!-- <label for="user-checkbox4">Remember me</label> -->
-                <label for="user-checkbox4"></label>
+                <div class="form-group row">
+                  <label for="input-27" class="col-sm-3 col-form-label">State</label>
+                  <div class="col-sm-9">
+                    <select class="form-control single-select" name ="state">
+                      {% if states %}
+                        {% for state in states %}
+                          <option value = "{{state.state}}">{{state.state}}</option>
+                        {% endfor %}
+                      {% endif %}
+                    </select>
+                    <!-- <select class="form-control single-select">
+                      <option>India</option>
+                      <option>England</option>
+                      <option>America</option>
+                      <option>China</option>
+                      <option>Australiya</option>
+                      <option>Newzeland</option>
+                      <option>Dubai</option>
+                      <option>United Kingdom</option>
+                    </select> -->
+                  </div>
+                    
+                  <!-- <div class="col-sm-10">
+                    <input type="text" class="form-control" id="input-21" placeholder="State">
+                  </div> -->
                 </div>
-                
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input-26" class="col-sm-2 col-form-label">Kidney Disorder</label>
-              <div class="col-sm-10">
-
-                <div class="icheck-material-white">
-                <input type="checkbox" id="user-checkbox5" checked=""/>
-                <!-- <label for="user-checkbox5">Remember me</label> -->
-                <label for="user-checkbox5"></label>
+                <div class="form-group row">
+                  <label for="input-23" class="col-sm-3 col-form-label">District</label>
+                  <div class="col-sm-9">
+                  <input type="text" class="form-control" id="input-23" name ="district" placeholder="District" required pattern="\S+.*"/>
+                  </div>
                 </div>
-                
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="input-26" class="col-sm-2 col-form-label">Covid-19</label>
-              <div class="col-sm-10">
-
-                <div class="icheck-material-white">
-                <input type="checkbox" id="user-checkbox6" checked=""/>
-                <!-- <label for="user-checkbox6">Remember me</label> -->
-                <label for="user-checkbox6"></label>
+                <div class="form-group row">
+                  <label for="input-22" class="col-sm-3 col-form-label">Pincode</label>
+                  <div class="col-sm-9">
+                  <input type="text" class="form-control" id="input-22" name ="pincode" placeholder="Pincode" maxlength="6"required pattern="\S+.*"/>
+                  </div>
                 </div>
-                
-              </div>
-            </div>
-
-
-        </form>
+                <div class="form-group row">
+                  <label for="input-21" class="col-sm-3 col-form-label">Age</label>
+                  <div class="col-sm-9">
+                  <input type="text" class="form-control" id="input-21" name ="dob" placeholder="Age" maxlength="3" required pattern="\S+.*"/>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="input-20" class="col-sm-3 col-form-label">Gender</label>
+                  <div class="col-sm-9">
+                    <select class="form-control single-select" name="gender">
+                        <option  value ="Male">Male</option>
+                        <option  value ="Female">Female</option>
+                    </select>
+               
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="input-19" class="col-sm-3 col-form-label">Occupation</label>
+                  <div class="col-sm-9">
+                    <select class="form-control single-select" name="occupation">
+                        <option  value = "Health/Frontline Workers">Health/Frontline Workers</option>
+                        <option  value = "Others">Others</option>
+                    </select>
+                  </div>
+                </div>
+				  </div>
         </div>
       </div>
+
+      
+      <div class="col-lg-6">
+			  <div class="card">
+          <div class="card-body">
+            <div class="card-title">Medical History</div>
+            <hr>
+
+            <!-- <div class="pb-3">Have you ever had any of the following?</div> -->
+            <!-- <div class="pb-4 pt-2">Mark the health issues you have ever had:</div> -->
+            <div class="pb-3">Mark the health issues you have ever had:</div>
+
+              <div class="row">
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="input-26" class="col-sm-8 col-form-label">Covid-19</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <!-- <input type="checkbox" id="user-checkbox6" checked=""/> -->
+                      <input type="checkbox" id="user-checkbox1" name="covid" value=0 />
+                      <label for="user-checkbox1"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-18" class="col-sm-8 col-form-label">Diabetes</label>
+                    <div class="col-sm-4">
+    
+                        <div class="icheck-material-white">
+                        <input type="checkbox" id="user-checkbox2" name="diabetes" value=1 />
+                        <!-- <label for="user-checkbox1">Remember me</label> -->
+                        <label for="user-checkbox2"></label>
+                        </div>
+    
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-17" class="col-sm-8 col-form-label">Hypertension</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox3" name="hbp_hyt" value=1 />
+                      <!-- <label for="user-checkbox2">Remember me</label> -->
+                      <label for="user-checkbox3"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-16" class="col-sm-8 col-form-label">Lung Disease</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox4" name="respiratory" value=1 />
+                      <!-- <label for="user-checkbox3">Remember me</label> -->
+                      <label for="user-checkbox4"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-15" class="col-sm-8 col-form-label">Heart Disease</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox5" name="chd" value=1 />
+                      <!-- <label for="user-checkbox4">Remember me</label> -->
+                      <label for="user-checkbox5"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-14" class="col-sm-8 col-form-label">Liver Disorder</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox6" name="liver_disease" value=1 />
+                      <!-- <label for="user-checkbox5">Remember me</label> -->
+                      <label for="user-checkbox6"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-13" class="col-sm-8 col-form-label">Reduced kidney function</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox7" name="reduced_kidney" value=1 />
+                      <!-- <label for="user-checkbox5">Remember me</label> -->
+                      <label for="user-checkbox7"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-12" class="col-sm-8 col-form-label">None of the above</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox15" name="none" value=0 />
+                      <!-- <label for="user-checkbox5">Remember me</label> -->
+                      <label for="user-checkbox15"></label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="col-6">
+                  <div class="form-group row">
+                    <label for="input-11" class="col-sm-8 col-form-label">Kidney dialysis</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox8" name="kidney_dialysis" value=1 />
+                      <!-- <label for="user-checkbox6">Remember me</label> -->
+                      <label for="user-checkbox8"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-10" class="col-sm-8 col-form-label">Smoking</label>
+                    <div class="col-sm-4">
+    
+                        <div class="icheck-material-white">
+                        <input type="checkbox" id="user-checkbox9" name="smoker" value=1 />
+                        <!-- <label for="user-checkbox1">Remember me</label> -->
+                        <label for="user-checkbox9"></label>
+                        </div>
+    
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-9" class="col-sm-8 col-form-label">Stroke or dementia</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox10" name="strk_dmtia" value=1 />
+                      <!-- <label for="user-checkbox2">Remember me</label> -->
+                      <label for="user-checkbox10"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-8" class="col-sm-8 col-form-label">Cancer (non-haematological)</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox11" name="cancer_non" value=1 />
+                      <!-- <label for="user-checkbox3">Remember me</label> -->
+                      <label for="user-checkbox11"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-7" class="col-sm-8 col-form-label">Haematological malignancy</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox12" name="hmt" value=1 />
+                      <!-- <label for="user-checkbox4">Remember me</label> -->
+                      <label for="user-checkbox12"></label>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-6" class="col-sm-8 col-form-label">Other Neurological disease</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox13" name="other_neuro" value=1 />
+                      <!-- <label for="user-checkbox5">Remember me</label> -->
+                      <label for="user-checkbox13"></label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="input-5" class="col-sm-8 col-form-label">Organ transplant</label>
+                    <div class="col-sm-4">
+    
+                      <div class="icheck-material-white">
+                      <input type="checkbox" id="user-checkbox14" name="organ_transplant" value=1 />
+                      <!-- <label for="user-checkbox5">Remember me</label> -->
+                      <label for="user-checkbox14"></label>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+              
+          </div>
+        </div>
+      </div>
+  </div>
+  </div><!--End Row-->
 
       <!-- <div class="form-group">
         <button type="submit" class="btn btn-light px-5"><i class="icon-lock"></i> Submit</button>
       </div> -->
       <div class="form-group">
-        <button type="submit" class="btn btn-white px-5"><i class="icon-lock"></i> Submit</button>
+        <div class="row">
+          <!-- <div class="col-4"></div> -->
+          <div class="col-2">
+            <!-- <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Submit</button> -->
+            <a href="{% url 'index' %}" class="btn btn-white btn-lg btn-block waves-effect waves-light m-1">Cancel</a>
+          </div>
+          <div class="col-2">
+            <!-- <button type="submit" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Submit</button> -->
+            <button type="submit" class="btn btn-info btn-lg btn-block waves-effect waves-light m-1">Submit</button>
+          </div>
+        </div>
       </div>
+    </form>
 
 
-			</div>
-		  </div><!--End Row-->
+			
+      
+
+
+      <!--Select2-->
+      <link href="{% static 'plugins/select2/css/select2.min.css' %}" rel="stylesheet"/>
+      <script src="{% static 'plugins/select2/js/select2.min.js' %}"></script>
+
+      <script>
+          $(document).ready(function() {
+              $('.single-select').select2();
+
+            });
+      </script>
 
       
 

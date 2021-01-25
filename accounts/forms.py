@@ -1,8 +1,12 @@
 from django.contrib.auth.forms import UserCreationForm
 from django import forms
-from django.contrib.auth.models import User
 from django.forms import ValidationError
 from django.contrib import messages
+from .models import *
+# from django.contrib.auth.models import User
+# replace the above with
+from django.contrib.auth import get_user_model
+User = get_user_model()
 
 
 class CustomRegisterForm(UserCreationForm):
@@ -34,3 +38,9 @@ class CustomRegisterForm(UserCreationForm):
         if commit and not User.objects.filter(email = user.email).exists():
             user.save()
         return user
+
+class MedicalForm(forms.ModelForm):
+    class Meta:
+        model = MedicalModel
+        fields = ('adhaar','mobile','category','state','district','age','gender','covid','smoker','hbp_hyt','respiratory','chd','diabetes','cancer_non','hmt','reduced_kidney','kidney_dialysis','liver_disease','other_neuro','organ_transplant')
+        #fields = ('covid',)

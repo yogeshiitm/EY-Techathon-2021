@@ -1,0 +1,796 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+{% block content %}
+    
+    <!-- Breadcrumb-->
+     <div class="row pt-2 pb-2">
+        <div class="col-sm-9 py-2">
+		    <h4 class="page-title">User dashboard</h4>
+		    <!-- <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javaScript:void();">Dashtreme</a></li>
+                <li class="breadcrumb-item"><a href="javaScript:void();">Pages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol> -->
+	   </div>
+     </div>
+    <!-- End Breadcrumb-->
+
+<div class="row">
+    <div class="col-lg-4">
+        <div class="card profile-card-2">
+            <div class="card-img-block">
+                <img class="img-fluid" src="{% static 'images/dashboard.jpg' %}" alt="image" style="height: 110% !important;  width:100% !important">
+            </div>
+            <div class="card-body pt-4">
+                <!-- <img src="{% static 'images/profile2.png' %}" alt="profile-image" class="profile"> -->
+                <h5 class="card-title pb-0 mb-0">Name: {{name}}</h5>
+                <h5 class="card-title pt-0 mt-0">Email: {{email}}</h5>
+                <!-- <h5 class="card-title">{{name}}</h5> -->
+            </div>
+
+            <!-- <div class="card-body border-top border-light">
+                <div class="media align-items-center">
+                </div>
+            </div> -->
+        </div>
+        
+        <!-- <div class="card mt-3">
+            <div class="card-content">
+                <div class="row row-group m-0">
+                    <div class="col-12 border-light">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">1051 <span class="float-right"><i class="fa fa-plus-circle"></i></span></h5>
+                            <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:11.63%"></div>
+                            </div>
+                          <p class="mb-0 text-white small-font">No. of Health Workers Vaccinated </p>
+                        </div>
+                    </div>
+                    <div class="col-12 border-light">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">217 <span class="float-right"><i class="fa fa-users"></i></span></h5>
+                            <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:0.9%"></div>
+                            </div>
+                          <p class="mb-0 text-white small-font">No. of People over 50 years of age Vaccinated</p>
+                        </div>
+                    </div>
+                    <div class="col-12 border-light">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">51 <span class="float-right"><i class="	fa fa-pencil-square-o"></i></span></h5>
+                            <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:20.2%"></div>
+                            </div>
+                          <p class="mb-0 text-white small-font">No. of People under 50 years with comorbidities.</p>
+                        </div>
+                    </div>
+                    <div class="col-12 border-light">
+                        <div class="card-body">
+                          <h5 class="text-white mb-0">17<span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                            <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:7.8%"></div>
+                            </div>
+                          <p class="mb-0 text-white small-font">Others</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="card mt-3">
+            <div class="card-content">
+                <div class="row row-group m-0">
+                    <div class="col-12 border-light ">
+
+                        <h5 class="card-title pb-0 mb-0 mt-4 mx-4">No. of People Vaccinated in India</h5>
+                        <hr>
+
+                        <div class="card-body py-0">
+                          <h5 class="text-white mb-0">3,05,105 <span class="float-right"></span></h5>
+                            <!-- <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:11.63%"></div>
+                            </div> -->
+                          <!-- <p class="mb-0 text-white small-font">No. of Health Workers Vaccinated in India</p> -->
+                          <p class="mb-0 text-white small-font">Health Workers</p>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-12 border-light">
+                        <div class="card-body py-0">
+                          <h5 class="text-white mb-0">67,050 <span class="float-right"></span></h5>
+                            <!-- <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:0.9%"></div>
+                            </div> -->
+                          <!-- <p class="mb-0 text-white small-font">No. of People over 50 years of age Vaccinated in India</p> -->
+                          <p class="mb-0 text-white small-font">People over 50 years of age</p>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-12 border-light">
+                        <div class="card-body py-0">
+                          <h5 class="text-white mb-0">7,840 <span class="float-right"></span></h5>
+                            <!-- <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:20.2%"></div>
+                            </div> -->
+                          <!-- <p class="mb-0 text-white small-font">No. of People under 50 years with comorbidities in India</p> -->
+                          <p class="mb-0 text-white small-font">People under 50 years with comorbidities</p>
+                        </div>
+                        <hr>
+                    </div>
+                    <div class="col-12 border-light">
+                        <div class="card-body pt-0">
+                          <h5 class="text-white mb-0">4,701<span class="float-right"></span></h5>
+                            <!-- <div class="progress my-3" style="height:3px;">
+                              <div class="progress-bar" style="width:7.8%"></div>
+                            </div> -->
+                          <!-- <p class="mb-0 text-white small-font">No. of others people vaccinated in India</p> -->
+                          <p class="mb-0 text-white small-font">Others</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <div class="col-lg-8">
+        <div class="card">
+        <div class="card-body">
+        <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+            <li class="nav-item">
+                <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-note"></i> <span class="hidden-xs">Vaccine</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">Profile</span></a>
+            </li>
+            <li class="nav-item">
+                <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Medical details</span></a>
+            </li>
+        </ul>
+        <div class="tab-content p-3">
+            <div class="tab-pane active" id="profile">
+                <!-- <h5 class="mb-3">In your district {{data.district}}</h5> -->
+                <h5 class="mb-3">In your district {{user.district}}</h5>
+
+                <div class="card mt-3">
+                    <div class="card-content">
+                        <div class="row row-group m-0">
+                            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                                <div class="card-body">
+                                  <!-- <h5 class="text-white mb-0">{{confirmed | intcomma}} <span class="float-right"><i class="fa fa-plus-circle"></i></span></h5> -->
+                                  <h5 class="text-white mb-0">1051 <span class="float-right"><i class="fa fa-plus-circle"></i></span></h5>
+                                    <div class="progress my-3" style="height:3px;">
+                                      <div class="progress-bar" style="width:11.63%"></div>
+                                    </div>
+                                  <!-- <p class="mb-0 text-white small-font">Total Covid Cases in India <span class="float-right">+4.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                                  <p class="mb-0 text-white small-font">No. of Health Workers Vaccinated </p>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                                <div class="card-body">
+                                  <!-- <h5 class="text-white mb-0">{{active | intcomma}} <span class="float-right"><i class="fa fa-users"></i></span></h5> -->
+                                  <h5 class="text-white mb-0">217 <span class="float-right"><i class="fa fa-users"></i></span></h5>
+                                    <div class="progress my-3" style="height:3px;">
+                                      <div class="progress-bar" style="width:0.9%"></div>
+                                    </div>
+                                  <!-- <p class="mb-0 text-white small-font">Total Active Cases <span class="float-right">+1.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                                  <p class="mb-0 text-white small-font">No. of People over 50 years of age Vaccinated</p>
+                                  <!-- <p class="mb-0 text-white small-font">Total Senior Citizens Vaccinated</p> -->
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                                <div class="card-body">
+                                  <h5 class="text-white mb-0">51 <span class="float-right"><i class="	fa fa-pencil-square-o"></i></span></h5>
+                                    <div class="progress my-3" style="height:3px;">
+                                      <div class="progress-bar" style="width:20.2%"></div>
+                                    </div>
+                                  <!-- <p class="mb-0 text-white small-font">Total Recovered <span class="float-right">+5.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                                  <p class="mb-0 text-white small-font">No. of People under 50 years with comorbidities.</p>
+                                  <!-- <p class="mb-0 text-white small-font">Total People with Illness Vaccinated</p> -->
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-6 col-xl-3 border-light">
+                                <div class="card-body">
+                                  <h5 class="text-white mb-0">17<span class="float-right"><i class="fa fa-envira"></i></span></h5>
+                                    <div class="progress my-3" style="height:3px;">
+                                      <div class="progress-bar" style="width:7.8%"></div>
+                                    </div>
+                                  <!-- <p class="mb-0 text-white small-font">Total Deaths <span class="float-right">+2.2% <i class="zmdi zmdi-long-arrow-up"></i></span></p> -->
+                                  <p class="mb-0 text-white small-font">Others</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="mb-3">Your Vaccination date</h5>
+
+                <div class="card mt-3">
+                    <div class="card-content">
+                        <div class="row row-group m-0">
+                            <div class="col-12 border-light">
+                                <div class="card-body">
+                                    To be announced.<br><hr>
+                                    It is important to acknowledge that there might be a degree of vaccine eagerness but people will have to wait to get vaccine access, based on the defined prioritization criteria.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                            
+                <!--/row-->
+            </div>
+            <div class="tab-pane" id="messages">
+                <form>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Name</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{name}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown= "return false" class="form-control" type="email" value="{{email}}">
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
+                        <div class="col-lg-9">
+                            <input class="form-control" type="file">
+                        </div>
+                    </div> -->
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">State</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" onkeydown="return false" class="form-control" type="text" value="{{user.state}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">District</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.district}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Pincode</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.pincode}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Aadhaar No.</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.adhaar}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Mobile No.</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.mobile}}" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Age</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.age}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Gender</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.gender}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label">Occupation</label>
+                        <div class="col-lg-9">
+                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.occupation}}">
+                        </div>
+                    </div>
+                    <!-- <div class="form-group row">
+                        <label class="col-lg-3 col-form-label form-control-label"></label>
+                        <div class="col-lg-9">
+                            <input type="reset" class="btn btn-secondary" value="Cancel">
+                            <input type="button" class="btn btn-primary" value="Save Changes">
+                        </div>
+                    </div> -->
+                </form>
+                
+            </div>
+            <div class="tab-pane" id="edit">
+                
+                <!-- <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-title">Medical History</div>
+                            <hr>
+                            <div class="pb-3">Mark the health issues you have ever had:</div>
+                
+                            <form>
+                                <div class="row">
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Covid-19</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox1" name="Covid-19" value="1"/>
+                                        <label for="user-checkbox1"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Diabetes</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox2" name="Diabetes" value="1"/>
+                                        <label for="user-checkbox2"></label>
+                                        </div>
+                    
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Hypertension</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox3" name="Hypertension" value="1"/>
+                                        <label for="user-checkbox3"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Lung Disease</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox4" name="Lung Disease" value="1"/>
+                                        <label for="user-checkbox4"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Heart Disease</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox5" name="Heart Disease" value="1"/>
+                                        <label for="user-checkbox5"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Liver Disorder</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox6" name="Liver Disorder" value="1"/>
+                                        <label for="user-checkbox6"></label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Reduced kidney function</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox7" name="Reduced kidney function" value="1"/>
+                                        <label for="user-checkbox7"></label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">None of the above</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox15" name="Neurological disease" value="1"/>
+                                        <label for="user-checkbox15"></label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                
+                
+                                <div class="col-6">
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Kidney dialysis</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox8" name="Kidney dialysis" value="1"/>
+                                        <label for="user-checkbox8"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Smoking</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox9" name="Smoking" value="1"/>
+                                        <label for="user-checkbox9"></label>
+                                        </div>
+                    
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Stroke or dementia</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox10" name="Stroke or dementia" value="1"/>
+                                        <label for="user-checkbox10"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Cancer (non-haematological)</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox11" name="Cancer (non-haematological)" value="1"/>
+                                        <label for="user-checkbox11"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Haematological malignancy</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox12" name="Haematological malignancy" value="1"/>
+                                        <label for="user-checkbox12"></label>
+                                        </div>
+                                        
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Other Neurological disease</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox13" name="Other Neurological disease" value="1"/>
+                                        <label for="user-checkbox13"></label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-group row">
+                                    <label for="input-26" class="col-sm-8 col-form-label">Organ transplant</label>
+                                    <div class="col-sm-4">
+                    
+                                        <div class="icheck-material-white">
+                                        <input type="checkbox" id="user-checkbox14" name="Smoking" value="1"/>
+                                        <label for="user-checkbox14"></label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-12">
+
+
+                    <div class="card-title">Medical History</div>
+                    <hr>
+                    <!-- <div class="pb-3">Mark the health issues you have ever had:</div> -->
+
+                    <form>
+                        <div class="row">
+                        <div class="col-6">
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Covid-19</label>
+                            <div class="col-sm-4">
+
+                                {% if user.covid == 1 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" name="Covid-19" value="1"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" name="Covid-19" value="1"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Diabetes</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.diabetes == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Hypertension</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.hbp_hyt == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Lung Disease</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.respiratory == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Heart Disease</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.chd == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Liver Disorder</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.liver_disease == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Reduced kidney function</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.reduced_kidney == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">None of the above</label>
+                            <div class="col-sm-4">
+            
+                               {% if user.no_illness != 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            </div>
+                        </div>
+        
+        
+                        <div class="col-6">
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Kidney dialysis</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.kidney_dialysis == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Smoking</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.smoker == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+            
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Stroke or dementia</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.strk_dmtia == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Cancer (non-haematological)</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.cancer_non == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Haematological malignancy</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.hmt == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                                
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Other Neurological disease</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.other_neuro == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="input-26" class="col-sm-8 col-form-label">Organ transplant</label>
+                            <div class="col-sm-4">
+            
+                                {% if user.organ_transplant == 0 %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox"/>
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% else %}
+                                    <div class="icheck-material-white">
+                                        <input readonly type="checkbox" checked="" />
+                                        <label for="user-checkbox1"></label>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+      
+    <!-- <script>
+        document.getElementById("user-checkbox1").disabled=true;
+        document.getElementById("user-checkbox2").disabled=true;
+        document.getElementById("user-checkbox3").disabled=true;
+        document.getElementById("user-checkbox4").disabled=true;
+        document.getElementById("user-checkbox5").disabled=true;
+        document.getElementById("user-checkbox6").disabled=true;
+        document.getElementById("user-checkbox7").disabled=true;
+        document.getElementById("user-checkbox8").disabled=true;
+        document.getElementById("user-checkbox9").disabled=true;
+        document.getElementById("user-checkbox10").disabled=true;
+        document.getElementById("user-checkbox11").disabled=true;
+        document.getElementById("user-checkbox12").disabled=true;
+        document.getElementById("user-checkbox13").disabled=true;
+        document.getElementById("user-checkbox14").disabled=true;
+        document.getElementById("user-checkbox15").disabled=true;
+    </script> -->
+
+{% endblock %}
