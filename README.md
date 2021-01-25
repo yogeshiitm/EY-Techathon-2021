@@ -23,8 +23,23 @@ State Data:
 We then run our ML clustering algorithms through all the features and load them into our ranking algorithms (considering several metrics and features) to figure out the Importance and urgency of vaccine deliveries in each state.
 
 Our datasets are automatically updated daily to accommodate and make the predictions based on the latest information regarding the number of active covid cases of each state.
+For more info about prediction analysis procedure: [Click Here](https://drive.google.com/file/d/1vnI6VuDABLq0wU8IPg-edRxyxkBWHeVn/view?usp=sharing)
 
-**For more info about prediction analysis procedure: [Click Here](https://drive.google.com/file/d/1vnI6VuDABLq0wU8IPg-edRxyxkBWHeVn/view?usp=sharing)**
+**Tech stack:**
+  - Frontend
+    - HTML, CSS, JS, Bootstrap
+  - Backend
+    - Django
+  - Database
+    - PostgreSQL database (on heroku)
+    - Sqlite3 (on localhost)
+  - Deployment
+    - Github
+    - Heroku
+  - Machine Learning
+    - NumPy, Pandas, Matplotlib
+    - Scikit-learn
+    
 
 **WebApp: https://techhd.herokuapp.com/  <br>
 The team: https://techhd.herokuapp.com/team**
