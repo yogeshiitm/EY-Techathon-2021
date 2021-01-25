@@ -109,7 +109,7 @@
                     </ul>
                 </div>
                 
-                <div class="my-3 mx-3">
+                <div class="my-3 mx-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.15)";>
                     <a href="https://techhd.herokuapp.com/batch/1"><strong style="color: skyblue ;">Batch Page:</strong><br></a>
                     <ul>
                         <li>
@@ -130,10 +130,57 @@
                     </ul>
                 </div>
 
-                
+                <div class="my-3 mx-3">
+                    <a href="https://techhd.herokuapp.com/accounts/vaccineform"><strong style="color: skyblue ;">User Dashboard and Vaccine Prioritization among people:</strong><br></a>
+                    <ul>
+                        <li>
+                            The population will be vaccinated against the virus in priority batches, with the priority being the Health and FrontLIne Workers first, then Senior citizens above the age of 60-65, then People under the age of 60 but with various illnesses and comorbidities and finally the rest of the population.
+                        </li>
+                        <li>
+                            The dashboard currently has randomly generated data about the vaccination. It gives the user an idea of how he could keep track of the vaccinations done around his district.
+                        </li>
+                        <li >
+                            Within each of the priority groups stated above, further batches will be made according to the illness score/urgency score to help vaccinate the more important society segments before.
+                        </li>
+                        <li>
+                            Once the vaccines arrive in masses, the approximate date for the user’s turn will also be visible. 
+                        </li>
+                        <li>
+                            Our plans include having the option to book an appointment with proper documents and medical proofs for the same in the nearest hospital and on our website itself.
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+
+    <div class="card mt-3 mb-5">
+        <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">Why fill the Medical Details Form?</h5>
+        <div class="card-content" >
+            <div class="row row-group m-0 d-flex">
+                <p class="my-3 mx-3">
+                    <ul>
+                        <li>
+                            After signing in, users will be prompted to fill a medical form, which we will require to determine the user’s(you)  vaccination priority among the district’s population.
+                        </li>
+                        <li>
+                            We achieve this by giving an illness score/urgency score to each user based on his/her medical health and condition as submitted in the form.
+                        </li>
+                        <li>
+                            We calculate the score by summing the weights of each disease that the user has.
+                        </li>
+                        <li>
+                            The death rate (number of people died due to covid, and having that disease out of total positive patients with that disease) determines each disease’s weights.
+                        </li>
+                        <li>
+                            OpenSafely, which produced the dataset we used for calculating the death rates and weights, came up with the death rate data after observing 17 million covid-19 positive patients with different comorbidities.
+                        </li>
+                    </ul>
+                </p>
+            </div>
+        </div>
+    </div>
+
 
     <div class="card mt-3 mb-5">
         <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">Note to the reader:</h5>
