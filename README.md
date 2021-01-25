@@ -35,7 +35,14 @@ Our datasets are automatically updated daily to accommodate and make the predict
 3. **Backend:** Python, Django
 4. **Database:** PostgreSQL database (on heroku)
 5. **Deployment:** Github + Heroku
-  
+
+## How to run this web app locally
+----------------------------------
+```
+pip3 install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
     
 ### Project links
 ----------------------------------
