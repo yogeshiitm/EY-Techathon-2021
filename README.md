@@ -30,17 +30,11 @@ Our datasets are automatically updated daily to accommodate and make the predict
 
 ### Tech Stack used
 ----------------------------------
-  - [ ] Machine Learning
-   - NumPy, Pandas, Matplotlib, Scikit-learn
-  - [ ] Frontend
-   - HTML, CSS, JS, Bootstrap
-  - [ ] Backend
-   - Python, Django
-  - [ ] Database
-   - PostgreSQL database (on heroku)
-   - Sqlite3 (on localhost)
-  - [ ] Deployment
-   - Github + Heroku
+1. **Machine Learning:** NumPy, Pandas, Matplotlib, Scikit-learn
+2. **Frontend:** HTML, CSS, JS, Bootstrap
+3. **Backend:** Python, Django
+4. **Database:** PostgreSQL database (on heroku)
+5. **Deployment:** Github + Heroku
   
     
 ### Project links
@@ -49,7 +43,7 @@ Our datasets are automatically updated daily to accommodate and make the predict
 2. **Github:**  https://github.com/yogeshiitm/TechHD <br>
 3. **Webapp video:** [click Here](https://drive.google.com/file/d/1w9cYvOAINoc7WjYiRvfwnYB7p40CbiYF/view?usp=sharing) <br>
 
-### [Team Members](https://techhd.herokuapp.com/team)
+### Team Members
 ----------------------------------
 1. **Vinayak Nishant Gudipaty** ([linkedin](https://www.linkedin.com/in/vinayak-nishant-gudipaty-907171197/)) - Machine Learning + Backend
 2. **Yogesh Agarwala** ([linkedin](https://www.linkedin.com/in/yogeshiitm/)) - Backend + Frontend 
