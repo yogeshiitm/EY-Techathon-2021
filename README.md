@@ -32,7 +32,7 @@ Our datasets are automatically updated daily to accommodate and make the predict
 1. **Machine Learning:** NumPy, Pandas, Matplotlib, Scikit-learn
 2. **Frontend:** HTML, CSS, JS, Bootstrap
 3. **Backend:** Python, Django
-4. **Database:** PostgreSQL database (on heroku)
+4. **Database:** Heroku Postgres
 5. **Deployment:** Github + Heroku
 
 <!--
