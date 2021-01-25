@@ -25,7 +25,7 @@ State Data:
 We then run our ML clustering algorithms through all the features and load them into our ranking algorithms (considering several metrics and features) to figure out the Importance and urgency of vaccine deliveries in each state.
 
 Our datasets are automatically updated daily to accommodate and make the predictions based on the latest information regarding the number of active covid cases of each state.
-**For more info about prediction analysis procedure: [Click Here](https://drive.google.com/file/d/1vnI6VuDABLq0wU8IPg-edRxyxkBWHeVn/view?usp=sharing)**
+**For more info about prediction analysis procedure: [Click Here](https://drive.google.com/file/d/1n9-S84md7RU-d_7q_66IQCegr6aXivbj/view?usp=sharing)**
 
 
 ## Tech Stack used
