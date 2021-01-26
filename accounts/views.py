@@ -293,3 +293,62 @@ def vaccineform(request):
         detail.get_category()
         detail.set_eligibility()
         return redirect('dashboard')
+
+
+@login_required(login_url='login')
+def healthadmin(request):
+    if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states.capitalize())
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states.capitalize())
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('healthadmin')
+
+        category = int(request.POST.get('category'))
+        age = request.POST.get('age')
+        state = request.POST.get('state')
+        district = request.POST.get('district')
+        no_vaccines = int(request.POST.get('vaccine'))
+        email = request.user.email
+        name = request.user.first_name + ' ' + request.user.last_name
+
+        print('hello\n')
+        print(type(age))
+
+        if age == '1':
+            print('hi\n')
+            print(request.user.first_name,'\n')
+            users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')[:no_vaccines]
+            return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users})
+            #all
+        
+        if age == '2':
+            if category == 4:
+                users = MedicalModel.objects.filter(age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
+            else:
+                users = MedicalModel.objects.filter(category= category, age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
+                #60+
+        
+        if age == '3':
+            users = MedicalModel.objects.filter(category= category, age_lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+            return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
+            #60-
+
+    if request.method == 'GET':
+
+        states = StateModel.objects.all().order_by('state')
+
+        email = request.user.email
+        name = request.user.first_name + ' ' + request.user.last_name
+
+        return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'states':states})
