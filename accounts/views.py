@@ -193,6 +193,7 @@ def vaccineform(request):
             form = MedicalForm()
 
             states = StateModel.objects.all().order_by('state')
+            print(states,'\n')
             return render(request, 'accounts/vaccine_form.html',{'form':form,'states':states})
         # if MedicalModel.objects.get(user=request.user):
         #     form = MedicalModel.objects.get(user=request.user)
