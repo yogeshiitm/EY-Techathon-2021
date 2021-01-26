@@ -60,7 +60,7 @@
 					
 					
 					<button type="submit" class="btn btn-light btn-block waves-effect waves-light mt-5">Sign Up</button>
-					<button type="submit" class="btn btn-light btn-block waves-effect waves-light mt-5" name='admin' value = 'True'>Sign Up as Health Admin</button>
+					<button type="submit" class="btn btn-light btn-block waves-effect waves-light mt-3" name='admin' value = 'True'>Sign Up as Health Admin</button>
 
 				</form>
 			</div>
@@ -79,8 +79,7 @@
 					<strong>
 						{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
 							Error:
-						{% else %}
-							{{message.tags | title}}:
+						
 						{% endif %}
 					</strong>
 
