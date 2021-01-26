@@ -50,53 +50,11 @@ def login(request):
             return redirect('login')
 
     else:
-        if request.user.is_authenticated and request.user.is_superuser:
-            return redirect('vaccineform')
-        elif request.user.is_authenticated and request.user.is_staff:
-            # return redirect('vaccineform')
-            return redirect('index')
-        elif request.user.is_authenticated:
-            return redirect('vaccineform')
-        else:
-            return render(request, 'accounts/login.html')
-
-
-def admin_login(request):
-    if request.method == 'POST':
-        states = request.POST.get('search')
-        if states is not None:
-            try:
-                state = StateModel.objects.get(state = states.capitalize())
-                print(state)
-                return redirect(f'/district_level/{state.state}')
-            
-            except StateModel.DoesNotExist:
-                try :
-                    district = DistrictModel.objects.get(district = states.capitalize())
-                    return redirect(f'/district_level/{district.state}')
-                except DistrictModel.DoesNotExist:
-                    return redirect('signup')
-
-        email = request.POST['email']
-        password = request.POST['password']
-
-        user = auth.authenticate(email=email, password=password)
-
-        if user is not None and user.is_staff:
-            auth.login(request, user)
-            # return redirect('vaccineform')
-            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
-
-        else:
-            messages.error(request, 'The email address provided is not registered as a Health administrator please contact the site admin!')
-            return redirect('login')
-
-    else:
         if request.user.is_authenticated:
-            # return redirect('vaccineform')
-            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
+            return redirect('vaccineform')
         else:
             return render(request, 'accounts/login.html')
+
 
 def signup(request):
     if request.method == 'POST':

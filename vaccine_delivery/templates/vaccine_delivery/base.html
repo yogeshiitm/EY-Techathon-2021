@@ -231,19 +231,19 @@
                 <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Signup</a>
 
             {% elif request.user.is_authenticated and request.user.is_superuser %}
-                <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Admin</a>
+                <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Site Admin</a>
                 {% comment %}
-                  <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Staff</a> -->
+                  <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin</a> -->
                 {% endcomment %}
-                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Staff</a>
+                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Health Admin</a>
                 <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
                 <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
             {% elif request.user.is_authenticated and request.user.is_staff and not request.user.is_superuser %}
                 {% comment %} 
-                    <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Admin Panel</a> 
+                    <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a> 
                 {% endcomment %}
-                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Admin Panel</a>
+                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a>
                 <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
                 <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
@@ -257,19 +257,20 @@
                 <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Signup</a>
                 
             {% elif request.user.is_authenticated and request.user.is_superuser %}
-                <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Admin</a>
+                <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Site Admin</a>
                 {% comment %} 
-                  <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Staff</a> -->
+                  <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin</a> -->
                 {% endcomment %}
-                <a href="#" class="btn btn-info waves-effect waves-light m-1">Staff</a>
+                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Health Admin</a>
                 <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Dashboard</a>
                 <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
             {% elif request.user.is_authenticated and request.user.is_staff and not request.user.is_superuser %}
-                {% comment %} 
-                    <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Admin Panel</a> 
+                {% comment %}
+                    <a href="{% url 'admin_dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a> 
                 {% endcomment %}
-                <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Dashboard</a>
+                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a>
+                <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">User Dashboard</a>
                 <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
             {% elif request.user.is_authenticated and not request.user.is_staff and not request.user.is_superuser %}
