@@ -320,12 +320,7 @@ def healthadmin(request):
         email = request.user.email
         name = request.user.first_name + ' ' + request.user.last_name
 
-        print('hello\n')
-        print(type(age))
-
         if age == '1':
-            print('hi\n')
-            print(request.user.first_name,'\n')
             users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')[:no_vaccines]
             return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users})
             #all
