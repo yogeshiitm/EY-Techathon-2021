@@ -9,4 +9,5 @@ urlpatterns = [
     path('batch/<batch>', BatchView, name='batch'),
     path('about', AboutView, name= 'about'),
     path('team', TeamView, name= 'team'),
+    path('sitemap', SitemapView, name= 'sitemap'),
 ]

@@ -1,0 +1,170 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+
+{% block content %}
+
+
+<!-- Start wrapper-->
+
+	<div class="card card-authentication1 mx-auto my-5">
+		<div class="card-body">
+		 	<div class="card-content p-2">
+
+				<div class="card-title text-uppercase text-center py-3" style="font-size:x-large;">Log in</div>
+
+				<form method="POST" action="{% url 'login' %}">
+					{% csrf_token %}
+					<div class="form-group">
+						<label for="exampleInputEmail" class="mb-0 pb-0" style="font-size: x-small !important;">Email</label>
+						<div class="position-relative has-icon-right">
+							<input name="email"  type="email" id="exampleInputEmail" class="form-control input-shadow" placeholder="Email">
+							<div class="form-control-position">
+								<i class="icon-user"></i>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword" class="mb-0 pb-0" style="font-size: x-small !important;">Password</label>
+						<div class="position-relative has-icon-right">
+							<input name="password" type="password" id="exampleInputPassword" class="form-control input-shadow" placeholder="Password">
+							<div class="form-control-position">
+								<i class="icon-lock"></i>
+							</div>
+						</div>
+					</div>
+
+
+					<div class="form-row">
+						<div class="form-group col-6">
+							<!-- <a href="#">Forgot Password?</a> -->
+							<a>Forgot Password?</a>
+						</div>
+					</div>
+					
+
+					<button type="submit" class="btn btn-light btn-block">Login</button>
+				
+				</form>
+			</div>
+		</div>
+
+		<div class="card-footer text-center py-3">
+			<!-- <p class="text-warning mb-0">Don't have an account? <a href="accounts/signup.html"> Sign up</a></p> -->
+			<p class="mb-0" style="color:rgb(160, 220, 243);">Don't have an account? <a href="{% url 'signup' %}"> Sign up</a></p>
+		</div>
+
+
+		<style>
+			/* Messages */
+			ul.messagelist li {
+				padding-left: 40px;
+				background-position: 15px 12px;
+			}
+		
+			ul.messagelist li.error {
+				background-position: 15px 12px;
+			}
+		
+			ul.messagelist li.warning {
+				background-position: 15px 14px;
+			}
+			/* for alert removal button */
+			.fade.show {
+				opacity: 1;
+			}
+			.alert-warning {
+				color: #856404;
+				background-color: #fff3cd;
+				border-color: #ffeeba;
+			}
+			.alert-dismissible {
+				padding-right: 4rem;
+			}
+			.alert {
+				position: relative;
+				padding: .75rem 1.25rem;
+				margin-bottom: 1rem;
+				border: 1px solid transparent;
+				border-radius: .25rem;
+			}
+
+			.fade {
+				opacity: 0;
+				transition: opacity .15s linear;
+			}
+
+			.close:not(:disabled):not(.disabled) {
+				cursor: pointer;
+			}
+
+			.alert-dismissible .close {
+				position: absolute;
+				top: 0;
+				right: 0;
+				padding: .75rem 1.25rem;
+				color: inherit;
+			}
+			.alert-dismissible {
+				padding-right: 4rem !important;
+			}
+
+			button.close {
+				padding: 0;
+				background-color: transparent;
+				border: 0;
+				-webkit-appearance: none;
+			}
+			.close {
+				float: right;
+				font-size: 1.5rem;
+				font-weight: 700;
+				line-height: 1;
+				color: #000;
+				text-shadow: 0 1px 0 #fff;
+				opacity: .5;
+			}
+
+			.close:hover {
+				color:#030000;
+			}
+		</style>
+
+
+		<div class="mx-2">
+			{% if messages %}
+				{% for message in messages %}
+
+				<!-- <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" style="padding-left: 40px; background-position: 15px 12px;"> -->
+				<div class="alert bg-dark alert-dismissible fade show" role="alert" style="padding-left: 40px; background-position: 15px 12px;">
+					<strong>
+						{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+							Error:
+						{% else %}
+							{{message.tags | title}}:
+						{% endif %}
+					</strong>
+
+					{{ message }}
+					
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+
+				{% endfor %}
+			{% endif %}
+		</div>
+		
+
+	</div>
+		
+  
+{% endblock %}
+	
+
+<!-- https://stackoverflow.com/a/35752912/13962648 -->
+{% block footer %}
+{% endblock %}

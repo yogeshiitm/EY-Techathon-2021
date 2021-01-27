@@ -36,29 +36,95 @@ def login(request):
 
         user = auth.authenticate(email=email, password=password)
 
-        if user is not None:
-            auth.login(request, user)
+        if request.POST.get('UserLogin')== 'True':
+            if user is not None:
+                auth.login(request, user)
 
-            # if MedicalForm.objects.get(user = request.user):
-            #     return redirect('vaccineform')
-            # else:
-            #     return redirect('dashboard')
-            return redirect('vaccineform')
+                # if MedicalForm.objects.get(user = request.user):
+                #     return redirect('vaccineform')
+                # else:
+                #     return redirect('dashboard')
+                return redirect('vaccineform')
 
-        else:
-            messages.error(request, 'Invalid credentials!')
-            return redirect('login')
+            else:
+                messages.error(request, 'Invalid credentials!')
+                return redirect('login')
+
+        if request.POST.get('HealthAdminLogin')== 'True':
+            if user is not None and user.is_staff:
+                auth.login(request, user)
+
+                # if MedicalForm.objects.get(user = request.user):
+                #     return redirect('vaccineform')
+                # else:
+                #     return redirect('dashboard')
+                return redirect('healthadmin')
+
+            else:
+                messages.error(request, 'The email address provided is not registered as a Health administrator please contact the site admin!')
+                return redirect('login')
 
     else:
-        if request.user.is_authenticated:
+        if request.user.is_authenticated and request.user.is_superuser:
+            return redirect('vaccineform')
+        elif request.user.is_authenticated and request.user.is_staff:
+            # return redirect('vaccineform')
+            return redirect('index')
+        elif request.user.is_authenticated:
             return redirect('vaccineform')
         else:
             return render(request, 'accounts/login.html')
 
 
+def vaccination_incharge(request):
+    if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states.capitalize())
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states.capitalize())
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
+
+        email = request.POST['email']
+        password = request.POST['password']
+
+        user = auth.authenticate(email=email, password=password)
+
+        if user is not None and user.is_staff:
+            auth.login(request, user)
+            # return redirect('vaccineform')
+            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
+
+        else:
+            messages.error(request, 'The email address provided is not registered as Vaccination Incharge please contact the site admin!')
+            return redirect('login')
+
+    else:
+        if request.user.is_authenticated:
+            # return redirect('vaccineform')
+            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
+        else:
+            return render(request, 'accounts/login.html')
+
 def signup(request):
     if request.method == 'POST':
         form = CustomRegisterForm(request.POST or None)
+
+        if request.POST.get('admin')== 'True':
+            if form.is_valid():
+                messages.info(request, "Your details are submitted, Wait till you are approved !!")
+                return render(request, 'accounts/signup.html' , {'form':form})
+            else:
+                messages.error(request, form.errors)
+                return render(request, 'accounts/signup.html' , {'form':form})
+
 
         states = request.POST.get('search')
         if states is not None:
@@ -193,6 +259,7 @@ def vaccineform(request):
             form = MedicalForm()
 
             states = StateModel.objects.all().order_by('state')
+            print(states,'\n')
             return render(request, 'accounts/vaccine_form.html',{'form':form,'states':states})
         # if MedicalModel.objects.get(user=request.user):
         #     form = MedicalModel.objects.get(user=request.user)
@@ -250,3 +317,115 @@ def vaccineform(request):
         detail.get_category()
         detail.set_eligibility()
         return redirect('dashboard')
+
+
+# @login_required(login_url='login')
+# def healthadmin(request):
+#     if request.method == 'POST':
+#         states = request.POST.get('search')
+#         if states is not None:
+#             try:
+#                 state = StateModel.objects.get(state = states.capitalize())
+#                 print(state)
+#                 return redirect(f'/district_level/{state.state}')
+            
+#             except StateModel.DoesNotExist:
+#                 try :
+#                     district = DistrictModel.objects.get(district = states.capitalize())
+#                     return redirect(f'/district_level/{district.state}')
+#                 except DistrictModel.DoesNotExist:
+#                     return redirect('healthadmin')
+
+#         category = int(request.POST.get('category'))
+#         age = request.POST.get('age')
+#         state = request.POST.get('state')
+#         district = request.POST.get('district')
+#         no_vaccines = int(request.POST.get('vaccine'))
+#         email = request.user.email
+#         name = request.user.first_name + ' ' + request.user.last_name
+
+#         if age == '1':
+#             users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')[:no_vaccines]
+#             return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users})
+#             #all
+        
+#         if age == '2':
+#             if category == 4:
+#                 users = MedicalModel.objects.filter(age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+#                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
+#             else:
+#                 users = MedicalModel.objects.filter(category= category, age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+#                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
+#                 #60+
+        
+#         if age == '3':
+#             users = MedicalModel.objects.filter(category= category, age_lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+#             return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
+#             #60-
+
+#     if request.method == 'GET':
+
+#         states = StateModel.objects.all().order_by('state')
+
+#         email = request.user.email
+#         name = request.user.first_name + ' ' + request.user.last_name
+
+#         return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'states':states})
+
+
+@login_required(login_url='login')
+def healthadmin(request):
+    if request.method == 'POST':
+        states = request.POST.get('search')
+        if states is not None:
+            try:
+                state = StateModel.objects.get(state = states.capitalize())
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = states.capitalize())
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('healthadmin')
+
+        category = int(request.POST.get('category'))
+        age = request.POST.get('age')
+        state = request.POST.get('state')
+        district = request.POST.get('district')
+        no_vaccines = int(request.POST.get('vaccine'))
+        email = request.user.email
+        name = request.user.first_name + ' ' + request.user.last_name
+
+        states = StateModel.objects.all().order_by('state')
+
+        if age == '1':
+            users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')[:no_vaccines]
+            return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
+            #all
+        
+        if age == '2':
+            if category == 4:
+                users = MedicalModel.objects.filter(age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+            else:
+                users = MedicalModel.objects.filter(category= category, age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+                #60+
+        
+        if age == '3':
+            users = MedicalModel.objects.filter(category= category, age_lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+            return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+            #60-
+
+    if request.method == 'GET':
+        if request.user.is_staff:
+
+            states = StateModel.objects.all().order_by('state')
+            email = request.user.email
+            name = request.user.first_name + ' ' + request.user.last_name
+            return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'states':states})
+
+        else:
+            return redirect('dashboard')

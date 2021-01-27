@@ -45,8 +45,10 @@
 					</div>
 					
 
-					<button type="submit" class="btn btn-light btn-block">Log in</button>
-				
+					<button type="submit" name="UserLogin" value='True' class="btn btn-light btn-block">Login</button>
+					<!-- <button type="submit" name="HealthAdminLogin" formaction="{% url 'healthadmin' %}" class="btn btn-light btn-block">Login as Health Admin</button> -->
+					<button type="submit" name="HealthAdminLogin" value='True' class="btn btn-light btn-block">Login as Health Admin</button>
+					<button type="submit" name="VaccinationInchargeLogin" formaction="{% url 'vaccination_incharge' %}" class="btn btn-light btn-block">Login as Vaccination Incharge</button>
 				
 				</form>
 			</div>
