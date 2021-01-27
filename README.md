@@ -45,18 +45,6 @@ python manage.py runserver
 ```
 -->
 
-## Sitemap
-<img src="/static/images/sitemap.png">
-
-<!--
-<table>
-  <tr>
-    <td><img src="/static/images/sitemap.png"></td>
-    <td><img src="/static/images/sitemap.png"></td>
-  </tr>
-</table>
--->
- 
 
 ## Local Setup
 1. **Setup virtual environment**
@@ -91,6 +79,18 @@ python manage.py runserver
         ```
     - Open http://localhost:8000 to view the webapp in the browser.
 
+## Sitemap
+<img src="/static/images/sitemap.png">
+
+<!--
+<table>
+  <tr>
+    <td><img src="/static/images/sitemap.png"></td>
+    <td><img src="/static/images/sitemap.png"></td>
+  </tr>
+</table>
+-->
+ 
     
 ## Project links
 
