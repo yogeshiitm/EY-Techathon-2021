@@ -47,39 +47,39 @@ python manage.py runserver
 
 ## Local Setup
 1. Clone this repository into local system and change the directory.
-```sh
-git clone https://github.com/yogeshiitm/TechHD.git
-cd TechHD/
-```
+    ```sh
+    git clone https://github.com/yogeshiitm/TechHD.git
+    cd TechHD/
+    ```
 
 2. Install pip3 and pipenv.
-```sh
-pip3 install pipenv
-```
+    ```sh
+    pip3 install pipenv
+    ```
 
 3. Go into the virtual environment: 
-```sh
-pipenv install
-pipenv shell
-```
+    ```sh
+    pipenv install
+    pipenv shell
+    ```
 
 4. Install the required packages:
-```sh
-pip install -r requirements.txt
-```
+    ```sh
+    pip install -r requirements.txt
+    ```
 
 4. Apply migrations
-```sh
-python manage.py makemigrations
-python manage.py migrate
-```
+    ```sh
+    python manage.py makemigrations
+    python manage.py migrate
+    ```
 
 5. Run the server:
-```sh
-python manage.py runserver
-```
+    ```sh
+    python manage.py runserver
+    ```
 
-6. Start the webapp by going to the URL http://127.0.0.1:8000/ on your browser.
+6. Open http://localhost:8000 to view the webapp in the browser.
 
     
 ## Project links
@@ -96,5 +96,3 @@ python manage.py runserver
 2. **Yogesh Agarwala** ([Linkedin](https://www.linkedin.com/in/yogeshiitm/)) - Backend + Frontend 
 3. **Laveen Bagai** ([Linkedin](https://www.linkedin.com/in/laveen-bagai-385484202/)) - Frontend + Presentation 
 4. **Ritesh Bhattad** ([Linkedin](https://www.linkedin.com/in/ritesh-bhattad-a9bb2b194/)) - Frontend + Presentation 
-
-
