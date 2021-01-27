@@ -45,6 +45,19 @@ python manage.py runserver
 ```
 -->
 
+## Sitemap
+<img src="/static/images/sitemap.png">
+
+<!--
+<table>
+  <tr>
+    <td><img src="/static/images/sitemap.png"></td>
+    <td><img src="/static/images/sitemap.png"></td>
+  </tr>
+</table>
+-->
+ 
+
 ## Local Setup
 1. Clone this repository into local system and change the directory.
     ```sh
