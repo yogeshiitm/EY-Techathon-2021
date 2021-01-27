@@ -266,3 +266,22 @@ def TeamView(request):
 
     form = SearchForm()
     return render(request,'vaccine_delivery/team.html',{'form':form})
+
+
+def SitemapView(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        states = request.POST.get('search')
+        try:
+            state = StateModel.objects.get(state = states.capitalize())
+            print(state)
+            return redirect(f'/district_level/{state.state}')
+        except StateModel.DoesNotExist:
+            try :
+                district = DistrictModel.objects.get(district = states.capitalize())
+                return redirect(f'/district_level/{district.state}')
+            except DistrictModel.DoesNotExist:
+                return redirect('/team')
+
+    form = SearchForm()
+    return render(request,'vaccine_delivery/sitemap.html',{'form':form})
