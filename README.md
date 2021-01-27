@@ -60,36 +60,36 @@ python manage.py runserver
 
 ## Local Setup
 1. **Setup virtual environment**
-  - Clone this repository into local system and change the directory.
-    ```sh
-    git clone https://github.com/yogeshiitm/TechHD.git
-    cd TechHD/
-    ```
-  - Install pip3 and pipenv.
-    ```sh
-    pip3 install pipenv
-    ```
-  - Go into the virtual environment: 
-    ```sh
-    pipenv install
-    pipenv shell
-    ```
+    - Clone this repository into local system and change the directory.
+      ```sh
+      git clone https://github.com/yogeshiitm/TechHD.git
+      cd TechHD/
+      ```
+    - Install pip3 and pipenv.
+      ```sh
+      pip3 install pipenv
+      ```
+    - Go into the virtual environment: 
+      ```sh
+      pipenv install
+      pipenv shell
+      ```
 
 2. **Django setup**
-  - Install the required packages
-      ```sh
-      pip install -r requirements.txt
-      ```
-  - Apply migrations
-      ```sh
-      python manage.py makemigrations
-      python manage.py migrate
-      ```
-  - Run the server:
-      ```sh
-      python manage.py runserver
-      ```
-  - Open http://localhost:8000 to view the webapp in the browser.
+    - Install the required packages
+        ```sh
+        pip install -r requirements.txt
+        ```
+    - Apply migrations
+        ```sh
+        python manage.py makemigrations
+        python manage.py migrate
+        ```
+    - Run the server:
+        ```sh
+        python manage.py runserver
+        ```
+    - Open http://localhost:8000 to view the webapp in the browser.
 
     
 ## Project links
