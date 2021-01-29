@@ -1,572 +1,572 @@
 ,Date,State,District,Active,Population_2020,Batch_no
-0,2021-01-26,Andaman and Nicobar Islands,Andaman and Nicobar Islands,15,426251,1
-1,2021-01-26,Andhra Pradesh,Anantapur,63,4652509,4
-2,2021-01-26,Andhra Pradesh,Chittoor,124,4758433,3
-3,2021-01-26,Andhra Pradesh,East Godavari,173,5875897,2
-4,2021-01-26,Andhra Pradesh,Guntur,172,5572107,2
-5,2021-01-26,Andhra Pradesh,Krishna,245,5149834,1
-6,2021-01-26,Andhra Pradesh,Kurnool,50,4620948,4
-7,2021-01-26,Andhra Pradesh,Prakasam,76,3873091,5
-8,2021-01-26,Andhra Pradesh,S.P.S. Nellore,92,3378455,5
-9,2021-01-26,Andhra Pradesh,Srikakulam,45,3081550,6
-10,2021-01-26,Andhra Pradesh,Visakhapatnam,131,4891271,3
-11,2021-01-26,Andhra Pradesh,Vizianagaram,22,2672700,6
-12,2021-01-26,Andhra Pradesh,West Godavari,77,4488141,4
-13,2021-01-26,Andhra Pradesh,Y.S.R. Kadapa,87,3286015,5
-14,2021-01-26,Arunachal Pradesh,Anjaw,0,24130,2
-15,2021-01-26,Arunachal Pradesh,Changlang,2,168978,1
-16,2021-01-26,Arunachal Pradesh,East Kameng,0,89707,2
-17,2021-01-26,Arunachal Pradesh,East Siang,2,113104,1
-18,2021-01-26,Arunachal Pradesh,Kurung Kumey,0,104967,2
-19,2021-01-26,Arunachal Pradesh,Lohit,0,166128,2
-20,2021-01-26,Arunachal Pradesh,Lower Dibang Valley,0,61651,2
-21,2021-01-26,Arunachal Pradesh,Lower Subansiri,0,94654,2
-22,2021-01-26,Arunachal Pradesh,Papum Pare,2,201293,1
-23,2021-01-26,Arunachal Pradesh,Tawang,2,56974,2
-24,2021-01-26,Arunachal Pradesh,Tirap,0,127652,2
-25,2021-01-26,Arunachal Pradesh,Upper Siang,1,40265,2
-26,2021-01-26,Arunachal Pradesh,Upper Subansiri,0,95131,2
-27,2021-01-26,Arunachal Pradesh,West Kameng,4,95700,1
-28,2021-01-26,Arunachal Pradesh,West Siang,0,127992,2
-29,2021-01-26,Assam,Assam,836,34586234,1
-30,2021-01-26,Bihar,Araria,46,3205189,2
-31,2021-01-26,Bihar,Arwal,15,798961,2
-32,2021-01-26,Bihar,Aurangabad,25,2895683,2
-33,2021-01-26,Bihar,Banka,126,2319630,2
-34,2021-01-26,Bihar,Begusarai,42,3386417,2
-35,2021-01-26,Bihar,Bhagalpur,104,3463053,2
-36,2021-01-26,Bihar,Bhojpur,3,3110384,2
-37,2021-01-26,Bihar,Buxar,20,1945241,2
-38,2021-01-26,Bihar,Darbhanga,58,4488619,2
-39,2021-01-26,Bihar,East Champaran,32,5813283,2
-40,2021-01-26,Bihar,Gaya,85,5006217,2
-41,2021-01-26,Bihar,Gopalganj,30,2920694,2
-42,2021-01-26,Bihar,Jamui,12,2006862,2
-43,2021-01-26,Bihar,Jehanabad,6,1282857,2
-44,2021-01-26,Bihar,Kaimur,8,1854078,2
-45,2021-01-26,Bihar,Katihar,9,3500973,2
-46,2021-01-26,Bihar,Khagaria,8,1900250,2
-47,2021-01-26,Bihar,Kishanganj,5,1927056,2
-48,2021-01-26,Bihar,Lakhisarai,173,1141040,2
-49,2021-01-26,Bihar,Madhepura,17,2282009,2
-50,2021-01-26,Bihar,Madhubani,3,5115612,2
-51,2021-01-26,Bihar,Munger,28,1559252,2
-52,2021-01-26,Bihar,Muzaffarpur,52,5473211,2
-53,2021-01-26,Bihar,Nalanda,21,3280524,2
-54,2021-01-26,Bihar,Nawada,92,2529826,2
-55,2021-01-26,Bihar,Patna,832,6655850,1
-56,2021-01-26,Bihar,Purnia,11,3721666,2
-57,2021-01-26,Bihar,Rohtas,34,3374307,2
-58,2021-01-26,Bihar,Saharsa,31,2166754,2
-59,2021-01-26,Bihar,Samastipur,21,4858185,2
-60,2021-01-26,Bihar,Saran,99,4505123,2
-61,2021-01-26,Bihar,Sheikhpura,0,725430,2
-62,2021-01-26,Bihar,Sheohar,25,748120,2
-63,2021-01-26,Bihar,Sitamarhi,70,3902874,2
-64,2021-01-26,Bihar,Siwan,6,3796729,2
-65,2021-01-26,Bihar,Supaul,10,2541147,2
-66,2021-01-26,Bihar,Vaishali,52,3984324,2
-67,2021-01-26,Bihar,West Champaran,41,4485948,2
-68,2021-01-26,Chandigarh,Chandigarh,142,1182104,1
-69,2021-01-26,Chhattisgarh,Bastar,117,1611047,2
-70,2021-01-26,Chhattisgarh,Bijapur,7,290962,2
-71,2021-01-26,Chhattisgarh,Bilaspur,218,3036537,2
-72,2021-01-26,Chhattisgarh,Dakshin Bastar Dantewada,4,608347,2
-73,2021-01-26,Chhattisgarh,Dhamtari,207,911750,2
-74,2021-01-26,Chhattisgarh,Durg,588,3812014,1
-75,2021-01-26,Chhattisgarh,Janjgir Champa,143,1846466,2
-76,2021-01-26,Chhattisgarh,Jashpur,77,970903,2
-77,2021-01-26,Chhattisgarh,Kabeerdham,36,937680,2
-78,2021-01-26,Chhattisgarh,Korba,51,1375570,2
-79,2021-01-26,Chhattisgarh,Koriya,74,751165,2
-80,2021-01-26,Chhattisgarh,Mahasamund,77,1177340,2
-81,2021-01-26,Chhattisgarh,Narayanpur,36,159395,2
-82,2021-01-26,Chhattisgarh,Raigarh,114,1703142,2
-83,2021-01-26,Chhattisgarh,Raipur,1905,4632814,1
-84,2021-01-26,Chhattisgarh,Rajnandgaon,395,1752332,2
-85,2021-01-26,Chhattisgarh,Surguja,66,2690270,2
-86,2021-01-26,Chhattisgarh,Uttar Bastar Kanker,26,853793,2
-87,2021-01-26,Delhi,Delhi,1626,18802494,1
-88,2021-01-26,Dadra and Nagar Haveli and Daman and Diu,Dadra and Nagar Haveli,4,384954,1
-89,2021-01-26,Dadra and Nagar Haveli and Daman and Diu,Daman,0,320756,2
-90,2021-01-26,Dadra and Nagar Haveli and Daman and Diu,Diu,3,23991,1
-91,2021-01-26,Goa,Goa,774,1662741,1
-92,2021-01-26,Gujarat,Ahmedabad,1682,8224217,1
-93,2021-01-26,Gujarat,Amreli,37,1726177,2
-94,2021-01-26,Gujarat,Anand,37,2385729,2
-95,2021-01-26,Gujarat,Banaskantha,-50,3557377,2
-96,2021-01-26,Gujarat,Bharuch,41,1768162,2
-97,2021-01-26,Gujarat,Bhavnagar,54,3283616,2
-98,2021-01-26,Gujarat,Dahod,31,2424878,2
-99,2021-01-26,Gujarat,Dang,13,260252,2
-100,2021-01-26,Gujarat,Gandhinagar,48,1586598,2
-101,2021-01-26,Gujarat,Jamnagar,57,2462536,2
-102,2021-01-26,Gujarat,Junagadh,37,3127113,2
-103,2021-01-26,Gujarat,Kheda,38,2621869,2
-104,2021-01-26,Gujarat,Kutch,60,2385303,2
-105,2021-01-26,Gujarat,Mehsana,43,2319973,2
-106,2021-01-26,Gujarat,Narmada,21,672939,2
-107,2021-01-26,Gujarat,Navsari,9,1515826,2
-108,2021-01-26,Gujarat,Panchmahal,27,2725485,2
-109,2021-01-26,Gujarat,Patan,3,1531857,2
-110,2021-01-26,Gujarat,Porbandar,4,667412,2
-111,2021-01-26,Gujarat,Rajkot,557,4337196,2
-112,2021-01-26,Gujarat,Sabarkantha,58,2768591,2
-113,2021-01-26,Gujarat,Surat,552,6932707,1
-114,2021-01-26,Gujarat,Surendranagar,51,2002146,2
-115,2021-01-26,Gujarat,Tapi,4,920005,2
-116,2021-01-26,Gujarat,Vadodara,343,4748814,2
-117,2021-01-26,Gujarat,Valsad,5,1944473,2
-118,2021-01-26,Himachal Pradesh,Bilaspur,6,435430,2
-119,2021-01-26,Himachal Pradesh,Chamba,20,591751,2
-120,2021-01-26,Himachal Pradesh,Hamirpur,35,518436,2
-121,2021-01-26,Himachal Pradesh,Kangra,55,1721486,1
-122,2021-01-26,Himachal Pradesh,Kinnaur,5,95898,2
-123,2021-01-26,Himachal Pradesh,Kullu,10,499209,2
-124,2021-01-26,Himachal Pradesh,Lahaul and Spiti,3,35983,2
-125,2021-01-26,Himachal Pradesh,Mandi,18,1139746,2
-126,2021-01-26,Himachal Pradesh,Shimla,54,927971,1
-127,2021-01-26,Himachal Pradesh,Sirmaur,95,604035,1
-128,2021-01-26,Himachal Pradesh,Solan,31,661565,2
-129,2021-01-26,Himachal Pradesh,Una,32,594137,2
-130,2021-01-26,Haryana,Ambala,82,1286319,2
-131,2021-01-26,Haryana,Bhiwani,7,1863267,2
-132,2021-01-26,Haryana,Faridabad,175,2063096,1
-133,2021-01-26,Haryana,Fatehabad,9,1073893,2
-134,2021-01-26,Haryana,Gurugram,407,1726452,1
-135,2021-01-26,Haryana,Hisar,6,1988081,2
-136,2021-01-26,Haryana,Jhajjar,4,1092582,2
-137,2021-01-26,Haryana,Jind,18,1520933,2
-138,2021-01-26,Haryana,Kaithal,20,1224707,2
-139,2021-01-26,Haryana,Karnal,75,1716069,2
-140,2021-01-26,Haryana,Kurukshetra,53,1099707,2
-141,2021-01-26,Haryana,Mahendragarh,9,1051180,2
-142,2021-01-26,Haryana,Palwal,11,1188687,2
-143,2021-01-26,Haryana,Panchkula,123,639874,2
-144,2021-01-26,Haryana,Panipat,82,1374198,2
-145,2021-01-26,Haryana,Rewari,41,1026378,2
-146,2021-01-26,Haryana,Rohtak,38,1209773,2
-147,2021-01-26,Haryana,Sirsa,26,1476515,2
-148,2021-01-26,Haryana,Sonipat,17,1653001,2
-149,2021-01-26,Haryana,Yamunanagar,72,1384194,2
-150,2021-01-26,Jharkhand,Bokaro,24,2351056,2
-151,2021-01-26,Jharkhand,Chatra,13,1188890,2
-152,2021-01-26,Jharkhand,Deoghar,7,1700963,2
-153,2021-01-26,Jharkhand,Dhanbad,38,3060315,2
-154,2021-01-26,Jharkhand,Dumka,5,1506444,2
-155,2021-01-26,Jharkhand,East Singhbhum,85,2615068,2
-156,2021-01-26,Jharkhand,Garhwa,7,1507974,2
-157,2021-01-26,Jharkhand,Giridih,2,2787840,2
-158,2021-01-26,Jharkhand,Godda,9,1497448,2
-159,2021-01-26,Jharkhand,Gumla,39,1168743,2
-160,2021-01-26,Jharkhand,Hazaribagh,15,1977324,2
-161,2021-01-26,Jharkhand,Jamtara,4,901788,2
-162,2021-01-26,Jharkhand,Khunti,0,606349,2
-163,2021-01-26,Jharkhand,Koderma,12,816535,2
-164,2021-01-26,Jharkhand,Latehar,25,828755,2
-165,2021-01-26,Jharkhand,Lohardaga,34,526441,2
-166,2021-01-26,Jharkhand,Pakur,0,1026481,2
-167,2021-01-26,Jharkhand,Palamu,13,2211451,2
-168,2021-01-26,Jharkhand,Ramgarh,12,1082365,2
-169,2021-01-26,Jharkhand,Ranchi,403,3322248,1
-170,2021-01-26,Jharkhand,Sahibganj,2,1311646,2
-171,2021-01-26,Jharkhand,Saraikela-Kharsawan,6,1214164,2
-172,2021-01-26,Jharkhand,Simdega,10,683519,2
-173,2021-01-26,Jharkhand,West Singhbhum,7,1712665,2
-174,2021-01-26,Jammu and Kashmir,Anantnag,51,1229709,2
-175,2021-01-26,Jammu and Kashmir,Bandipora,22,447144,2
-176,2021-01-26,Jammu and Kashmir,Baramulla,47,1149164,2
-177,2021-01-26,Jammu and Kashmir,Budgam,51,859269,2
-178,2021-01-26,Jammu and Kashmir,Doda,3,467327,2
-179,2021-01-26,Jammu and Kashmir,Ganderbal,69,339088,2
-180,2021-01-26,Jammu and Kashmir,Jammu,267,1744152,1
-181,2021-01-26,Jammu and Kashmir,Kathua,3,702736,2
-182,2021-01-26,Jammu and Kashmir,Kishtwar,1,262993,2
-183,2021-01-26,Jammu and Kashmir,Kulgam,31,483911,2
-184,2021-01-26,Jammu and Kashmir,Kupwara,36,992204,2
-185,2021-01-26,Jammu and Kashmir,Pulwama,63,638902,2
-186,2021-01-26,Jammu and Kashmir,Punch,28,543592,2
-187,2021-01-26,Jammu and Kashmir,Rajouri,5,732353,2
-188,2021-01-26,Jammu and Kashmir,Ramban,2,323433,2
-189,2021-01-26,Jammu and Kashmir,Reasi,5,358720,2
-190,2021-01-26,Jammu and Kashmir,Samba,75,363544,2
-191,2021-01-26,Jammu and Kashmir,Shopiyan,34,303485,2
-192,2021-01-26,Jammu and Kashmir,Srinagar,285,1409985,1
-193,2021-01-26,Jammu and Kashmir,Udhampur,25,632683,2
-194,2021-01-26,Karnataka,Bagalkote,12,2154317,2
-195,2021-01-26,Karnataka,Ballari,64,2795958,2
-196,2021-01-26,Karnataka,Bengaluru Urban,4264,10968568,1
-197,2021-01-26,Karnataka,Bidar,30,1941762,2
-198,2021-01-26,Karnataka,Chamarajanagara,22,1163702,2
-199,2021-01-26,Karnataka,Chikkaballapura,95,1430819,2
-200,2021-01-26,Karnataka,Chikkamagaluru,32,1297276,2
-201,2021-01-26,Karnataka,Chitradurga,165,1891780,2
-202,2021-01-26,Karnataka,Dakshina Kannada,274,2382200,2
-203,2021-01-26,Karnataka,Davanagere,67,2217867,2
-204,2021-01-26,Karnataka,Dharwad,58,2105606,2
-205,2021-01-26,Karnataka,Gadag,11,1213610,2
-206,2021-01-26,Karnataka,Hassan,95,2025120,2
-207,2021-01-26,Karnataka,Haveri,12,1821342,2
-208,2021-01-26,Karnataka,Kodagu,61,632152,2
-209,2021-01-26,Karnataka,Kolar,61,1751497,2
-210,2021-01-26,Karnataka,Koppal,5,1584509,2
-211,2021-01-26,Karnataka,Mandya,49,2058577,2
-212,2021-01-26,Karnataka,Mysuru,229,3421285,2
-213,2021-01-26,Karnataka,Raichur,29,2198846,2
-214,2021-01-26,Karnataka,Ramanagara,10,1234205,2
-215,2021-01-26,Karnataka,Shivamogga,91,1998138,2
-216,2021-01-26,Karnataka,Tumakuru,259,3054037,2
-217,2021-01-26,Karnataka,Udupi,40,1342192,2
-218,2021-01-26,Karnataka,Uttara Kannada,71,1638373,2
-219,2021-01-26,Karnataka,Yadgir,24,1338669,2
-220,2021-01-26,Kerala,Alappuzha,3628,2425679,3
-221,2021-01-26,Kerala,Ernakulam,10451,3741922,1
-222,2021-01-26,Kerala,Idukki,4844,1264230,3
-223,2021-01-26,Kerala,Kannur,3582,2876223,2
-224,2021-01-26,Kerala,Kasaragod,1684,1490408,3
-225,2021-01-26,Kerala,Kollam,4723,3004328,2
-226,2021-01-26,Kerala,Kottayam,6831,2250988,3
-227,2021-01-26,Kerala,Kozhikode,6838,3518374,2
-228,2021-01-26,Kerala,Malappuram,4296,4688729,2
-229,2021-01-26,Kerala,Palakkad,5275,3203325,2
-230,2021-01-26,Kerala,Pathanamthitta,6440,1365050,3
-231,2021-01-26,Kerala,Thiruvananthapuram,4045,3763627,2
-232,2021-01-26,Kerala,Thrissur,5278,3558168,2
-233,2021-01-26,Kerala,Wayanad,3688,931859,3
-234,2021-01-26,Ladakh,Kargil,2,160514,1
-235,2021-01-26,Ladakh,Leh,49,152175,1
-236,2021-01-26,Maharashtra,Ahmednagar,1162,5179201,2
-237,2021-01-26,Maharashtra,Akola,360,2067853,2
-238,2021-01-26,Maharashtra,Amravati,578,3292827,2
-239,2021-01-26,Maharashtra,Aurangabad,568,4219461,2
-240,2021-01-26,Maharashtra,Beed,477,2946956,2
-241,2021-01-26,Maharashtra,Bhandara,264,1368381,2
-242,2021-01-26,Maharashtra,Buldhana,668,2948334,2
-243,2021-01-26,Maharashtra,Chandrapur,299,2512910,2
-244,2021-01-26,Maharashtra,Dhule,249,2337983,2
-245,2021-01-26,Maharashtra,Gadchiroli,77,1223154,2
-246,2021-01-26,Maharashtra,Gondia,209,1507658,2
-247,2021-01-26,Maharashtra,Hingoli,141,1342173,2
-248,2021-01-26,Maharashtra,Jalgaon,546,4822105,2
-249,2021-01-26,Maharashtra,Jalna,227,2233312,2
-250,2021-01-26,Maharashtra,Kolhapur,190,4418641,2
-251,2021-01-26,Maharashtra,Latur,648,2797783,2
-252,2021-01-26,Maharashtra,Mumbai,5716,14184306,1
-253,2021-01-26,Maharashtra,Nagpur,3868,5305070,2
-254,2021-01-26,Maharashtra,Nanded,440,3831873,2
-255,2021-01-26,Maharashtra,Nandurbar,713,1879056,2
-256,2021-01-26,Maharashtra,Nashik,1280,6962193,2
-257,2021-01-26,Maharashtra,Osmanabad,349,1889637,2
-258,2021-01-26,Maharashtra,Parbhani,145,2093138,2
-259,2021-01-26,Maharashtra,Pune,12482,10749525,1
-260,2021-01-26,Maharashtra,Raigad,707,3002988,2
-261,2021-01-26,Maharashtra,Ratnagiri,174,1841179,2
-262,2021-01-26,Maharashtra,Sangli,530,3217243,2
-263,2021-01-26,Maharashtra,Satara,737,3424265,2
-264,2021-01-26,Maharashtra,Sindhudurg,312,968602,2
-265,2021-01-26,Maharashtra,Solapur,818,4922242,2
-266,2021-01-26,Maharashtra,Thane,7538,12608569,1
-267,2021-01-26,Maharashtra,Wardha,295,1482882,2
-268,2021-01-26,Maharashtra,Washim,145,1364762,2
-269,2021-01-26,Maharashtra,Yavatmal,429,3160477,2
-270,2021-01-26,Meghalaya,East Garo Hills,0,362425,3
-271,2021-01-26,Meghalaya,East Khasi Hills,87,941551,1
-272,2021-01-26,Meghalaya,Ribhoi,4,295078,3
-273,2021-01-26,Meghalaya,South Garo Hills,0,162261,3
-274,2021-01-26,Meghalaya,West Garo Hills,1,733352,3
-275,2021-01-26,Meghalaya,West Jaintia Hills,0,2700000,2
-276,2021-01-26,Meghalaya,West Khasi Hills,2,437146,3
-277,2021-01-26,Manipur,Manipur,171,3255606,1
-278,2021-01-26,Madhya Pradesh,Alirajpur,8,831059,2
-279,2021-01-26,Madhya Pradesh,Anuppur,7,854130,2
-280,2021-01-26,Madhya Pradesh,Ashoknagar,14,963381,2
-281,2021-01-26,Madhya Pradesh,Balaghat,25,1939936,2
-282,2021-01-26,Madhya Pradesh,Barwani,52,1579904,2
-283,2021-01-26,Madhya Pradesh,Betul,174,1795913,2
-284,2021-01-26,Madhya Pradesh,Bhind,10,1941426,2
-285,2021-01-26,Madhya Pradesh,Bhopal,886,2703010,1
-286,2021-01-26,Madhya Pradesh,Burhanpur,7,863946,2
-287,2021-01-26,Madhya Pradesh,Chhatarpur,10,2009108,2
-288,2021-01-26,Madhya Pradesh,Chhindwara,36,2383651,2
-289,2021-01-26,Madhya Pradesh,Damoh,55,1441210,2
-290,2021-01-26,Madhya Pradesh,Datia,23,896900,2
-291,2021-01-26,Madhya Pradesh,Dewas,31,1782635,2
-292,2021-01-26,Madhya Pradesh,Dhar,38,2491804,2
-293,2021-01-26,Madhya Pradesh,Dindori,14,803157,2
-294,2021-01-26,Madhya Pradesh,Guna,41,1415332,2
-295,2021-01-26,Madhya Pradesh,Gwalior,79,2316521,2
-296,2021-01-26,Madhya Pradesh,Harda,25,650330,2
-297,2021-01-26,Madhya Pradesh,Hoshangabad,39,1415139,2
-298,2021-01-26,Madhya Pradesh,Indore,516,3735435,1
-299,2021-01-26,Madhya Pradesh,Jabalpur,287,2808149,1
-300,2021-01-26,Madhya Pradesh,Jhabua,31,1168555,2
-301,2021-01-26,Madhya Pradesh,Katni,17,1472928,2
-302,2021-01-26,Madhya Pradesh,Khandwa,22,1493470,2
-303,2021-01-26,Madhya Pradesh,Khargone,43,2135272,2
-304,2021-01-26,Madhya Pradesh,Mandla,5,1202592,2
-305,2021-01-26,Madhya Pradesh,Mandsaur,24,1528069,2
-306,2021-01-26,Madhya Pradesh,Morena,5,2241206,2
-307,2021-01-26,Madhya Pradesh,Narsinghpur,11,1244714,2
-308,2021-01-26,Madhya Pradesh,Neemuch,29,941716,2
-309,2021-01-26,Madhya Pradesh,Panna,40,1158833,2
-310,2021-01-26,Madhya Pradesh,Raisen,20,1518021,2
-311,2021-01-26,Madhya Pradesh,Rajgarh,59,1762228,2
-312,2021-01-26,Madhya Pradesh,Ratlam,77,1658779,2
-313,2021-01-26,Madhya Pradesh,Rewa,18,2696221,2
-314,2021-01-26,Madhya Pradesh,Sagar,82,2711442,2
-315,2021-01-26,Madhya Pradesh,Satna,16,2540986,2
-316,2021-01-26,Madhya Pradesh,Sehore,29,1494918,2
-317,2021-01-26,Madhya Pradesh,Seoni,19,1572209,2
-318,2021-01-26,Madhya Pradesh,Shahdol,50,1215312,2
-319,2021-01-26,Madhya Pradesh,Shajapur,28,1724456,2
-320,2021-01-26,Madhya Pradesh,Sheopur,22,784162,2
-321,2021-01-26,Madhya Pradesh,Shivpuri,10,1967697,2
-322,2021-01-26,Madhya Pradesh,Sidhi,20,1284818,2
-323,2021-01-26,Madhya Pradesh,Singrauli,21,1343231,2
-324,2021-01-26,Madhya Pradesh,Tikamgarh,13,1647489,2
-325,2021-01-26,Madhya Pradesh,Ujjain,78,2265025,2
-326,2021-01-26,Madhya Pradesh,Umaria,15,735024,2
-327,2021-01-26,Madhya Pradesh,Vidisha,25,1663118,2
-328,2021-01-26,Mizoram,Aizawl,40,456352,1
-329,2021-01-26,Mizoram,Champhai,0,143349,2
-330,2021-01-26,Mizoram,Kolasib,2,95709,2
-331,2021-01-26,Mizoram,Lawngtlai,2,134399,2
-332,2021-01-26,Mizoram,Lunglei,1,184028,2
-333,2021-01-26,Mizoram,Mamit,0,98455,2
-334,2021-01-26,Mizoram,Saiha,1,64494,2
-335,2021-01-26,Mizoram,Serchhip,1,74028,2
-336,2021-01-26,Nagaland,Dimapur,37,431845,1
-337,2021-01-26,Nagaland,Kiphire,0,84365,2
-338,2021-01-26,Nagaland,Kohima,45,305506,1
-339,2021-01-26,Nagaland,Longleng,0,57552,2
-340,2021-01-26,Nagaland,Mokokchung,8,221869,2
-341,2021-01-26,Nagaland,Mon,0,285296,2
-342,2021-01-26,Nagaland,Peren,2,108550,2
-343,2021-01-26,Nagaland,Phek,0,186297,2
-344,2021-01-26,Nagaland,Tuensang,2,224119,2
-345,2021-01-26,Nagaland,Wokha,1,189631,2
-346,2021-01-26,Nagaland,Zunheboto,0,160463,2
-347,2021-01-26,Odisha,Angul,52,1452156,3
-348,2021-01-26,Odisha,Balangir,2,1879857,3
-349,2021-01-26,Odisha,Balasore,71,2645403,2
-350,2021-01-26,Odisha,Bargarh,72,1688631,3
-351,2021-01-26,Odisha,Bhadrak,42,1717224,3
-352,2021-01-26,Odisha,Boudh,3,502925,3
-353,2021-01-26,Odisha,Cuttack,64,2991896,2
-354,2021-01-26,Odisha,Deogarh,10,356273,3
-355,2021-01-26,Odisha,Dhenkanal,3,1359805,3
-356,2021-01-26,Odisha,Gajapati,10,658711,3
-357,2021-01-26,Odisha,Ganjam,9,4023095,2
-358,2021-01-26,Odisha,Jagatsinghpur,35,1296147,3
-359,2021-01-26,Odisha,Jajpur,46,2082999,2
-360,2021-01-26,Odisha,Jharsuguda,38,660636,3
-361,2021-01-26,Odisha,Kalahandi,19,1797631,3
-362,2021-01-26,Odisha,Kandhamal,6,835745,3
-363,2021-01-26,Odisha,Kendrapara,8,1642012,3
-364,2021-01-26,Odisha,Kendujhar,15,2053976,3
-365,2021-01-26,Odisha,Khordha,47,2566907,2
-366,2021-01-26,Odisha,Koraput,9,1572798,3
-367,2021-01-26,Odisha,Malkangiri,2,699039,3
-368,2021-01-26,Odisha,Mayurbhanj,15,2872501,2
-369,2021-01-26,Odisha,Nabarangapur,7,1391878,3
-370,2021-01-26,Odisha,Nayagarh,6,1097579,3
-371,2021-01-26,Odisha,Nuapada,40,695835,3
-372,2021-01-26,Odisha,Puri,115,1936552,1
-373,2021-01-26,Odisha,Rayagada,11,1103419,3
-374,2021-01-26,Odisha,Sambalpur,158,1186853,1
-375,2021-01-26,Odisha,Subarnapur,12,695609,3
-376,2021-01-26,Odisha,Sundargarh,191,2386518,1
-377,2021-01-26,Punjab,Amritsar,118,2839348,1
-378,2021-01-26,Punjab,Barnala,43,678901,2
-379,2021-01-26,Punjab,Bathinda,40,1582919,2
-380,2021-01-26,Punjab,Faridkot,67,703959,2
-381,2021-01-26,Punjab,Fatehgarh Sahib,42,684186,2
-382,2021-01-26,Punjab,Gurdaspur,74,2620088,1
-383,2021-01-26,Punjab,Hoshiarpur,73,1808753,2
-384,2021-01-26,Punjab,Jalandhar,182,2500693,1
-385,2021-01-26,Punjab,Kapurthala,70,929292,2
-386,2021-01-26,Punjab,Ludhiana,290,3988562,1
-387,2021-01-26,Punjab,Mansa,19,877516,2
-388,2021-01-26,Punjab,Moga,12,1135150,2
-389,2021-01-26,Punjab,Patiala,163,2161082,1
-390,2021-01-26,Punjab,Rupnagar,55,780475,2
-391,2021-01-26,Punjab,Sangrur,15,1886893,2
-392,2021-01-26,Punjab,Shahid Bhagat Singh Nagar,78,698033,2
-393,2021-01-26,Punjab,Tarn Taran,19,1276375,2
-394,2021-01-26,Puducherry,Puducherry,163,1397707,1
-395,2021-01-26,Rajasthan,Ajmer,111,2944679,2
-396,2021-01-26,Rajasthan,Alwar,100,4188564,1
-397,2021-01-26,Rajasthan,Banswara,54,2049133,2
-398,2021-01-26,Rajasthan,Baran,21,1393941,2
-399,2021-01-26,Rajasthan,Barmer,21,2968276,2
-400,2021-01-26,Rajasthan,Bharatpur,13,2905247,2
-401,2021-01-26,Rajasthan,Bhilwara,35,2745716,2
-402,2021-01-26,Rajasthan,Bikaner,22,2694888,2
-403,2021-01-26,Rajasthan,Bundi,102,1266433,2
-404,2021-01-26,Rajasthan,Chittorgarh,65,1760545,2
-405,2021-01-26,Rajasthan,Churu,0,2325084,2
-406,2021-01-26,Rajasthan,Dausa,6,1863226,2
-407,2021-01-26,Rajasthan,Dholpur,4,1375428,2
-408,2021-01-26,Rajasthan,Dungarpur,66,1582949,2
-409,2021-01-26,Rajasthan,Ganganagar,58,2244852,2
-410,2021-01-26,Rajasthan,Hanumangarh,21,2023149,2
-411,2021-01-26,Rajasthan,Jaipur,602,7553843,1
-412,2021-01-26,Rajasthan,Jaisalmer,19,763708,2
-413,2021-01-26,Rajasthan,Jalore,26,2084752,2
-414,2021-01-26,Rajasthan,Jhalawar,50,1608687,2
-415,2021-01-26,Rajasthan,Jhunjhunu,17,2436231,2
-416,2021-01-26,Rajasthan,Jodhpur,255,4203368,1
-417,2021-01-26,Rajasthan,Karauli,6,1662403,2
-418,2021-01-26,Rajasthan,Kota,426,2224156,1
-419,2021-01-26,Rajasthan,Nagaur,194,3770827,1
-420,2021-01-26,Rajasthan,Pali,30,2322833,2
-421,2021-01-26,Rajasthan,Pratapgarh,52,989347,2
-422,2021-01-26,Rajasthan,Rajsamand,76,1318521,2
-423,2021-01-26,Rajasthan,Sawai Madhopur,2,1522528,2
-424,2021-01-26,Rajasthan,Sikar,29,3052160,2
-425,2021-01-26,Rajasthan,Sirohi,24,1181434,2
-426,2021-01-26,Rajasthan,Tonk,3,1620312,2
-427,2021-01-26,Rajasthan,Udaipur,326,3497999,1
-428,2021-01-26,Sikkim,Sikkim,104,671720,1
-429,2021-01-26,Telangana,Telangana,3072,38472769,1
-430,2021-01-26,Tamil Nadu,Ariyalur,10,860579,2
-431,2021-01-26,Tamil Nadu,Chennai,1619,5297274,1
-432,2021-01-26,Tamil Nadu,Coimbatore,443,3942171,2
-433,2021-01-26,Tamil Nadu,Cuddalore,30,2970742,2
-434,2021-01-26,Tamil Nadu,Dharmapuri,28,1717801,2
-435,2021-01-26,Tamil Nadu,Dindigul,71,2462144,2
-436,2021-01-26,Tamil Nadu,Erode,166,2566988,2
-437,2021-01-26,Tamil Nadu,Kancheepuram,137,4558007,2
-438,2021-01-26,Tamil Nadu,Kanyakumari,102,2132226,2
-439,2021-01-26,Tamil Nadu,Karur,32,1213522,2
-440,2021-01-26,Tamil Nadu,Krishnagiri,35,2142982,2
-441,2021-01-26,Tamil Nadu,Madurai,115,3463607,2
-442,2021-01-26,Tamil Nadu,Nagapattinam,71,1842753,2
-443,2021-01-26,Tamil Nadu,Namakkal,88,1968325,2
-444,2021-01-26,Tamil Nadu,Nilgiris,55,838349,2
-445,2021-01-26,Tamil Nadu,Perambalur,1,644354,2
-446,2021-01-26,Tamil Nadu,Pudukkottai,28,1844913,2
-447,2021-01-26,Tamil Nadu,Ramanathapuram,18,1542927,2
-448,2021-01-26,Tamil Nadu,Salem,141,3969544,2
-449,2021-01-26,Tamil Nadu,Sivaganga,30,1526575,2
-450,2021-01-26,Tamil Nadu,Thanjavur,76,2742715,2
-451,2021-01-26,Tamil Nadu,Theni,48,1420325,2
-452,2021-01-26,Tamil Nadu,Thiruvallur,220,4250039,2
-453,2021-01-26,Tamil Nadu,Thiruvarur,83,1441276,2
-454,2021-01-26,Tamil Nadu,Thoothukkudi,43,1995201,2
-455,2021-01-26,Tamil Nadu,Tiruchirappalli,103,3103411,2
-456,2021-01-26,Tamil Nadu,Tirunelveli,60,3508046,2
-457,2021-01-26,Tamil Nadu,Tiruppur,175,2826119,2
-458,2021-01-26,Tamil Nadu,Tiruvannamalai,31,2809958,2
-459,2021-01-26,Tamil Nadu,Vellore,98,4487417,2
-460,2021-01-26,Tamil Nadu,Viluppuram,45,3943115,2
-461,2021-01-26,Tamil Nadu,Virudhunagar,31,2214208,2
-462,2021-01-26,Tripura,Dhalai,0,430906,2
-463,2021-01-26,Tripura,Gomati,0,498030,2
-464,2021-01-26,Tripura,Khowai,2,373226,2
-465,2021-01-26,Tripura,North Tripura,2,474178,2
-466,2021-01-26,Tripura,Sipahijala,1,552026,2
-467,2021-01-26,Tripura,South Tripura,2,494460,2
-468,2021-01-26,Tripura,Unokoti,1,316162,2
-469,2021-01-26,Tripura,West Tripura,20,1045989,1
-470,2021-01-26,Uttar Pradesh,Agra,50,5037429,2
-471,2021-01-26,Uttar Pradesh,Aligarh,93,4188233,2
-472,2021-01-26,Uttar Pradesh,Ambedkar Nagar,54,2733592,2
-473,2021-01-26,Uttar Pradesh,Amroha,16,2097852,2
-474,2021-01-26,Uttar Pradesh,Auraiya,32,1572681,2
-475,2021-01-26,Uttar Pradesh,Azamgarh,64,5259861,2
-476,2021-01-26,Uttar Pradesh,Baghpat,16,1485475,2
-477,2021-01-26,Uttar Pradesh,Bahraich,50,3976013,2
-478,2021-01-26,Uttar Pradesh,Ballia,118,3693342,2
-479,2021-01-26,Uttar Pradesh,Balrampur,95,2449478,2
-480,2021-01-26,Uttar Pradesh,Banda,21,2051327,2
-481,2021-01-26,Uttar Pradesh,Barabanki,25,3717197,2
-482,2021-01-26,Uttar Pradesh,Bareilly,151,5071129,2
-483,2021-01-26,Uttar Pradesh,Basti,147,2809489,2
-484,2021-01-26,Uttar Pradesh,Bhadohi,65,1799163,2
-485,2021-01-26,Uttar Pradesh,Bijnor,24,4198293,2
-486,2021-01-26,Uttar Pradesh,Budaun,36,4197361,2
-487,2021-01-26,Uttar Pradesh,Bulandshahr,45,3989055,2
-488,2021-01-26,Uttar Pradesh,Chandauli,16,2226142,2
-489,2021-01-26,Uttar Pradesh,Chitrakoot,7,1130572,2
-490,2021-01-26,Uttar Pradesh,Deoria,70,3535078,2
-491,2021-01-26,Uttar Pradesh,Etah,41,2022907,2
-492,2021-01-26,Uttar Pradesh,Etawah,45,1803263,2
-493,2021-01-26,Uttar Pradesh,Farrukhabad,27,2149133,2
-494,2021-01-26,Uttar Pradesh,Fatehpur,89,3001316,2
-495,2021-01-26,Uttar Pradesh,Firozabad,13,2847898,2
-496,2021-01-26,Uttar Pradesh,Gautam Buddha Nagar,52,1878851,2
-497,2021-01-26,Uttar Pradesh,Ghaziabad,104,5337075,2
-498,2021-01-26,Uttar Pradesh,Ghazipur,21,4127106,2
-499,2021-01-26,Uttar Pradesh,Gonda,32,3914668,2
-500,2021-01-26,Uttar Pradesh,Gorakhpur,103,5062620,2
-501,2021-01-26,Uttar Pradesh,Hamirpur,2,1258885,2
-502,2021-01-26,Uttar Pradesh,Hardoi,79,4665843,2
-503,2021-01-26,Uttar Pradesh,Jalaun,35,1926570,2
-504,2021-01-26,Uttar Pradesh,Jaunpur,58,5123393,2
-505,2021-01-26,Uttar Pradesh,Jhansi,76,2278407,2
-506,2021-01-26,Uttar Pradesh,Kannauj,14,1888542,2
-507,2021-01-26,Uttar Pradesh,Kanpur Dehat,45,2047650,2
-508,2021-01-26,Uttar Pradesh,Kanpur Nagar,144,5222646,2
-509,2021-01-26,Uttar Pradesh,Kasganj,39,1637860,2
-510,2021-01-26,Uttar Pradesh,Kaushambi,3,1823539,2
-511,2021-01-26,Uttar Pradesh,Kushinagar,66,4063580,2
-512,2021-01-26,Uttar Pradesh,Lakhimpur Kheri,126,4584217,2
-513,2021-01-26,Uttar Pradesh,Lalitpur,31,1392615,2
-514,2021-01-26,Uttar Pradesh,Lucknow,1406,5232415,1
-515,2021-01-26,Uttar Pradesh,Maharajganj,7,3060561,2
-516,2021-01-26,Uttar Pradesh,Mahoba,3,998592,2
-517,2021-01-26,Uttar Pradesh,Mainpuri,45,2130123,2
-518,2021-01-26,Uttar Pradesh,Mathura,37,2903790,2
-519,2021-01-26,Uttar Pradesh,Mau,20,2514804,2
-520,2021-01-26,Uttar Pradesh,Meerut,529,3925805,2
-521,2021-01-26,Uttar Pradesh,Mirzapur,15,2846546,2
-522,2021-01-26,Uttar Pradesh,Moradabad,106,5440087,2
-523,2021-01-26,Uttar Pradesh,Muzaffarnagar,145,4723604,2
-524,2021-01-26,Uttar Pradesh,Pilibhit,20,2315348,2
-525,2021-01-26,Uttar Pradesh,Pratapgarh,33,3658421,2
-526,2021-01-26,Uttar Pradesh,Rae Bareli,121,3882337,2
-527,2021-01-26,Uttar Pradesh,Rampur,66,2662834,2
-528,2021-01-26,Uttar Pradesh,Saharanpur,119,3951675,2
-529,2021-01-26,Uttar Pradesh,Sant Kabir Nagar,43,1955309,2
-530,2021-01-26,Uttar Pradesh,Shahjahanpur,50,3427453,2
-531,2021-01-26,Uttar Pradesh,Shrawasti,19,1273792,2
-532,2021-01-26,Uttar Pradesh,Siddharthnagar,48,2917599,2
-533,2021-01-26,Uttar Pradesh,Sitapur,26,5111751,2
-534,2021-01-26,Uttar Pradesh,Sonbhadra,103,2123317,2
-535,2021-01-26,Uttar Pradesh,Sultanpur,146,4328713,2
-536,2021-01-26,Uttar Pradesh,Unnao,121,3543538,2
-537,2021-01-26,Uttar Pradesh,Varanasi,189,4191599,2
-538,2021-01-26,Uttarakhand,Almora,136,709657,2
-539,2021-01-26,Uttarakhand,Bageshwar,124,296284,2
-540,2021-01-26,Uttarakhand,Chamoli,20,446430,2
-541,2021-01-26,Uttarakhand,Champawat,8,295999,2
-542,2021-01-26,Uttarakhand,Dehradun,316,1934231,1
-543,2021-01-26,Uttarakhand,Haridwar,205,2155081,1
-544,2021-01-26,Uttarakhand,Nainital,258,1088250,1
-545,2021-01-26,Uttarakhand,Pauri Garhwal,50,783489,2
-546,2021-01-26,Uttarakhand,Pithoragarh,72,551120,2
-547,2021-01-26,Uttarakhand,Rudraprayag,27,276205,2
-548,2021-01-26,Uttarakhand,Tehri Garhwal,70,705581,2
-549,2021-01-26,Uttarakhand,Udham Singh Nagar,107,1879748,1
-550,2021-01-26,Uttarakhand,Uttarkashi,62,376298,2
-551,2021-01-26,West Bengal,Bankura,202,4100208,2
-552,2021-01-26,West Bengal,Birbhum,171,3992741,2
-553,2021-01-26,West Bengal,Cooch Behar,71,3213758,2
-554,2021-01-26,West Bengal,Dakshin Dinajpur,43,1910955,2
-555,2021-01-26,West Bengal,Darjeeling,194,2105378,2
-556,2021-01-26,West Bengal,Hooghly,240,6291825,2
-557,2021-01-26,West Bengal,Howrah,260,5529033,2
-558,2021-01-26,West Bengal,Jalpaiguri,140,4415044,2
-559,2021-01-26,West Bengal,Kolkata,1232,5126231,1
-560,2021-01-26,West Bengal,Malda,109,4547283,2
-561,2021-01-26,West Bengal,Murshidabad,177,8098340,2
-562,2021-01-26,West Bengal,Nadia,180,5891064,2
-563,2021-01-26,West Bengal,North 24 Parganas,1578,11411150,1
-564,2021-01-26,West Bengal,Paschim Bardhaman,321,3283614,2
-565,2021-01-26,West Bengal,Paschim Medinipur,151,6741341,2
-566,2021-01-26,West Bengal,Purba Bardhaman,119,5514408,2
-567,2021-01-26,West Bengal,Purba Medinipur,218,5809298,2
-568,2021-01-26,West Bengal,Purulia,114,3340331,2
-569,2021-01-26,West Bengal,South 24 Parganas,289,9304636,2
-570,2021-01-26,West Bengal,Uttar Dinajpur,100,3428133,2
+0,2021-01-28,Andaman and Nicobar Islands,Andaman and Nicobar Islands,8,426251,1
+1,2021-01-28,Andhra Pradesh,Anantapur,63,4652509,4
+2,2021-01-28,Andhra Pradesh,Chittoor,146,4758433,3
+3,2021-01-28,Andhra Pradesh,East Godavari,183,5875897,2
+4,2021-01-28,Andhra Pradesh,Guntur,164,5572107,2
+5,2021-01-28,Andhra Pradesh,Krishna,255,5149834,1
+6,2021-01-28,Andhra Pradesh,Kurnool,47,4620948,4
+7,2021-01-28,Andhra Pradesh,Prakasam,67,3873091,5
+8,2021-01-28,Andhra Pradesh,S.P.S. Nellore,73,3378455,5
+9,2021-01-28,Andhra Pradesh,Srikakulam,31,3081550,6
+10,2021-01-28,Andhra Pradesh,Visakhapatnam,128,4891271,3
+11,2021-01-28,Andhra Pradesh,Vizianagaram,20,2672700,6
+12,2021-01-28,Andhra Pradesh,West Godavari,89,4488141,4
+13,2021-01-28,Andhra Pradesh,Y.S.R. Kadapa,92,3286015,5
+14,2021-01-28,Arunachal Pradesh,Anjaw,0,24130,2
+15,2021-01-28,Arunachal Pradesh,Changlang,1,168978,2
+16,2021-01-28,Arunachal Pradesh,East Kameng,0,89707,2
+17,2021-01-28,Arunachal Pradesh,East Siang,1,113104,2
+18,2021-01-28,Arunachal Pradesh,Kurung Kumey,0,104967,2
+19,2021-01-28,Arunachal Pradesh,Lohit,0,166128,2
+20,2021-01-28,Arunachal Pradesh,Lower Dibang Valley,0,61651,2
+21,2021-01-28,Arunachal Pradesh,Lower Subansiri,0,94654,2
+22,2021-01-28,Arunachal Pradesh,Papum Pare,5,201293,1
+23,2021-01-28,Arunachal Pradesh,Tawang,1,56974,2
+24,2021-01-28,Arunachal Pradesh,Tirap,0,127652,2
+25,2021-01-28,Arunachal Pradesh,Upper Siang,1,40265,2
+26,2021-01-28,Arunachal Pradesh,Upper Subansiri,0,95131,2
+27,2021-01-28,Arunachal Pradesh,West Kameng,5,95700,1
+28,2021-01-28,Arunachal Pradesh,West Siang,0,127992,2
+29,2021-01-28,Assam,Assam,691,34586234,1
+30,2021-01-28,Bihar,Araria,26,3205189,2
+31,2021-01-28,Bihar,Arwal,15,798961,2
+32,2021-01-28,Bihar,Aurangabad,77,2895683,2
+33,2021-01-28,Bihar,Banka,18,2319630,2
+34,2021-01-28,Bihar,Begusarai,23,3386417,2
+35,2021-01-28,Bihar,Bhagalpur,25,3463053,2
+36,2021-01-28,Bihar,Bhojpur,7,3110384,2
+37,2021-01-28,Bihar,Buxar,2,1945241,2
+38,2021-01-28,Bihar,Darbhanga,22,4488619,2
+39,2021-01-28,Bihar,East Champaran,28,5813283,2
+40,2021-01-28,Bihar,Gaya,53,5006217,2
+41,2021-01-28,Bihar,Gopalganj,11,2920694,2
+42,2021-01-28,Bihar,Jamui,1,2006862,2
+43,2021-01-28,Bihar,Jehanabad,6,1282857,2
+44,2021-01-28,Bihar,Kaimur,13,1854078,2
+45,2021-01-28,Bihar,Katihar,2,3500973,2
+46,2021-01-28,Bihar,Khagaria,0,1900250,2
+47,2021-01-28,Bihar,Kishanganj,1,1927056,2
+48,2021-01-28,Bihar,Lakhisarai,2,1141040,2
+49,2021-01-28,Bihar,Madhepura,10,2282009,2
+50,2021-01-28,Bihar,Madhubani,14,5115612,2
+51,2021-01-28,Bihar,Munger,16,1559252,2
+52,2021-01-28,Bihar,Muzaffarpur,29,5473211,2
+53,2021-01-28,Bihar,Nalanda,21,3280524,2
+54,2021-01-28,Bihar,Nawada,13,2529826,2
+55,2021-01-28,Bihar,Patna,849,6655850,1
+56,2021-01-28,Bihar,Purnia,6,3721666,2
+57,2021-01-28,Bihar,Rohtas,19,3374307,2
+58,2021-01-28,Bihar,Saharsa,11,2166754,2
+59,2021-01-28,Bihar,Samastipur,9,4858185,2
+60,2021-01-28,Bihar,Saran,50,4505123,2
+61,2021-01-28,Bihar,Sheikhpura,2,725430,2
+62,2021-01-28,Bihar,Sheohar,17,748120,2
+63,2021-01-28,Bihar,Sitamarhi,18,3902874,2
+64,2021-01-28,Bihar,Siwan,19,3796729,2
+65,2021-01-28,Bihar,Supaul,10,2541147,2
+66,2021-01-28,Bihar,Vaishali,22,3984324,2
+67,2021-01-28,Bihar,West Champaran,8,4485948,2
+68,2021-01-28,Chandigarh,Chandigarh,158,1182104,1
+69,2021-01-28,Chhattisgarh,Bastar,15,1611047,2
+70,2021-01-28,Chhattisgarh,Bijapur,7,290962,2
+71,2021-01-28,Chhattisgarh,Bilaspur,180,3036537,2
+72,2021-01-28,Chhattisgarh,Dakshin Bastar Dantewada,21,608347,2
+73,2021-01-28,Chhattisgarh,Dhamtari,199,911750,2
+74,2021-01-28,Chhattisgarh,Durg,697,3812014,1
+75,2021-01-28,Chhattisgarh,Janjgir Champa,188,1846466,2
+76,2021-01-28,Chhattisgarh,Jashpur,112,970903,2
+77,2021-01-28,Chhattisgarh,Kabeerdham,41,937680,2
+78,2021-01-28,Chhattisgarh,Korba,134,1375570,2
+79,2021-01-28,Chhattisgarh,Koriya,110,751165,2
+80,2021-01-28,Chhattisgarh,Mahasamund,132,1177340,2
+81,2021-01-28,Chhattisgarh,Narayanpur,1,159395,2
+82,2021-01-28,Chhattisgarh,Raigarh,320,1703142,2
+83,2021-01-28,Chhattisgarh,Raipur,793,4632814,1
+84,2021-01-28,Chhattisgarh,Rajnandgaon,251,1752332,2
+85,2021-01-28,Chhattisgarh,Surguja,122,2690270,2
+86,2021-01-28,Chhattisgarh,Uttar Bastar Kanker,61,853793,2
+87,2021-01-28,Delhi,Delhi,1575,18802494,1
+88,2021-01-28,Dadra and Nagar Haveli and Daman and Diu,Dadra and Nagar Haveli,5,384954,1
+89,2021-01-28,Dadra and Nagar Haveli and Daman and Diu,Daman,0,320756,2
+90,2021-01-28,Dadra and Nagar Haveli and Daman and Diu,Diu,3,23991,2
+91,2021-01-28,Goa,Goa,768,1662741,1
+92,2021-01-28,Gujarat,Ahmedabad,1514,8224217,1
+93,2021-01-28,Gujarat,Amreli,43,1726177,2
+94,2021-01-28,Gujarat,Anand,31,2385729,2
+95,2021-01-28,Gujarat,Banaskantha,-50,3557377,2
+96,2021-01-28,Gujarat,Bharuch,45,1768162,2
+97,2021-01-28,Gujarat,Bhavnagar,52,3283616,2
+98,2021-01-28,Gujarat,Dahod,34,2424878,2
+99,2021-01-28,Gujarat,Dang,13,260252,2
+100,2021-01-28,Gujarat,Gandhinagar,43,1586598,2
+101,2021-01-28,Gujarat,Jamnagar,43,2462536,2
+102,2021-01-28,Gujarat,Junagadh,37,3127113,2
+103,2021-01-28,Gujarat,Kheda,39,2621869,2
+104,2021-01-28,Gujarat,Kutch,40,2385303,2
+105,2021-01-28,Gujarat,Mehsana,36,2319973,2
+106,2021-01-28,Gujarat,Narmada,12,672939,2
+107,2021-01-28,Gujarat,Navsari,7,1515826,2
+108,2021-01-28,Gujarat,Panchmahal,36,2725485,2
+109,2021-01-28,Gujarat,Patan,7,1531857,2
+110,2021-01-28,Gujarat,Porbandar,4,667412,2
+111,2021-01-28,Gujarat,Rajkot,516,4337196,1
+112,2021-01-28,Gujarat,Sabarkantha,59,2768591,2
+113,2021-01-28,Gujarat,Surat,508,6932707,1
+114,2021-01-28,Gujarat,Surendranagar,42,2002146,2
+115,2021-01-28,Gujarat,Tapi,4,920005,2
+116,2021-01-28,Gujarat,Vadodara,329,4748814,1
+117,2021-01-28,Gujarat,Valsad,7,1944473,2
+118,2021-01-28,Himachal Pradesh,Bilaspur,4,435430,2
+119,2021-01-28,Himachal Pradesh,Chamba,21,591751,2
+120,2021-01-28,Himachal Pradesh,Hamirpur,24,518436,2
+121,2021-01-28,Himachal Pradesh,Kangra,61,1721486,1
+122,2021-01-28,Himachal Pradesh,Kinnaur,4,95898,2
+123,2021-01-28,Himachal Pradesh,Kullu,15,499209,2
+124,2021-01-28,Himachal Pradesh,Lahaul and Spiti,3,35983,2
+125,2021-01-28,Himachal Pradesh,Mandi,32,1139746,1
+126,2021-01-28,Himachal Pradesh,Shimla,48,927971,1
+127,2021-01-28,Himachal Pradesh,Sirmaur,78,604035,1
+128,2021-01-28,Himachal Pradesh,Solan,19,661565,2
+129,2021-01-28,Himachal Pradesh,Una,33,594137,2
+130,2021-01-28,Haryana,Ambala,77,1286319,2
+131,2021-01-28,Haryana,Bhiwani,7,1863267,2
+132,2021-01-28,Haryana,Faridabad,161,2063096,1
+133,2021-01-28,Haryana,Fatehabad,5,1073893,2
+134,2021-01-28,Haryana,Gurugram,384,1726452,1
+135,2021-01-28,Haryana,Hisar,20,1988081,2
+136,2021-01-28,Haryana,Jhajjar,4,1092582,2
+137,2021-01-28,Haryana,Jind,21,1520933,2
+138,2021-01-28,Haryana,Kaithal,23,1224707,2
+139,2021-01-28,Haryana,Karnal,72,1716069,2
+140,2021-01-28,Haryana,Kurukshetra,51,1099707,2
+141,2021-01-28,Haryana,Mahendragarh,8,1051180,2
+142,2021-01-28,Haryana,Palwal,12,1188687,2
+143,2021-01-28,Haryana,Panchkula,118,639874,2
+144,2021-01-28,Haryana,Panipat,80,1374198,2
+145,2021-01-28,Haryana,Rewari,45,1026378,2
+146,2021-01-28,Haryana,Rohtak,43,1209773,2
+147,2021-01-28,Haryana,Sirsa,17,1476515,2
+148,2021-01-28,Haryana,Sonipat,12,1653001,2
+149,2021-01-28,Haryana,Yamunanagar,73,1384194,2
+150,2021-01-28,Jharkhand,Bokaro,17,2351056,2
+151,2021-01-28,Jharkhand,Chatra,13,1188890,2
+152,2021-01-28,Jharkhand,Deoghar,7,1700963,2
+153,2021-01-28,Jharkhand,Dhanbad,37,3060315,2
+154,2021-01-28,Jharkhand,Dumka,6,1506444,2
+155,2021-01-28,Jharkhand,East Singhbhum,69,2615068,2
+156,2021-01-28,Jharkhand,Garhwa,4,1507974,2
+157,2021-01-28,Jharkhand,Giridih,1,2787840,2
+158,2021-01-28,Jharkhand,Godda,4,1497448,2
+159,2021-01-28,Jharkhand,Gumla,37,1168743,2
+160,2021-01-28,Jharkhand,Hazaribagh,10,1977324,2
+161,2021-01-28,Jharkhand,Jamtara,5,901788,2
+162,2021-01-28,Jharkhand,Khunti,2,606349,2
+163,2021-01-28,Jharkhand,Koderma,12,816535,2
+164,2021-01-28,Jharkhand,Latehar,24,828755,2
+165,2021-01-28,Jharkhand,Lohardaga,22,526441,2
+166,2021-01-28,Jharkhand,Pakur,0,1026481,2
+167,2021-01-28,Jharkhand,Palamu,14,2211451,2
+168,2021-01-28,Jharkhand,Ramgarh,10,1082365,2
+169,2021-01-28,Jharkhand,Ranchi,354,3322248,1
+170,2021-01-28,Jharkhand,Sahibganj,2,1311646,2
+171,2021-01-28,Jharkhand,Saraikela-Kharsawan,5,1214164,2
+172,2021-01-28,Jharkhand,Simdega,10,683519,2
+173,2021-01-28,Jharkhand,West Singhbhum,5,1712665,2
+174,2021-01-28,Jammu and Kashmir,Anantnag,57,1229709,2
+175,2021-01-28,Jammu and Kashmir,Bandipora,22,447144,2
+176,2021-01-28,Jammu and Kashmir,Baramulla,38,1149164,2
+177,2021-01-28,Jammu and Kashmir,Budgam,43,859269,2
+178,2021-01-28,Jammu and Kashmir,Doda,3,467327,2
+179,2021-01-28,Jammu and Kashmir,Ganderbal,61,339088,2
+180,2021-01-28,Jammu and Kashmir,Jammu,154,1744152,1
+181,2021-01-28,Jammu and Kashmir,Kathua,3,702736,2
+182,2021-01-28,Jammu and Kashmir,Kishtwar,1,262993,2
+183,2021-01-28,Jammu and Kashmir,Kulgam,27,483911,2
+184,2021-01-28,Jammu and Kashmir,Kupwara,32,992204,2
+185,2021-01-28,Jammu and Kashmir,Pulwama,57,638902,2
+186,2021-01-28,Jammu and Kashmir,Punch,27,543592,2
+187,2021-01-28,Jammu and Kashmir,Rajouri,5,732353,2
+188,2021-01-28,Jammu and Kashmir,Ramban,2,323433,2
+189,2021-01-28,Jammu and Kashmir,Reasi,5,358720,2
+190,2021-01-28,Jammu and Kashmir,Samba,73,363544,2
+191,2021-01-28,Jammu and Kashmir,Shopiyan,33,303485,2
+192,2021-01-28,Jammu and Kashmir,Srinagar,296,1409985,1
+193,2021-01-28,Jammu and Kashmir,Udhampur,24,632683,2
+194,2021-01-28,Karnataka,Bagalkote,12,2154317,2
+195,2021-01-28,Karnataka,Ballari,53,2795958,2
+196,2021-01-28,Karnataka,Bengaluru Urban,3932,10968568,1
+197,2021-01-28,Karnataka,Bidar,28,1941762,2
+198,2021-01-28,Karnataka,Chamarajanagara,24,1163702,2
+199,2021-01-28,Karnataka,Chikkaballapura,73,1430819,2
+200,2021-01-28,Karnataka,Chikkamagaluru,37,1297276,2
+201,2021-01-28,Karnataka,Chitradurga,157,1891780,2
+202,2021-01-28,Karnataka,Dakshina Kannada,281,2382200,2
+203,2021-01-28,Karnataka,Davanagere,71,2217867,2
+204,2021-01-28,Karnataka,Dharwad,63,2105606,2
+205,2021-01-28,Karnataka,Gadag,10,1213610,2
+206,2021-01-28,Karnataka,Hassan,91,2025120,2
+207,2021-01-28,Karnataka,Haveri,13,1821342,2
+208,2021-01-28,Karnataka,Kodagu,81,632152,2
+209,2021-01-28,Karnataka,Kolar,55,1751497,2
+210,2021-01-28,Karnataka,Koppal,5,1584509,2
+211,2021-01-28,Karnataka,Mandya,49,2058577,2
+212,2021-01-28,Karnataka,Mysuru,212,3421285,2
+213,2021-01-28,Karnataka,Raichur,22,2198846,2
+214,2021-01-28,Karnataka,Ramanagara,9,1234205,2
+215,2021-01-28,Karnataka,Shivamogga,87,1998138,2
+216,2021-01-28,Karnataka,Tumakuru,256,3054037,2
+217,2021-01-28,Karnataka,Udupi,46,1342192,2
+218,2021-01-28,Karnataka,Uttara Kannada,73,1638373,2
+219,2021-01-28,Karnataka,Yadgir,18,1338669,2
+220,2021-01-28,Kerala,Alappuzha,3723,2425679,3
+221,2021-01-28,Kerala,Ernakulam,10582,3741922,1
+222,2021-01-28,Kerala,Idukki,4768,1264230,3
+223,2021-01-28,Kerala,Kannur,3733,2876223,2
+224,2021-01-28,Kerala,Kasaragod,1759,1490408,3
+225,2021-01-28,Kerala,Kollam,5145,3004328,2
+226,2021-01-28,Kerala,Kottayam,7099,2250988,1
+227,2021-01-28,Kerala,Kozhikode,6970,3518374,1
+228,2021-01-28,Kerala,Malappuram,4194,4688729,2
+229,2021-01-28,Kerala,Palakkad,5373,3203325,2
+230,2021-01-28,Kerala,Pathanamthitta,6051,1365050,3
+231,2021-01-28,Kerala,Thiruvananthapuram,4175,3763627,2
+232,2021-01-28,Kerala,Thrissur,4994,3558168,2
+233,2021-01-28,Kerala,Wayanad,3828,931859,3
+234,2021-01-28,Ladakh,Kargil,2,160514,1
+235,2021-01-28,Ladakh,Leh,61,152175,1
+236,2021-01-28,Maharashtra,Ahmednagar,1150,5179201,2
+237,2021-01-28,Maharashtra,Akola,336,2067853,2
+238,2021-01-28,Maharashtra,Amravati,653,3292827,2
+239,2021-01-28,Maharashtra,Aurangabad,437,4219461,2
+240,2021-01-28,Maharashtra,Beed,505,2946956,2
+241,2021-01-28,Maharashtra,Bhandara,228,1368381,2
+242,2021-01-28,Maharashtra,Buldhana,619,2948334,2
+243,2021-01-28,Maharashtra,Chandrapur,276,2512910,2
+244,2021-01-28,Maharashtra,Dhule,138,2337983,2
+245,2021-01-28,Maharashtra,Gadchiroli,79,1223154,2
+246,2021-01-28,Maharashtra,Gondia,236,1507658,2
+247,2021-01-28,Maharashtra,Hingoli,125,1342173,2
+248,2021-01-28,Maharashtra,Jalgaon,455,4822105,2
+249,2021-01-28,Maharashtra,Jalna,172,2233312,2
+250,2021-01-28,Maharashtra,Kolhapur,207,4418641,2
+251,2021-01-28,Maharashtra,Latur,617,2797783,2
+252,2021-01-28,Maharashtra,Mumbai,5521,14184306,1
+253,2021-01-28,Maharashtra,Nagpur,3408,5305070,2
+254,2021-01-28,Maharashtra,Nanded,436,3831873,2
+255,2021-01-28,Maharashtra,Nandurbar,562,1879056,2
+256,2021-01-28,Maharashtra,Nashik,1165,6962193,2
+257,2021-01-28,Maharashtra,Osmanabad,365,1889637,2
+258,2021-01-28,Maharashtra,Parbhani,150,2093138,2
+259,2021-01-28,Maharashtra,Pune,13014,10749525,1
+260,2021-01-28,Maharashtra,Raigad,658,3002988,2
+261,2021-01-28,Maharashtra,Ratnagiri,124,1841179,2
+262,2021-01-28,Maharashtra,Sangli,567,3217243,2
+263,2021-01-28,Maharashtra,Satara,697,3424265,2
+264,2021-01-28,Maharashtra,Sindhudurg,292,968602,2
+265,2021-01-28,Maharashtra,Solapur,785,4922242,2
+266,2021-01-28,Maharashtra,Thane,7683,12608569,1
+267,2021-01-28,Maharashtra,Wardha,305,1482882,2
+268,2021-01-28,Maharashtra,Washim,169,1364762,2
+269,2021-01-28,Maharashtra,Yavatmal,455,3160477,2
+270,2021-01-28,Meghalaya,East Garo Hills,0,362425,3
+271,2021-01-28,Meghalaya,East Khasi Hills,81,941551,1
+272,2021-01-28,Meghalaya,Ribhoi,4,295078,3
+273,2021-01-28,Meghalaya,South Garo Hills,0,162261,3
+274,2021-01-28,Meghalaya,West Garo Hills,1,733352,3
+275,2021-01-28,Meghalaya,West Jaintia Hills,0,2700000,2
+276,2021-01-28,Meghalaya,West Khasi Hills,1,437146,3
+277,2021-01-28,Manipur,Manipur,153,3255606,1
+278,2021-01-28,Madhya Pradesh,Alirajpur,7,831059,2
+279,2021-01-28,Madhya Pradesh,Anuppur,8,854130,2
+280,2021-01-28,Madhya Pradesh,Ashoknagar,10,963381,2
+281,2021-01-28,Madhya Pradesh,Balaghat,26,1939936,2
+282,2021-01-28,Madhya Pradesh,Barwani,38,1579904,2
+283,2021-01-28,Madhya Pradesh,Betul,161,1795913,2
+284,2021-01-28,Madhya Pradesh,Bhind,11,1941426,2
+285,2021-01-28,Madhya Pradesh,Bhopal,814,2703010,1
+286,2021-01-28,Madhya Pradesh,Burhanpur,11,863946,2
+287,2021-01-28,Madhya Pradesh,Chhatarpur,14,2009108,2
+288,2021-01-28,Madhya Pradesh,Chhindwara,33,2383651,2
+289,2021-01-28,Madhya Pradesh,Damoh,45,1441210,2
+290,2021-01-28,Madhya Pradesh,Datia,15,896900,2
+291,2021-01-28,Madhya Pradesh,Dewas,31,1782635,2
+292,2021-01-28,Madhya Pradesh,Dhar,31,2491804,2
+293,2021-01-28,Madhya Pradesh,Dindori,13,803157,2
+294,2021-01-28,Madhya Pradesh,Guna,24,1415332,2
+295,2021-01-28,Madhya Pradesh,Gwalior,78,2316521,2
+296,2021-01-28,Madhya Pradesh,Harda,25,650330,2
+297,2021-01-28,Madhya Pradesh,Hoshangabad,32,1415139,2
+298,2021-01-28,Madhya Pradesh,Indore,453,3735435,1
+299,2021-01-28,Madhya Pradesh,Jabalpur,278,2808149,1
+300,2021-01-28,Madhya Pradesh,Jhabua,30,1168555,2
+301,2021-01-28,Madhya Pradesh,Katni,19,1472928,2
+302,2021-01-28,Madhya Pradesh,Khandwa,18,1493470,2
+303,2021-01-28,Madhya Pradesh,Khargone,40,2135272,2
+304,2021-01-28,Madhya Pradesh,Mandla,2,1202592,2
+305,2021-01-28,Madhya Pradesh,Mandsaur,22,1528069,2
+306,2021-01-28,Madhya Pradesh,Morena,2,2241206,2
+307,2021-01-28,Madhya Pradesh,Narsinghpur,11,1244714,2
+308,2021-01-28,Madhya Pradesh,Neemuch,28,941716,2
+309,2021-01-28,Madhya Pradesh,Panna,37,1158833,2
+310,2021-01-28,Madhya Pradesh,Raisen,17,1518021,2
+311,2021-01-28,Madhya Pradesh,Rajgarh,63,1762228,2
+312,2021-01-28,Madhya Pradesh,Ratlam,81,1658779,2
+313,2021-01-28,Madhya Pradesh,Rewa,17,2696221,2
+314,2021-01-28,Madhya Pradesh,Sagar,80,2711442,2
+315,2021-01-28,Madhya Pradesh,Satna,19,2540986,2
+316,2021-01-28,Madhya Pradesh,Sehore,29,1494918,2
+317,2021-01-28,Madhya Pradesh,Seoni,12,1572209,2
+318,2021-01-28,Madhya Pradesh,Shahdol,47,1215312,2
+319,2021-01-28,Madhya Pradesh,Shajapur,29,1724456,2
+320,2021-01-28,Madhya Pradesh,Sheopur,20,784162,2
+321,2021-01-28,Madhya Pradesh,Shivpuri,13,1967697,2
+322,2021-01-28,Madhya Pradesh,Sidhi,15,1284818,2
+323,2021-01-28,Madhya Pradesh,Singrauli,21,1343231,2
+324,2021-01-28,Madhya Pradesh,Tikamgarh,12,1647489,2
+325,2021-01-28,Madhya Pradesh,Ujjain,72,2265025,2
+326,2021-01-28,Madhya Pradesh,Umaria,8,735024,2
+327,2021-01-28,Madhya Pradesh,Vidisha,20,1663118,2
+328,2021-01-28,Mizoram,Aizawl,32,456352,1
+329,2021-01-28,Mizoram,Champhai,0,143349,2
+330,2021-01-28,Mizoram,Kolasib,2,95709,2
+331,2021-01-28,Mizoram,Lawngtlai,1,134399,2
+332,2021-01-28,Mizoram,Lunglei,3,184028,2
+333,2021-01-28,Mizoram,Mamit,0,98455,2
+334,2021-01-28,Mizoram,Saiha,1,64494,2
+335,2021-01-28,Mizoram,Serchhip,1,74028,2
+336,2021-01-28,Nagaland,Dimapur,2,431845,2
+337,2021-01-28,Nagaland,Kiphire,0,84365,2
+338,2021-01-28,Nagaland,Kohima,40,305506,1
+339,2021-01-28,Nagaland,Longleng,0,57552,2
+340,2021-01-28,Nagaland,Mokokchung,5,221869,2
+341,2021-01-28,Nagaland,Mon,0,285296,2
+342,2021-01-28,Nagaland,Peren,2,108550,2
+343,2021-01-28,Nagaland,Phek,0,186297,2
+344,2021-01-28,Nagaland,Tuensang,2,224119,2
+345,2021-01-28,Nagaland,Wokha,1,189631,2
+346,2021-01-28,Nagaland,Zunheboto,0,160463,2
+347,2021-01-28,Odisha,Angul,44,1452156,3
+348,2021-01-28,Odisha,Balangir,6,1879857,3
+349,2021-01-28,Odisha,Balasore,71,2645403,2
+350,2021-01-28,Odisha,Bargarh,78,1688631,2
+351,2021-01-28,Odisha,Bhadrak,44,1717224,3
+352,2021-01-28,Odisha,Boudh,3,502925,3
+353,2021-01-28,Odisha,Cuttack,94,2991896,2
+354,2021-01-28,Odisha,Deogarh,8,356273,3
+355,2021-01-28,Odisha,Dhenkanal,3,1359805,3
+356,2021-01-28,Odisha,Gajapati,12,658711,3
+357,2021-01-28,Odisha,Ganjam,9,4023095,2
+358,2021-01-28,Odisha,Jagatsinghpur,32,1296147,3
+359,2021-01-28,Odisha,Jajpur,44,2082999,2
+360,2021-01-28,Odisha,Jharsuguda,39,660636,3
+361,2021-01-28,Odisha,Kalahandi,20,1797631,3
+362,2021-01-28,Odisha,Kandhamal,6,835745,3
+363,2021-01-28,Odisha,Kendrapara,8,1642012,3
+364,2021-01-28,Odisha,Kendujhar,14,2053976,3
+365,2021-01-28,Odisha,Khordha,55,2566907,2
+366,2021-01-28,Odisha,Koraput,9,1572798,3
+367,2021-01-28,Odisha,Malkangiri,3,699039,3
+368,2021-01-28,Odisha,Mayurbhanj,18,2872501,2
+369,2021-01-28,Odisha,Nabarangapur,7,1391878,3
+370,2021-01-28,Odisha,Nayagarh,6,1097579,3
+371,2021-01-28,Odisha,Nuapada,52,695835,3
+372,2021-01-28,Odisha,Puri,88,1936552,2
+373,2021-01-28,Odisha,Rayagada,12,1103419,3
+374,2021-01-28,Odisha,Sambalpur,147,1186853,1
+375,2021-01-28,Odisha,Subarnapur,10,695609,3
+376,2021-01-28,Odisha,Sundargarh,185,2386518,1
+377,2021-01-28,Punjab,Amritsar,126,2839348,1
+378,2021-01-28,Punjab,Barnala,44,678901,2
+379,2021-01-28,Punjab,Bathinda,57,1582919,2
+380,2021-01-28,Punjab,Faridkot,68,703959,2
+381,2021-01-28,Punjab,Fatehgarh Sahib,30,684186,2
+382,2021-01-28,Punjab,Gurdaspur,76,2620088,1
+383,2021-01-28,Punjab,Hoshiarpur,57,1808753,2
+384,2021-01-28,Punjab,Jalandhar,180,2500693,1
+385,2021-01-28,Punjab,Kapurthala,76,929292,2
+386,2021-01-28,Punjab,Ludhiana,317,3988562,1
+387,2021-01-28,Punjab,Mansa,19,877516,2
+388,2021-01-28,Punjab,Moga,25,1135150,2
+389,2021-01-28,Punjab,Patiala,158,2161082,1
+390,2021-01-28,Punjab,Rupnagar,53,780475,2
+391,2021-01-28,Punjab,Sangrur,13,1886893,2
+392,2021-01-28,Punjab,Shahid Bhagat Singh Nagar,103,698033,2
+393,2021-01-28,Punjab,Tarn Taran,12,1276375,2
+394,2021-01-28,Puducherry,Puducherry,160,1397707,1
+395,2021-01-28,Rajasthan,Ajmer,112,2944679,2
+396,2021-01-28,Rajasthan,Alwar,80,4188564,2
+397,2021-01-28,Rajasthan,Banswara,51,2049133,2
+398,2021-01-28,Rajasthan,Baran,22,1393941,2
+399,2021-01-28,Rajasthan,Barmer,20,2968276,2
+400,2021-01-28,Rajasthan,Bharatpur,9,2905247,2
+401,2021-01-28,Rajasthan,Bhilwara,44,2745716,2
+402,2021-01-28,Rajasthan,Bikaner,21,2694888,2
+403,2021-01-28,Rajasthan,Bundi,92,1266433,2
+404,2021-01-28,Rajasthan,Chittorgarh,38,1760545,2
+405,2021-01-28,Rajasthan,Churu,0,2325084,2
+406,2021-01-28,Rajasthan,Dausa,6,1863226,2
+407,2021-01-28,Rajasthan,Dholpur,3,1375428,2
+408,2021-01-28,Rajasthan,Dungarpur,62,1582949,2
+409,2021-01-28,Rajasthan,Ganganagar,61,2244852,2
+410,2021-01-28,Rajasthan,Hanumangarh,9,2023149,2
+411,2021-01-28,Rajasthan,Jaipur,537,7553843,1
+412,2021-01-28,Rajasthan,Jaisalmer,18,763708,2
+413,2021-01-28,Rajasthan,Jalore,26,2084752,2
+414,2021-01-28,Rajasthan,Jhalawar,52,1608687,2
+415,2021-01-28,Rajasthan,Jhunjhunu,18,2436231,2
+416,2021-01-28,Rajasthan,Jodhpur,222,4203368,1
+417,2021-01-28,Rajasthan,Karauli,12,1662403,2
+418,2021-01-28,Rajasthan,Kota,388,2224156,1
+419,2021-01-28,Rajasthan,Nagaur,160,3770827,1
+420,2021-01-28,Rajasthan,Pali,26,2322833,2
+421,2021-01-28,Rajasthan,Pratapgarh,53,989347,2
+422,2021-01-28,Rajasthan,Rajsamand,71,1318521,2
+423,2021-01-28,Rajasthan,Sawai Madhopur,2,1522528,2
+424,2021-01-28,Rajasthan,Sikar,14,3052160,2
+425,2021-01-28,Rajasthan,Sirohi,20,1181434,2
+426,2021-01-28,Rajasthan,Tonk,2,1620312,2
+427,2021-01-28,Rajasthan,Udaipur,308,3497999,1
+428,2021-01-28,Sikkim,Sikkim,104,671720,1
+429,2021-01-28,Telangana,Telangana,2696,38472769,1
+430,2021-01-28,Tamil Nadu,Ariyalur,13,860579,2
+431,2021-01-28,Tamil Nadu,Chennai,1585,5297274,1
+432,2021-01-28,Tamil Nadu,Coimbatore,426,3942171,2
+433,2021-01-28,Tamil Nadu,Cuddalore,32,2970742,2
+434,2021-01-28,Tamil Nadu,Dharmapuri,31,1717801,2
+435,2021-01-28,Tamil Nadu,Dindigul,78,2462144,2
+436,2021-01-28,Tamil Nadu,Erode,176,2566988,2
+437,2021-01-28,Tamil Nadu,Kancheepuram,139,4558007,2
+438,2021-01-28,Tamil Nadu,Kanyakumari,107,2132226,2
+439,2021-01-28,Tamil Nadu,Karur,32,1213522,2
+440,2021-01-28,Tamil Nadu,Krishnagiri,31,2142982,2
+441,2021-01-28,Tamil Nadu,Madurai,111,3463607,2
+442,2021-01-28,Tamil Nadu,Nagapattinam,71,1842753,2
+443,2021-01-28,Tamil Nadu,Namakkal,93,1968325,2
+444,2021-01-28,Tamil Nadu,Nilgiris,61,838349,2
+445,2021-01-28,Tamil Nadu,Perambalur,3,644354,2
+446,2021-01-28,Tamil Nadu,Pudukkottai,22,1844913,2
+447,2021-01-28,Tamil Nadu,Ramanathapuram,16,1542927,2
+448,2021-01-28,Tamil Nadu,Salem,142,3969544,2
+449,2021-01-28,Tamil Nadu,Sivaganga,25,1526575,2
+450,2021-01-28,Tamil Nadu,Thanjavur,57,2742715,2
+451,2021-01-28,Tamil Nadu,Theni,42,1420325,2
+452,2021-01-28,Tamil Nadu,Thiruvallur,200,4250039,2
+453,2021-01-28,Tamil Nadu,Thiruvarur,77,1441276,2
+454,2021-01-28,Tamil Nadu,Thoothukkudi,47,1995201,2
+455,2021-01-28,Tamil Nadu,Tiruchirappalli,112,3103411,2
+456,2021-01-28,Tamil Nadu,Tirunelveli,58,3508046,2
+457,2021-01-28,Tamil Nadu,Tiruppur,179,2826119,2
+458,2021-01-28,Tamil Nadu,Tiruvannamalai,29,2809958,2
+459,2021-01-28,Tamil Nadu,Vellore,97,4487417,2
+460,2021-01-28,Tamil Nadu,Viluppuram,42,3943115,2
+461,2021-01-28,Tamil Nadu,Virudhunagar,23,2214208,2
+462,2021-01-28,Tripura,Dhalai,0,430906,2
+463,2021-01-28,Tripura,Gomati,0,498030,2
+464,2021-01-28,Tripura,Khowai,2,373226,2
+465,2021-01-28,Tripura,North Tripura,2,474178,2
+466,2021-01-28,Tripura,Sipahijala,1,552026,2
+467,2021-01-28,Tripura,South Tripura,2,494460,2
+468,2021-01-28,Tripura,Unokoti,1,316162,2
+469,2021-01-28,Tripura,West Tripura,13,1045989,1
+470,2021-01-28,Uttar Pradesh,Agra,48,5037429,2
+471,2021-01-28,Uttar Pradesh,Aligarh,83,4188233,2
+472,2021-01-28,Uttar Pradesh,Ambedkar Nagar,54,2733592,3
+473,2021-01-28,Uttar Pradesh,Amroha,12,2097852,3
+474,2021-01-28,Uttar Pradesh,Auraiya,29,1572681,3
+475,2021-01-28,Uttar Pradesh,Azamgarh,64,5259861,2
+476,2021-01-28,Uttar Pradesh,Baghpat,14,1485475,3
+477,2021-01-28,Uttar Pradesh,Bahraich,38,3976013,2
+478,2021-01-28,Uttar Pradesh,Ballia,115,3693342,2
+479,2021-01-28,Uttar Pradesh,Balrampur,92,2449478,3
+480,2021-01-28,Uttar Pradesh,Banda,21,2051327,3
+481,2021-01-28,Uttar Pradesh,Barabanki,24,3717197,2
+482,2021-01-28,Uttar Pradesh,Bareilly,157,5071129,2
+483,2021-01-28,Uttar Pradesh,Basti,143,2809489,3
+484,2021-01-28,Uttar Pradesh,Bhadohi,63,1799163,3
+485,2021-01-28,Uttar Pradesh,Bijnor,26,4198293,2
+486,2021-01-28,Uttar Pradesh,Budaun,47,4197361,2
+487,2021-01-28,Uttar Pradesh,Bulandshahr,41,3989055,2
+488,2021-01-28,Uttar Pradesh,Chandauli,17,2226142,3
+489,2021-01-28,Uttar Pradesh,Chitrakoot,6,1130572,3
+490,2021-01-28,Uttar Pradesh,Deoria,69,3535078,2
+491,2021-01-28,Uttar Pradesh,Etah,40,2022907,3
+492,2021-01-28,Uttar Pradesh,Etawah,44,1803263,3
+493,2021-01-28,Uttar Pradesh,Farrukhabad,26,2149133,3
+494,2021-01-28,Uttar Pradesh,Fatehpur,89,3001316,3
+495,2021-01-28,Uttar Pradesh,Firozabad,13,2847898,3
+496,2021-01-28,Uttar Pradesh,Gautam Buddha Nagar,48,1878851,3
+497,2021-01-28,Uttar Pradesh,Ghaziabad,89,5337075,2
+498,2021-01-28,Uttar Pradesh,Ghazipur,14,4127106,2
+499,2021-01-28,Uttar Pradesh,Gonda,33,3914668,2
+500,2021-01-28,Uttar Pradesh,Gorakhpur,97,5062620,2
+501,2021-01-28,Uttar Pradesh,Hamirpur,2,1258885,3
+502,2021-01-28,Uttar Pradesh,Hardoi,76,4665843,2
+503,2021-01-28,Uttar Pradesh,Jalaun,34,1926570,3
+504,2021-01-28,Uttar Pradesh,Jaunpur,57,5123393,2
+505,2021-01-28,Uttar Pradesh,Jhansi,79,2278407,3
+506,2021-01-28,Uttar Pradesh,Kannauj,14,1888542,3
+507,2021-01-28,Uttar Pradesh,Kanpur Dehat,44,2047650,3
+508,2021-01-28,Uttar Pradesh,Kanpur Nagar,154,5222646,2
+509,2021-01-28,Uttar Pradesh,Kasganj,39,1637860,3
+510,2021-01-28,Uttar Pradesh,Kaushambi,4,1823539,3
+511,2021-01-28,Uttar Pradesh,Kushinagar,69,4063580,2
+512,2021-01-28,Uttar Pradesh,Lakhimpur Kheri,123,4584217,2
+513,2021-01-28,Uttar Pradesh,Lalitpur,36,1392615,3
+514,2021-01-28,Uttar Pradesh,Lucknow,1323,5232415,1
+515,2021-01-28,Uttar Pradesh,Maharajganj,7,3060561,3
+516,2021-01-28,Uttar Pradesh,Mahoba,2,998592,3
+517,2021-01-28,Uttar Pradesh,Mainpuri,34,2130123,3
+518,2021-01-28,Uttar Pradesh,Mathura,29,2903790,3
+519,2021-01-28,Uttar Pradesh,Mau,17,2514804,3
+520,2021-01-28,Uttar Pradesh,Meerut,505,3925805,2
+521,2021-01-28,Uttar Pradesh,Mirzapur,16,2846546,3
+522,2021-01-28,Uttar Pradesh,Moradabad,107,5440087,2
+523,2021-01-28,Uttar Pradesh,Muzaffarnagar,129,4723604,2
+524,2021-01-28,Uttar Pradesh,Pilibhit,18,2315348,3
+525,2021-01-28,Uttar Pradesh,Pratapgarh,33,3658421,2
+526,2021-01-28,Uttar Pradesh,Rae Bareli,121,3882337,2
+527,2021-01-28,Uttar Pradesh,Rampur,66,2662834,3
+528,2021-01-28,Uttar Pradesh,Saharanpur,111,3951675,2
+529,2021-01-28,Uttar Pradesh,Sant Kabir Nagar,36,1955309,3
+530,2021-01-28,Uttar Pradesh,Shahjahanpur,35,3427453,2
+531,2021-01-28,Uttar Pradesh,Shrawasti,15,1273792,3
+532,2021-01-28,Uttar Pradesh,Siddharthnagar,39,2917599,3
+533,2021-01-28,Uttar Pradesh,Sitapur,26,5111751,2
+534,2021-01-28,Uttar Pradesh,Sonbhadra,102,2123317,3
+535,2021-01-28,Uttar Pradesh,Sultanpur,141,4328713,2
+536,2021-01-28,Uttar Pradesh,Unnao,122,3543538,2
+537,2021-01-28,Uttar Pradesh,Varanasi,157,4191599,2
+538,2021-01-28,Uttarakhand,Almora,125,709657,2
+539,2021-01-28,Uttarakhand,Bageshwar,125,296284,2
+540,2021-01-28,Uttarakhand,Chamoli,19,446430,2
+541,2021-01-28,Uttarakhand,Champawat,9,295999,2
+542,2021-01-28,Uttarakhand,Dehradun,272,1934231,1
+543,2021-01-28,Uttarakhand,Haridwar,179,2155081,1
+544,2021-01-28,Uttarakhand,Nainital,253,1088250,1
+545,2021-01-28,Uttarakhand,Pauri Garhwal,53,783489,2
+546,2021-01-28,Uttarakhand,Pithoragarh,70,551120,2
+547,2021-01-28,Uttarakhand,Rudraprayag,26,276205,2
+548,2021-01-28,Uttarakhand,Tehri Garhwal,65,705581,2
+549,2021-01-28,Uttarakhand,Udham Singh Nagar,107,1879748,1
+550,2021-01-28,Uttarakhand,Uttarkashi,35,376298,2
+551,2021-01-28,West Bengal,Bankura,187,4100208,2
+552,2021-01-28,West Bengal,Birbhum,167,3992741,2
+553,2021-01-28,West Bengal,Cooch Behar,70,3213758,2
+554,2021-01-28,West Bengal,Dakshin Dinajpur,43,1910955,2
+555,2021-01-28,West Bengal,Darjeeling,182,2105378,2
+556,2021-01-28,West Bengal,Hooghly,225,6291825,2
+557,2021-01-28,West Bengal,Howrah,253,5529033,2
+558,2021-01-28,West Bengal,Jalpaiguri,139,4415044,2
+559,2021-01-28,West Bengal,Kolkata,1229,5126231,1
+560,2021-01-28,West Bengal,Malda,106,4547283,2
+561,2021-01-28,West Bengal,Murshidabad,169,8098340,2
+562,2021-01-28,West Bengal,Nadia,154,5891064,2
+563,2021-01-28,West Bengal,North 24 Parganas,1464,11411150,1
+564,2021-01-28,West Bengal,Paschim Bardhaman,334,3283614,2
+565,2021-01-28,West Bengal,Paschim Medinipur,140,6741341,2
+566,2021-01-28,West Bengal,Purba Bardhaman,107,5514408,2
+567,2021-01-28,West Bengal,Purba Medinipur,204,5809298,2
+568,2021-01-28,West Bengal,Purulia,113,3340331,2
+569,2021-01-28,West Bengal,South 24 Parganas,283,9304636,2
+570,2021-01-28,West Bengal,Uttar Dinajpur,97,3428133,2

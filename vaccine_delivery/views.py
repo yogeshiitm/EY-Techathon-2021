@@ -122,13 +122,15 @@ def Index(request):
         form = SearchForm(request.POST)
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            print(states.title(),'\n')
+            print(states.title(),'\n')
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
             
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/')
@@ -169,12 +171,12 @@ def DistrictHomeView(request):
         form = SearchForm(request.POST)
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/district_level')
@@ -190,12 +192,12 @@ def DistrictView(request, state):
         form = SearchForm(request.POST)
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect(f'/district_level/{state}')
@@ -211,12 +213,12 @@ def BatchView(request, batch):
         form = SearchForm(request.POST)
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect(f'/batch/{batch}')
@@ -235,12 +237,12 @@ def AboutView(request):
         form = SearchForm(request.POST)
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/about')
@@ -254,12 +256,12 @@ def TeamView(request):
         form = SearchForm(request.POST)
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/team')
@@ -273,12 +275,12 @@ def SitemapView(request):
         form = SearchForm(request.POST)
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/team')

@@ -20,13 +20,13 @@ def login(request):
         states = request.POST.get('search')
         if states is not None:
             try:
-                state = StateModel.objects.get(state = states.capitalize())
+                state = StateModel.objects.get(state = states.title())
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.capitalize())
+                    district = DistrictModel.objects.get(district = states.title())
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -63,13 +63,13 @@ def signup(request):
         states = request.POST.get('search')
         if states is not None:
             try:
-                state = StateModel.objects.get(state = states.capitalize())
+                state = StateModel.objects.get(state = states.title())
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.capitalize())
+                    district = DistrictModel.objects.get(district = states.title())
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -107,13 +107,13 @@ def logout_user(request):
         states = request.POST.get('search')
         if states is not None:
             try:
-                state = StateModel.objects.get(state = states.capitalize())
+                state = StateModel.objects.get(state = states.title())
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.capitalize())
+                    district = DistrictModel.objects.get(district = states.title())
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -126,13 +126,13 @@ def dashboard(request):
     if request.method == 'POST':
         states = request.POST.get('search')
         try:
-            state = StateModel.objects.get(state = states.capitalize())
+            state = StateModel.objects.get(state = states.title())
             print(state)
             return redirect(f'/district_level/{state.state}')
             
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.capitalize())
+                district = DistrictModel.objects.get(district = states.title())
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('dashboard')
@@ -204,13 +204,13 @@ def vaccineform(request):
         states = request.POST.get('search')
         if states is not None:
             try:
-                state = StateModel.objects.get(state = states.capitalize())
+                state = StateModel.objects.get(state = states.title())
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.capitalize())
+                    district = DistrictModel.objects.get(district = states.title())
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
