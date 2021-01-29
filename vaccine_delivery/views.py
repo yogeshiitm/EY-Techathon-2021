@@ -120,17 +120,24 @@ def Index(request):
 
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('search')
+        search = request.POST.get('search')
+
+        arr1=search.split()
+        arr2=[]
+        for str in arr1:
+            if str.lower() !='and':
+                arr2.append(str.capitalize())
+            else:
+                arr2.append(str.lower())
+        formattedSearch = ' '.join(arr2)
+
         try:
-            print(states.title(),'\n')
-            print(states.title(),'\n')
-            state = StateModel.objects.get(state = states.title())
+            state = StateModel.objects.get(state = formattedSearch)
             print(state)
             return redirect(f'/district_level/{state.state}')
-            
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.title())
+                district = DistrictModel.objects.get(district = formattedSearch)
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/')
@@ -169,14 +176,24 @@ def DistrictHomeView(request):
 
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('search')
+        search = request.POST.get('search')
+
+        arr1=search.split()
+        arr2=[]
+        for str in arr1:
+            if str.lower() !='and':
+                arr2.append(str.capitalize())
+            else:
+                arr2.append(str.lower())
+        formattedSearch = ' '.join(arr2)
+
         try:
-            state = StateModel.objects.get(state = states.title())
+            state = StateModel.objects.get(state = formattedSearch)
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.title())
+                district = DistrictModel.objects.get(district = formattedSearch)
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/district_level')
@@ -190,14 +207,24 @@ def DistrictHomeView(request):
 def DistrictView(request, state):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('search')
+        search = request.POST.get('search')
+
+        arr1=search.split()
+        arr2=[]
+        for str in arr1:
+            if str.lower() !='and':
+                arr2.append(str.capitalize())
+            else:
+                arr2.append(str.lower())
+        formattedSearch = ' '.join(arr2)
+
         try:
-            state = StateModel.objects.get(state = states.title())
+            state = StateModel.objects.get(state = formattedSearch)
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.title())
+                district = DistrictModel.objects.get(district = formattedSearch)
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect(f'/district_level/{state}')
@@ -211,14 +238,24 @@ def DistrictView(request, state):
 def BatchView(request, batch):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('search')
+        search = request.POST.get('search')
+
+        arr1=search.split()
+        arr2=[]
+        for str in arr1:
+            if str.lower() !='and':
+                arr2.append(str.capitalize())
+            else:
+                arr2.append(str.lower())
+        formattedSearch = ' '.join(arr2)
+
         try:
-            state = StateModel.objects.get(state = states.title())
+            state = StateModel.objects.get(state = formattedSearch)
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.title())
+                district = DistrictModel.objects.get(district = formattedSearch)
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect(f'/batch/{batch}')
@@ -235,14 +272,24 @@ def BatchView(request, batch):
 def AboutView(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('search')
+        search = request.POST.get('search')
+
+        arr1=search.split()
+        arr2=[]
+        for str in arr1:
+            if str.lower() !='and':
+                arr2.append(str.capitalize())
+            else:
+                arr2.append(str.lower())
+        formattedSearch = ' '.join(arr2)
+
         try:
-            state = StateModel.objects.get(state = states.title())
+            state = StateModel.objects.get(state = formattedSearch)
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.title())
+                district = DistrictModel.objects.get(district = formattedSearch)
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/about')
@@ -254,14 +301,24 @@ def AboutView(request):
 def TeamView(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('search')
+        search = request.POST.get('search')
+
+        arr1=search.split()
+        arr2=[]
+        for str in arr1:
+            if str.lower() !='and':
+                arr2.append(str.capitalize())
+            else:
+                arr2.append(str.lower())
+        formattedSearch = ' '.join(arr2)
+
         try:
-            state = StateModel.objects.get(state = states.title())
+            state = StateModel.objects.get(state = formattedSearch)
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.title())
+                district = DistrictModel.objects.get(district = formattedSearch)
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/team')
@@ -273,14 +330,24 @@ def TeamView(request):
 def SitemapView(request):
     if request.method == 'POST':
         form = SearchForm(request.POST)
-        states = request.POST.get('search')
+        search = request.POST.get('search')
+
+        arr1=search.split()
+        arr2=[]
+        for str in arr1:
+            if str.lower() !='and':
+                arr2.append(str.capitalize())
+            else:
+                arr2.append(str.lower())
+        formattedSearch = ' '.join(arr2)
+        
         try:
-            state = StateModel.objects.get(state = states.title())
+            state = StateModel.objects.get(state = formattedSearch)
             print(state)
             return redirect(f'/district_level/{state.state}')
         except StateModel.DoesNotExist:
             try :
-                district = DistrictModel.objects.get(district = states.title())
+                district = DistrictModel.objects.get(district = formattedSearch)
                 return redirect(f'/district_level/{district.state}')
             except DistrictModel.DoesNotExist:
                 return redirect('/team')

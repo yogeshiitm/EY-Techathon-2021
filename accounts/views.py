@@ -17,16 +17,26 @@ from django.contrib.auth import login as auth_login # https://stackoverflow.com/
 
 def login(request):
     if request.method == 'POST':
-        states = request.POST.get('search')
-        if states is not None:
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
             try:
-                state = StateModel.objects.get(state = states.title())
+                state = StateModel.objects.get(state = formattedSearch)
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.title())
+                    district = DistrictModel.objects.get(district = formattedSearch)
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -78,16 +88,26 @@ def login(request):
 
 def vaccination_incharge(request):
     if request.method == 'POST':
-        states = request.POST.get('search')
-        if states is not None:
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
             try:
-                state = StateModel.objects.get(state = states.title())
+                state = StateModel.objects.get(state = formattedSearch)
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.title())
+                    district = DistrictModel.objects.get(district = formattedSearch)
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -126,16 +146,26 @@ def signup(request):
                 return render(request, 'accounts/signup.html' , {'form':form})
 
 
-        states = request.POST.get('search')
-        if states is not None:
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
             try:
-                state = StateModel.objects.get(state = states.title())
+                state = StateModel.objects.get(state = formattedSearch)
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.title())
+                    district = DistrictModel.objects.get(district = formattedSearch)
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -170,16 +200,26 @@ def signup(request):
 
 def logout_user(request):
     if request.method == 'POST':
-        states = request.POST.get('search')
-        if states is not None:
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
             try:
-                state = StateModel.objects.get(state = states.title())
+                state = StateModel.objects.get(state = formattedSearch)
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.title())
+                    district = DistrictModel.objects.get(district = formattedSearch)
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -190,18 +230,29 @@ def logout_user(request):
 @login_required(login_url='login')
 def dashboard(request):
     if request.method == 'POST':
-        states = request.POST.get('search')
-        try:
-            state = StateModel.objects.get(state = states.title())
-            print(state)
-            return redirect(f'/district_level/{state.state}')
-            
-        except StateModel.DoesNotExist:
-            try :
-                district = DistrictModel.objects.get(district = states.title())
-                return redirect(f'/district_level/{district.state}')
-            except DistrictModel.DoesNotExist:
-                return redirect('dashboard')
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
+            try:
+                state = StateModel.objects.get(state = formattedSearch)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+                
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = formattedSearch)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('dashboard')
 
     email = request.user.email
     name = request.user.first_name + ' ' + request.user.last_name
@@ -267,16 +318,26 @@ def vaccineform(request):
 
 
     if request.method == 'POST':
-        states = request.POST.get('search')
-        if states is not None:
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
             try:
-                state = StateModel.objects.get(state = states.title())
+                state = StateModel.objects.get(state = formattedSearch)
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.title())
+                    district = DistrictModel.objects.get(district = formattedSearch)
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
@@ -322,16 +383,26 @@ def vaccineform(request):
 # @login_required(login_url='login')
 # def healthadmin(request):
 #     if request.method == 'POST':
-#         states = request.POST.get('search')
-#         if states is not None:
+#         search = request.POST.get('search')
+#         if search is not None:
+
+#             arr1=search.split()
+#             arr2=[]
+#             for str in arr1:
+#                 if str.lower() !='and':
+#                     arr2.append(str.capitalize())
+#                 else:
+#                     arr2.append(str.lower())
+#             formattedSearch = ' '.join(arr2)
+
 #             try:
-#                 state = StateModel.objects.get(state = states.title())
+#                 state = StateModel.objects.get(state = formattedSearch)
 #                 print(state)
 #                 return redirect(f'/district_level/{state.state}')
             
 #             except StateModel.DoesNotExist:
 #                 try :
-#                     district = DistrictModel.objects.get(district = states.title())
+#                     district = DistrictModel.objects.get(district = formattedSearch)
 #                     return redirect(f'/district_level/{district.state}')
 #                 except DistrictModel.DoesNotExist:
 #                     return redirect('healthadmin')
@@ -376,16 +447,26 @@ def vaccineform(request):
 @login_required(login_url='login')
 def healthadmin(request):
     if request.method == 'POST':
-        states = request.POST.get('search')
-        if states is not None:
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
             try:
-                state = StateModel.objects.get(state = states.title())
+                state = StateModel.objects.get(state = formattedSearch)
                 print(state)
                 return redirect(f'/district_level/{state.state}')
             
             except StateModel.DoesNotExist:
                 try :
-                    district = DistrictModel.objects.get(district = states.title())
+                    district = DistrictModel.objects.get(district = formattedSearch)
                     return redirect(f'/district_level/{district.state}')
                 except DistrictModel.DoesNotExist:
                     return redirect('healthadmin')
