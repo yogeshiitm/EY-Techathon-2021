@@ -199,8 +199,8 @@
             <form method ="POST" class="search-bar" id="myform">
               {% csrf_token %}
               <input type="text" class="form-control" name = 'search' placeholder="Search state or district...">
-              <a href="#" onclick="document.getElementById('myform').submit()"><i class="icon-magnifier"></i></a>
-              </form>
+              <a href="javascript:void();" onclick="document.getElementById('myform').submit()"><i class="icon-magnifier"></i></a>
+            </form>
           </li>
 
         </ul>
