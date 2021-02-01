@@ -10,6 +10,7 @@ from django.http import HttpResponseRedirect
 from .models import *
 from vaccine_delivery.models import *
 from django.contrib.auth import login as auth_login # https://stackoverflow.com/a/39316967/13962648
+from django.db.models import Q
 
 # User._meta.get_field('email')._blank = False
 # User.add_to_class('email', models.EmailField(null=True, blank=False))
@@ -484,21 +485,26 @@ def healthadmin(request):
         if age == '1':
             print('1\n')
             if category == 3:
-                users = MedicalModel.objects.filter(category= 3 or 2, no_illness__gte = 1, state=state, district=district).order_by('-illness_score')
+                users = MedicalModel.objects.filter(Q(category=3) | Q(category=2), no_illness__gte = 1, state=state, district=district).order_by('-illness_score')
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             elif category == 4:
-                users = MedicalModel.objects.filter(category= 2 or 4,  no_illness= 0, state=state, district=district).order_by('-illness_score')
+                # method 1 - not working
+                # users = MedicalModel.objects.filter(category= 2 or 4 ,  no_illness= 0, state=state, district=district).order_by('-illness_score')
+
+                # method 2 - working
+                # users1 = MedicalModel.objects.filter(category= 2,  no_illness= 0, state=state, district=district).order_by('-illness_score')
+                # users2 = MedicalModel.objects.filter(category= 4,  no_illness= 0, state=state, district=district).order_by('-illness_score')
+                # users=users1 | users2
+                # users=users1 or users2 ----not working
+
+                # method 3 -working 
+                #https://stackoverflow.com/a/45988838/13962648
+                users = MedicalModel.objects.filter(Q(category=2) | Q(category=4),  no_illness= 0, state=state, district=district).order_by('-illness_score')
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             else:
                 users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
                 #all
-            # if category == 3
-            #     users1 = MedicalModel.objects.filter(category= 3, state=state, district=district).order_by('-illness_score')[:no_vaccines]
-            #     users2 = MedicalModel.objects.filter(category= 4, state=state, district=district).order_by('-illness_score')[:no_vaccines]
-            #     users = user1+users2
-            #     print(users)
-            #     return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
 
         if age == '2':
             print('2\n')
@@ -511,13 +517,13 @@ def healthadmin(request):
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
 
             else:
-                users = MedicalModel.objects.filter(category= category, age__gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                users = MedicalModel.objects.filter(category= category, age__gte = 60, state=state,district=district).order_by('-illness_score')[:no_vaccines]
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
                 #60+
 
         if age == '3':
             print('3\n')
-            users = MedicalModel.objects.filter(category= category, age__lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+            users = MedicalModel.objects.filter(category= category, age__lte = 59, state=state,district=district).order_by('-illness_score')[:no_vaccines]
             return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
             #60-
 
