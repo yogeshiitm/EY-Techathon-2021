@@ -482,21 +482,42 @@ def healthadmin(request):
         states = StateModel.objects.all().order_by('state')
 
         if age == '1':
-            users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')[:no_vaccines]
-            return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
-            #all
-        
-        if age == '2':
-            if category == 4:
-                users = MedicalModel.objects.filter(age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+            print('1\n')
+            if category == 3:
+                users = MedicalModel.objects.filter(category= 3 or 2, no_illness__gte = 1, state=state, district=district).order_by('-illness_score')
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
+            elif category == 4:
+                users = MedicalModel.objects.filter(category= 2 or 4,  no_illness= 0, state=state, district=district).order_by('-illness_score')
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             else:
-                users = MedicalModel.objects.filter(category= category, age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
+                #all
+            # if category == 3
+            #     users1 = MedicalModel.objects.filter(category= 3, state=state, district=district).order_by('-illness_score')[:no_vaccines]
+            #     users2 = MedicalModel.objects.filter(category= 4, state=state, district=district).order_by('-illness_score')[:no_vaccines]
+            #     users = user1+users2
+            #     print(users)
+            #     return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
+
+        if age == '2':
+            print('2\n')
+            if category == 4:
+                users = MedicalModel.objects.filter(category= 2, no_illness__gte = 0, state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+
+            elif category == 3:
+                users = MedicalModel.objects.filter(category= 2, no_illness__gte = 1, state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+
+            else:
+                users = MedicalModel.objects.filter(category= category, age__gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
                 #60+
-        
+
         if age == '3':
-            users = MedicalModel.objects.filter(category= category, age_lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+            print('3\n')
+            users = MedicalModel.objects.filter(category= category, age__lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
             return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
             #60-
 
