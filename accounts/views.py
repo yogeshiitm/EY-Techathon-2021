@@ -87,53 +87,6 @@ def login(request):
             return render(request, 'accounts/login.html')
 
 
-def vaccination_incharge(request):
-    if request.method == 'POST':
-        search = request.POST.get('search')
-        if search is not None:
-
-            arr1=search.split()
-            arr2=[]
-            for str in arr1:
-                if str.lower() !='and':
-                    arr2.append(str.capitalize())
-                else:
-                    arr2.append(str.lower())
-            formattedSearch = ' '.join(arr2)
-
-            try:
-                state = StateModel.objects.get(state = formattedSearch)
-                print(state)
-                return redirect(f'/district_level/{state.state}')
-            
-            except StateModel.DoesNotExist:
-                try :
-                    district = DistrictModel.objects.get(district = formattedSearch)
-                    return redirect(f'/district_level/{district.state}')
-                except DistrictModel.DoesNotExist:
-                    return redirect('signup')
-
-        email = request.POST['email']
-        password = request.POST['password']
-
-        user = auth.authenticate(email=email, password=password)
-
-        if user is not None and user.is_staff:
-            auth.login(request, user)
-            # return redirect('vaccineform')
-            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
-
-        else:
-            messages.error(request, 'The email address provided is not registered as Vaccination Incharge please contact the site admin!')
-            return redirect('login')
-
-    else:
-        if request.user.is_authenticated:
-            # return redirect('vaccineform')
-            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
-        else:
-            return render(request, 'accounts/login.html')
-
 def signup(request):
     if request.method == 'POST':
         form = CustomRegisterForm(request.POST or None)
@@ -178,7 +131,7 @@ def signup(request):
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
             user = auth.authenticate(email=email, password = password)
-    
+
 
             # https://stackoverflow.com/a/39316967/13962648
             # login(request, user)
@@ -423,15 +376,15 @@ def vaccineform(request):
         
 #         if age == '2':
 #             if category == 4:
-#                 users = MedicalModel.objects.filter(age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+#                 users = MedicalModel.objects.filter(age__gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
 #                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
 #             else:
-#                 users = MedicalModel.objects.filter(category= category, age_gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+#                 users = MedicalModel.objects.filter(category= category, age__gte = str(60), state=state,district=district).order_by('-illness_score')[:no_vaccines]
 #                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
 #                 #60+
         
 #         if age == '3':
-#             users = MedicalModel.objects.filter(category= category, age_lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
+#             users = MedicalModel.objects.filter(category= category, age__lte = str(59), state=state,district=district).order_by('-illness_score')[:no_vaccines]
 #             return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users})
 #             #60-
 
@@ -484,7 +437,10 @@ def healthadmin(request):
 
         if age == '1':
             print('1\n')
-            if category == 3:
+            if category == 5:
+                users = MedicalModel.objects.filter(state=state, district=district).order_by('-illness_score')
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
+            elif category == 3:
                 users = MedicalModel.objects.filter(Q(category=3) | Q(category=2), no_illness__gte = 1, state=state, district=district).order_by('-illness_score')
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             elif category == 4:
@@ -508,7 +464,10 @@ def healthadmin(request):
 
         if age == '2':
             print('2\n')
-            if category == 4:
+            if category == 5:
+                users = MedicalModel.objects.filter( age__gte = 60, state=state, district=district).order_by('-illness_score')
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
+            elif category == 4:
                 users = MedicalModel.objects.filter(category= 2, no_illness__gte = 0, state=state,district=district).order_by('-illness_score')[:no_vaccines]
                 return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
 
@@ -523,8 +482,12 @@ def healthadmin(request):
 
         if age == '3':
             print('3\n')
-            users = MedicalModel.objects.filter(category= category, age__lte = 59, state=state,district=district).order_by('-illness_score')[:no_vaccines]
-            return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+            if category == 5:
+                users = MedicalModel.objects.filter( age__lte = 60, state=state, district=district).order_by('-illness_score')
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
+            else:
+                users = MedicalModel.objects.filter(category= category, age__lte = 59, state=state,district=district).order_by('-illness_score')[:no_vaccines]
+                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
             #60-
 
     if request.method == 'GET':
@@ -537,3 +500,52 @@ def healthadmin(request):
 
         else:
             return redirect('dashboard')
+
+
+
+def vaccination_incharge(request):
+    if request.method == 'POST':
+        search = request.POST.get('search')
+        if search is not None:
+
+            arr1=search.split()
+            arr2=[]
+            for str in arr1:
+                if str.lower() !='and':
+                    arr2.append(str.capitalize())
+                else:
+                    arr2.append(str.lower())
+            formattedSearch = ' '.join(arr2)
+
+            try:
+                state = StateModel.objects.get(state = formattedSearch)
+                print(state)
+                return redirect(f'/district_level/{state.state}')
+            
+            except StateModel.DoesNotExist:
+                try :
+                    district = DistrictModel.objects.get(district = formattedSearch)
+                    return redirect(f'/district_level/{district.state}')
+                except DistrictModel.DoesNotExist:
+                    return redirect('signup')
+
+        email = request.POST['email']
+        password = request.POST['password']
+
+        user = auth.authenticate(email=email, password=password)
+
+        if user is not None and user.is_staff:
+            auth.login(request, user)
+            # return redirect('vaccineform')
+            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
+
+        else:
+            messages.error(request, 'The email address provided is not registered as Vaccination Incharge please contact the site admin!')
+            return redirect('login')
+
+    else:
+        if request.user.is_authenticated:
+            # return redirect('vaccineform')
+            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
+        else:
+            return render(request, 'accounts/login.html')
