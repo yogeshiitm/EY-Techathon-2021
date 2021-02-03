@@ -185,13 +185,23 @@
           </li>
 
           <!-- <a href="{% url 'index' %}" class="ml-2" style="text-align: left !important;"><strong>Priority Covid-19 Vaccine</strong> </a> -->
+
+          <!-- 
           <li class="nav-item">
-            <form method ="post" class="search-bar">
+            <form method ="POST" class="search-bar">
               {% csrf_token %}
               <input type="text" class="form-control" name = 'search' placeholder="Search state or district...">
-                <!-- <a href="javascript:void();"><i class="icon-magnifier"></i></a> -->
+              <a href="javascript:void();"><i class="icon-magnifier"></i></a>
               </form>
-            </li>
+          </li> 
+          -->
+          <li class="nav-item">
+            <form method ="POST" class="search-bar" id="myform">
+              {% csrf_token %}
+              <input type="text" class="form-control" name = 'search' placeholder="Search state or district...">
+              <a href="javascript:void();" onclick="document.getElementById('myform').submit()"><i class="icon-magnifier"></i></a>
+            </form>
+          </li>
 
         </ul>
 
