@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Email Confirmation</title>
+</head>
+
+<body style="background-color:#0570d4; padding-bottom: 50px">
+    
+    <table cellpadding="0" width="100%" cellspacing="0" border="0" align="center"
+        style="margin:0 auto;table-layout:fixed;border-collapse:collapse!important;max-width:600px">
+        <tbody>
+            <tr>
+                <td align="center" valign="top" width="100%">
+
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tbody>
+                            <tr>
+                                <td align="center" valign="top" style="padding:30px 0">
+                                    <!-- <img src="https://ci5.googleusercontent.com/proxy/h6a0yc3O5Ivx0SkiBnm5jz46ZqOARBgrxDvfpj8qSxUjDSCrH2A-8Zeot78VY1U43wRu_jMuaJNCLgt7DWkcXwAR-yjIOLgmXLjKcUG9SDNq1w=s0-d-e1-ft#https://cb-brand.s3.amazonaws.com/e5ad6ad8/coinbase-logo@2x.png"
+                                        border="0"
+                                        style="border:0;display:block;height:30%;line-height:100%;outline:none;text-decoration:none"
+                                        class="CToWUd"> -->
+                                    <h1 style="font-size: 40px; color:white; padding: 0; margin:0">
+                                        Hi {{user.first_name}}
+                                    </h1>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                    <table width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#ffffff"
+                        style="border-radius:4px">
+                        <tbody>
+
+                            <tr>
+                                <td height="40"></td>
+                            </tr>
+                            <tr
+                                style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;color:#4e5c6e;font-size:14px;line-height:20px;margin-top:20px">
+                                <td colspan="2" valign="top" align="center"
+                                    style="padding-left:40px;padding-right:40px">
+
+                                    <table width="100%" cellpadding="0" cellspacing="0" border="0"
+                                        bgcolor="#ffffff">
+                                        <tbody>
+                                            <tr>
+                                                <td align="center" valign="bottom" colspan="2"
+                                                    cellpadding="3">
+                                                    <img alt="logo" width="80"
+                                                        src="https://ci4.googleusercontent.com/proxy/kreShNXLfQbOxUaHlULWWP93GnkWrUUpgnZ1dZD_N_7u9EFBJZUI6FQ5RfmHc4UaH7jHMQ0sJf8ltDI35lAfmh4qFTzC96BIffIAWy-UuuAhg9whGUT28Se_yT7biQ03-L6McdCkCoNd6t4m58-4dz3xhO4kNinHHfQnnKp5MXpHtgdUsqI=s0-d-e1-ft#https://www.coinbase.com/assets/app/icon_email-e8c6b940e8f3ec61dcd56b60c27daed1a6f8b169d73d9e79b8999ff54092a111.png"
+                                                        class="CToWUd">
+
+                                                    <!-- <img width="80" src="../../../assets/images/mail.png" alt="logo"> -->
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td height="20"></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td align="center">
+                                                    <span
+                                                        style="color:#48545d;font-size:22px;line-height:24px">
+                                                        Please verify <span class="il">your</span> <span
+                                                            class="il">email</span> address
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td height="24"></td>
+                                            </tr>
+                                            <tr>
+                                                <td height="1" bgcolor="#DAE1E9"></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td height="24"></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td align="center">
+                                                    <span
+                                                        style="color:#48545d;font-size:14px;line-height:24px">
+                                                        In order to start using <span class="il">your</span>
+                                                        TechHD account, you need to <span
+                                                            class="il">confirm</span> <span
+                                                            class="il">your</span> <span
+                                                            class="il">email</span> address. The token expires on {{ expiry|time:"TIME_FORMAT" }}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="20"></td>
+                                            </tr>
+                                            <tr>
+                                                <td valign="top" width="48%" align="center">
+                                                    <span>
+                                                        <a href="{{ link }}"
+                                                            style="display:block;padding:15px 25px;background-color:#0087d1;color:#ffffff;border-radius:3px;text-decoration:none"
+                                                            target="_blank">Verify
+                                                            <span class="il">Email</span> Address</a>
+                                                    </span>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td height="20"></td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center"><img
+                                                        src="https://ci3.googleusercontent.com/proxy/tx40CaD51_ex6b70fUJnrk33AY_aJ3lgNO3SmI57xkXr1t6a7NxJKSe2XgUJofkLamprqkWEgtf-1tXWFD_bpyusWAidj9kMRKR8jCyOnPnkAyk=s0-d-e1-ft#https://s3.amazonaws.com/app-public/Coinbase-notification/hr.png"
+                                                        width="54" height="2" border="0" class="CToWUd">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td height="20"></td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td align="center">
+                                                    <p
+                                                        style="color:#a2a2a2;font-size:12px;line-height:17px;font-style:italic">
+                                                        If you did not sign up for this account you can
+                                                        ignore this <span class="il">email</span> and the
+                                                        account will be deleted.
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="40"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+
+</html>

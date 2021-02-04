@@ -1,0 +1,4 @@
+You are almost there, {{ user.first_name }}!
+Please click the following link to confirm your account: {{ link }}
+The token expires on {{ expiry|time:"TIME_FORMAT" }}
+If you think, it's not you, then just ignore this email.

@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     #'django.contrib.sites'
     'accounts.apps.AccountsConfig',
     'widget_tweaks',
+    'django_email_verification',
 ]
 
 #for sitemap
@@ -153,3 +154,36 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger',
 }
+
+
+def verified_callback(user):
+    user.is_active = True
+
+EMAIL_VERIFIED_CALLBACK = verified_callback
+EMAIL_FROM_ADDRESS =  os.environ.get('EMAIL_HOST_USER')
+EMAIL_MAIL_SUBJECT = 'Confirm your email'
+EMAIL_MAIL_HTML = 'accounts/templates/accounts/mail_body.html'
+EMAIL_MAIL_PLAIN = 'accounts/templates/accounts/mail_body.txt'
+EMAIL_TOKEN_LIFE = 60 * 60
+EMAIL_USE_LOCALTIME = True
+#EMAIL_PAGE_TEMPLATE = 'accounts/confirm_template.html'
+EMAIL_PAGE_TEMPLATE = 'accounts/login.html'
+#EMAIL_PAGE_DOMAIN = 'https://techhd.herokuapp.com'
+EMAIL_PAGE_DOMAIN = 'https://yogesh-testapp.herokuapp.com'
+#EMAIL_PAGE_DOMAIN = 'http://127.0.0.1:8000'
+
+# For Django Email Backend
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+#MAILER_EMAIL_BACKEND = EMAIL_BACKEND
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
+
+#https://stackoverflow.com/a/43184569/13962648
+#to check if email and password are correct but user is not active (i.e. email not verified)
+# by deault auth.autheticate returns none if user is not active even if email and password are correct
+#AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
