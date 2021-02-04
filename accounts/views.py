@@ -435,14 +435,13 @@ def healthadmin(request):
 
         states = StateModel.objects.all().order_by('state')
 
+
         if age == '1':
             print('1\n')
             if category == 5:
                 users = MedicalModel.objects.filter(state=state, district=district).order_by('-illness_score')
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             elif category == 3:
                 users = MedicalModel.objects.filter(Q(category=3) | Q(category=2), no_illness__gte = 1, state=state, district=district).order_by('-illness_score')
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             elif category == 4:
                 # method 1 - not working
                 # users = MedicalModel.objects.filter(category= 2 or 4 ,  no_illness= 0, state=state, district=district).order_by('-illness_score')
@@ -456,47 +455,86 @@ def healthadmin(request):
                 # method 3 -working 
                 #https://stackoverflow.com/a/45988838/13962648
                 users = MedicalModel.objects.filter(Q(category=2) | Q(category=4),  no_illness= 0, state=state, district=district).order_by('-illness_score')
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             else:
                 users = MedicalModel.objects.filter(category= category, state=state, district=district).order_by('-illness_score')
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
                 #all
 
         if age == '2':
             print('2\n')
             if category == 5:
                 users = MedicalModel.objects.filter( age__gte = 60, state=state, district=district).order_by('-illness_score')
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             elif category == 4:
-                users = MedicalModel.objects.filter(category= 2, no_illness__gte = 0, state=state,district=district).order_by('-illness_score')[:no_vaccines]
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
+                users = MedicalModel.objects.filter(category= 2, no_illness = 0, state=state,district=district).order_by('-illness_score')[:no_vaccines]
 
             elif category == 3:
                 users = MedicalModel.objects.filter(category= 2, no_illness__gte = 1, state=state,district=district).order_by('-illness_score')[:no_vaccines]
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
 
             else:
                 users = MedicalModel.objects.filter(category= category, age__gte = 60, state=state,district=district).order_by('-illness_score')[:no_vaccines]
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
                 #60+
 
         if age == '3':
             print('3\n')
             if category == 5:
                 users = MedicalModel.objects.filter( age__lte = 60, state=state, district=district).order_by('-illness_score')
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'users':users, 'states':states})
             else:
                 users = MedicalModel.objects.filter(category= category, age__lte = 59, state=state,district=district).order_by('-illness_score')[:no_vaccines]
-                return render(request, 'accounts/health_admin.html',{'name':name,'email':email,'users':users, 'states':states})
             #60-
+        
+        try:
+            user = MedicalModel.objects.get(user=request.user)  
+            context={
+                'email':email,
+                'name':name,
+                'user':user,
+                'users':users,
+                'states':states
+            }
+
+        except MedicalModel.DoesNotExist:
+            #user = MedicalModel.objects.get(user=request.user)  
+            context={
+                'email':email,
+                'name':name,
+                #'user':user,
+                'users':users,
+                'states':states
+            }
+        return render(request, 'accounts/health_admin.html',context)
 
     if request.method == 'GET':
         if request.user.is_staff:
 
-            states = StateModel.objects.all().order_by('state')
-            email = request.user.email
-            name = request.user.first_name + ' ' + request.user.last_name
-            return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'states':states})
+            # states = StateModel.objects.all().order_by('state')
+            # email = request.user.email
+            # name = request.user.first_name + ' ' + request.user.last_name
+            # return render(request, 'accounts/health_admin.html',{'name':name,'email':email, 'states':states})
+
+            try:
+                states = StateModel.objects.all().order_by('state')
+                email = request.user.email
+                name = request.user.first_name + ' ' + request.user.last_name
+                user = MedicalModel.objects.get(user=request.user)  
+                context={
+                    'email':email,
+                    'name':name,
+                    'user':user,
+                    'states':states
+                }
+                return render(request, 'accounts/health_admin.html',context)
+
+            except MedicalModel.DoesNotExist:
+                states = StateModel.objects.all().order_by('state')
+                email = request.user.email
+                name = request.user.first_name + ' ' + request.user.last_name
+                #user = MedicalModel.objects.get(user=request.user)  
+                context={
+                    'email':email,
+                    'name':name,
+                    #'user':user,
+                    'states':states
+                }
+                return render(request, 'accounts/health_admin.html',context)
 
         else:
             return redirect('dashboard')
