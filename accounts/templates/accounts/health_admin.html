@@ -222,7 +222,7 @@
                                     <tr>
                                         <td style="text-align:left">{{ user.user.first_name }} {{user.user.last_name }} </td>
                                         <td style="text-align:right">{{ user.adhaar }}</td>
-                                        <td style="text-align:right">{{  user.illness_score }}</td>
+                                        <td style="text-align:right">{{  user.illness_score | floatformat:2 }}</td>
                                     </tr>
                                     {% endfor %}
                                 </tbody>
