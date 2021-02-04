@@ -10,7 +10,11 @@ from django.http import HttpResponseRedirect
 from .models import *
 from vaccine_delivery.models import *
 from django.contrib.auth import login as auth_login # https://stackoverflow.com/a/39316967/13962648
-from django.db.models import Q
+from django_email_verification import send_email
+from django.contrib.auth import get_user_model
+
+from django.db.models import Q #https://stackoverflow.com/a/45988838/13962648
+
 
 # User._meta.get_field('email')._blank = False
 # User.add_to_class('email', models.EmailField(null=True, blank=False))
@@ -44,36 +48,53 @@ def login(request):
 
         email = request.POST['email']
         password = request.POST['password']
+        # user = auth.authenticate(email=email, password=password)
+        user = get_user_model().objects.filter(email=email).first()
+        #print(user,'\n')
 
-        user = auth.authenticate(email=email, password=password)
+        if user is None:
+            # user did not exists
+            messages.error(request, 'Email is not registered, please signup first!')
+            return redirect('login')
 
-        if request.POST.get('UserLogin')== 'True':
-            if user is not None:
-                auth.login(request, user)
+        elif not user.is_active:
+            # user is not active
+            messages.error(request, 'Email is not verified yet!')
+            return redirect('login')
 
-                # if MedicalForm.objects.get(user = request.user):
-                #     return redirect('vaccineform')
-                # else:
-                #     return redirect('dashboard')
-                return redirect('vaccineform')
+        else:
+            # password was incorrect
+            user = auth.authenticate(email=email, password=password)
 
-            else:
-                messages.error(request, 'Invalid credentials!')
-                return redirect('login')
+            #checking which login button was pressed
+            if request.POST.get('UserLogin')== 'True':
+                if user is not None:
+                    # If the account is valid and active, we can log the user in.
+                    # We'll send the user back to the homepage.
+                    auth.login(request, user)
+                    # if MedicalForm.objects.get(user = request.user):
+                    #     return redirect('vaccineform')
+                    # else:
+                    #     return redirect('dashboard')
+                    return redirect('vaccineform')
 
-        if request.POST.get('HealthAdminLogin')== 'True':
-            if user is not None and user.is_staff:
-                auth.login(request, user)
+                else:
+                    messages.error(request, 'Invalid credentials!')
+                    return redirect('login')
 
-                # if MedicalForm.objects.get(user = request.user):
-                #     return redirect('vaccineform')
-                # else:
-                #     return redirect('dashboard')
-                return redirect('healthadmin')
+            if request.POST.get('HealthAdminLogin')== 'True':
+                if user is not None and user.is_staff:
+                    auth.login(request, user)
 
-            else:
-                messages.error(request, 'The email address provided is not registered as a Health administrator please contact the site admin!')
-                return redirect('login')
+                    # if MedicalForm.objects.get(user = request.user):
+                    #     return redirect('vaccineform')
+                    # else:
+                    #     return redirect('dashboard')
+                    return redirect('healthadmin')
+
+                else:
+                    messages.error(request, 'The email address provided is not registered as a Health administrator please contact the site admin!')
+                    return redirect('login')
 
     else:
         if request.user.is_authenticated and request.user.is_superuser:
@@ -93,7 +114,18 @@ def signup(request):
 
         if request.POST.get('admin')== 'True':
             if form.is_valid():
-                messages.info(request, "Your details are submitted, Wait till you are approved !!")
+                form.save()
+
+                #https://stackoverflow.com/a/46284838/13962648
+                email = form.cleaned_data['email']
+                password = form.cleaned_data['password1']
+                user = auth.authenticate(email=email, password = password)
+
+                #user set to inactive so that we can see and make the verify if the user is staff -- in future we can create a separate category/group for this users so that
+                user.is_active = False
+                print(user.is_active,'\n')
+
+                messages.info(request, "Your details have been submitted, please wait till you are approved!")
                 return render(request, 'accounts/signup.html' , {'form':form})
             else:
                 messages.error(request, form.errors)
@@ -125,18 +157,26 @@ def signup(request):
                     return redirect('signup')
 
         if form.is_valid():
-            form.save()
-            #messages.success(request, 'Account created successfully!')
 
+            form.save()
+            # messages.success(request, 'Please confirm your email!')
+
+            #https://stackoverflow.com/a/46284838/13962648
             email = form.cleaned_data['email']
             password = form.cleaned_data['password1']
             user = auth.authenticate(email=email, password = password)
 
+            #email verification
+            user.is_active = False
+            send_email(user)
+    
+            messages.info(request, "We have sent a confirmation email to your email address. In case you do not find it, please check your spam folder!")
+            return render(request, 'accounts/signup.html' , {'form':form})
 
+            # auto login after signup
             # https://stackoverflow.com/a/39316967/13962648
-            # login(request, user)
-            auth_login(request, user)
-            return redirect('vaccineform')
+            # auth_login(request, user)
+            # return redirect('vaccineform')
 
         else:
             messages.error(request, form.errors)
