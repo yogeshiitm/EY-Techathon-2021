@@ -12,7 +12,7 @@ from vaccine_delivery.models import *
 from django.contrib.auth import login as auth_login # https://stackoverflow.com/a/39316967/13962648
 from django_email_verification import send_email
 from django.contrib.auth import get_user_model
-
+import datetime
 from django.db.models import Q #https://stackoverflow.com/a/45988838/13962648
 
 
@@ -94,6 +94,16 @@ def login(request):
 
                 else:
                     messages.error(request, 'The email address provided is not registered as a Health administrator please contact the site admin!')
+                    return redirect('login')
+
+            if request.POST.get('VaccinationInchargeLogin')== 'True':
+                if user is not None and user.is_staff:
+                    auth.login(request, user)
+
+                    return redirect('vaccination_incharge')
+
+                else:
+                    messages.error(request, 'The email address provided is not registered as a Vaccination Incharge please contact the site admin!')
                     return redirect('login')
 
     else:
@@ -263,21 +273,6 @@ def dashboard(request):
     except MedicalModel.DoesNotExist:
         return redirect('vaccineform')
 
-
-@login_required(login_url='login')
-def profile(request):
-    user = request.user
-    userdata = {
-        'Name': user.get_full_name(),
-        'Email': user.email,
-        'Last login': user.last_login,
-
-        #test data
-        # 'Name': 'Yogesh Agarwala',
-        # 'Email': 'yogeshagarwala1@gmail.com',
-        # 'Last login': '23 Jan 2021',
-    }
-    return render(request, 'accounts/profile.html', {'userdata': userdata})
 
 def get_binary(request,_data):
     data = request.POST.get(f'{_data}')
@@ -465,8 +460,8 @@ def healthadmin(request):
                 except DistrictModel.DoesNotExist:
                     return redirect('healthadmin')
 
-        category = int(request.POST.get('category'))
-        age = request.POST.get('age')
+        #category = int(request.POST.get('category'))
+        #age = request.POST.get('age')
         state = request.POST.get('state')
         district = request.POST.get('district')
         no_vaccines = int(request.POST.get('vaccine'))
@@ -474,6 +469,9 @@ def healthadmin(request):
         name = request.user.first_name + ' ' + request.user.last_name
 
         states = StateModel.objects.all().order_by('state')
+
+        age='1'
+        category=5
 
 
         if age == '1':
@@ -577,10 +575,61 @@ def healthadmin(request):
                 return render(request, 'accounts/health_admin.html',context)
 
         else:
-            return redirect('dashboard')
+            #return redirect('dashboard')
+            messages.error(request, 'The email address provided is not registered as Health administrator please contact the site admin!')
+            return render(request, 'accounts/login.html')
 
 
 
+# def vaccination_incharge(request):
+#     if request.method == 'POST':
+#         search = request.POST.get('search')
+#         if search is not None:
+
+#             arr1=search.split()
+#             arr2=[]
+#             for str in arr1:
+#                 if str.lower() !='and':
+#                     arr2.append(str.capitalize())
+#                 else:
+#                     arr2.append(str.lower())
+#             formattedSearch = ' '.join(arr2)
+
+#             try:
+#                 state = StateModel.objects.get(state = formattedSearch)
+#                 print(state)
+#                 return redirect(f'/district_level/{state.state}')
+            
+#             except StateModel.DoesNotExist:
+#                 try :
+#                     district = DistrictModel.objects.get(district = formattedSearch)
+#                     return redirect(f'/district_level/{district.state}')
+#                 except DistrictModel.DoesNotExist:
+#                     return redirect('signup')
+
+#         email = request.POST['email']
+#         password = request.POST['password']
+
+#         user = auth.authenticate(email=email, password=password)
+
+#         if user is not None and user.is_staff:
+#             auth.login(request, user)
+#             # return redirect('vaccineform')
+#             return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
+
+#         else:
+#             messages.error(request, 'The email address provided is not registered as Vaccination Incharge please contact the site admin!')
+#             return redirect('login')
+
+#     else:
+#         if request.user.is_authenticated:
+#             # return redirect('vaccineform')
+#             return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
+#         else:
+#             return render(request, 'accounts/login.html')
+
+
+@login_required(login_url='login')
 def vaccination_incharge(request):
     if request.method == 'POST':
         search = request.POST.get('search')
@@ -607,23 +656,77 @@ def vaccination_incharge(request):
                 except DistrictModel.DoesNotExist:
                     return redirect('signup')
 
-        email = request.POST['email']
-        password = request.POST['password']
 
-        user = auth.authenticate(email=email, password=password)
+        str = request.POST['adhaar']
+        adhaar = ''.join([str[:4], str[5:9], str[10:14], str[15:]])
+        print(adhaar)
+        #email = request.user.email
+        name = request.user.first_name + ' ' + request.user.last_name
+        #user = MedicalModel.objects.get(user=request.user)  
+        users_search = MedicalModel.objects.filter(adhaar = adhaar)
+        context={
+            #'email':email,
+            'name':name,
+            #'user':user,
+            'users_search':users_search,
+        }
+        return render(request, 'accounts/vaccinator.html',context)
 
-        if user is not None and user.is_staff:
-            auth.login(request, user)
-            # return redirect('vaccineform')
-            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
-
-        else:
-            messages.error(request, 'The email address provided is not registered as Vaccination Incharge please contact the site admin!')
-            return redirect('login')
 
     else:
-        if request.user.is_authenticated:
-            # return redirect('vaccineform')
-            return HttpResponseRedirect('https://yogeshiitm.github.io/TechHD-adminpanel/')
-        else:
-            return render(request, 'accounts/login.html')
+        #email = request.user.email
+        name = request.user.first_name + ' ' + request.user.last_name
+        #user = MedicalModel.objects.get(user=request.user)  
+        users = MedicalModel.objects.all()
+        context={
+            #'email':email,
+            'name':name,
+            #'user':user,
+            'users':users,
+        }
+        return render(request, 'accounts/vaccinator.html',context)
+
+
+@login_required(login_url='login')
+def vaccination_profile(request, user_id):
+    user = CustomUser.objects.get(id= user_id)
+    user2 = MedicalModel.objects.get(user=user)
+    str = user2.adhaar
+    adhaar = '-'.join([str[:4], str[4:8], str[8:12], str[12:]])
+    context = {
+        'name': user.get_full_name(),
+        'email': user.email,
+        'adhaar': adhaar,
+        'date1': datetime.datetime.today(),
+        'date2': datetime.datetime.today() + datetime.timedelta(days=28)
+    }
+    return render(request, 'accounts/vaccination_profile.html', context)
+
+
+# @login_required(login_url='login')
+# def notify(request, user_id):
+#     user = CustomUser.objects.get(pk=user_id)
+#     user2 = MedicalModel.objects.get(user=user)
+#     user2.vaccination_status = 'Alloted'
+#     user2.save()
+#     return redirect('vaccination_incharge')
+
+
+@login_required(login_url='login')
+def cross_off(request, user_id):
+    user = CustomUser.objects.get(id=user_id)
+    user2 = MedicalModel.objects.get(user=user)
+    #print(user2.vaccination_status,'\n')
+    user2.vaccination_status = 'Vaccinated'
+    user2.save()
+    #print(user2.vaccination_status,'\n')
+    return redirect('vaccination_incharge')
+
+@login_required(login_url='login')
+def uncross(request, user_id):
+    user = CustomUser.objects.get(pk=user_id)
+    user2 = MedicalModel.objects.get(user=user)
+    user2.vaccination_status = 'Alloted'
+    user2.save()
+    return redirect('vaccination_incharge')
+
