@@ -5,7 +5,8 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.layers import Dense
 from keras.layers import Dropout
 from keras.layers import LSTM
-from keras.models import sequential
+from keras.models import Sequential
+import matplotlib.pyplot as plt
 
 def Get_covid_state(url):
     r = requests.get(url, allow_redirects=True)
@@ -22,6 +23,9 @@ def run_NN_on_state(state):
     print(data.shape)
     train_data = data.iloc[:,6:7].values
     print(train_data)
+    # train_data.to_csv('train_data.csv')
+    plt.plot(train_data)
+    plt.show()
 
     scaler = MinMaxScaler(feature_range=(0,1))
     scaled_data = scaler.fit_transform(train_data)
@@ -31,8 +35,8 @@ def run_NN_on_state(state):
     x_train = []
     y_train = []
 
-    for i in range(40,len(data)):
-        x_train.append(scaled_data[i-40:i,0])
+    for i in range(8,len(data)):
+        x_train.append(scaled_data[i-8:i,0])
         y_train.append(scaled_data[i,0])
     
     x_train = np.array(x_train)
@@ -42,5 +46,28 @@ def run_NN_on_state(state):
     print(y_train.shape)
 
     x_train = np.reshape(x_train, (x_train.shape[0],x_train.shape[1],1))
+
+    #LSTM architecture
+    model = Sequential()
+    model.add(LSTM(units = 100, return_sequences = True, input_shape =(x_train.shape[1],1)))
+    model.add(Dropout(0.5))
+    model.add(LSTM(units = 50, return_sequences = True))
+    model.add(Dropout(0.3))
+    model.add(LSTM(units =50))
+    modek.add(Dropout(0.3))
+    mdoel.add(Dense(units=100))
+
+    model.compule(optimizer='adam', loss='mean_squared_error')
+    model.fit(x_train,y_train,epochs=100,batch_size=20)
+
+    x_test = []
+    n = len(data)
+    for i in range(28):
+        x_test = []
+        x_test = scaled_data[(n+i)-10:(n+i),0]
+        x_test = np.reshape(x_test, (x_test.shape[0],x_test.shape[1],1))
+        prediction = x_
+
+
 
 run_NN_on_state('Delhi')
