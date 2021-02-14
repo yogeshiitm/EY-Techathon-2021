@@ -10,4 +10,5 @@ urlpatterns = [
     path('about', AboutView, name= 'about'),
     path('team', TeamView, name= 'team'),
     path('sitemap', SitemapView, name= 'sitemap'),
+    path("donation", DonationView, name='donation'),
 ]

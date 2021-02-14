@@ -354,3 +354,7 @@ def SitemapView(request):
 
     form = SearchForm()
     return render(request,'vaccine_delivery/sitemap.html',{'form':form})
+
+
+def DonationView(request):
+    return render(request, 'vaccine_delivery/donation.html')
