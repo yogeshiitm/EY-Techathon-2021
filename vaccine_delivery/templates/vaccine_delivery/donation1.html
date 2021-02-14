@@ -1,0 +1,48 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+
+{% block content %}
+
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9 py-2">
+        <!-- <h4 class="page-title">District Health Administrator</h4> -->
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+<div class="container">
+    <div class="row">
+        
+            <div class="card">
+                <div class="card-body row" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+                    <div class="col-6">
+                        <div class="mt-4 mx-2" style="height:100% !important;" >
+                            <img src = "{% static 'images/donate.png' %}"  width="100%">
+                        </div>
+                    </div>
+                    <div class="col-6 mt-4">
+                        <h1>Donate For a Cause</h1>
+                        <h3>Help save lives</h3>
+                        <p>Covid 19 had an impact on all of us. In times like these, there are some groups that need our help. Everyone deserves to live and with even a small effort from each one of us, <b>Together, we can make a change,</b> bring back millions of smiles that were far lost out due to this pandemic. Vaccination can be a step towards getting them back on their feet, find jobs again, and gain their livelihood back.</p><br>
+                        So let’s help, let’s bring the smiles back !!<br>
+                        <a href="#" class="btn btn-info waves-effect waves-light my-4">Donate now</a>
+                    </div>
+                </div>
+            </div>
+            
+        
+
+            
+
+    </div>
+</div>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

@@ -3,68 +3,71 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    {% block header %}
-    {% endblock %}
+  {% block header %}
+  {% endblock %}
 
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content="Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting the more important segments of our country that need to be catered with vaccine deliveries as prior as possible."/>
-    <meta name="author" content="Team TechHD"/>
-    <meta name="keywords" content="Covid19, vaccine, india, coronavirus, delivery" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description"
+    content="Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting the more important segments of our country that need to be catered with vaccine deliveries as prior as possible." />
+  <meta name="author" content="Team TechHD" />
+  <meta name="keywords" content="Covid19, vaccine, india, coronavirus, delivery" />
 
-    <meta property="og:title" content="TechHD: Covid-19 Vaccine Priority">
-    <meta property="og:image" content="{% static 'images/preview.jpg' %}">
-    <meta property="og:description" content="Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting the more important segments of our country that need to be catered with vaccine deliveries as prior as possible.">
-    <meta property="og:url" content="https://techhd.herokuapp.com">
+  <meta property="og:title" content="TechHD: Covid-19 Vaccine Priority">
+  <meta property="og:image" content="{% static 'images/preview.jpg' %}">
+  <meta property="og:description"
+    content="Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting the more important segments of our country that need to be catered with vaccine deliveries as prior as possible.">
+  <meta property="og:url" content="https://techhd.herokuapp.com">
 
 
-    <title>TechHD: Covid-19 Vaccine Priority</title>
+  <title>TechHD: Covid-19 Vaccine Priority</title>
 
-    <!-- moving this loader script to index file, so that this runs only when we open the site -->
-    <!-- loader-->
-    <!-- <link href="{% static 'css/pace.min.css' %}" rel="stylesheet"/>
+  <!-- moving this loader script to index file, so that this runs only when we open the site -->
+  <!-- loader-->
+  <!-- <link href="{% static 'css/pace.min.css' %}" rel="stylesheet"/>
     <script src="{% static 'js/pace.min.js' %}"></script> -->
-    <!--favicon-->
-    <!-- <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon"> -->
-    <!-- <link rel="icon" href="{% static 'images/logo-icon.png' %}" type="image/x-icon"> -->
-    <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
-    <!-- Vector CSS -->
-    <!-- <link href="{% static 'plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/> -->
-    <!-- simplebar CSS-->
-    <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet"/>
-    <!-- Bootstrap core CSS-->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
-    <!-- animate CSS-->
-    <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css"/>
-    <!-- Icons CSS-->
-    <link href="{% static 'css/icons.css' %}" rel="stylesheet" type="text/css"/>
-    <!-- Sidebar CSS-->
-    <link href="{% static 'css/sidebar-menu.css' %}" rel="stylesheet"/>
-    <!-- Custom Style-->
-    <link href="{% static 'css/app-style.css' %}" rel="stylesheet"/>
-  
+  <!--favicon-->
+  <!-- <link rel="icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon"> -->
+  <!-- <link rel="icon" href="{% static 'images/logo-icon.png' %}" type="image/x-icon"> -->
+  <link rel="icon" href="{% static 'images/logo.jpg' %}" type="image/x-icon">
+  <!-- Vector CSS -->
+  <!-- <link href="{% static 'plugins/vectormap/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet"/> -->
+  <!-- simplebar CSS-->
+  <link href="{% static 'plugins/simplebar/css/simplebar.css' %}" rel="stylesheet" />
+  <!-- Bootstrap core CSS-->
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+  <!-- animate CSS-->
+  <link href="{% static 'css/animate.css' %}" rel="stylesheet" type="text/css" />
+  <!-- Icons CSS-->
+  <link href="{% static 'css/icons.css' %}" rel="stylesheet" type="text/css" />
+  <!-- Sidebar CSS-->
+  <link href="{% static 'css/sidebar-menu.css' %}" rel="stylesheet" />
+  <!-- Custom Style-->
+  <link href="{% static 'css/app-style.css' %}" rel="stylesheet" />
 
 
-    <!-- NOTE: jquery.min.js must be before jquery.csv.js (required for google maps and charts) so don't keep this after  block-content -->
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <!-- <script src="{% static 'js/popper.min.js' %}"></script> -->
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    
-    <!-- simplebar js -->
-    <!-- <script src="{% static 'plugins/simplebar/js/simplebar.js' %}"></script> -->
-    <!-- sidebar-menu js -->
-    <script src="{% static 'js/sidebar-menu.js' %}"></script>
-    <!-- loader scripts -->
-    <!-- <script src="{% static 'js/jquery.loading-indicator.js' %}"></script> -->
-    <!-- Custom scripts -->
-    <script src="{% static 'js/app-script.js' %}"></script>
+  <!-- NOTE: jquery.min.js must be before jquery.csv.js (required for google maps and charts) so don't keep this after  block-content -->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- <script src="{% static 'js/popper.min.js' %}"></script> -->
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+  <!-- simplebar js -->
+  <!-- <script src="{% static 'plugins/simplebar/js/simplebar.js' %}"></script> -->
+  <!-- sidebar-menu js -->
+  <script src="{% static 'js/sidebar-menu.js' %}"></script>
+  <!-- loader scripts -->
+  <!-- <script src="{% static 'js/jquery.loading-indicator.js' %}"></script> -->
+  <!-- Custom scripts -->
+  <script src="{% static 'js/app-script.js' %}"></script>
 
 
-    <!-- <style>
+  <!-- <style>
         table {
           width: 100% !important;
           border-collapse: collapse !important;
@@ -74,32 +77,42 @@
         }
     </style> -->
 
-    <style>
-      #content-desktop {display: block !important;}
-      #content-mobile {display: none !important;}
-      @media screen and (max-width: 992px) {
-          #content-desktop {display: none !important;}
-          #content-mobile {display: block !important;}
-      }
-      
-    </style>
+  <style>
+    #content-desktop {
+      display: block !important;
+    }
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176091712-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'UA-176091712-1');
-    </script>
+    #content-mobile {
+      display: none !important;
+    }
+
+    @media screen and (max-width: 992px) {
+      #content-desktop {
+        display: none !important;
+      }
+
+      #content-mobile {
+        display: block !important;
+      }
+    }
+  </style>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-176091712-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-176091712-1');
+  </script>
 
 </head>
 
 <body class="bg-theme bg-theme1">
 
-<!-- Start wrapper-->
-<div id="wrapper">
- 
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
     <!--Start sidebar-wrapper-->
     <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
       <div class="brand-logo" style="display: flex; justify-content: left !important">
@@ -112,44 +125,49 @@
         </a>
       </div>
       <ul class="sidebar-menu do-nicescrol">
-          <li class="sidebar-header">NAVIGATION BAR</li>
-          <li>
-            <a href="{% url 'index' %}">
-              <i class="zmdi zmdi-view-dashboard"></i> <span>State Level Analysis</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'states' %}">
-              <i class="zmdi zmdi-grid"></i>  <span>District Level Analysis</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'batch' 1 %}">
-              <i class="zmdi zmdi-format-list-bulleted"></i><span>Delivery Batch</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'about' %}">
-              <i class="zmdi zmdi-invert-colors"></i> <span>About</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'sitemap' %}">
-              <i class="zmdi zmdi-layers"></i> <span>Sitemap</span>
-            </a>
-          </li>
-          <li>
-            <a href="{% url 'team' %}">
-              <i class="zmdi zmdi-account-circle"></i> <span>Meet the Team</span>
-            </a>
-          </li>
+        <li class="sidebar-header">NAVIGATION BAR</li>
+        <li>
+          <a href="{% url 'index' %}">
+            <i class="zmdi zmdi-view-dashboard"></i> <span>State Level Analysis</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'states' %}">
+            <i class="zmdi zmdi-grid"></i> <span>District Level Analysis</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'batch' 1 %}">
+            <i class="zmdi zmdi-format-list-bulleted"></i><span>Delivery Batch</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'about' %}">
+            <i class="zmdi zmdi-invert-colors"></i> <span>About</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'sitemap' %}">
+            <i class="zmdi zmdi-layers"></i> <span>Sitemap</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'team' %}">
+            <i class="zmdi zmdi-account-circle"></i> <span>Meet the Team</span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'donation' %}">
+            <i class="zmdi zmdi-map text-danger"></i> <span>Donation</span>
+          </a>
+        </li>
 
-          <!-- <li>
+        <!-- <li>
             <a href="icons.html">
               <i class="zmdi zmdi-invert-colors"></i> <span>UI Icons</span>
             </a>
           </li> -->
-          <!-- <li>
+        <!-- <li>
             <a href="calendar.html">
               <i class="zmdi zmdi-calendar-check"></i> <span>Calendar</span>
             </a>
@@ -173,10 +191,11 @@
     </div>
     <!--End sidebar-wrapper-->
 
+    {% block top-navbar %}
 
     <!--Start topbar header-->
     <header class="topbar-nav">
-      <nav class="navbar navbar-expand fixed-top pl-3"  style="text-align: center;">
+      <nav class="navbar navbar-expand fixed-top pl-3" style="text-align: center;">
         <ul class="navbar-nav mr-auto align-items-center">
           <li class="nav-item">
             <a class="nav-link toggle-menu" href="javascript:void();">
@@ -196,16 +215,17 @@
           </li> 
           -->
           <li class="nav-item">
-            <form method ="POST" class="search-bar" id="myform">
+            <form method="POST" class="search-bar" id="myform">
               {% csrf_token %}
-              <input type="text" class="form-control" name = 'search' placeholder="Search state or district...">
-              <a href="javascript:void();" onclick="document.getElementById('myform').submit()"><i class="icon-magnifier"></i></a>
+              <input type="text" class="form-control" name='search' placeholder="Search state or district...">
+              <a href="javascript:void();" onclick="document.getElementById('myform').submit()"><i
+                  class="icon-magnifier"></i></a>
             </form>
           </li>
 
         </ul>
 
-<!-- 
+        <!-- 
         <div id="content-desktop">
           <strong><p id="time" class="mx-3 my-0" style="text-align: right;"></p></strong>
             <script type="text/javascript">
@@ -236,54 +256,61 @@
 
 
         <!-- <a style="font-size: 25px;" class="px-2"  href="{% url 'index' %}"><i class="icon-home"></i></a> -->
-        
-        
+
+
         {% url 'dashboard' as dashboard_url %}
 
         {% if request.get_full_path == dashboard_url %}
             {% if not request.user.is_authenticated %}
-                <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
-                <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Signup</a>
+            <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
+            <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Signup</a>
 
             {% elif request.user.is_authenticated and request.user.is_superuser %}
-                <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Site Admin</a>
-                <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin</a>
-                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Vaccination Incharge</a>
-                <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
-                <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+            <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Site Admin</a>
+            <a href="{% url 'registrar' %}" class="btn btn-info waves-effect waves-light m-1">Registrar</a>
+            <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin</a>
+            <a href="{% url 'vaccination_incharge' %}" class="btn btn-info waves-effect waves-light m-1">Vaccinator</a>
+            <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
             {% elif request.user.is_authenticated and request.user.is_staff and not request.user.is_superuser %}
-                <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a>
-                <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
-                <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+            <a href="{% url 'registrar' %}" class="btn btn-info waves-effect waves-light m-1">Registrar Panel</a>
+            <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a>
+            <a href="{% url 'vaccination_incharge' %}" class="btn btn-info waves-effect waves-light m-1">Vaccinator Panel</a>
+            <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
             {% elif request.user.is_authenticated and not request.user.is_staff and not request.user.is_superuser %}
-                <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
-                <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+            <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Home</a>
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
             {% endif %}
+
         {% else %}
             {% if not request.user.is_authenticated %}
-                <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
-                <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Signup</a>
+            <a href="{% url 'login' %}" class="btn btn-info waves-effect waves-light m-1">Login</a>
+            <a href="{% url 'signup' %}" class="btn btn-white waves-effect waves-light m-1">Signup</a>
 
             {% elif request.user.is_authenticated and request.user.is_superuser %}
-                <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Site Admin</a>
-                <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin</a>
-                <a href="https://yogeshiitm.github.io/TechHD-adminpanel/" class="btn btn-info waves-effect waves-light m-1">Vaccination Incharge</a>
-                <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">User Dashboard</a>
-                <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+            <a href="\admin" class="btn btn-info waves-effect waves-light m-1">Site Admin</a>
+            <a href="{% url 'registrar' %}" class="btn btn-info waves-effect waves-light m-1">Registrar Panel</a>
+            <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin</a>
+            <a href="{% url 'vaccination_incharge' %}" class="btn btn-info waves-effect waves-light m-1">Vaccinator</a>
+            <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">User Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
             {% elif request.user.is_authenticated and request.user.is_staff and not request.user.is_superuser %}
-                <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a>
-                <!-- <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">User Dashboard</a> -->
-                <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+            <a href="{% url 'registrar' %}" class="btn btn-info waves-effect waves-light m-1">Registrar Panel</a>
+            <a href="{% url 'healthadmin' %}" class="btn btn-info waves-effect waves-light m-1">Health Admin Panel</a>
+            <a href="{% url 'vaccination_incharge' %}" class="btn btn-info waves-effect waves-light m-1">Vaccinator Panel</a>
+            <!-- <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">User Dashboard</a> -->
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
 
             {% elif request.user.is_authenticated and not request.user.is_staff and not request.user.is_superuser %}
-                <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Dashboard</a>
-                <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
+            <a href="{% url 'dashboard' %}" class="btn btn-info waves-effect waves-light m-1">Dashboard</a>
+            <a href="{% url 'logout' %}" class="btn btn-white waves-effect waves-light m-1">Logout</a>
             {% endif %}
         {% endif %}
-        
+
 
         <!-- <ul class="navbar-nav align-items-center right-nav-link">
           <li class="nav-item dropdown-lg">
@@ -334,21 +361,23 @@
     </header>
     <!--End topbar header-->
 
-    
+    {% endblock %}
+
+
     <div class="clearfix">
     </div>
 
     <div class="content-wrapper">
-        <div class="container-fluid">
-              {% block content %}
+      <div class="container-fluid">
+        {% block content %}
 
-              {% endblock %}
+        {% endblock %}
 
-              <!--start overlay-->
-              <div class="overlay toggle-menu"></div>
-              <!--end overlay-->
-        </div>
-        <!-- End container-fluid-->
+        <!--start overlay-->
+        <div class="overlay toggle-menu"></div>
+        <!--end overlay-->
+      </div>
+      <!-- End container-fluid-->
     </div>
     <!--End content-wrapper-->
 
@@ -362,15 +391,16 @@
 
     <!-- https://stackoverflow.com/a/35752912/13962648 -->
     {% block footer %}
-      {% include 'vaccine_delivery/footer.html' %}
+    {% include 'vaccine_delivery/footer.html' %}
     {% endblock %}
 
-   
-</div>
-<!--End wrapper-->
 
-   
+  </div>
+  <!--End wrapper-->
+
+
 
 
 </body>
+
 </html>

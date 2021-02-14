@@ -1,0 +1,631 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+{% block header %}
+
+<!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+    window.onload = function () {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "dark2",
+        exportFileName: "Doughnut Chart",
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: "Monthly Expense"
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "doughnut",
+            innerRadius: 90,
+            showInLegend: true,
+            toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+            indexLabel: "{name} - #percent%",
+            dataPoints: [
+                { y: 450, name: "Food" },
+                { y: 120, name: "Insurance" },
+                { y: 300, name: "Travelling" },
+                { y: 800, name: "Housing" },
+                { y: 150, name: "Education" },
+                { y: 150, name: "Shopping"},
+                { y: 250, name: "Others" }
+            ]
+        }]
+    });
+    chart.render();
+
+    function explodePie (e) {
+        if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+        } else {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+        }
+        e.chart.render();
+    }
+
+    }
+</script> -->
+
+<!--Bootstrap Datepicker-->
+<link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet"
+    type="text/css">
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9 py-2">
+
+        <!-- <h4 class="page-title">District Health Administrator</h4> -->
+
+
+        <!-- <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javaScript:void();">Dashtreme</a></li>
+                <li class="breadcrumb-item"><a href="javaScript:void();">Pages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol> -->
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+
+<!-- the below form submits 5 inputs from the admin state, district,age,category, number of users -->
+
+
+<div class="row ">
+    <div class="col-lg-4">
+
+        <div class="card profile-card-2">
+            <div class="card-img-block">
+                <img class="img-fluid" src="{% static 'images/dashboard.jpg' %}" alt="image"
+                    style="height: 110% !important;  width:100% !important">
+            </div>
+
+            <!-- <div class="card-header text-uppercase">Vaccinator details</div> -->
+
+            <div class="card-body pt-4 pb-0">
+                <!-- <img src="{% static 'images/profile2.png' %}" alt="profile-image" class="profile"> -->
+
+                <h5 class="card-title pb-0 mb-0">Vaccinator name: {{name}}</h5>
+                <!-- <h5 class="card-title py-0 my-0">Email: {{email}}</h5>
+                    <h5 class="card-title py-0 my-0">State: {{user.state}}</h5>
+                    <h5 class="card-title pt-0 mt-0">District: {{user.district}}</h5> -->
+                <h5 class="card-title pt-0 mt-0">Hospital: </h5>
+                <hr>
+
+                <div class="form-group row pt-2 pb-2">
+                    <div class="col-sm-12">
+                        <h5 class="card-title pb-0 mb-2 mt-0">Today's vaccination details</h5>
+                        <!-- <h5 class="card-title pb-0 mb-0 mt-0">●&emsp;Done: 2</h5>
+                            <h5 class="card-title pb-0 mb-0 mt-0">●&emsp;Total: 5</h5> -->
+                        <h5 class="card-title pb-0 mb-0 mt-0">Done: 2</h5>
+                        <h5 class="card-title pb-0 mb-0 mt-0">Total: 5</h5>
+
+                    </div>
+                    <!-- <div class="col-sm-12">
+                            <h5 class="card-title pb-0 mb-0 mt-2">Total Vaccinated till date: 7</h5>
+                        </div> -->
+                </div>
+
+            </div>
+
+            <!-- <div class="card-body border-top border-light">
+                    <div class="media align-items-center">
+                    </div>
+                </div> -->
+        </div>
+
+
+        <!-- <div class="card mt-3">
+                <div class="card-content">
+                    <div class="row row-group m-0">
+                        <div class="col-lg-12 border-light">
+                            <div class="card-body">
+                            <p class="mb-0 text-white small-font">Total Beneficiaries Vaccinated </p>
+                              <h5 class="text-white mb-0">5 <span class="float-right"></span></h5>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-lg-12 border-light">
+                            <div class="card-body">
+                                <p class="mb-0 text-white small-font">Total Sessions Conducted</p>
+                              <h5 class="text-white mb-0">2 <span class="float-right"></span></h5>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+              </div>   -->
+
+
+        <!-- <div class="card">
+                <div class="card-content">
+                    <div class="row row-group m-0">
+                        <div class="col-12 border-light ">
+
+                            <div class="card-body py-0">
+                                <div class="form-group row py-4">
+                                    <div class="col-sm-12">
+                                        <h5 class="card-title pb-0 mb-2 mt-0">Today's vaccination details</h5>
+                                            <h5 class="card-title pb-0 mb-0 mt-0">●&emsp;Done: 2</h5>
+                                            <h5 class="card-title pb-0 mb-0 mt-0">●&emsp;Total: 5</h5>
+                                        <hr>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <h5 class="card-title pb-0 mb-0 mt-2">Total Vaccinated till date: 7</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+
+        <style>
+            .datepicker table tr td,
+            .datepicker table tr th {
+                width: 50px;
+                height: 40px;
+            }
+        </style>
+        <div class="card">
+            <div class="card-header text-uppercase">Vaccination Sessions</div>
+            <!-- <div class="card-body" style="display: flex; justify-content:center"> -->
+            <div class="card-body">
+                <div id="inline-datepicker"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <div class="col-lg-8">
+
+        <form method="POST" action="{% url 'vaccination_incharge' %}">
+            {% csrf_token %}
+            <div class="card py-2">
+                <!-- <div class="card-header">Search beneficiary by aadhaar number</div> -->
+                <div class="card-body row">
+                    <div class="col-9">
+                        <input type="text" class="form-control py-4" name="adhaar" placeholder="Search beneficiary by aadhaar number" required
+                            pattern="\S+.*" maxlength="19" id="hyphen" onkeyup="addHyphen(this)">
+                    </div>
+                    <div class="col-3">
+                        <button type="submit"  name="SearchUser" value='True'  class="btn btn-white btn-lg btn-block waves-effect waves-light">Search
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified" id="myTab">
+                    <!-- <li class="nav-item">
+                        <a href="javascript:void();" data-target="#alloted" data-toggle="pill"
+                            class="nav-link active"><i class="icon-note"></i> <span class="hidden-xs">Alloted
+                                Beneficiaries</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#vaccinated" data-toggle="pill" class="nav-link"><i
+                                class="icon-user"></i> <span class="hidden-xs">Vaccinated
+                                Beneficiaries</span></a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a href="#alloted" data-toggle="pill"
+                            class="nav-link active"><i class="icon-note"></i> <span class="hidden-xs">Alloted
+                                Beneficiaries</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#vaccinated" data-toggle="pill" class="nav-link"><i
+                                class="icon-user"></i> <span class="hidden-xs">Vaccinated
+                                Beneficiaries</span></a>
+                    </li>
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane active" id="alloted">
+                        <!-- <h5 class="mb-3">Beneficiaries called for vaccintion</h5> -->
+
+                        {% if users %}
+                            {% if atleast_one_alloted %}
+
+                                <div class="row mt-2">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="card">
+                                            <div class="table-responsive">
+                                                <table class="table align-items-center table-flush table-borderless"
+                                                    style="table-layout: auto; width: 100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align:left"></th>
+                                                            <th style="text-align:left">Name</th>
+                                                            <th style="text-align:center">Aadhaar</th>
+                                                            <!-- <th style="text-align:right"></th> -->
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        {% for user in users %}
+                                                        {% if user.vaccination_status == 'Alloted' %}
+                                                        <tr>
+                                                            <td style="text-align:left">
+                                                                <form action="{% url 'cross_off' user.user.id %}" method="post">
+                                                                    {% csrf_token %}
+                                                                    <!-- <div class="icheck-material-white">
+                                                                                                <input type="checkbox" id="user-checkbox1" onchange="this.form.submit()"/>
+                                                                                                <label for="user-checkbox1"></label>
+                                                                                            </div> -->
+                                                                    <div>
+                                                                        <input name="checkbox" type="checkbox"
+                                                                            onchange="this.form.submit()">
+                                                                    </div>
+                                                                </form>
+
+                                                                <!-- <input type="checkbox" id="user-checkbox1" name="covid"
+                                                                                            value=0 />
+                                                                                        <label for="user-checkbox1"></label> -->
+
+                                                            </td>
+                                                            <td style="text-align:left">{{ user.user.first_name }}
+                                                                {{user.user.last_name }} </td>
+                                                            <td style="text-align:center">{{ user.adhaar }}</td>
+                                                            <!-- <td style="text-align:right"><button type="submit"
+                                                                                            class="btn btn-light ">Form</button></td> -->
+
+                                                        </tr>
+                                                        {% endif %}
+                                                        {% endfor %}
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="float-sm-right">
+                                    <form method="post" action="{% url 'vaccination_incharge' %}">
+                                        {% csrf_token %}
+                                        <button name="ResetUsers" value='True' type="submit" class="btn btn-light">
+                                            Reset users</button>
+                                    </form>
+                                </div>
+
+
+                            {% else %}
+                                <!-- temporary -->
+                                <div class="row">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="card py-4">
+                                            <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret" style="border: 0;">
+                                                Currently, no beneficiary is scheduled for vaccination.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+
+
+                    </div>
+                    <div class="tab-pane" id="vaccinated">
+                        <!-- <h5 class="mb-3">Beneficiaries called for vaccintion</h5> -->
+
+                        {% if users %}
+                            {% if atleast_one_vaccinated %}
+                                <div class="row mt-2">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="card">
+
+
+                                            <div class="table-responsive">
+
+                                                <table class="table align-items-center table-flush table-borderless"
+                                                    style="table-layout: auto; width: 100%;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="text-align:left"></th>
+                                                            <th style="text-align:left">Name</th>
+                                                            <th style="text-align:left">Aadhaar</th>
+                                                            <th style="text-align:right"></th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody>
+                                                        {% for user in users %}
+                                                        {% if user.vaccination_status == 'Vaccinated' %}
+                                                        <tr>
+                                                            <td style="text-align:left">
+
+                                                                <form action="{% url 'uncross' user.user.id %}" method="post">
+                                                                    {% csrf_token %}
+                                                                    <!-- <div class="icheck-material-white">
+                                                                                                <input type="checkbox" id="user-checkbox1" onchange="this.form.submit()"/>
+                                                                                                <label for="user-checkbox1"></label>
+                                                                                            </div> -->
+                                                                    <div>
+                                                                        <input name="checkbox" type="checkbox"
+                                                                            onchange="this.form.submit()" checked>
+                                                                    </div>
+                                                                </form>
+
+
+                                                                <!-- <input type="checkbox" id="user-checkbox1" name="covid"
+                                                                                            value=0 />
+                                                                                        <label for="user-checkbox1"></label> -->
+
+                                                            </td>
+                                                            <td style="text-align:left">{{ user.user.first_name }}
+                                                                {{user.user.last_name }} </td>
+                                                            <td style="text-align:left">{{ user.adhaar }}</td>
+                                                            <td style="text-align:right"><a
+                                                                    href="{% url 'vaccination_profile' user.user.id %}"
+                                                                    class="btn btn-light ">Form</a></td>
+
+                                                        </tr>
+                                                        {% endif %}
+                                                        {% endfor %}
+
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--End Row-->
+
+
+                            {% else %}
+                                <!-- <h5 class="mb-3">Users in your district who satisfy the above criteria are</h5> -->
+                                <div class="row">
+                                    <div class="col-12 col-lg-12">
+                                        <div class="card py-4">
+                                            <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret" style="border: 0;">
+                                                This list is empty.
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endif %}
+                    </div>
+
+                    <!-- <div class="card-body border-top border-light">
+                    <div class="media align-items-center">
+                    </div>
+                </div> -->
+
+                <!-- for printing search result -->
+                {% if users_search %}
+                    {% for user in users_search %}
+                        {% if user.vaccination_status == 'Alloted' %}
+                            <div class="row mt-2">
+                                <div class="col-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table align-items-center table-flush table-borderless"
+                                                style="table-layout: auto; width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align:left"></th>
+                                                        <th style="text-align:left">Name</th>
+                                                        <th style="text-align:center">Aadhaar</th>
+                                                        <th style="text-align:right"></th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td style="text-align:left">
+                                                            <div class="icheck-material-white">
+                                                                <input type="checkbox" id="user-checkbox1" value=0 />
+                                                                <label for="user-checkbox1"></label>
+                                                            </div>
+
+                                                            <!-- <input type="checkbox" id="user-checkbox1" name="covid"
+                                                                                value=0 />
+                                                                            <label for="user-checkbox1"></label> -->
+
+                                                        </td>
+                                                        <td style="text-align:left">{{ user.user.first_name }}
+                                                            {{user.user.last_name }} </td>
+                                                        <td style="text-align:center">{{ user.adhaar }}</td>
+                                                        <td style="text-align:right"><a
+                                                                href="{% url 'vaccination_profile' user.user.id %}"
+                                                                class="btn btn-light ">Form</a></td>
+
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Row-->
+
+
+                        {% elif user.vaccination_status == 'Vaccinated' %}
+                            <div class="row mt-2">
+                                <div class="col-12 col-lg-12">
+                                    <div class="card">
+                                        <div class="table-responsive">
+                                            <table class="table align-items-center table-flush table-borderless"
+                                                style="table-layout: auto; width: 100%;">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="text-align:left"></th>
+                                                        <th style="text-align:left">Name</th>
+                                                        <th style="text-align:center">Aadhaar</th>
+                                                        <th style="text-align:right"></th>
+                                                    </tr>
+                                                </thead>
+
+                                                <tbody>
+
+                                                    <tr>
+                                                        <td style="text-align:left">
+                                                            <div class="icheck-material-white">
+                                                                <input type="checkbox" id="user-checkbox1" checked=""
+                                                                    value=0 />
+                                                                <label for="user-checkbox1"></label>
+                                                            </div>
+
+                                                            <!-- <input type="checkbox" id="user-checkbox1" name="covid"
+                                                                                value=0 />
+                                                                            <label for="user-checkbox1"></label> -->
+
+                                                        </td>
+                                                        <td style="text-align:left">{{ user.user.first_name }}
+                                                            {{user.user.last_name }} </td>
+                                                        <td style="text-align:center">{{ user.adhaar }}</td>
+                                                        <td style="text-align:right"><a
+                                                                href="{% url 'vaccination_profile' user.user.id %}"
+                                                                class="btn btn-light ">Form</a></td>
+
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End Row-->
+
+
+                        {% elif user.vaccination_status == '' %}
+                        <div class="row mt-2">
+                            <div class="col-12 col-lg-12">
+                                <div class="card">
+                                    <div class="table-responsive">
+                                        <table class="table align-items-center table-flush table-borderless"
+                                            style="table-layout: auto; width: 100%;">
+                                            <thead>
+                                                <tr>
+                                                    <!-- <th style="text-align:left"></th> -->
+                                                    <th style="text-align:left">Name</th>
+                                                    <th style="text-align:center">Aadhaar</th>
+                                                    <th style="text-align:right"></th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr>
+
+                                                    <td style="text-align:left">{{ user.user.first_name }}
+                                                        {{user.user.last_name }} </td>
+                                                    <td style="text-align:center">{{ user.adhaar }}</td>
+                                                    <td style="text-align:right"><a href="{% url 'vaccination_incharge' %}" class="btn btn-light ">Not yet
+                                                            alloted</a></td>
+
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--End Row-->
+                        {% endif %}
+
+                        <div>
+                            <form method="post" action="{% url 'vaccination_incharge' %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-light">
+                                    Back</button>
+                            </form>
+                        </div>
+
+                    {% endfor %}
+                {% elif not users_search %}
+                {% if buttonname == 'SearchUser' %}
+                
+                    <!-- {% if request.method == 'POST' %} -->
+                    <!-- <h5 class="mb-3">Users in your district who satisfy the above criteria are</h5> -->
+                    <div class="row">
+                        <div class="col-12 col-lg-12">
+                            <div class="card py-4">
+                                <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret" style="border: 0;">
+                                    No beneficiary with the given aadhaar number has registered for vaccination.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- {% endif %} -->
+                {% endif %}
+                {% endif %}
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<!--Bootstrap Datepicker Js-->
+<script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+<script>
+    $('#default-datepicker').datepicker({
+        todayHighlight: true
+    });
+    $('#autoclose-datepicker').datepicker({
+        autoclose: true,
+        todayHighlight: true
+    });
+
+    $('#inline-datepicker').datepicker({
+        todayHighlight: true
+    });
+
+    $('#dateragne-picker .input-daterange').datepicker({
+    });
+</script>
+
+<!-- to add hypen after 4 digits of aadhaar -->
+<script>
+    function addHyphen(element) {
+        let ele = document.getElementById(element.id);
+        ele = ele.value.split('-').join('');    // Remove dash (-) if mistakenly entered.
+
+        let finalVal = ele.match(/.{1,4}/g).join('-');
+        document.getElementById(element.id).value = finalVal;
+    }
+</script>
+
+<!-- to keep the current tab active on page reload -->
+<script>
+    $(document).ready(function(){
+        $('a[data-toggle="pill"]').on('show.bs.tab', function(e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+        });
+        var activeTab = localStorage.getItem('activeTab');
+        if(activeTab){
+            $('#myTab a[href="' + activeTab + '"]').tab('show');
+        }
+    });
+</script>
+
+
+{% endblock %}

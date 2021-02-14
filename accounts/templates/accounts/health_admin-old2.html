@@ -1,0 +1,348 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+{% block content %}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9 py-2">
+
+        <!-- <h4 class="page-title">District Health Administrator</h4> -->
+
+
+        <!-- <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="javaScript:void();">Dashtreme</a></li>
+                <li class="breadcrumb-item"><a href="javaScript:void();">Pages</a></li>
+                <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+            </ol> -->
+    </div>
+</div>
+<!-- End Breadcrumb-->
+
+
+<!-- the below form submits 5 inputs from the admin state, district,age,category, number of users -->
+<form method="post" action="{% url 'healthadmin' %}">
+    {% csrf_token %}
+
+    <div class="row ">
+        <div class="col-lg-4">
+
+
+
+            <div class="card">
+
+
+                <!-- <div class="card-img-block">
+                    <img class="img-fluid" src="{% static 'images/dashboard.jpg' %}" alt="image"
+                        style="height: 110% !important;  width:100% !important">
+                </div> -->
+
+                <h5 class="card-title pb-0 mb-0 mt-4 mx-4">Select Vaccination Phase</h5>
+                <div class="card-body pt-2 pb-0">
+
+
+                    <!-- <div class="card-body"> -->
+                    <div class="card profile-card-2 my-2">
+                        <div class="card-content">
+
+
+                            <!-- <div class="py-3 align-items-center d-flex justify-content-center border-light"
+                                        style="
+                                    color: #ffffff;
+                                    background: rgba(255, 255, 255, 0.15);
+                                    border-bottom-color: #ffffff;">
+
+
+                                        <a href="javascript:void();" data-target="#phase1" data-toggle="pill"
+                                            class="nav-link active"><span class="hidden-xs">Phase 1</span></a>
+
+
+                                    </div>
+                                    <div class="py-3 align-items-center d-flex justify-content-center border-light">
+                                        <a href="javascript:void();" data-target="#phase2" data-toggle="pill"
+                                            class="nav-link"><span class="hidden-xs">Phase 2</span></a>
+
+                                        
+
+                                    </div>
+                                    <div class="py-3 align-items-center d-flex justify-content-center border-light">
+                                        <a href="javascript:void();" data-target="#phase3" data-toggle="pill"
+                                            class="nav-link"><span class="hidden-xs">Phase 3</span></a>
+                                        
+
+                                    </div>
+                                    <div class="py-3 align-items-center d-flex justify-content-center border-light">
+                                        <a href="javascript:void();" data-target="#phase4" data-toggle="pill"
+                                            class="nav-link"><span class="hidden-xs">Phase 4</span></a>
+                                        
+
+                                    </div> -->
+                            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
+                                <li class="nav-item">
+
+
+
+                                    <a href="javascript:void();" data-target="#phase1" data-toggle="pill"
+                                        class="py-3 nav-link active"><span class="hidden-xs">Phase 1</span></a>
+
+
+                                    <!-- <a href="">
+                                                    <h5 class="text-white">Phase 1</h5>
+                                                </a> -->
+
+
+                                </li>
+                                <li class="nav-item">
+
+                                    <a href="javascript:void();" data-target="#phase2" data-toggle="pill"
+                                        class="py-3 nav-link"><span class="hidden-xs">Phase 2</span></a>
+
+                                    <!-- <a href="">
+                                                    <h5 class="text-white">Phase 2</h5>
+                                                </a> -->
+
+
+                                </li>
+                                <li class="nav-item">
+
+                                    <a href="javascript:void();" data-target="#phase3" data-toggle="pill"
+                                        class="py-3 nav-link"><span class="hidden-xs">Phase 3</span></a>
+                                    <!-- <a href="">
+                                                    <h5 class="text-white">Phase 3</h5>
+                                                </a> -->
+
+
+                                </li>
+                                <li class="nav-item">
+
+                                    <a href="javascript:void();" data-target="#phase4" data-toggle="pill"
+                                        class="py-3 nav-link"><span class="hidden-xs">Phase 4</span></a>
+                                    <!-- <a href="">
+                                                    <h5 class="text-white">Phase 4</h5>
+                                                </a> -->
+
+
+                                </li>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card-content">
+                    <div class="row row-group m-0">
+                        <div class="col-12 border-light ">
+
+                            <!-- <h5 class="card-title pb-0 mb-0 mt-4 mx-4">Enter the number of users to be
+                                notified for
+                                vaccinaation
+                            </h5> -->
+
+                            <div class="card-body py-0">
+                                <div class="form-group row py-4">
+
+                                    <div class="col-sm-12">
+
+                                        <div class="form-group row">
+                                            <label for="input-19" class="col-sm-3 col-form-label">State</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control single-select" name="state">
+                                                    {% if states %}
+                                                    {% for state in states %}
+                                                    <option value="{{state.state}}">{{state.state}}</option>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="input-19" class="col-sm-3 pr-0 col-form-label">District</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="input-23" name="district"
+                                                    placeholder="District" required pattern="\S+.*" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-5">
+                                            <label for="input-19" class="col-sm-3 pr-0 col-form-label">Vaccine</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="input-23" name="vaccine"
+                                                    placeholder="No. of vaccine" required pattern="\S+.*" />
+                                            </div>
+                                        </div>
+
+                                        <!-- <input type="text" class="form-control py-4" id="input-24" name="vaccine"
+                                            placeholder="No. of vaccines" required pattern="\S+.*" /> -->
+
+                                        <button type="submit"
+                                            class="btn btn-white btn-lg btn-block waves-effect waves-light mt-4">Search
+                                            users</button>
+                                        {% comment %} <button type="submit" action="{% url 'notifyusers' %}"
+                                            class="btn btn-info btn-lg btn-block waves-effect waves-light my-2">Notify
+                                            the
+                                            users</button> {% endcomment %}
+                                        <a class="btn btn-info btn-lg btn-block waves-effect waves-light my-2">Notify
+                                            the
+                                            users</a>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-body">
+
+                    <!-- <div class="card profile-card-2"> -->
+                    <div class="row ">
+                        <div class="tab-content p-3">
+
+
+                            <div class="tab-pane active" id="phase1">
+                                <div class="card-img-block" style="height: 200px !important;">
+                                    <img class="img-fluid" src="{% static 'images/piechart.png' %}" alt="image"
+                                        style="height: 100% !important; ">
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="phase2">
+                                2
+                            </div>
+                            <div class="tab-pane" id="phase3">
+                                3
+                            </div>
+                            <div class="tab-pane" id="phase4">
+                                4
+                            </div>
+                            <!-- <div class="col-4">
+                                <div class="card-img-block">
+                                    <img class="img-fluid" src="{% static 'images/dashboard.jpg' %}" alt="image"
+                                        style="height: 100% !important; ">
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body pt-4">
+                                    <h5 class="card-title pb-0 mb-0">Name: {{name}}</h5>
+                                    <h5 class="card-title pt-0 mt-0">Email: {{email}}</h5>
+                                    
+                                </div>
+                            </div> -->
+                        </div>
+                        <!-- </div> -->
+
+                        <!-- <div class="card-body border-top border-light">
+                        <div class="media align-items-center">
+                        </div>
+                    </div> -->
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <div class="card">
+                <div class="card-body">
+                    {% if users %}
+
+                    <h5 class="mb-3">Users in your district who satisfy the above criteria are</h5>
+
+
+                    <div class="row">
+                        <div class="col-12 col-lg-12">
+                            <div class="card">
+
+
+                                <!-- <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret">
+                          State Level Analysis
+                        </div> -->
+
+                                <div class="table-responsive">
+
+                                    <table class="table align-items-center table-flush table-borderless"
+                                        style="table-layout: auto; width: 100%;">
+                                        <thead>
+                                            <tr>
+                                                <th style="text-align:left">Name</th>
+                                                <th style="text-align:right">Aadhaar</th>
+                                                <th style="text-align:right">Priority Score</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            {% for user in users %}
+                                            <tr>
+                                                <td style="text-align:left">{{ user.user.first_name }}
+                                                    {{user.user.last_name }} </td>
+                                                <td style="text-align:right">{{ user.adhaar }}</td>
+                                                <td style="text-align:right">{{ user.illness_score | floatformat:2 }}</td>
+                                            </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End Row-->
+
+                    {% else %}
+                    {% if request.method == 'POST' %}
+
+                    <h5 class="mb-3">Users in your district who satisfy the above criteria are</h5>
+
+                    <div class="row">
+                        <div class="col-12 col-lg-12">
+                            <div class="card">
+                                <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret">
+                                    Currently there are no such user
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% endif %}
+                </div>
+
+                <!-- <div class="card-body border-top border-light">
+                                <div class="media align-items-center">
+                                </div>
+                            </div> -->
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</form>
+
+
+{% endblock %}
