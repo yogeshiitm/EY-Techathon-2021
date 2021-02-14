@@ -1,0 +1,308 @@
+{% extends "vaccine_delivery/base.html" %}
+{% load static %}
+{% load humanize %}
+{% static "images" as baseUrl %}
+
+{% block header %}
+<!--Bootstrap Datepicker-->
+<!-- <link href="{% static 'plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet"
+    type="text/css"> -->
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Start wrapper-->
+<!-- <div id="wrapper">
+
+	<div class="card card-authentication1 mx-auto my-4">
+		<div class="card-body">
+			<div class="card-content p-2">
+				<div class="card-title text-uppercase text-center py-3" style="font-size:x-large;">Profile</div>
+				<form>
+
+
+					{% for key,value in userdata.items %}
+					{% if key != 'Last login' %}
+					<div class="form-group">
+						<label for="exampleInputName" style="font-size:medium;">{{key}}</label>
+						<div class="position-relative has-icon-right">
+							<p class="form-control input-shadow my-4" style="color: white">{{key.capitalize}}: {{ value
+								}}</p>
+						</div>
+					</div>
+
+					{% else %}
+					<p style="color: white">Last Login: {{ user.last_login | date:'d M Y' }}</p>
+
+					{% endif %}
+					{% endfor %}
+				</form>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<div id="wrapper">
+	<div class="row">
+		<style>
+			@media print {
+				body * {
+					visibility: hidden;
+				}
+
+				#printableArea,
+				#printableArea * {
+					visibility: visible;
+				}
+
+				/** #printableArea {
+					position: absolute;
+					left: 0;
+					top: 0;
+				}**/
+
+				.no-print {
+					display: none;
+				}
+			}
+		</style>
+		<div class="col-3"></div>
+		<div class="col-lg-6 my-4" id="printableArea">
+			<div class="card">
+				<div class="card-body">
+
+
+					<!-- Content Header (Page header) -->
+					<section class="content-header">
+						<h3>
+							{{name}}
+							<br>
+						</h3>
+						<p>{{adhaar}}</p>
+					</section>
+
+					<hr>
+					<!-- <div class="row invoice-info">
+							<div class="col-sm-12 invoice-col">
+								Vaccinated at: <hospital name>
+							</div>
+						</div>
+						<hr>
+
+						<div class="row invoice-info">
+							<div class="col-sm-12 invoice-col">
+								1st Vaccination Date: {{date1 | date}}<br>
+								Scheduled 2nd Vaccination Date: {{date2 | date}}
+							</div>
+						</div> -->
+					<div class="row invoice-info">
+						<div class="col-sm-12 invoice-col">
+							Vaccinated at<br>
+							● Hospital: &#60;hospital name&#62;<br>
+							● District: {{user.district}}<br>
+							● State: {{user.state}}<br>
+							<!-- <hr>
+							1st dose date: <strong>{{date1 | date}}</strong><br>
+							Scheduled 2nd dose date: <strong>{{date2 | date}}</strong> -->
+						</div>
+					</div>
+					<form action="{% url 'vaccination_profile' user.user.id %}" method="post">
+					{% csrf_token %}
+						<div class="row pt-4">
+							<div class="col-12 invoice-col table-responsive">
+								<table class="table table-striped">
+									<thead>
+										<tr>
+											<th>Dose</th>
+											<th>Date</th>
+											<th>Status</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1st</td>
+											<td>{{ user.date1}}</td>
+											<td style="text-align:left">
+
+												{% if user.dose_status == 1 or user.dose_status == 2 %}
+													<span class="icheck-material-white">
+														<input type="checkbox" checked="" readonly/>
+														<label for="user-checkbox1"></label>
+													</span>
+												{% else %}
+													<span class="icheck-material-white">
+														<input type="checkbox" id="user-checkbox1" name="1st_vaccine" value=1 />
+														<label for="user-checkbox1"></label>
+													</span>
+												{% endif %}
+											</td>
+										</tr>
+										<tr>
+											<td>2nd</td>
+											<td>{{ user.date2}}</td>
+											<td style="text-align:left">
+												{% if user.dose_status == 2 %}
+													<span class="icheck-material-white">
+														<input type="checkbox" checked="" readonly/>
+														<label for="user-checkbox2"></label>
+													</span>
+												{% else %}
+													<span class="icheck-material-white">
+														<input type="checkbox" id="user-checkbox2" name="2nd_vaccine" value=2 />
+														<label for="user-checkbox2"></label>
+													</span>
+												{% endif %}
+											</td>
+										</tr>
+									</tbody>
+								</table>
+							</div><!-- /.col -->
+						</div><!-- /.row -->
+						<hr>
+
+						<style>
+							.checkmark {
+								position: absolute;
+								top: 0;
+								left: 0;
+								height: 25px;
+								width: 25px;
+								background-color: black;
+								border-radius: 50%;
+							  }
+							  
+						</style>
+
+						<div class="form-group row">
+							<div class="col">
+								<label for="input-27" class="col-form-label">Vaccine name</label><br>
+								<!-- <div>
+									<select class="form-control single-select">
+										<option>Covishield</option>
+										<option>Covaxin</option>
+									</select>
+								</div> -->
+								{% if user.vaccine_name == 'covishield' %}
+									<input type="radio" id="vaccinename" name="vaccinename" value="covishield" checked="checked">
+									<label for="covishield">Covishield </label>
+									<input type="radio" id="vaccinename" name="vaccinename" value="covaxin" disabled>
+									<label for="covaxin">Covaxin</label><br>
+								{% elif user.vaccine_name == 'covaxin' %}
+									<input type="radio" id="vaccinename" name="vaccinename" value="covishield" disabled style="background-color: black !important;">
+									<label for="covishield">Covishield </label>
+									<input type="radio" id="vaccinename" name="vaccinename" value="covaxin" checked="checked">
+									<label for="covaxin">Covaxin</label><br>
+								{% else %}
+									<input type="radio" id="vaccinename" name="vaccinename" value="covishield" checked="checked">
+									<label for="covishield">Covishield </label>
+									<input type="radio" id="vaccinename" name="vaccinename" value="covaxin">
+									<label for="covaxin">Covaxin</label><br>
+								{% endif %}
+							</div>
+						</div>
+
+
+						<!-- <div class="form-group">
+							<div class="col">
+								<div class="row">
+									<label for="input-27" class="col-form-label">Vaccine name&nbsp;</label>
+									<div>
+
+										<select class="form-control single-select">
+											<option>Covishield</option>
+											<option>Covaxin</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div> -->
+
+
+						<!-- <div class="form-group py-2">
+							<div class="col">
+								<div class="row">
+									<label for="input-26" class="col-form-label">1st dose&nbsp;</label>
+									<span class="icheck-material-white">
+										<input type="checkbox" id="user-checkbox3" />
+										<label for="user-checkbox3"></label>
+									</span>
+								</div>
+								<div class="row">
+									<label for="input-26" class="col-form-label">2nd dose&nbsp;</label>
+									<span class="icheck-material-white">
+										<input type="checkbox" id="user-checkbox4" />
+										<label for="user-checkbox4"></label>
+								</div>
+
+								</span>
+							</div>
+						</div> -->
+						<hr>
+						<div class="row no-print">
+							<div class="col-lg-3">
+								<a href="{% url 'vaccination_incharge' %}" class="btn btn-light m-1">
+									Back</a>
+								<!-- <a href="javascript:window.print();" target="_blank" class="btn btn-light m-1"><i
+										class="fa fa-print"></i> Print</a> -->
+							</div>
+							<div class="col-lg-9">
+								<div class="float-sm-right">
+
+									<button type="submit" class="btn btn-light m-1"> Submit</button>
+									<!-- <button onclick="printDiv('printableArea')" class="btn btn-info m-1"><i class="fa fa-download"></i> Generate PDF</button> -->
+									<!-- <button onclick="window.print()" class="btn btn-info m-1"><i class="fa fa-download"></i> Generate PDF</button> -->
+									<button type="submit" onclick="window.print()" class="btn btn-info m-1"><i
+											class="fa fa-print"></i> Submit and Print</button>
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Bootstrap Datepicker Js-->
+<script src="{% static 'plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js' %}"></script>
+<script>
+	$('#default-datepicker').datepicker({
+		todayHighlight: true
+	});
+	$('#autoclose-datepicker').datepicker({
+		autoclose: true,
+		todayHighlight: true
+	});
+
+	$('#inline-datepicker').datepicker({
+		todayHighlight: true
+	});
+
+	$('#dateragne-picker .input-daterange').datepicker({
+	});
+</script>
+<!-- <script>
+	function printDiv(divName) {
+		var printContents = document.getElementById(divName).innerHTML;
+		var originalContents = document.body.innerHTML;
+   
+		document.body.innerHTML = printContents;
+   
+		window.print();
+   
+		document.body.innerHTML = originalContents;
+   }
+</script> -->
+
+
+
+{% endblock %}
+
+
+
+<!-- https://stackoverflow.com/a/35752912/13962648 -->
+{% block footer %}
+{% endblock %}

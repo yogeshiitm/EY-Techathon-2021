@@ -42,5 +42,6 @@ class CustomRegisterForm(UserCreationForm):
 class MedicalForm(forms.ModelForm):
     class Meta:
         model = MedicalModel
-        fields = ('adhaar','mobile','category','state','district','age','gender','covid','smoker','hbp_hyt','respiratory','chd','diabetes','cancer_non','hmt','reduced_kidney','kidney_dialysis','liver_disease','other_neuro','organ_transplant')
+        #fields = ('adhaar','mobile','category','state','district','age','gender','covid','smoker','hbp_hyt','respiratory','chd','diabetes','cancer_non','hmt','reduced_kidney','kidney_dialysis','liver_disease','other_neuro','organ_transplant')
+        fields = ('adhaar','mobile','state','district','pincode','occupation','income','work_status','age','gender','covid','smoker','hbp_hyt','respiratory','chd','diabetes','cancer_non','hmt','reduced_kidney','kidney_dialysis','liver_disease','other_neuro','organ_transplant')
         #fields = ('covid',)

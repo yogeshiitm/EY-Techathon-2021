@@ -1,197 +1,45 @@
 {% extends "vaccine_delivery/base.html" %}
-
 {% load static %}
 {% static "images" as baseUrl %}
 
 {% block content %}
 
-    <h3 class="py-4" style="text-align: center;">Welcome to TechHD Covid19 website!</h5>
-
-    <div class="card mt-3 mb-5">
-        <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">What is TechHD for?</h5>
-        <div class="card-content" >
-            <div class="row row-group m-0 d-flex">
-                <p class="my-3 mx-3">
-                    Here we have tried to help the government make informed decisions around epidemiological and vaccine supply circumstances by predicting India's more critical segments that need to be catered with vaccine deliveries as prior as possible.
-                </p>
-            </div>
+    <!-- <div class="container my-5">
+        <div class="row ">
+            <img src = "{% static 'images/team.png' %}"  width="100%">
         </div>
-    </div>
+    </div> -->
 
-
-    <div class="card mt-3 mb-5">
-        <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">How it works?</h5>
-        <div class="card-content" >
-            <div class="row row-group m-0 d-flex">
-                <p class="my-3 mx-3">
-                    <ul>
-                        <li>
-                            We went through various census report estimates, WHO reports, and other state websites to fetch and combine all these data features and made our datasets.
-                        </li>
-                        <li>
-                            We then add and update the data daily with the number of covid cases in each state and carry out our ML algorithms.
-                        </li>
-                        <li>
-                            And hence we ended up with the following features that we used for batch predictions:
-                            <ol>
-                                <li>
-                                    Active Cases (<a href="https://www.covid19india.org">covid19india.org</a> website APIs)
-                                </li>
-                                <li>
-                                    Population Density 2020 (estimated: since the census is done every 10 years(2021 next))
-                                </li>
-                                <li>
-                                    Death rate ((No.of deaths/total confirmed cases) x100)
-                                </li>
-                                <li>
-                                    Heath Workers Present in the State (WHO reports)
-                                </li>
-                                <li>
-                                    Senior Citizens(60+)
-                                </li>
-                                <li>
-                                    Children(0-14yrs)
-                                </li>
-                                <li>
-                                    Allotted Hospital Beds for Covid Patients in each state
-                                </li>
-                                <li>
-                                    Accessibility of each state( based on National Highways lengths and connections within the state
-                                </li>
-                            </ol>
-                        </li>
-                        <li>
-                            We then run our ML clustering algorithms through all the features and load them into our ranking algorithms (considering several metrics and features)  to figure out the Importance and urgency of vaccine deliveries in each state.
-                        </li>
-                        <li>
-                            Our datasets are automatically updated daily to accommodate and make the predictions based on the latest information regarding the number of active covid cases of each state.
-                        </li>
-                        <li>
-                            For more info about prediction analysis procedure: <a href="https://drive.google.com/file/d/1n9-S84md7RU-d_7q_66IQCegr6aXivbj/view?usp=sharing" style="color: cyan;"" target="_blank">Click Here</a>
-                            <!-- For more info about prediction analysis procedure: <a href="{{ MEDIA_URL }}pdf/Prediction_Analysis_Procedure.pdf" style="color: cyan;"" target="_blank">Click Here</a> -->
-                                <!-- 
-                                NOTE: the above media_url don't work when debug=False in settings
-                                https://stackoverflow.com/questions/44555187/django-media-files-not-showing-with-debug-false-on-production-django-1-10
-                                -->
-                        </li>
-                    </ul>
-                </p>
-            </div>
-        </div>
-    </div>
-
-
-    <div class="card mt-3 mb-5">
-        <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">What can you find on this website?</h5>
-        <div class="card-content" >
-            <div class="row row-group m-0 d-flex">
-                <div class="my-3 mx-3 py-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.15)";>
-                    <a href="https://techhd.herokuapp.com/"><strong style="color: skyblue ;">HomePage:</strong><br></a>
-                    <ul>
-                        <li>
-                            The Table shows information about various states and their corresponding Batch Number, i.e., the state’s priority level. 
-                        </li>
-                        <li>
-                            For example, if Maharashtra and Kerala are in batch no. 1, then the first lot of vaccine deliveries should be delivered to those states. And then the remaining states in Batch number 2 and so on.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="my-3 mx-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.15)";>
-                    <a href="https://techhd.herokuapp.com/district_level"><strong style="color:skyblue ;">District Page:</strong><br></a> 
-                    <ul>
-                        <li>
-                            This Page provides us further segmentation of each state into various batches(priority sections) as predicted by our powerful ML algorithms.
-                        </li>
-                        <li>
-                            This would provide further assistance to the State Government as well in delivering the Vaccines with the state.
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="my-3 mx-3" style="border-bottom: 1px solid rgba(255, 255, 255, 0.15)";>
-                    <a href="https://techhd.herokuapp.com/batch/1"><strong style="color: skyblue ;">Batch Page:</strong><br></a>
-                    <ul>
-                        <li>
-                            This Page gives the batch-wise analysis and indicates the further percentage distribution of vaccines to each state in a particular batch.
-                        </li>
-                        <li>
-                            For a particular Batch, the percentage column in the table indicates the percentage of the “vaccine-supplies” distributed among each state in that batch.
-                        </li>
-                        <li >
-                            For example, In the batch 1 table, we see Maharashtra and Kerala and their 30% and 70% percentages. This predicts that while delivering the first lot, 70% of the total vaccine supplies to be delivered to Kerala and the remaining 30% of that lot to Maharashtra.
-                        </li>
-                        <li>
-                            The Percentage Values in each batch have been predicted based on their priority value given by our ranking algorithm.
-                        </li>
-                        <li>
-                            We formulated the ranking Algorithm by considering various factors(shown above) and then using the proper weighing system for each aspect.
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="my-3 mx-3">
-                    <a href="https://techhd.herokuapp.com/accounts/vaccineform"><strong style="color: skyblue ;">User Dashboard and Vaccine Prioritization among people:</strong><br></a>
-                    <ul>
-                        <li>
-                            The population will be vaccinated against the virus in priority batches, with the priority being the Health and FrontLIne Workers first, then Senior citizens above the age of 60-65, then People under the age of 60 but with various illnesses and comorbidities and finally the rest of the population.
-                        </li>
-                        <li>
-                            The dashboard currently has randomly generated data about the vaccination. It gives the user an idea of how he could keep track of the vaccinations done around his district.
-                        </li>
-                        <li >
-                            Within each of the priority groups stated above, further batches will be made according to the illness score/urgency score to help vaccinate the more important society segments before.
-                        </li>
-                        <li>
-                            Once the vaccines arrive in masses, the approximate date for the user’s turn will also be visible. 
-                        </li>
-                        <li>
-                            Our plans include having the option to book an appointment with proper documents and medical proofs for the same in the nearest hospital and on our website itself.
-                        </li>
-                    </ul>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body" style="padding-bottom:0.5% !important; padding-top:0% !important"  >
+                        <div class="my-4 mx-2" style="height:100% !important;" >
+                            <img src = "{% static 'images/about.png' %}"  width="100%">
+                        </div>
+                        
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="card mt-3 mb-5">
-        <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">Why fill the Medical Details Form?</h5>
-        <div class="card-content" >
-            <div class="row row-group m-0 d-flex">
-                <p class="my-3 mx-3">
-                    <ul>
-                        <li>
-                            After signing in, users will be prompted to fill a medical form, which we will require to determine the user’s(you)  vaccination priority among the district’s population.
-                        </li>
-                        <li>
-                            We achieve this by giving an illness score/urgency score to each user based on his/her medical health and condition as submitted in the form.
-                        </li>
-                        <li>
-                            We calculate the score by summing the weights of each disease that the user has.
-                        </li>
-                        <li>
-                            The death rate (number of people died due to covid, and having that disease out of total positive patients with that disease) determines each disease’s weights.
-                        </li>
-                        <li>
-                            OpenSafely, which produced the dataset we used for calculating the death rates and weights, came up with the death rate data after observing 17 million covid-19 positive patients with different comorbidities.
-                        </li>
-                    </ul>
-                </p>
+    
+        <!-- <div class="form-group">
+            <div class="row my-2">
+                <div class="col-lg-3">
+                    <a href="https://www.linkedin.com/in/laveen-bagai-385484202/" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Laveen Bagai <i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="col-lg-3">
+                    <a href="https://www.linkedin.com/in/vinayak-nishant-gudipaty-907171197/" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Vinayak Nishant <i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="col-lg-3">
+                    <a href="https://www.linkedin.com/in/yogeshiitm/" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Yogesh Agarwala <i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="col-lg-3">
+                    <a href="https://www.linkedin.com/in/ritesh-bhattad-a9bb2b194/" class="btn btn-primary btn-lg btn-block waves-effect waves-light m-1">Ritesh Bhattad <i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
-        </div>
+        </div> -->
     </div>
 
-
-    <div class="card mt-3 mb-5">
-        <h5 class="py-4" style="text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.15);">Note to the reader:</h5>
-        <div class="card-content" >
-            <div class="row row-group m-0 d-flex">
-                <p class="my-3 mx-3">
-                    Our ML and AI algorithms’ predictions are made by considering various factors, such as the estimated population datasets, India Census surveys and trends, the Number of Active Cases each day from trusted websites and APIs, WHO reports on the number of health workers in the state, Number of Hospital beds designated to Covid patients, Children(0-14) and Senior Citizens(60+) numbers, the Accessibility of states using National Highways lengths and connections in the state, etc.
-                </p>
-            </div>
-        </div>
-    </div>
-
-
-{% endblock %}
+{%endblock %}

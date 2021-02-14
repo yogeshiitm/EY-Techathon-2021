@@ -3,659 +3,780 @@
 {% load humanize %}
 {% static "images" as baseUrl %}
 
-{% block content %}
+{% block header %}
+
+<!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+    window.onload = function () {
     
-    <!-- Breadcrumb-->
-     <div class="row pt-2 pb-2">
-        <div class="col-sm-9 py-2">
-		    <h4 class="page-title">District Health Administrator</h4>
-		    <!-- <ol class="breadcrumb">
+    var chart = new CanvasJS.Chart("chartContainer", {
+        theme: "dark2",
+        exportFileName: "Doughnut Chart",
+        exportEnabled: true,
+        animationEnabled: true,
+        title:{
+            text: "Monthly Expense"
+        },
+        legend:{
+            cursor: "pointer",
+            itemclick: explodePie
+        },
+        data: [{
+            type: "doughnut",
+            innerRadius: 90,
+            showInLegend: true,
+            toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+            indexLabel: "{name} - #percent%",
+            dataPoints: [
+                { y: 450, name: "Food" },
+                { y: 120, name: "Insurance" },
+                { y: 300, name: "Travelling" },
+                { y: 800, name: "Housing" },
+                { y: 150, name: "Education" },
+                { y: 150, name: "Shopping"},
+                { y: 250, name: "Others" }
+            ]
+        }]
+    });
+    chart.render();
+    
+    function explodePie (e) {
+        if(typeof (e.dataSeries.dataPoints[e.dataPointIndex].exploded) === "undefined" || !e.dataSeries.dataPoints[e.dataPointIndex].exploded) {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = true;
+        } else {
+            e.dataSeries.dataPoints[e.dataPointIndex].exploded = false;
+        }
+        e.chart.render();
+    }
+    
+    }
+</script> -->
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Goal', 'Percentage'],
+            ['Health & Frontline', 97],
+            ['Uplifting Economy', 1],
+            ['Removing Disparity', 1],
+            ['Others', 1],
+            //['Sleep',    7]
+        ]);
+
+        var options = {
+            title: 'Phase 1 Vaccine Distribution Focus',
+            pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pie1'));
+        chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Goal', 'Percentage'],
+            ['Health & Frontline', 75],
+            ['Uplifting Economy', 23],
+            ['Removing Disparity', 1],
+            ['Others', 1],
+            //['Sleep',    7]
+        ]);
+
+        var options = {
+            title: 'Phase 2 Vaccine Distribution Focus',
+            pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pie2'));
+        chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Goal', 'Percentage'],
+            ['Health & Frontline', 50],
+            ['Uplifting Economy', 25],
+            ['Removing Disparity', 24],
+            ['Others', 1],
+            //['Sleep',    7]
+        ]);
+
+        var options = {
+            title: 'Phase 3 Vaccine Distribution Focus',
+            pieHole: 0.4,
+            width: '100%',
+    height: '500px',
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pie3'));
+        chart.draw(data, options);
+    }
+</script>
+<script type="text/javascript">
+    google.charts.load("current", { packages: ["corechart"] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Goal', 'Percentage'],
+            ['Health & Frontline', 1],
+            ['Uplifting Economy', 1],
+            ['Removing Disparity', 1],
+            ['Others', 97],
+            //['Sleep',    7]
+        ]);
+
+        var options = {
+            title: 'Phase 4 Vaccine Distribution Focus',
+            pieHole: 0.4,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('pie4'));
+        chart.draw(data, options);
+    }
+</script>
+
+
+{% endblock %}
+
+
+{% block content %}
+
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9 py-2">
+
+        <!-- <h4 class="page-title">District Health Administrator</h4> -->
+
+
+        <!-- <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javaScript:void();">Dashtreme</a></li>
                 <li class="breadcrumb-item"><a href="javaScript:void();">Pages</a></li>
                 <li class="breadcrumb-item active" aria-current="page">User Profile</li>
             </ol> -->
-	   </div>
-     </div>
-    <!-- End Breadcrumb-->
+    </div>
+</div>
+<!-- End Breadcrumb-->
 
 
 <!-- the below form submits 5 inputs from the admin state, district,age,category, number of users -->
-<form method="post" action="{% url 'healthadmin' %}">
-{% csrf_token %}
 
-<div class="row">
+
+<div class="row ">
     <div class="col-lg-4">
-        <div class="card profile-card-2">
-            <div class="card-img-block">
-                <img class="img-fluid" src="{% static 'images/dashboard.jpg' %}" alt="image" style="height: 110% !important;  width:100% !important">
-            </div>
-            <div class="card-body pt-4">
-                <!-- <img src="{% static 'images/profile2.png' %}" alt="profile-image" class="profile"> -->
-                <h5 class="card-title pb-0 mb-0">Name: {{name}}</h5>
-                <h5 class="card-title pt-0 mt-0">Email: {{email}}</h5>
-                <!-- <h5 class="card-title">{{name}}</h5> -->
-            </div>
 
-            <!-- <div class="card-body border-top border-light">
-                <div class="media align-items-center">
+        <form method="post" action="{% url 'healthadmin' %}">
+            {% csrf_token %}
+
+            <div class="card">
+
+
+                <!-- <div class="card-img-block">
+                    <img class="img-fluid" src="{% static 'images/dashboard.jpg' %}" alt="image"
+                        style="height: 110% !important;  width:100% !important">
+                </div> -->
+
+
+                <h5 class="card-title pb-0 mb-0 mt-4 mx-4">Select Vaccination Phase</h5>
+                <div class="card-body pt-2 pb-0">
+
+                    <!-- <div class="card-body"> -->
+                    <div class="card profile-card-2 my-2">
+                        <div class="card-content">
+
+                            <style>
+                                input[type="radio"] {
+                                    display: none;
+                                }
+
+                                input[type="radio"]:checked+label {
+                                    color: #14abef;
+                                    background-color: transparent;
+                                    border-color: #14abef #14abef #fff;
+                                    border-bottom: 4px solid #14abef;
+                                }
+
+                                .my-nav-link {
+                                    color: #ffffff;
+                                    font-size: 12px;
+                                    text-align: center;
+                                    letter-spacing: 1px;
+                                    font-weight: 600;
+                                    margin: 0px;
+                                    margin-bottom: 0;
+                                    padding: 12px 20px;
+                                    text-transform: uppercase;
+                                    border: 0px solid transparent;
+                                    border-top-left-radius: .25rem;
+                                    border-top-right-radius: .25rem;
+                                }
+                            </style>
+
+                            <!-- 
+                            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified" id="myTab">
+                                <li class="nav-item">
+                                    <a href="javascript:void();" data-target="#phase1" data-toggle="pill"
+                                        class="py-3 nav-link active">Phase 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void();" data-target="#phase2" data-toggle="pill"
+                                        class="py-3 nav-link">Phase 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void();" data-target="#phase3" data-toggle="pill"
+                                        class="py-3 nav-link">Phase 3</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="javascript:void();" data-target="#phase4" data-toggle="pill"
+                                        class="py-3 nav-link">Phase 4</a>
+                                </li>
+                            </ul>  -->
+                            {% if current_phase == 1 %}
+                            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified" id="myTab">
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase1" name="phase" value=1 id="phase11"
+                                        checked="checked">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link active" for="phase11">Phase
+                                        1</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase2" name="phase" value=2 id="phase22">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase22">Phase
+                                        2</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase3" name="phase" value=3 id="phase33">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase33">Phase
+                                        3</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase4" name="phase" value=4 id="phase44">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase44">Phase
+                                        4</label>
+                                </li>
+                            </ul>
+                            {% elif current_phase == 2 %}
+                            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified" id="myTab">
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase1" name="phase" value=1 id="phase11">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link active" for="phase11">Phase
+                                        1</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase2" name="phase" value=2 id="phase22"
+                                        checked="checked">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase22">Phase
+                                        2</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase3" name="phase" value=3 id="phase33">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase33">Phase
+                                        3</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase4" name="phase" value=4 id="phase44">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase44">Phase
+                                        4</label>
+                                </li>
+                            </ul>
+                            {% elif current_phase == 3 %}
+                            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified" id="myTab">
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase1" name="phase" value=1 id="phase11">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link active" for="phase11">Phase
+                                        1</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase2" name="phase" value=2 id="phase22">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase22">Phase
+                                        2</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase3" name="phase" value=3 id="phase33"
+                                        checked="checked">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase33">Phase
+                                        3</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase4" name="phase" value=4 id="phase44">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase44">Phase
+                                        4</label>
+                                </li>
+                            </ul>
+                            {% elif current_phase == 4 %}
+                            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified" id="myTab">
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase1" name="phase" value=1 id="phase11">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link active" for="phase11">Phase
+                                        1</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase2" name="phase" value=2 id="phase22">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase22">Phase
+                                        2</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase3" name="phase" value=3 id="phase33">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase33">Phase
+                                        3</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase4" name="phase" value=4 id="phase44"
+                                        checked="checked">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase44">Phase
+                                        4</label>
+                                </li>
+                            </ul>
+                            {% else %}
+                            <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified" id="myTab">
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase1" name="phase" value=1 id="phase11"
+                                        checked="checked">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link active" for="phase11">Phase
+                                        1</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase2" name="phase" value=2 id="phase22">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase22">Phase
+                                        2</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase3" name="phase" value=3 id="phase33">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase33">Phase
+                                        3</label>
+                                </li>
+                                <li class="nav-item">
+                                    <input type="radio" data-target="#phase4" name="phase" value=4 id="phase44">
+                                    <label style="cursor:pointer;" class="py-3 my-nav-link" for="phase44">Phase
+                                        4</label>
+                                </li>
+                            </ul>
+                            {% endif %}
+
+
+                        </div>
+                    </div>
                 </div>
-            </div> -->
-        </div>
-        
-        <!-- <div class="card mt-3">
-            <div class="card-content">
-                <div class="row row-group m-0">
-                    <div class="col-12 border-light">
-                        <div class="card-body">
-                          <h5 class="text-white mb-0">1051 <span class="float-right"><i class="fa fa-plus-circle"></i></span></h5>
-                            <div class="progress my-3" style="height:3px;">
-                              <div class="progress-bar" style="width:11.63%"></div>
-                            </div>
-                          <p class="mb-0 text-white small-font">No. of Health Workers Vaccinated </p>
-                        </div>
-                    </div>
-                    <div class="col-12 border-light">
-                        <div class="card-body">
-                          <h5 class="text-white mb-0">217 <span class="float-right"><i class="fa fa-users"></i></span></h5>
-                            <div class="progress my-3" style="height:3px;">
-                              <div class="progress-bar" style="width:0.9%"></div>
-                            </div>
-                          <p class="mb-0 text-white small-font">No. of People over 50 years of age Vaccinated</p>
-                        </div>
-                    </div>
-                    <div class="col-12 border-light">
-                        <div class="card-body">
-                          <h5 class="text-white mb-0">51 <span class="float-right"><i class="	fa fa-pencil-square-o"></i></span></h5>
-                            <div class="progress my-3" style="height:3px;">
-                              <div class="progress-bar" style="width:20.2%"></div>
-                            </div>
-                          <p class="mb-0 text-white small-font">No. of People under 50 years with comorbidities.</p>
-                        </div>
-                    </div>
-                    <div class="col-12 border-light">
-                        <div class="card-body">
-                          <h5 class="text-white mb-0">17<span class="float-right"><i class="fa fa-envira"></i></span></h5>
-                            <div class="progress my-3" style="height:3px;">
-                              <div class="progress-bar" style="width:7.8%"></div>
-                            </div>
-                          <p class="mb-0 text-white small-font">Others</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-       
 
 
-        <div class="card mt-3">
-            <div class="card-content">
-                <div class="row row-group m-0">
-                    <div class="col-12 border-light ">
+                <div class="card-content">
+                    <div class="row row-group m-0">
+                        <div class="col-12 border-light ">
 
-                        
-
-                            <h5 class="card-title pb-0 mb-0 mt-4 mx-4">Enter the number of users to be notified for vaccinaation</h5>
-
+                            <!-- <h5 class="card-title pb-0 mb-0 mt-4 mx-4">Enter the number of users to be
+                                notified for
+                                vaccinaation
+                            </h5> -->
 
                             <div class="card-body py-0">
                                 <div class="form-group row py-4">
+
                                     <div class="col-sm-12">
-                                    <input type="text" class="form-control py-4" id="input-24" name="vaccine" placeholder="No. of vaccines" required pattern="\S+.*" />
 
-                                    <button type="submit" class="btn btn-white btn-lg btn-block waves-effect waves-light mt-4">Search users</button>
-                                    {% comment %} <button type="submit" action="{% url 'notifyusers' %}" class="btn btn-info btn-lg btn-block waves-effect waves-light my-2">Notify the users</button> {% endcomment %}
-                                    <a class="btn btn-info btn-lg btn-block waves-effect waves-light my-2">Notify the users</a>
+                                        <div class="form-group row">
+                                            <label for="input-19" class="col-sm-3 col-form-label">State</label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control single-select" name="state"
+                                                    value="{{current_state}}">
+                                                    {% if request.method == 'POST' %}
+                                                    <option value="{{current_state}}">{{current_state}}</option>
+                                                    {% if states %}
+                                                    {% for state in states %}
+                                                    <option value="{{state.state}}">{{state.state}}</option>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% else %}
+                                                    {% if states %}
+                                                    {% for state in states %}
+                                                    <option value="{{state.state}}">{{state.state}}</option>
+                                                    {% endfor %}
+                                                    {% endif %}
+                                                    {% endif %}
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="input-19" class="col-sm-3 pr-0 col-form-label">District</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="input-23" name="district"
+                                                    value="{{current_district}}" placeholder="District" required
+                                                    pattern="\S+.*" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-5">
+                                            <label for="input-19" class="col-sm-3 pr-0 col-form-label">Vaccine</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" class="form-control" id="input-23" name="vaccine"
+                                                    value="{{no_vaccines}}" placeholder="No. of vaccine" required
+                                                    pattern="\S+.*" />
+                                            </div>
+                                        </div>
+
+                                        <!-- <input type="text" class="form-control py-4" id="input-24" name="vaccine"
+                                            placeholder="No. of vaccines" required pattern="\S+.*" /> -->
+
+                                        <button name="SearchUsers" value='True' type="submit"
+                                            class="btn btn-white btn-lg btn-block waves-effect waves-light mt-4">Search
+                                            users</button>
+                                        {% comment %} <button type="submit" action="{% url 'notifyusers' %}"
+                                            class="btn btn-info btn-lg btn-block waves-effect waves-light my-2">Notify
+                                            the
+                                            users</button> {% endcomment %}
+                                        <button name="NotifyUsers" value='True' type="submit"
+                                            class="btn btn-info btn-lg btn-block waves-effect waves-light my-2">Notify
+                                            the
+                                            users</button>
                                     </div>
-                                </div>
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                    {% if messages %}
+                                    {% for message in messages %}
 
-    <div class="col-lg-8">
-        <div class="card">
-        <div class="card-body">
-        <ul class="nav nav-tabs nav-tabs-primary top-icon nav-justified">
-            <li class="nav-item">
-                <a href="javascript:void();" data-target="#profile" data-toggle="pill" class="nav-link active"><i class="icon-note"></i> <span class="hidden-xs">Vaccine</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-user"></i> <span class="hidden-xs">Profile</span></a>
-            </li>
-            <li class="nav-item">
-                <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Medical details</span></a>
-            </li>
-        </ul>
-        <div class="tab-content p-3">
-            <div class="tab-pane active" id="profile">
-                <!-- <h5 class="mb-3">In your district {{data.district}}</h5> -->
-                <h5 class="mb-3">Users to be called for vaccination</h5>
+                                    <!-- <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert" style="padding-left: 40px; background-position: 15px 12px;"> -->
 
-
-                <div class="card mt-3">
-                    <div class="card-content">
-                        <div class="row row-group m-0">
-                            <div class="col-12 border-light">
-                                <div class="card-body">
-
-                                    <div class="form-group row">
-                                        <label for="input-19" class="col-sm-3 col-form-label">State</label>
-                                        <div class="col-sm-9">
-                                        <select class="form-control single-select" name="state">
-                                            {% if states %}
-                                                {% for state in states %}
-                                                    <option value = "{{state.state}}">{{state.state}}</option>
-                                                {% endfor %}
+                                    {% if message.tags == 'success' %}
+                                    <div class="fade show ml-3 mb-0 pb-0 text-center" role="alert"
+                                        style="color:lightgreen; background-color: transparent; ">
+                                        <!-- <strong>
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                                Error:
+                                            {% else %}
+                                                {{message.tags | title}}:
                                             {% endif %}
-                                        </select>
-                                        </div>
-                                    </div>
+                                        </strong> -->
 
-                                    <div class="form-group row">
-                                        <label for="input-19" class="col-sm-3 col-form-label">District</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="input-23" name="district" placeholder="District" required pattern="\S+.*"/>
-                                        </div>
-                                    </div>
+                                        {{ message }}
 
-
-                                    <div class="form-group row">
-                                        <label for="input-19" class="col-sm-3 col-form-label">Category</label>
-                                        <div class="col-sm-9">
-                                        <select class="form-control single-select" name='category'>
-                                            <option value = 5>All</option>
-                                            <option value = 1>Health/Frontline Workers</option>
-                                            <option value = 3>People with comorbidities</option>
-                                            <option value = 4>Others</option>
-                                        </select>
-                                        </div>
+                                        <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button> -->
                                     </div>
+                                    {% else %}
+                                    <div class="fade show ml-3 mb-0 pb-0 text-center" role="alert"
+                                        style="color: #f44336; background-color: transparent; ">
+                                        <!-- <strong>
+                                            {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                                                Error:
+                                            {% else %}
+                                                {{message.tags | title}}:
+                                            {% endif %}
+                                        </strong> -->
 
-                                    <div class="form-group row">
-                                        <label for="input-19" class="col-sm-3 col-form-label">Age group</label>
-                                        <div class="col-sm-9">
-                                        <select class="form-control single-select" name='age'>
-                                            <option value = 1>All</option>
-                                            <option value = 2>Above 60</option>
-                                            <option value = 3>Below 60</option>
-                                        </select>
-                                        </div>
+                                        {{ message }}
+
+                                        <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button> -->
                                     </div>
+                                    {% endif %}
+
+                                    {% endfor %}
+                                    {% endif %}
+
 
                                 </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
-            
+            </div>
+        </form>
+    </div>
 
-                {% if users %}
 
-                <h5 class="mb-3">Users in your district who satisfy the above criteria are</h5>
+
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+
+                <!-- <div class="card profile-card-2"> -->
+                <div class="row py-0">
+                    <div class="tab-content pt-0" style="width: 100% !important;">
+                        <div class="tab-pane active" id="phase1">
+                            <!-- <div class="card-img-block" style="height: 200px !important;">
+                                    <img class="img-fluid" src="{% static 'images/piechart.png' %}" alt="image"
+                                        style="height: 100% !important; ">
+                                </div> -->
+
+                            <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div> -->
+                            <!-- <div id="donutchart" style="width: 900px; height: 500px;"></div> -->
+                            <div class="row">
+                                <div class="col-lg-6 pl-4 pb-0">
+                                    <div id="pie1" style="width: 100%;"></div>
+                                </div>
+                                <div class="col-lg-6 ">
+                                    <h5>Phase 1</h5>
+
+                                    <ul>
+                                        <li>
+                                            Focus on Health:<br>
+                                            
+                                                    In first phase our main focus is on vaccinating the HealthCare
+                                                    personnel and Cleanliness Workers
+                                                
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="phase2">
+                            <div class="row">
+                                <div class="col-6 pl-4 pb-0">
+                                    <div id="pie2" style="width: 100%;"></div>
+                                </div>
+                                <div class="col-6 px-4">
+                                    <h5>Phase 2</h5>
+                                    <ul>
+                                        <li>
+                                            Focus on Health:
+                                            <ul>
+                                                <li>
+                                                    65+ and medium-Extreme Comorbidities
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Focus on Economy<br>
+                                            <ul>
+                                                <li>
+                                                    Frontline Essential Workers - Public Safety, Emergency, Farmers, etc
+                                                </li>
+                                                <li>
+                                                    Economy Uplifting - Essential items manufacturing workers
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="phase3">
+                            <div class="row">
+                                <div class="col-6 pl-4 pb-0" style="display: flex; align-items: center;">
+                                    <div id="pie3" style="width: 100%;"></div>
+                                </div>
+                                <div class="col-6 px-4">
+                                    <h5>Phase 3</h5>
+                                    <ul>
+                                        <li>
+                                            Focus on Health
+                                            <ul>
+                                                <li>People with mild comorbidities
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Focus on Economy Uplifting
+                                            <ul>
+                                                <li>
+                                                    Economy Uplifting - People working <b> non remotely</b> in sectors essential
+                                                    to GDP <b> (ordered according to their illness score).</b>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            Focus on Reducing Disparity
+                                            <ul>
+                                                <li>
+                                                    Domestic Cleaners, Helper and other personal
+                                                    services
+                                                    workers essential to run Households. <b> (ordered according to their
+                                                        illness
+                                                        score).</b>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="phase4">
+                            <div class="row">
+                                <div class="col-6 pl-4 pb-0">
+                                    <div id="pie4" style="width: 100%;"></div>
+                                </div>
+                                <div class="col-6 px-4">
+                                    <h5>Phase 4:</h5>
+                                    <ul>
+                                        <li>
+                                            All other people prioritized according to their <b> illness score</b> with more
+                                            priority given to those who work/need to travel <b> non remotely/ On-field</b> over
+                                            those who can stay/work at <b> home/remotely.</b>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="col-4">
+                                <div class="card-img-block">
+                                    <img class="img-fluid" src="{% static 'images/dashboard.jpg' %}" alt="image"
+                                        style="height: 100% !important; ">
+                                </div>
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body pt-4">
+                                    <h5 class="card-title pb-0 mb-0">Name: {{name}}</h5>
+                                    <h5 class="card-title pt-0 mt-0">Email: {{email}}</h5>
+                                    
+                                </div>
+                            </div> -->
+                    </div>
+                    <!-- </div> -->
+
+                    <!-- <div class="card-body border-top border-light">
+                        <div class="media align-items-center">
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+        {% if users %}
+        <div class="card">
+            <div class="card-body">
+
+
+                <h5 class="mb-3">Beneficiaries in your district to be vaccinated in Phase {{current_phase}} are</h5>
 
 
                 <div class="row">
                     <div class="col-12 col-lg-12">
-                      <div class="card">
-                        
-                        
-                        <!-- <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret">
-                          State Level Analysis
-                        </div> -->
-              
-                        <div class="table-responsive">
-                            
-                            <table class="table align-items-center table-flush table-borderless" style="table-layout: auto; width: 100%;">
-                                <thead>
-                                    <tr>
-                                    <th style="text-align:left">Name</th>
-                                    <th style="text-align:right">Aadhaar</th>
-                                    <th style="text-align:right">Priority Score</th>
-                                    </tr>
-                                </thead>
+                        <div class="card">
 
-                                <tbody>
-                                    {% for user in users %}
-                                    <tr>
-                                        <td style="text-align:left">{{ user.user.first_name }} {{user.user.last_name }} </td>
-                                        <td style="text-align:right">{{ user.adhaar }}</td>
-                                        <td style="text-align:right">{{  user.illness_score | floatformat:2 }}</td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                      </div>
-                    </div>
-                </div><!--End Row-->
 
-                {% else %}
-                    {% if request.method == 'POST' %}
+                            <!-- <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret">
+                                State Level Analysis
+                                </div> -->
 
-                        <h5 class="mb-3">Users in your district who satisfy the above criteria are</h5>
+                            <div class="table-responsive">
 
-                        <div class="row">
-                            <div class="col-12 col-lg-12">
-                            <div class="card">
-                                <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret">
-                                Currently there are no such user
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endif %}
+                                <table class="table align-items-center table-flush table-borderless"
+                                    style="table-layout: auto; width: 100%;">
+                                    <thead>
+                                        <tr>
+                                            <th style="text-align:left"></th>
+                                            <th style="text-align:left">Name</th>
+                                            <th style="text-align:right">Aadhaar</th>
+                                            <th style="text-align:right">Priority Score</th>
+                                        </tr>
+                                    </thead>
 
-                <!-- <div class="card mt-3">
-                    <div class="card-content">
-                        <div class="row row-group m-0">
-                            <div class="col-12 border-light">
-                                <div class="card-body">
-                                    To be announced.<br><hr>
-                                    It is important to acknowledge that there might be a degree of vaccine eagerness but people will have to wait to get vaccine access, based on the defined prioritization criteria.
-                                </div>
+                                    <tbody>
+                                        {% for user in users %}
+                                        <tr>
+                                            <td style="text-align:left">
+                                                {% if user.vaccination_status == '' %}
+                                                <form action="{% url 'cross_off' user.user.id %}" method="POST">
+                                                    {% csrf_token %}
+
+                                                    <input name="checkbox" type="checkbox"
+                                                        onchange="this.form.submit()">
+
+                                                </form>
+                                                {% elif user.vaccination_status == 'Alloted' %}
+                                                <form action="{% url 'uncross' user.user.id %}" method="POST">
+                                                    {% csrf_token %}
+
+                                                    <input name="checkbox" type="checkbox" checked=''
+                                                        onchange="this.form.submit()">
+
+                                                </form>
+                                                {% endif %}
+                                            </td>
+
+                                            <td style="text-align:left">{{ user.user.first_name }}
+                                                {{user.user.last_name }} </td>
+                                            <td style="text-align:right">{{ user.adhaar }}</td>
+                                            <td style="text-align:right">{{ user.illness_score | floatformat:2 }}
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
-                </div> -->
-                            
-                <!--/row-->
-            </div>
-            <div class="tab-pane" id="messages">
-                <form>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Name</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{name}}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown= "return false" class="form-control" type="email" value="{{email}}">
-                        </div>
-                    </div>
-                    <!-- <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Change profile</label>
-                        <div class="col-lg-9">
-                            <input class="form-control" type="file">
-                        </div>
-                    </div> -->
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">State</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" onkeydown="return false" class="form-control" type="text" value="{{user.state}}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">District</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.district}}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Pincode</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.pincode}}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Aadhaar No.</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.adhaar}}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Mobile No.</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.mobile}}" >
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Age</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.age}}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Gender</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.gender}}">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label">Occupation</label>
-                        <div class="col-lg-9">
-                            <input readonly onkeydown="return false" class="form-control" type="text" value="{{user.occupation}}">
-                        </div>
-                    </div>
-                    <!-- <div class="form-group row">
-                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                        <div class="col-lg-9">
-                            <input type="reset" class="btn btn-secondary" value="Cancel">
-                            <input type="button" class="btn btn-primary" value="Save Changes">
-                        </div>
-                    </div> -->
-                </form>
-                
-            </div>
-            <div class="tab-pane" id="edit">
-                
-                
-                <div class="col-12">
-
-
-                    <div class="card-title">Medical History</div>
-                    <hr>
-                    <!-- <div class="pb-3">Mark the health issues you have ever had:</div> -->
-
-                    <form>
-                        <div class="row">
-                        <div class="col-6">
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Covid-19</label>
-                            <div class="col-sm-4">
-
-                                {% if user.covid == 1 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" name="Covid-19" value="1"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" name="Covid-19" value="1"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Diabetes</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.diabetes == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Hypertension</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.hbp_hyt == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Lung Disease</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.respiratory == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Heart Disease</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.chd == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Liver Disorder</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.liver_disease == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Reduced kidney function</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.reduced_kidney == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">None of the above</label>
-                            <div class="col-sm-4">
-            
-                               {% if user.no_illness != 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            </div>
-                        </div>
-        
-        
-                        <div class="col-6">
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Kidney dialysis</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.kidney_dialysis == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Smoking</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.smoker == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-            
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Stroke or dementia</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.strk_dmtia == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Cancer (non-haematological)</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.cancer_non == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Haematological malignancy</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.hmt == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                                
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Other Neurological disease</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.other_neuro == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="input-26" class="col-sm-8 col-form-label">Organ transplant</label>
-                            <div class="col-sm-4">
-            
-                                {% if user.organ_transplant == 0 %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox"/>
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% else %}
-                                    <div class="icheck-material-white">
-                                        <input readonly type="checkbox" checked="" />
-                                        <label for="user-checkbox1"></label>
-                                    </div>
-                                {% endif %}
-
-                            </div>
-                            </div>
-                        </div>
-                    </form>
                 </div>
+                <!--End Row-->
 
 
+
+            </div>
+
+            <!-- <div class="card-body border-top border-light">
+                                        <div class="media align-items-center">
+                                        </div>
+                                    </div> -->
+        </div>
+        {% else %}
+        {% if request.method == 'POST' %}
+        <div class="card">
+            <div class="card-body">
+
+
+                <!-- <h5 class="mb-3">Beneficiaries in your district who satisfy the above criteria are</h5> -->
+
+                <div class="row">
+                    <div class="col-12 col-lg-12">
+                        <div class="card py-4 my-2">
+                            <div class="card-header card-action dropdown-toggle dropdown-toggle-nocaret"
+                                style="border: 0;">
+                                Currently, there are no beneficiaries to be vaccinated in Phase {{current_phase}} in the
+                                selected district.
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        {% endif %}
+        {% endif %}
     </div>
+
 </div>
-      
 
 
-</form>
+<script>
+    $('input[name="phase"]').click(function () {
+        $(this).tab('show');
+    });
+    //$(document).ready(function () {
+    //    $('input[name="phase"]').click(function () {
+    //        $(this).tab('show');
+    //        $(this).removeClass('active');
+    //    });
+    //})
+</script>
 
 
-    <!-- <script>
-        document.getElementById("user-checkbox1").disabled=true;
-        document.getElementById("user-checkbox2").disabled=true;
-        document.getElementById("user-checkbox3").disabled=true;
-        document.getElementById("user-checkbox4").disabled=true;
-        document.getElementById("user-checkbox5").disabled=true;
-        document.getElementById("user-checkbox6").disabled=true;
-        document.getElementById("user-checkbox7").disabled=true;
-        document.getElementById("user-checkbox8").disabled=true;
-        document.getElementById("user-checkbox9").disabled=true;
-        document.getElementById("user-checkbox10").disabled=true;
-        document.getElementById("user-checkbox11").disabled=true;
-        document.getElementById("user-checkbox12").disabled=true;
-        document.getElementById("user-checkbox13").disabled=true;
-        document.getElementById("user-checkbox14").disabled=true;
-        document.getElementById("user-checkbox15").disabled=true;
-    </script> -->
+<!-- to keep the current tab active on page reload -->
+<!-- <script>
+    $(document).ready(function(){
+        $('a[data-toggle="pill"]').on('show.bs.tab', function(e) {
+            localStorage.setItem('activeTab', $(e.target).attr('href'));
+        });
+        var activeTab = localStorage.getItem('activeTab');
+        if(activeTab){
+            $('#myTab a[href="' + activeTab + '"]').tab('show');
+        }
+    });
+</script> -->
+
 
 {% endblock %}

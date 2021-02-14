@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.base_user import BaseUserManager
 from django.contrib.auth.models import AbstractUser
 from django.utils.translation import ugettext_lazy  as _
+from django.db.models import Q
 
 #for medicalmodel
 # from django.contrib.auth.models import User
@@ -91,11 +92,14 @@ class MedicalModel(models.Model):
     adhaar = models.CharField(max_length=16, blank=False)
     mobile = models.CharField(max_length=10,blank=False)
     pincode = models.CharField(max_length=6, blank=False)
-    occupation = models.CharField(max_length = 100, blank=False)
     state = models.CharField(max_length=100, blank=False)
     district = models.CharField(max_length=100, blank=False)
     age = models.CharField(max_length=100,blank=False)
     gender = models.CharField(max_length=100, blank=False)
+
+    occupation = models.CharField(max_length = 100, blank=False)
+    income = models.CharField(max_length=100, blank=False)
+    work_status = models.IntegerField()
 
     covid = models.IntegerField()
     smoker = models.IntegerField()
@@ -112,38 +116,96 @@ class MedicalModel(models.Model):
     other_neuro = models.IntegerField()
     organ_transplant = models.IntegerField()
     no_illness = models.IntegerField(null =True)
-    category = models.IntegerField(null=True)
     illness_score = models.FloatField(null=True)
+    economy_score = models.IntegerField(null=True)
+    
+    vaccination_status = models.CharField(max_length=10, blank=True) # ''/alloted/vaccinated(1 or 2 dose)
+    dose_status = models.IntegerField(null = True) # 0/1/2 dose
+    date1 = models.DateField(null=True)
+    date2 = models.DateField(null=True)
+    vaccine_name = models.CharField(max_length=50, blank=True) # ''/covishield/covaxin
+
 
     def __str__(self):
         return f'{self.user.first_name}-{self.state}'
-    
-    def get_category(self):
-        no_illness = self.smoker + self.hbp_hyt +self.respiratory +self.chd +self.diabetes +self.cancer_non +self.hmt +self.reduced_kidney +self.kidney_dialysis +self.liver_disease +self.strk_dmtia +self.other_neuro + self.organ_transplant
 
-        if self.occupation == 'Health/Frontline Workers':
-            self.category = 1
-            self.no_illness = no_illness
+    def get_illness_no(self):
+        no_illness = self.smoker + self.hbp_hyt +self.respiratory +self.chd +self.diabetes +self.cancer_non +self.hmt +self.reduced_kidney +self.kidney_dialysis +self.liver_disease +self.strk_dmtia +self.other_neuro + self.organ_transplant
+        self.no_illness = no_illness
+        self.save()
+    
+    def set_economy_eligibility(self):
+        if self.occupation == 'H':
+            print(f'{self.occupation}')
+            self.economy_score = 20
             self.save()
-        
-        elif self.occupation == 'Others' and int(self.age) >= 60:
-            self.category = 2
-            self.no_illness = no_illness
+                    
+        if self.occupation == 'EPS':
+            print(f'{self.occupation}')
+            self.economy_score = 18
             self.save()
-        
-        elif self.occupation == 'Others' and int(self.age) <60 and no_illness > 0:
-            self.category = 3
-            self.no_illness = no_illness
+
+        if self.occupation == 'FAS':
+            print(f'{self.occupation}')
+            self.economy_score = 18
             self.save()
-        else:
-            self.category = 4
-            self.no_illness = no_illness
+
+        if self.occupation == 'TP':
+            print(f'{self.occupation}')
+            self.economy_score = 10
+            self.save()
+
+        if self.occupation == 'GS':
+            print(f'{self.occupation}')
+            self.economy_score = 18
             self.save()
     
-    def set_eligibility(self):
-        score = self.no_illness*1 + self.covid*1 + self.smoker*0.11 + self.hbp_hyt*0.14 + self.respiratory*0.215 + self.chd*0.33 + self.diabetes*0.26 + self.cancer_non*0.28 + self.hmt*0.46 + self.reduced_kidney*0.9 + self.kidney_dialysis*0.8 + self.liver_disease*0.18 + self.strk_dmtia*0.62 + self.other_neuro*0.39 + self.organ_transplant*0.34
+        if self.occupation == 'IM':
+            print(f'{self.occupation}')
+            self.economy_score = 16.83
+            self.save()
+    
+        if self.occupation == 'C':
+            print(f'{self.occupation}')
+            self.economy_score = 7.43
+            self.save()
+
+        if self.occupation == 'TSL':
+            print(f'{self.occupation}')
+            self.economy_score = 6.76
+            self.save()
+    
+        if self.occupation == 'FH':
+            print(f'{self.occupation}')
+            self.economy_score = 11.46
+            self.save()
+
+        if self.occupation == 'RB':
+            print(f'{self.occupation}')
+            self.economy_score = 11.46
+            self.save()
+
+        if self.occupation == 'DHC':
+            print(f'{self.occupation}')
+            self.economy_score = 10
+            self.save()
+
+        if self.occupation == 'OS':
+            print(f'{self.occupation}')
+            self.economy_score = 10
+            self.save()
+
+        if self.occupation == 'U':
+            print(f'{self.occupation}')
+            self.economy_score = 5
+            self.save()
+
+        if self.occupation == 'NA':
+            print(f'{self.occupation}')
+            self.economy_score = 5
+            self.save()
+    
+    def set_medical_eligibility(self):
+        score = self.no_illness*1 + self.covid*1.5 + self.smoker*0.11 + self.hbp_hyt*0.14 + self.respiratory*0.215 + self.chd*0.33 + self.diabetes*0.26 + self.cancer_non*0.28 + self.hmt*0.46 + self.reduced_kidney*0.9 + self.kidney_dialysis*0.8 + self.liver_disease*0.18 + self.strk_dmtia*0.62 + self.other_neuro*0.39 + self.organ_transplant*0.34
         self.illness_score = score
         self.save()
-        
-    class Meta:
-        ordering = ['category']
