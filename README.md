@@ -27,6 +27,30 @@ We then run our ML clustering algorithms through all the features and load them 
 Our datasets are automatically updated daily to accommodate and make the predictions based on the latest information regarding the number of active covid cases of each state.
 
 
+## Webapp Images
+
+##### State Level Analysis
+<a href="https://techhd.herokuapp.com/"><img src="webapp/state_level.jpg" width="450"></a>
+
+##### District Level Analysis
+<a href="https://techhd.herokuapp.com/"><img src="webapp/district_level.jpg" width="450"></a>
+
+##### Batch wise Analysis
+<a href="https://techhd.herokuapp.com/"><img src="webapp/batch_wise.jpg" width="450"></a>
+
+##### Health Administrator Panel
+<a href="https://techhd.herokuapp.com/"><img src="webapp/health_administrator.jpg" width="450"></a>
+
+##### Vaccinator Panel
+<a href="https://techhd.herokuapp.com/"><img src="webapp/vaccinator_part1.jpg" width="450" margin="10"></a><br>
+<a href="https://techhd.herokuapp.com/"><img src="webapp/vaccinator_part2.jpg" width="450" margin="10"></a>
+
+##### User Registration Form
+<a href="https://techhd.herokuapp.com/"><img src="webapp/medical_form.jpg" width="450"></a>
+
+##### User Dashboard
+<a href="https://techhd.herokuapp.com/"><img src="webapp/user_dashboard.jpg" width="450"></a>
+
 ## Tech Stack used
 
 1. **Machine Learning:** NumPy, Pandas, Matplotlib, Scikit-learn
