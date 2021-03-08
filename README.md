@@ -82,14 +82,21 @@ python manage.py runserver
       git clone https://github.com/yogeshiitm/TechHD.git
       cd TechHD/
       ```
-    - Install pip3 and pipenv.
+    - Install virtualenvwrapper.
       ```sh
-      pip3 install pipenv
+      pip install virtualenvwrapper-win
       ```
-    - Go into the virtual environment: 
+    - Create virtual environment: 
       ```sh
-      pipenv install
-      pipenv shell
+      mkvirtualenv <venv_name>
+      ```
+    - Activating the venv: 
+      ```sh
+      workon <venv_name>
+      ```
+    - Exiting from the venv: 
+      ```sh
+      deactivate
       ```
 
 2. **Django setup**
