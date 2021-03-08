@@ -1,4 +1,4 @@
-# [TechHD: Prioritization of Covid-19 Vaccine Delivery](https://techhd.herokuapp.com/)
+# [EY-Techathon: Prioritization of Covid-19 Vaccine Delivery](https://techhd.herokuapp.com/)
 
 **WebApp: https://techhd.herokuapp.com/ <br>**
 
