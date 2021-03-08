@@ -29,6 +29,8 @@ Our datasets are automatically updated daily to accommodate and make the predict
 
 ## Webapp Images
 
+<a href="https://techhd.herokuapp.com/"><img src="webapp/TechHD_pipeline.jpg"></a>
+
 ##### State Level Analysis
 <a href="https://techhd.herokuapp.com/"><img src="webapp/state_level.jpg" width="450"></a>
 
@@ -50,6 +52,9 @@ Our datasets are automatically updated daily to accommodate and make the predict
 
 ##### User Dashboard
 <a href="https://techhd.herokuapp.com/"><img src="webapp/user_dashboard.jpg" width="450"></a>
+
+##### Donation Panel
+<a href="https://techhd.herokuapp.com/"><img src="webapp/donation.jpg" width="450"></a>
 
 ## Tech Stack used
 
