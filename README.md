@@ -140,5 +140,5 @@ python manage.py runserver
 
 1. **Vinayak Nishant Gudipaty** ([Linkedin](https://www.linkedin.com/in/vinayak-nishant-gudipaty-907171197/)) - Machine Learning + Backend
 2. **Yogesh Agarwala** ([Linkedin](https://www.linkedin.com/in/yogeshiitm/)) - Backend + Frontend 
-3. **Laveen Bagai** ([Linkedin](https://www.linkedin.com/in/laveen-bagai-385484202/)) - Frontend + Presentation 
-4. **Ritesh Bhattad** ([Linkedin](https://www.linkedin.com/in/ritesh-bhattad-a9bb2b194/)) - Frontend + Presentation 
+3. **Laveen Bagai** ([Linkedin](https://www.linkedin.com/in/laveen-bagai-385484202/)) - Frontend
+4. **Ritesh Bhattad** ([Linkedin](https://www.linkedin.com/in/ritesh-bhattad-a9bb2b194/)) - Frontend 
