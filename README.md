@@ -130,7 +130,7 @@ python manage.py runserver
     
 ## Project links
 
-1. **Website:** https://techhd.herokuapp.com/ <br> (currently inactive)
+1. **Website:** https://techhd.herokuapp.com/ (currently inactive)<br> 
 2. **Github:**  https://github.com/yogeshiitm/TechHD <br>
 3. **Webapp video 1:** [click Here](https://youtu.be/0v2HDx5x9GE) <br>
 4. **Webapp video 2:** [click Here](https://youtu.be/K1J6A-udGK4) <br>
