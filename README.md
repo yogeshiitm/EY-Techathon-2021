@@ -146,5 +146,5 @@ python manage.py runserver
 -->
 1. **Vinayak Nishant Gudipaty** - Machine Learning + Backend
 2. **Yogesh Agarwala** - Backend + Frontend 
-3. **Laveen Bagai** - Frontend
-4. **Ritesh Bhattad** - Frontend 
+3. **Laveen Bagai** - Animation + Presentation
+4. **Ritesh Bhattad** - Presentation
