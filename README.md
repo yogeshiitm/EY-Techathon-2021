@@ -136,15 +136,3 @@ python manage.py runserver
 4. **Webapp video 2:** [click Here](https://youtu.be/K1J6A-udGK4) <br>
 5. **Datasets for ML:** [click here](https://drive.google.com/drive/folders/1MxQ8c2Su2RbiA82VvIu6WMBONd-L8vy4?usp=sharing)
 6. **Prediction analysis procedure:** [click here](https://drive.google.com/file/d/1n9-S84md7RU-d_7q_66IQCegr6aXivbj/view?usp=sharing)
-
-## Team Members
-<!--
-1. **Vinayak Nishant Gudipaty** ([Linkedin](https://www.linkedin.com/in/vinayak-nishant-gudipaty-907171197/)) - Machine Learning + Backend
-2. **Yogesh Agarwala** ([Linkedin](https://www.linkedin.com/in/yogeshiitm/)) - Backend + Frontend 
-3. **Laveen Bagai** ([Linkedin](https://www.linkedin.com/in/laveen-bagai-385484202/)) - Frontend
-4. **Ritesh Bhattad** ([Linkedin](https://www.linkedin.com/in/ritesh-bhattad-a9bb2b194/)) - Frontend 
--->
-1. **Vinayak Nishant Gudipaty** - Machine Learning + Backend
-2. **Yogesh Agarwala** - Backend + Frontend 
-3. **Laveen Bagai** - Animation + Presentation
-4. **Ritesh Bhattad** - Presentation
