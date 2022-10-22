@@ -44,6 +44,7 @@ Our datasets are automatically updated daily to accommodate and make the predict
 
 ### Health Administrator Panel
 <a href="https://techhd.herokuapp.com/"><img src="webapp/health_administrator.jpg" width="450"></a>
+<hr>
 
 ### Vaccinator Panel
 <a href="https://techhd.herokuapp.com/"><img src="webapp/vaccinator_part1.jpg" width="450" margin="10" align="right"></a><br>
@@ -53,6 +54,7 @@ Our datasets are automatically updated daily to accommodate and make the predict
 ### User Panel
 <a href="https://techhd.herokuapp.com/"><img src="webapp/medical_form.jpg" width="450" align="right"></a>
 <a href="https://techhd.herokuapp.com/"><img src="webapp/user_dashboard.jpg" width="450"></a>
+<hr>
 
 ### Donation Panel
 <a href="https://techhd.herokuapp.com/"><img src="webapp/donation.jpg" width="450"></a>
