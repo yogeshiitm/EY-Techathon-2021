@@ -46,17 +46,16 @@ Our datasets are automatically updated daily to accommodate and make the predict
 ## 2. Simplifying Vaccination Pipeline
 - Health Administrator Panel
 <img src="webapp/health_administrator.jpg" width="450">
-<hr>
+
 
 - Vaccinator Panel
-<img src="webapp/vaccinator_part1.jpg" width="450" margin="10">
-<img src="webapp/vaccinator_part2.jpg" width="450" margin="10">
-<hr>
+<img src="webapp/vaccinator_part2.jpg" width="350" align ="right">
+<img src="webapp/vaccinator_part1.jpg" width="350" >
 
 - User Panel
-<img src="webapp/user_dashboard.jpg" width="300" align ="right">
-<img src="webapp/medical_form.jpg" width="300">
-<hr>
+<img src="webapp/user_dashboard.jpg" width="350" align ="right">
+<img src="webapp/medical_form.jpg" width="350">
+
 
 - Donation Panel
 <img src="webapp/donation.jpg" width="450">
