@@ -33,35 +33,35 @@ Our datasets are automatically updated daily to accommodate and make the predict
 
 
 ## 1. Region Prioritization
-- State Level Analysis
+- **State Level Analysis**
 
   <img src="webapp/state_level.jpg" width="450">
 
-- District Level Analysis
+- **District Level Analysis**
 
   <img src="webapp/district_level.jpg" width="450">
 
-- Batch wise Analysis
+- **Batch wise Analysis**
 
   <img src="webapp/batch_wise.jpg" width="450">
 
 
 ## 2. Simplifying Vaccination Pipeline
-- Health Administrator Panel
+- **Health Administrator Panel**
 
   <img src="webapp/health_administrator.jpg" width="450">
 
-- Vaccinator Panel
+- **Vaccinator Panel**
 
   <img src="webapp/vaccinator_part1.jpg" width="450" >
-  <img src="webapp/vaccinator_part2.jpg" width="350">
+  <img src="webapp/vaccinator_part2.jpg" width="300">
 
-- User Panel
+- **User Panel**
 
   <img src="webapp/user_dashboard.jpg" width="450">
-  <img src="webapp/medical_form.jpg" width="350">
+  <img src="webapp/medical_form.jpg" width="300">
 
-- Donation Panel
+- **Donation Panel**
 
   <img src="webapp/donation.jpg" width="450">
 
