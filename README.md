@@ -50,11 +50,12 @@ Our datasets are automatically updated daily to accommodate and make the predict
 
 - Vaccinator Panel
 <img src="webapp/vaccinator_part2.jpg" width="350" align ="right">
-<img src="webapp/vaccinator_part1.jpg" width="350" >
+<img src="webapp/vaccinator_part1.jpg" width="450" >
 
 - User Panel
-<img src="webapp/user_dashboard.jpg" width="350" align ="right">
-<img src="webapp/medical_form.jpg" width="350">
+<img src="webapp/medical_form.jpg" width="350" align ="right">
+<img src="webapp/user_dashboard.jpg" width="450">
+
 
 
 - Donation Panel
