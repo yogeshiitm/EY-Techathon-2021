@@ -54,8 +54,8 @@ Our datasets are automatically updated daily to accommodate and make the predict
 <hr>
 
 - User Panel
-<img src="webapp/medical_form.jpg" width="450">
-<img src="webapp/user_dashboard.jpg" width="450">
+<img src="webapp/user_dashboard.jpg" width="300" align ="right">
+<img src="webapp/medical_form.jpg" width="300">
 <hr>
 
 - Donation Panel
